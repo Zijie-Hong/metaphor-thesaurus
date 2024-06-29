@@ -1046,3 +1046,21 @@ div.plot-container.plotly svg.main-svg {
 .anvil-spinner {
     --anvil-spinner-bg: %color:Surface Variant%;
 }
+
+.anvil-role-sidebar-button > .btn, .anvil-role-sidebar-button {
+  background-color: white;
+  color: black;
+  border: none;
+  text-align: left;
+  padding: 10px;
+  width: 100%;
+  cursor: pointer;
+}
+
+.anvil-role-sidebar-button > .btn:hover, .anvil-role-sidebar-button:hover {
+  color: white;
+}
+
+.anvil-role-sidebar-button-selected > .btn, .anvil-role-sidebar-button-selected {
+  background-color: #f0f0f0;
+}
