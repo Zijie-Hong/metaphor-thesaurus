@@ -1,0 +1,211 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html', visible: true}
+  data_bindings: []
+components:
+- name: column_panel_1
+  properties: {role: null}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+  components:
+  - name: label_1
+    properties: {text: Expore List, align: center, visible: true, role: title}
+    type: Label
+    layout_properties: {grid_position: 'BZEZKO,SMNXPC'}
+  - name: link_4
+    properties: {text: A, visible: true, role: null, col_spacing: medium, bold: false}
+    type: Link
+    layout_properties: {grid_position: 'CWFHYB,TTRWZI'}
+    data_bindings:
+    - {property: tooltip, code: '', writeback: false}
+  - name: link_18
+    properties: {text: N}
+    type: Link
+    layout_properties: {grid_position: 'CWFHYB,MTGQXE'}
+  - name: link_5
+    properties: {text: B}
+    type: Link
+    layout_properties: {grid_position: 'QKULIJ,NMAACQ'}
+  - name: link_19
+    properties: {text: O}
+    type: Link
+    layout_properties: {grid_position: 'QKULIJ,TSQRGA'}
+  - name: link_6
+    properties: {text: C}
+    type: Link
+    layout_properties: {grid_position: 'UEWBXK,TKDYZX'}
+  - name: link_20
+    properties: {text: P}
+    type: Link
+    layout_properties: {grid_position: 'UEWBXK,UOEMJO'}
+  - name: link_8
+    properties: {text: D}
+    type: Link
+    layout_properties: {grid_position: 'ADCJCF,DIKJNX'}
+  - name: link_21
+    properties: {text: Q}
+    type: Link
+    layout_properties: {grid_position: 'ADCJCF,XHCRMQ'}
+  - name: link_9
+    properties: {text: E}
+    type: Link
+    layout_properties: {grid_position: 'VRRQMC,NUHDHR'}
+  - name: link_22
+    properties: {text: R}
+    type: Link
+    layout_properties: {grid_position: 'VRRQMC,HVPYHY'}
+  - name: link_11
+    properties: {text: G}
+    type: Link
+    layout_properties: {grid_position: 'SIDTER,IJOOVY'}
+  - name: link_24
+    properties: {text: T}
+    type: Link
+    layout_properties: {grid_position: 'SIDTER,MYCHVN'}
+  - name: link_12
+    properties: {text: H}
+    type: Link
+    layout_properties: {grid_position: 'VBXOLC,TXNRTD'}
+  - name: link_25
+    properties: {text: U}
+    type: Link
+    layout_properties: {grid_position: 'VBXOLC,KCYMSN'}
+  - name: link_13
+    properties: {text: I}
+    type: Link
+    layout_properties: {grid_position: 'FUECBH,BZSXJD'}
+  - name: link_26
+    properties: {text: V}
+    type: Link
+    layout_properties: {grid_position: 'FUECBH,RWSZNQ'}
+  - name: link_14
+    properties: {text: J}
+    type: Link
+    layout_properties: {grid_position: 'PQABWW,ZYWSBC'}
+  - name: link_27
+    properties: {text: W}
+    type: Link
+    layout_properties: {grid_position: 'PQABWW,CRAQMN'}
+  - name: link_15
+    properties: {text: K}
+    type: Link
+    layout_properties: {grid_position: 'WZUUUI,ICZKUZ'}
+  - name: link_28
+    properties: {text: X}
+    type: Link
+    layout_properties: {grid_position: 'WZUUUI,NPXHCR'}
+  - name: link_16
+    properties: {text: L}
+    type: Link
+    layout_properties: {grid_position: 'APGGYW,XAGQUD'}
+    components: []
+  - name: link_29
+    properties: {text: Y}
+    type: Link
+    layout_properties: {grid_position: 'APGGYW,WXGOZQ'}
+  - name: link_17
+    properties: {text: M}
+    type: Link
+    layout_properties: {grid_position: 'JXWZTQ,RGGROC'}
+  - name: link_30
+    properties: {text: Z}
+    type: Link
+    layout_properties: {grid_position: 'JXWZTQ,CZXJAF'}
+  data_bindings:
+  - {property: wrap_on, code: 'self.item['''']', writeback: false}
+- name: label_2
+  properties: {text: Metaphor Thesaurus}
+  type: Label
+  layout_properties: {slot: title}
+- name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+  layout_properties: {slot: nav-right}
+  components:
+  - name: link_3
+    properties: {text: Search}
+    type: Link
+    layout_properties: {}
+  - name: link_2
+    properties: {text: Map}
+    type: Link
+    layout_properties: {}
+  - name: link_1
+    properties: {text: Log in}
+    type: Link
+    layout_properties: {}
+- name: column_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: default}
+  components:
+  - name: content_panel
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'FZTVML,KMYGWP WOVTHE,SMIBLA'}
+  - name: spacer_1
+    properties: {height: 275.66668701171875}
+    type: Spacer
+    layout_properties: {grid_position: 'FZTVML,KMYGWP NZNQHF,XNGOKC'}
+  - name: link_10
+    properties: {text: F}
+    type: Link
+    layout_properties: {grid_position: 'FZTVML,XYDZOM'}
+  - name: outlined_card_1
+    properties: {role: null}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'FZTVML,KMYGWP IUACVA,HAAFPV'}
+    components:
+    - name: label_3
+      properties: {text: Metaphor Thesaurus, align: center}
+      type: Label
+      layout_properties: {grid_position: 'RFLHBN,LNNQOQ'}
+    - name: label_3_copy
+      properties: {text: Address, align: center}
+      type: Label
+      layout_properties: {grid_position: 'RFLHBN,FKFIOY QYQOSU,OICJTE'}
+    - name: label_27
+      properties:
+        role: null
+        bold: false
+        align: center
+        spacing_above: none
+        background: ''
+        icon: ''
+        underline: false
+        font: ''
+        icon_align: left
+        foreground: ''
+        spacing_below: none
+        visible: true
+        border: ''
+        italic: false
+        font_size: null
+        tooltip: ''
+        text: |-
+          124 Conch Street,
+          Bikini Bottom,
+          Pacific Ocean
+      type: Label
+      layout_properties: {grid_position: 'RFLHBN,FKFIOY UJJQVV,VEBEIG'}
+    - name: link_7
+      properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: privacy policy.}
+      type: Link
+      layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
+    - name: faq_link
+      properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: FAQs.}
+      type: Link
+      layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
+      event_bindings: {click: faq_link_click}
+    - name: bottom_contact_link
+      properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: contact.}
+      type: Link
+      layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
+      event_bindings: {click: bottom_contact_link_click}
+    - name: bottom_about_link
+      properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: about us.}
+      type: Link
+      layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
+      event_bindings: {click: bottom_about_link_click}
+custom_component: false

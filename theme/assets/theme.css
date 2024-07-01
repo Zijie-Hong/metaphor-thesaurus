@@ -1065,18 +1065,9 @@ div.plot-container.plotly svg.main-svg {
   background-color: #f0f0f0;
 }
 
-.footer {
-  background-color: %color:Surface%;
-  color: %color:On Surface%;
-  padding: 24px;
-  text-align: center;
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  z-index: 1000;
-}
-
-.structure {
-  padding-bottom: 80px; /*h{nfooterûﬁ¶gt */
+.anvil-role-custom-divider {
+  width: 100%; /* Ensure it spans the full width */
+  height: 0; /* Set height to 0 since we are using border for the line */
+  border-top: 1px solid #ccc; /* Set the color and thickness of the border */
+  margin: 20px 0; /* Adjust the margin as needed */
 }
