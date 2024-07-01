@@ -23,17 +23,5 @@ components:
   type: ColumnPanel
   layout_properties: {slot: left-nav}
   event_bindings: {}
-  components:
-  - name: button_1
-    properties: {text: Lexical, enabled: true, role: null, align: center}
-    type: Button
-    layout_properties: {grid_position: 'URULAH,JZGYYK', full_width_row: true}
-    data_bindings:
-    - {property: role, code: 'self.item[''sidebar-button'']', writeback: false}
-    event_bindings: {click: button_1_click}
-  - name: button_2
-    properties: {text: button_2, role: filled-button}
-    type: Button
-    layout_properties: {grid_position: 'MTNAEB,XBKKGJ', full_width_row: true}
-    data_bindings: []
+  components: []
 custom_component: false
