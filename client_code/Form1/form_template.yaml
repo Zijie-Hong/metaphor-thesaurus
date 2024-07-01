@@ -24,4 +24,8 @@ components:
   layout_properties: {slot: left-nav}
   event_bindings: {}
   components: []
+- name: canvas_1
+  properties: {height: 100}
+  type: Canvas
+  layout_properties: {slot: default}
 custom_component: false
