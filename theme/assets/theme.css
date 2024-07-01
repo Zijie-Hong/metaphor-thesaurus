@@ -1064,3 +1064,19 @@ div.plot-container.plotly svg.main-svg {
 .anvil-role-sidebar-button-selected > .btn, .anvil-role-sidebar-button-selected {
   background-color: #f0f0f0;
 }
+
+.footer {
+  background-color: %color:Surface%;
+  color: %color:On Surface%;
+  padding: 24px;
+  text-align: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.structure {
+  padding-bottom: 80px; /*h{nfooterûﬁ¶gt */
+}

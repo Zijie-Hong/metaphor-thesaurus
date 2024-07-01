@@ -1,7 +1,7 @@
 allow_embedding: false
 package_name: Metaphor_Thesaurus
 name: Metaphor Thesaurus
-startup_form: Form1
+startup_form: null
 renamed: true
 runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox, server_spec: null}
 dependencies: []
@@ -10,3 +10,4 @@ services:
   client_config: {}
   server_config: {}
 metadata: {logo_img: 'asset:2022-06-30 110218.jpg'}
+startup: {type: form, module: homepage}
