@@ -1,13 +1,16 @@
-from ._anvil_designer import main_Template
+from ._anvil_designer import LexicalItemTemplate
 from anvil import *
 import plotly.graph_objects as go
 from ..homepage import homepage
 
 
-class main_(main_Template):
-  def __init__(self, **properties):
-    # 初始化组件
+class LexicalItem(LexicalItemTemplate):
+  def __init__(self, column_panel_2_role='default', column_panel_3_role='default', panel_2_visibility=True, **properties):
     self.init_components(**properties)
+    self.column_panel_2.role = column_panel_2_role
+    self.column_panel_3.role = column_panel_3_role
+
+    self.column_panel_2.visible = panel_2_visibility
 
   def reset_button_styles(self):
     self.column_panel_2.role = "default"
@@ -23,9 +26,6 @@ class main_(main_Template):
 
   def link_3_click(self, **event_args):
       open_form('main')
-
-  def link_2_click(self, **event_args):
-      open_form('main_')
 
 
 

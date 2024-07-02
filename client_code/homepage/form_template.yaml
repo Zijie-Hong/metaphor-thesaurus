@@ -16,6 +16,7 @@ components:
   - name: outlined_button_1
     properties: {text: '', role: tonal-button, align: left, icon: 'fa:search'}
     type: Button
+    event_bindings: {click: outlined_button_1_click}
 - name: flow_panel_2
   properties: {align: center}
   type: FlowPanel
@@ -38,6 +39,7 @@ components:
   - name: outlined_button_2
     properties: {text: '', role: tonal-button, align: left, icon: 'fa:search'}
     type: Button
+    event_bindings: {click: outlined_button_2_click}
 - name: spacer_1
   properties: {height: 32}
   type: Spacer

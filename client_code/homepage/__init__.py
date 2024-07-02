@@ -8,3 +8,9 @@ class homepage(homepageTemplate):
     self.init_components(**properties)
 
     # Any code you write here will run before the form opens.
+
+  def outlined_button_1_click(self, **event_args):
+    open_form('LexicalItem', column_panel_2_role='elevated-card', panel_2_visibility=True)
+
+  def outlined_button_2_click(self, **event_args):
+    open_form('LexicalItem', column_panel_3_role='elevated-card', panel_2_visibility=False)

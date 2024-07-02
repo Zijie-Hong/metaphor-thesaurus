@@ -42,7 +42,7 @@ components:
     layout_properties: {grid_position: 'IBOFYK,JBOPVL', full_width_row: true}
     components:
     - name: button_1
-      properties: {text: Lexical Item, role: null, align: full, bold: false, enabled: true, italic: false, font_size: 20}
+      properties: {text: Lexical Item, role: null, align: full, bold: false, enabled: true, italic: false, font_size: 20, visible: true}
       type: Button
       layout_properties: {grid_position: 'LJCHPB,IONNSH', full_width_row: false}
       event_bindings: {click: button_1_click}

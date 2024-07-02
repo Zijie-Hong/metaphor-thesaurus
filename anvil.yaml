@@ -9,5 +9,5 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
-metadata: {logo_img: 'asset:2022-06-30 110218.jpg'}
+metadata: {logo_img: null}
 startup: {type: form, module: main}
