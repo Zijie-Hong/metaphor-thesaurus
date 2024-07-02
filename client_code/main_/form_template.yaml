@@ -1,0 +1,73 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html', visible: true}
+  data_bindings: []
+components:
+- name: label_2
+  properties: {text: Metaphor Thesaurus}
+  type: Label
+  layout_properties: {slot: title}
+- name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+  layout_properties: {slot: nav-right}
+  components:
+  - name: link_3
+    properties: {text: Search}
+    type: Link
+    layout_properties: {}
+    event_bindings: {click: link_3_click}
+  - name: link_2
+    properties: {text: Map}
+    type: Link
+    layout_properties: {}
+    event_bindings: {click: link_2_click}
+  - name: link_1
+    properties: {text: Log in}
+    type: Link
+    layout_properties: {}
+- name: flow_panel_2
+  properties: {}
+  type: FlowPanel
+  layout_properties: {slot: default}
+  components:
+  - name: column_panel_4
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {width: 843.2727355957031}
+- name: column_panel_1
+  properties: {role: null}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+  components:
+  - name: column_panel_2
+    properties: {wrap_on: mobile, role: null}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'IBOFYK,JBOPVL', full_width_row: true}
+    components:
+    - name: button_1
+      properties: {text: Lexical Item, role: null, align: full, bold: false, enabled: true, italic: false}
+      type: Button
+      layout_properties: {grid_position: 'LJCHPB,IONNSH', full_width_row: false}
+      event_bindings: {click: button_1_click}
+  - name: column_panel_3
+    properties: {role: null}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'ESJVZP,YEWIYD', full_width_row: true}
+    components:
+    - name: button_2
+      properties:
+        text: |
+          Metaphor Theme
+        role: custom-button
+        background: ''
+        align: full
+        foreground: ''
+        enabled: true
+      type: Button
+      layout_properties: {grid_position: 'OUYJXY,COATUO', full_width_row: false}
+      event_bindings: {click: button_2_click}
+  data_bindings:
+  - {property: wrap_on, code: 'self.item['''']', writeback: false}
+custom_component: false
