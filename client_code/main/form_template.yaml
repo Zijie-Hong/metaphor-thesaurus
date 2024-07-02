@@ -135,6 +135,7 @@ components:
     properties: {text: Search}
     type: Link
     layout_properties: {}
+    event_bindings: {click: link_3_click}
   - name: link_2
     properties: {text: Map}
     type: Link
@@ -187,10 +188,10 @@ components:
         italic: false
         font_size: null
         tooltip: ''
-        text: |-
-          124 Conch Street,
-          Bikini Bottom,
-          Pacific Ocean
+        text: |
+          XXX
+          XXX
+          XXX
       type: Label
       layout_properties: {grid_position: 'RFLHBN,FKFIOY UJJQVV,VEBEIG'}
     - name: link_7
@@ -201,15 +202,15 @@ components:
       properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: FAQs.}
       type: Link
       layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-      event_bindings: {click: faq_link_click}
+      event_bindings: {}
     - name: bottom_contact_link
       properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: contact.}
       type: Link
       layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-      event_bindings: {click: bottom_contact_link_click}
+      event_bindings: {}
     - name: bottom_about_link
       properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: about us.}
       type: Link
       layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-      event_bindings: {click: bottom_about_link_click}
+      event_bindings: {}
 custom_component: false

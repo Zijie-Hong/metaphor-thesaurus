@@ -9,14 +9,33 @@ components:
   type: ColumnPanel
   layout_properties: {slot: left-nav}
   components:
-  - name: outlined_button_1
-    properties: {text: outlined_button_1, role: null}
-    type: Button
-    layout_properties: {grid_position: 'SKTCAY,AZQNCU'}
-  - name: outlined_button_2
-    properties: {text: outlined_button_2, role: null}
-    type: Button
-    layout_properties: {grid_position: 'QFTZMY,NAUJJR'}
+  - name: column_panel_2
+    properties: {wrap_on: mobile, role: null}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'IBOFYK,JBOPVL', full_width_row: true}
+    components:
+    - name: button_1
+      properties: {text: Lexical Item, role: null, align: full, bold: false, enabled: true, italic: false}
+      type: Button
+      layout_properties: {grid_position: 'LJCHPB,IONNSH', full_width_row: false}
+      event_bindings: {click: button_1_click}
+  - name: column_panel_3
+    properties: {role: null}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'ESJVZP,YEWIYD', full_width_row: true}
+    components:
+    - name: button_2
+      properties:
+        text: |
+          Metaphor Theme
+        role: custom-button
+        background: ''
+        align: full
+        foreground: ''
+        enabled: true
+      type: Button
+      layout_properties: {grid_position: 'OUYJXY,COATUO', full_width_row: false}
+      event_bindings: {click: button_2_click}
   data_bindings:
   - {property: wrap_on, code: 'self.item['''']', writeback: false}
 - name: label_2
@@ -32,6 +51,7 @@ components:
     properties: {text: Search}
     type: Link
     layout_properties: {}
+    event_bindings: {click: link_3_click}
   - name: link_2
     properties: {text: Map}
     type: Link

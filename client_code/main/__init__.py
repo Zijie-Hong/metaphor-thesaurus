@@ -10,6 +10,13 @@ class main(mainTemplate):
         self.init_components(**properties)
         #self.content_panel.add_component(homepage(), full_width_row=True)
         self.content_panel.add_component(main_copy(), full_width_row=True)
+
+    def link_3_click(self, **event_args):
+      self.content_panel.clear()
+      self.content_panel.add_component(homepage(), full_width_row=True)
+      
+
+
        
 
 
