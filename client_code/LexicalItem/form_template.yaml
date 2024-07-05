@@ -69,4 +69,8 @@ components:
       event_bindings: {click: button_2_click}
   data_bindings:
   - {property: wrap_on, code: 'self.item['''']', writeback: false}
+- name: column_panel_4
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: default}
 custom_component: false
