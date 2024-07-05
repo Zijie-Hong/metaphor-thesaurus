@@ -13,9 +13,6 @@ components:
   type: FlowPanel
   layout_properties: {slot: nav-right}
   components:
-  - name: label_3
-    properties: {}
-    type: Label
   - name: link_3
     properties: {text: Search}
     type: Link
@@ -72,18 +69,8 @@ components:
       event_bindings: {click: button_2_click}
   data_bindings:
   - {property: wrap_on, code: 'self.item['''']', writeback: false}
-- name: flow_panel_2
+- name: column_panel_4
   properties: {}
-  type: FlowPanel
+  type: ColumnPanel
   layout_properties: {slot: default}
-  components:
-  - name: label_1
-    properties: {}
-    type: Label
-  - name: label_4
-    properties: {}
-    type: Label
-  - name: label_5
-    properties: {}
-    type: Label
 custom_component: false

@@ -2,6 +2,8 @@ from ._anvil_designer import LexicalItemTemplate
 from anvil import *
 import plotly.graph_objects as go
 from ..homepage import homepage
+from ..theme import theme
+
 
 
 class LexicalItem(LexicalItemTemplate):
@@ -9,8 +11,8 @@ class LexicalItem(LexicalItemTemplate):
     self.init_components(**properties)
     self.column_panel_2.role = column_panel_2_role
     self.column_panel_3.role = column_panel_3_role
-
     self.column_panel_2.visible = panel_2_visibility
+    self.column_panel_4.add_component(theme(), full_width_row=True)
 
   def reset_button_styles(self):
     self.column_panel_2.role = "default"
