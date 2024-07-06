@@ -3,16 +3,15 @@ from anvil import *
 import plotly.graph_objects as go
 from ..homepage import homepage
 from ..theme import theme
-
-
+from ..word import word
 
 class LexicalItem(LexicalItemTemplate):
-  def __init__(self, column_panel_2_role='default', column_panel_3_role='default', panel_2_visibility=True, **properties):
+  def __init__(self, data=None, column_panel_2_role='default', column_panel_3_role='default', panel_2_visibility=True, **properties):
     self.init_components(**properties)
     self.column_panel_2.role = column_panel_2_role
     self.column_panel_3.role = column_panel_3_role
     self.column_panel_2.visible = panel_2_visibility
-    self.column_panel_4.add_component(theme(), full_width_row=True)
+    self.column_panel_4.add_component(word(data=data), full_width_row=True)
 
   def reset_button_styles(self):
     self.column_panel_2.role = "default"
