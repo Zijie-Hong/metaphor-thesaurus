@@ -14,4 +14,22 @@ db_schema:
     title: Table 1
     client: none
     server: full
-    columns: []
+    columns:
+    - name: main_heading_id
+      admin_ui: {width: 200, order: 0}
+      type: number
+    - name: main_heading
+      admin_ui: {width: 200, order: 1}
+      type: string
+    - name: target_id
+      admin_ui: {width: 200, order: 2}
+      type: number
+    - name: source_id
+      admin_ui: {width: 200, order: 3}
+      type: number
+    - name: category_source_id
+      admin_ui: {width: 200, order: 4}
+      type: number
+    - name: category_target_id
+      admin_ui: {width: 200, order: 5}
+      type: number
