@@ -9,3 +9,9 @@ services:
 - source: /runtime/services/tables.yml
   client_config: {}
   server_config: {}
+db_schema:
+  table_1:
+    title: Table 1
+    client: none
+    server: full
+    columns: []
