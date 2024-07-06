@@ -13,7 +13,7 @@ class homepage(homepageTemplate):
   def outlined_button_1_click(self, **event_args):
     user_input = self.outlined_1.text
     results = anvil.server.call('search_lexical_items', user_input)
-    open_form('LexicalItem', column_panel_2_role='elevated-card', panel_2_visibility=True, data =results)
+    open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data =results)
     
   def outlined_button_2_click(self, **event_args):
-    open_form('LexicalItem', column_panel_3_role='elevated-card', panel_2_visibility=False)
+    open_form('LexicalItem', column_panel_3_role='elevated-card', item_panel_visibility=False)
