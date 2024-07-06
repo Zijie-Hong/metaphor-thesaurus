@@ -23,13 +23,15 @@ def search_lexical_items(headword):
     else:
         return None
 
+
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):
     # 查询 section_headings 表，获取 main_heading_id
     section_heading_row = app_tables.section_headings.get(section_heading_id=section_heading_id)
     if not section_heading_row:
         return None
-    
+      
+    section_heading = section_heading_row['section_heading']
     main_heading_id = section_heading_row['main_heading_id']
     
     main_heading_row = app_tables.main_headings.get(main_heading_id=main_heading_id)
@@ -45,4 +47,4 @@ def get_main_heading_data(section_heading_id):
         "category_target_id": main_heading_row['category_target_id']
     }
     
-    return main_heading_data
+    return main_heading_data, section_heading

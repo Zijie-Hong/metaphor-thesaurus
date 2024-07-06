@@ -11,7 +11,9 @@ class LexicalItem(LexicalItemTemplate):
     self.column_panel_2.role = column_panel_2_role
     self.column_panel_3.role = column_panel_3_role
     self.column_panel_2.visible = panel_2_visibility
-    self.column_panel_4.add_component(word(data=data), full_width_row=True)
+    if data and len(data) > 0:
+      self.column_panel_4.clear()
+      self.column_panel_4.add_component(word(data=data), full_width_row=True)
 
   def reset_button_styles(self):
     self.column_panel_2.role = "default"
@@ -27,6 +29,11 @@ class LexicalItem(LexicalItemTemplate):
 
   def link_3_click(self, **event_args):
       open_form('main')
+
+  def link_2_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
 
 
 
