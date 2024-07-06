@@ -728,7 +728,7 @@ button.close > span, button.close {
   border-radius: 12px;
   background-color: %color:Surface%;
   /* 2dp */  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 6px 2px rgba(0, 0, 0, 0.15);
-  padding: 15px;
+
 }
 
 .anvil-role-tonal-card {
@@ -1064,3 +1064,11 @@ div.plot-container.plotly svg.main-svg {
 .anvil-role-sidebar-button-selected > .btn, .anvil-role-sidebar-button-selected {
   background-color: #f0f0f0;
 }
+
+.anvil-role-custom-divider {
+  width: 100%; /* Ensure it spans the full width */
+  height: 0; /* Set height to 0 since we are using border for the line */
+  border-top: 1px solid #ccc; /* Set the color and thickness of the border */
+  margin: 20px 0; /* Adjust the margin as needed */
+}
+
