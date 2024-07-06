@@ -7,7 +7,8 @@ unique_ids:
     theme: '172020807486923311159398.56665'
     word: '1720208018397566175841156.6487'
   modules: {}
-  server_modules: {}
+  server_modules:
+    ServerModule1: UJAXSSDH3RPDQMJZMDZV5B43N4YULUX7
   assets:
     standard-page.html: TBUO33ECA5C5P7UVP2TMF7S5JC2VXRNH
     theme.css: FQGTQO3QUXEXVBTWUUODBS6T6MF6H7XV
