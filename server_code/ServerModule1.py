@@ -26,11 +26,10 @@ def search_lexical_items(headword):
 
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):
-    # 查询 section_headings 表，获取 main_heading_id
     section_heading_row = app_tables.section_headings.get(section_heading_id=section_heading_id)
     if not section_heading_row:
         return None
-      
+    
     section_heading = section_heading_row['section_heading']
     main_heading_id = section_heading_row['main_heading_id']
     
@@ -48,3 +47,20 @@ def get_main_heading_data(section_heading_id):
     }
     
     return main_heading_data, section_heading
+  
+@anvil.server.callable
+def get_category_descriptions(source_id, target_id):
+    source_description = app_tables.category_sources.get(category_source_id=source_id)['category_source']
+    target_description = app_tables.category_targets.get(category_target_id=target_id)['category_target']
+    return source_description, target_description
+
+
+@anvil.server.callable
+def get_section_heading(main_heading_id):
+    section_headings = app_tables.section_headings.search(main_heading_id=main_heading_id)
+    return [{'section_heading_id': row['section_heading_id'], 'section_heading': row['section_heading']} for row in section_headings]
+
+@anvil.server.callable
+def get_lexical_items(section_heading_id):
+    rows = app_tables.lexical_items.search(section_heading_id=section_heading_id)
+    return [row['english_headword'] for row in rows]

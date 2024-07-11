@@ -34,6 +34,11 @@ class word(wordTemplate):
 
       self.button_1.visible = self.current_index > 0
       self.button_2.visible = self.current_index < len(self.data_list) - 1
+
+  def get_current_section_heading_id(self):
+        if self.data_list and 0 <= self.current_index < len(self.data_list):
+            return self.data_list[self.current_index].get('section_heading_id')
+        return None
    
   def button_1_click(self, **event_args):
       self.current_index -= 1

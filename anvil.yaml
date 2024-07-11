@@ -120,7 +120,7 @@ db_schema:
       admin_ui: {width: 200}
       type: number
     - name: category_target
-      admin_ui: {width: 200}
+      admin_ui: {order: 1, width: 319}
       type: string
   category_sources:
     title: category_sources

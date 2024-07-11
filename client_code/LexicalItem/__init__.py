@@ -11,14 +11,14 @@ class LexicalItem(LexicalItemTemplate):
     self.item_panel.role = item_panel_role
     self.theme_panel.role = theme_panel_role
     self.item_panel.visible = item_panel_visibility
+    self.current_section_heading_id = None
     
     if data and len(data) > 0:
       self.column_panel_4.clear()
       # 初始化并添加不同的表单
       self.word_form = word(data=data)
-      saved_data = self.word_form.main_heading_data
-      self.theme_form = theme(data=saved_data)
-
+      self.theme_form = theme(data=None)
+      
       self.column_panel_4.add_component(self.word_form, full_width_row=True)
       self.column_panel_4.add_component(self.theme_form, full_width_row=True)
 
@@ -31,6 +31,14 @@ class LexicalItem(LexicalItemTemplate):
           component.visible = False
       # 显示指定的表单
       form.visible = True
+      if isinstance(form, theme):
+          section_heading_id = self.word_form.get_current_section_heading_id()
+          if section_heading_id != self.current_section_heading_id:  # 仅当 section_heading_id 发生变化时
+              self.current_section_heading_id = section_heading_id  # 更新当前 section_heading_id
+              form.data = section_heading_id
+              form.update_display() 
+
+        
     
     
   def reset_button_styles(self):
