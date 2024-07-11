@@ -7,6 +7,7 @@ class word(wordTemplate):
     self.init_components(**properties)
     self.data_list = data
     self.current_index = 0
+    self.main_heading_data = None
     self.update_display()
 
     if len(self.data_list) <= 1:
@@ -27,8 +28,8 @@ class word(wordTemplate):
 
           section_heading_id = data.get('section_heading_id')
           if section_heading_id:
-            main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', section_heading_id)
-            self.label_main_heading.text = main_heading_data['main_heading']
+            self.main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', section_heading_id)
+            self.label_main_heading.text = self.main_heading_data['main_heading']
             self.label_section_heading.text = section_heading_data
 
       self.button_1.visible = self.current_index > 0

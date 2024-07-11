@@ -5,15 +5,15 @@ components:
   type: ColumnPanel
   layout_properties: {grid_position: 'FIIHVL,CMIHZF'}
   components:
-  - name: label_1
+  - name: main_heading
     properties: {}
     type: Label
     layout_properties: {grid_position: 'KCSMCG,MROMJQ'}
-  - name: label_2
+  - name: category_target
     properties: {}
     type: Label
     layout_properties: {grid_position: 'KCSMCG,SZDWCA'}
-  - name: label_3
+  - name: category_source
     properties: {}
     type: Label
     layout_properties: {grid_position: 'KCSMCG,KIXKYM'}
