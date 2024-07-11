@@ -67,5 +67,7 @@ class theme(themeTemplate):
       self.column_panel.clear() 
       for index, item in enumerate(data_list, start=1):
           link = Link(text=f"{index}. {item}", role='title')
+          link.tag.main_heading = item
+          link.set_event_handler('click', self.main_heading_click)
           self.column_panel.add_component(link)
 
