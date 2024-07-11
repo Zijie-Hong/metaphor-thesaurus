@@ -6,9 +6,24 @@ class theme(themeTemplate):
   def __init__(self, data=None, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    self.data = data
-    self.update_display()
-    
+    self.main_heading_id = None
+    self.section_heading_id = None
+
+    if isinstance(data, int):
+        self.data = data
+        self.update_display()
+    elif isinstance(data, dict):
+        self.column_panel_1.clear()
+        self.column_panel.clear() 
+        self.data = data
+        self.main_heading.text = data['main_heading']
+        self.category_source.text, self.category_target.text = anvil.server.call('get_category_descriptions', data['category_source_id'], data['category_target_id'])
+        section_heading_data = anvil.server.call('get_section_heading', data['main_heading_id'])
+        if section_heading_data:
+          self.init_list(section_heading_data)
+    elif isinstance(data, list):
+        self.main_heading_list(data)
+
     
   def update_display(self):
       if self.data:
@@ -21,27 +36,36 @@ class theme(themeTemplate):
         
   def init_list(self, section_heading_data):
       for item in section_heading_data:
-            # 假设 item 是一个字典，包含 'section_heading_id' 和 'section_heading' 键
-            header_link = Link(text=item.get('section_heading', 'No Title'))
-            header_link.tag.section_heading_id = item.get('section_heading_id')
-            header_link.set_event_handler('click', self.header_click)
-            self.column_panel.add_component(header_link)
-            
-            content_panel = ColumnPanel(visible=False, role='content-panel')
-            content_panel.tag.loaded = False  # 初始状态未加载内容
-            self.column_panel.add_component(content_panel)
+        # 假设 item 是一个字典，包含 'section_heading_id' 和 'section_heading' 键
+        header_link = Link(text=item.get('section_heading', 'No Title'), role='title')
+        header_link.tag.section_heading_id = item.get('section_heading_id')
+        content_panel = ColumnPanel(visible=False)
+        content_panel.tag.loaded = False
+        
+        # 将 content_panel 存储在 header_link 的 tag 中
+        header_link.tag.content_panel = content_panel
+        
+        header_link.set_event_handler('click', self.header_click)
+        self.column_panel.add_component(header_link)
+        self.column_panel.add_component(content_panel)
 
   def header_click(self, sender, **event_args):
       # 切换内容的可见性
-        content_panel = sender.tag.content_panel
-        content_panel.visible = not content_panel.visible
+      content_panel = sender.tag.content_panel
+      content_panel.visible = not content_panel.visible
+      # 如果内容尚未加载，则加载内容
+      if not content_panel.tag.loaded:
+          section_heading_id = sender.tag.section_heading_id
+          lexical_items = anvil.server.call('get_lexical_items', section_heading_id)
+          for index, item in enumerate(lexical_items, start=1):
+              content_link = Link(text=f"{index}. {item}", role='body')
+              content_panel.add_component(content_link)
+          content_panel.tag.loaded = True
 
-        # 如果内容尚未加载，则加载内容
-        if not content_panel.tag.loaded:
-            section_heading_id = sender.tag.section_heading_id
-            lexical_items = anvil.server.call('get_lexical_items', section_heading_id)
-            for item in lexical_items:
-                content_link = Link(text=item)
-                content_panel.add_component(content_link)
-            content_panel.tag.loaded = True
+  def main_heading_list(self, data_list):
+      self.column_panel_1.clear()
+      self.column_panel.clear() 
+      for index, item in enumerate(data_list, start=1):
+          link = Link(text=f"{index}. {item}", role='title')
+          self.column_panel.add_component(link)
 

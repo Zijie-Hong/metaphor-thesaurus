@@ -26,14 +26,14 @@ components:
     properties: {text: Metaphor Theme, role: input-prompt}
     type: Label
     layout_properties: {}
-  - name: outlined_2
+  - name: input_box_1
     properties: {role: outlined}
     type: TextBox
   - name: label_2
-    properties: {text: IS}
+    properties: {text: IS/ARE}
     type: Label
     layout_properties: {}
-  - name: outlined_3
+  - name: input_box_2
     properties: {role: outlined}
     type: TextBox
   - name: outlined_button_2

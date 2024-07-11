@@ -23,7 +23,29 @@ def search_lexical_items(headword):
     else:
         return None
 
-
+@anvil.server.callable
+def search_main_headings(input1, input2):
+    connectors = ['IS', 'ARE']
+    if input1 and input2:
+      for connector in connectors:
+          row = app_tables.main_headings.get(main_heading=f"{input1} {connector} {input2}")
+          if row:
+              return {
+                  "main_heading_id": row['main_heading_id'],
+                  "main_heading": row['main_heading'],
+                  "target_id": row['target_id'],
+                  "source_id": row['source_id'],
+                  "category_source_id": row['category_source_id'],
+                  "category_target_id": row['category_target_id']
+              }
+    elif input1 or input2:
+        query = f'{input1} % %' if input1 else f'% % {input2}'
+        matching_rows = app_tables.main_headings.search(main_heading=q.like(query))
+        results = [row['main_heading'] for row in matching_rows]
+        if results:
+          return results     
+    return None
+  
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):
     section_heading_row = app_tables.section_headings.get(section_heading_id=section_heading_id)
