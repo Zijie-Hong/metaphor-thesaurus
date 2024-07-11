@@ -13,18 +13,20 @@ class theme(themeTemplate):
         self.data = data
         self.update_display()
     elif isinstance(data, dict):
-        self.column_panel_1.clear()
+        self.load_main_heading(data)
+    elif isinstance(data, list):
+        self.main_heading_list(data)
+
+  def load_main_heading(self, data):
+        self.column_panel_1.visible = True
         self.column_panel.clear() 
         self.data = data
         self.main_heading.text = data['main_heading']
         self.category_source.text, self.category_target.text = anvil.server.call('get_category_descriptions', data['category_source_id'], data['category_target_id'])
         section_heading_data = anvil.server.call('get_section_heading', data['main_heading_id'])
         if section_heading_data:
-          self.init_list(section_heading_data)
-    elif isinstance(data, list):
-        self.main_heading_list(data)
+            self.init_list(section_heading_data)
 
-    
   def update_display(self):
       if self.data:
         main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', self.data)
@@ -63,11 +65,16 @@ class theme(themeTemplate):
           content_panel.tag.loaded = True
 
   def main_heading_list(self, data_list):
-      self.column_panel_1.clear()
-      self.column_panel.clear() 
+      self.column_panel_1.visible = False
       for index, item in enumerate(data_list, start=1):
           link = Link(text=f"{index}. {item}", role='title')
           link.tag.main_heading = item
           link.set_event_handler('click', self.main_heading_click)
           self.column_panel.add_component(link)
 
+  def main_heading_click(self, sender, **event_args):
+        main_heading = sender.tag.main_heading
+        # Call the server function to get the main heading data
+        main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
+        if main_heading_data:
+            self.load_main_heading(main_heading_data)

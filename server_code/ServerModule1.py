@@ -69,6 +69,20 @@ def get_main_heading_data(section_heading_id):
     }
     
     return main_heading_data, section_heading
+
+@anvil.server.callable
+def get_main_heading_data_by_heading(main_heading):
+    row = app_tables.main_headings.get(main_heading=main_heading)
+    if row:
+        return {
+            "main_heading_id": row['main_heading_id'],
+            "main_heading": row['main_heading'],
+            "target_id": row['target_id'],
+            "source_id": row['source_id'],
+            "category_source_id": row['category_source_id'],
+            "category_target_id": row['category_target_id']
+        }
+    return None
   
 @anvil.server.callable
 def get_category_descriptions(source_id, target_id):
