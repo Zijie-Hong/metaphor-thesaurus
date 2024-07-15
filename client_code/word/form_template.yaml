@@ -23,20 +23,18 @@ components:
       type: Button
       data_bindings: []
       event_bindings: {click: button_edit_click}
-  - name: column_panel_2
+  - name: flow_panel_6
     properties: {}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'RQTZDU,FQUPGY'}
+    type: FlowPanel
+    layout_properties: {grid_position: 'FJZEDJ,PBSBAM'}
     components:
     - name: label_main_heading
       properties: {align: center, role: subtitle, border: '', background: '', font_size: 13}
       type: Label
-      layout_properties: {grid_position: 'PWBLCA,TSQMNV'}
       data_bindings: []
     - name: label_section_heading
       properties: {align: center, background: '', border: '', role: subtitle, font_size: 13}
       type: Label
-      layout_properties: {grid_position: 'PWBLCA,XHNIPG'}
   - name: flow_panel_2
     properties: {}
     type: FlowPanel
