@@ -1,5 +1,6 @@
 from ._anvil_designer import homepageTemplate
 from anvil import *
+import anvil.server
 
 
 class homepage(homepageTemplate):
@@ -10,7 +11,22 @@ class homepage(homepageTemplate):
     # Any code you write here will run before the form opens.
 
   def outlined_button_1_click(self, **event_args):
-    open_form('LexicalItem', column_panel_2_role='elevated-card', panel_2_visibility=True)
-
+    user_input = self.outlined_1.text
+    results = anvil.server.call('search_lexical_items', user_input)
+    if results:
+      open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data =results)
+    else:
+      alert("No results found.")
+      
   def outlined_button_2_click(self, **event_args):
-    open_form('LexicalItem', column_panel_3_role='elevated-card', panel_2_visibility=False)
+      input1 = self.input_box_1.text.strip().upper()
+      input2 = self.input_box_2.text.strip().upper()
+
+      result = anvil.server.call('search_main_headings', input1, input2)
+      if result:
+          open_form('LexicalItem', theme_panel_role='elevated-card', item_panel_visibility=False, data =result)
+      else:
+          alert("No results found.")
+
+        
+            

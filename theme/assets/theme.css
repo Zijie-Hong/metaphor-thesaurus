@@ -1072,3 +1072,15 @@ div.plot-container.plotly svg.main-svg {
   margin: 20px 0; /* Adjust the margin as needed */
 }
 
+.anvil-role-fixed-right {
+  position: absolute;
+  right: 0;
+}
+
+.anvil-role-subtitle {
+  background: %color:Secondary Container%; /*c®îïr */
+  border-radius: 15px; /* ÿÒ */
+  padding: 0px 20px; /*c	ÿ¹İ */
+  text-align: center; /* ß_E- */
+  color: #3f3d56; /*c	ÿ_Sr */
+}

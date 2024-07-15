@@ -50,6 +50,9 @@ roles:
 - name: input-error
   components: [TextBox, TextArea, DatePicker, DropDown]
 - {name: custom-divider, components: null}
+- {name: fixed-right, components: null}
+- name: subtitle
+  components: [Label]
 color_scheme:
   preset_groups:
   - name: Colour Scheme

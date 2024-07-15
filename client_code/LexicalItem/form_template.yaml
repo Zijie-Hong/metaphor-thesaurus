@@ -36,7 +36,7 @@ components:
     properties: {height: -10.57574462890625}
     type: Spacer
     layout_properties: {grid_position: 'CXKTXG,OHEJNI'}
-  - name: column_panel_2
+  - name: item_panel
     properties: {wrap_on: mobile, role: null}
     type: ColumnPanel
     layout_properties: {grid_position: 'IBOFYK,JBOPVL', full_width_row: true}
@@ -48,7 +48,7 @@ components:
       event_bindings: {click: button_1_click}
       data_bindings:
       - {property: font, code: '', writeback: false}
-  - name: column_panel_3
+  - name: theme_panel
     properties: {role: null}
     type: ColumnPanel
     layout_properties: {grid_position: 'ESJVZP,YEWIYD', full_width_row: true}
@@ -73,4 +73,5 @@ components:
   properties: {}
   type: ColumnPanel
   layout_properties: {slot: default}
+  components: []
 custom_component: false

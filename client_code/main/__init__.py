@@ -14,6 +14,10 @@ class main(mainTemplate):
     def link_3_click(self, **event_args):
       open_form('main')
 
+    def link_2_click(self, **event_args):
+      """This method is called when the link is clicked"""
+      pass
+
       
 
 

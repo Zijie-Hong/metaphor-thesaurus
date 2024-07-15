@@ -3,47 +3,23 @@ components:
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
-  layout_properties: {grid_position: 'FIIHVL,CMIHZF'}
+  layout_properties: {grid_position: 'KKYRDG,VGBFDQ'}
   components:
-  - name: label_1
-    properties: {}
+  - name: main_heading
+    properties: {bold: true, font_size: 25, align: center}
     type: Label
-    layout_properties: {grid_position: 'KCSMCG,MROMJQ'}
-  - name: label_2
-    properties: {}
+    layout_properties: {grid_position: 'YRTYWR,RAAGBU'}
+  - name: category_target
+    properties: {role: subtitle, align: center}
     type: Label
-    layout_properties: {grid_position: 'KCSMCG,SZDWCA'}
-  - name: label_3
-    properties: {}
+    layout_properties: {grid_position: 'ZCHFPX,NSAMNW'}
+  - name: category_source
+    properties: {role: subtitle, align: center}
     type: Label
-    layout_properties: {grid_position: 'KCSMCG,KIXKYM'}
-  - name: spacer_1
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {grid_position: 'KCSMCG,UMMSEA'}
-- name: button_1
-  properties: {text: button_1}
-  type: Button
-  layout_properties: {grid_position: 'TDXSFN,UAZJAG'}
-- name: linear_panel_1
-  properties: {visible: true}
-  type: LinearPanel
-  layout_properties: {grid_position: 'YDKSQD,VFFBWL'}
-  components:
-  - name: link_1
-    properties: {text: a, visible: false}
-    type: Link
-    layout_properties: {}
-  - name: link_2
-    properties: {text: b, visible: false}
-    type: Link
-    layout_properties: {}
-- name: button_2
-  properties: {text: button_2}
-  type: Button
-  layout_properties: {grid_position: 'ZEAEGX,HVKSWP'}
-- name: linear_panel_2
+    layout_properties: {grid_position: 'ZCHFPX,FFIJQY'}
+- name: column_panel
   properties: {}
-  type: LinearPanel
-  layout_properties: {grid_position: 'WQYDJM,CJNNIM'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'ZTXTEP,CQZIQD'}
+  components: []
 is_package: true
