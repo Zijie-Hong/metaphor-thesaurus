@@ -15,7 +15,7 @@ def search_lexical_items(headword):
             "english_headword": row['english_headword'],
             "word_class": row['word_class'],
             "literal_meaning": row['literal_meaning'],
-            "metaphor_meaning": row['matephor_meaning'],
+            "metaphor_meaning": row['metaphor_meaning'],
             "english_example_sentence": row['english_example_sentence'],
         })
     if results:
@@ -100,3 +100,20 @@ def get_section_heading(main_heading_id):
 def get_lexical_items(section_heading_id):
     rows = app_tables.lexical_items.search(section_heading_id=section_heading_id)
     return [row['english_headword'] for row in rows]
+
+@anvil.server.callable
+def update_data_in_database(record_id, new_data):
+    record = app_tables.lexical_items.get(lexical_item_id=record_id)
+    
+    if record:
+        # Update the record with the new data
+        record['english_headword'] = new_data['english_headword']
+        record['literal_meaning'] = new_data['literal_meaning']
+        record['word_class'] = new_data['word_class']
+        record['metaphor_meaning'] = new_data['metaphor_meaning']
+        record['english_example_sentence'] = new_data['english_example_sentence']
+        
+        # Optionally return a success message or updated record
+        return {"status": "success", "message": "Record updated successfully"}
+    else:
+        return None
