@@ -139,6 +139,13 @@ def update_data_in_database(record_id, new_data):
 
 @anvil.server.callable
 def get_lexical_items_by_letter(letter):
-    items = app_tables.lexical_items.search(english_headword = q.like(letter.lower() + '%'))
-    return [item['english_headword'] for item in items]
+    items = app_tables.lexical_items.search(english_headword=q.like(letter.lower() + '%'))
+    unique_headwords = []
+    seen = set()
+    for item in items:
+        headword = item['english_headword']
+        if headword not in seen:
+            unique_headwords.append(headword)
+            seen.add(headword)
+    return unique_headwords
 
