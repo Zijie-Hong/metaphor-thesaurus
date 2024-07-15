@@ -13,6 +13,7 @@ components:
     - name: label_item
       properties: {italic: false, bold: true, font_size: 25}
       type: Label
+      layout_properties: {expand: false}
     - name: label_main_heading
       properties: {align: center, role: subtitle, border: '', background: '', font_size: 13}
       type: Label
@@ -104,22 +105,22 @@ components:
     - name: button_1
       properties: {text: Last item, icon: 'fa:arrow-left'}
       type: Button
-      layout_properties: {grid_position: 'LHTMTE,ZPTPHB', full_width_row: false}
+      layout_properties: {grid_position: 'LHTMTE,ZPTPHB GWEHFW,OYLSAP', full_width_row: false}
       event_bindings: {click: button_1_click}
-    - name: button_2
-      properties: {text: Next item, icon: 'fa:arrow-right'}
-      type: Button
-      layout_properties: {grid_position: 'LHTMTE,RSXSTM', full_width_row: false}
-      event_bindings: {click: button_2_click}
     - name: button_cancel
       properties: {text: Cancel}
       type: Button
-      layout_properties: {grid_position: 'LHTMTE,MIPRLX'}
+      layout_properties: {grid_position: 'LHTMTE,ZPTPHB SHZSAY,IHOCWU'}
       event_bindings: {click: button_cancel_click}
+    - name: button_2
+      properties: {text: Next item, icon: 'fa:arrow-right'}
+      type: Button
+      layout_properties: {grid_position: 'LHTMTE,RSXSTM NGUOIN,JCIMDL', full_width_row: false}
+      event_bindings: {click: button_2_click}
     - name: button_save
       properties: {text: Save}
       type: Button
-      layout_properties: {grid_position: 'LHTMTE,FLHBDM'}
+      layout_properties: {grid_position: 'LHTMTE,RSXSTM HTHHNM,CSEVHT'}
       event_bindings: {click: button_save_click}
 is_package: true
 custom_component: false

@@ -23,12 +23,13 @@ class word(wordTemplate):
           data = self.data_list[self.current_index]
           
           if self.edit_mode:
+              self.button_1.visible = False
+              self.button_2.visible = False
+
               self.label_item.visible = False
               self.textbox_item.visible = True
               self.textbox_item.text = data.get('english_headword', '')
-              self.label_main_heading.visible = False
-              self.label_section_heading.visible = False
-
+              
               self.label_literal_meaning.visible = False
               self.textbox_literal_meaning.visible = True
               self.textbox_literal_meaning.text = data.get('literal_meaning', '')
@@ -64,17 +65,22 @@ class word(wordTemplate):
               self.label_english_example_sentence.visible = True
               self.label_english_example_sentence.text = data.get('english_example_sentence', '')
               self.textbox_english_example_sentence.visible = False
-
+            
+              self.button_1.visible = self.current_index > 0
+              self.button_2.visible = self.current_index < len(self.data_list) - 1
+            
           if data['section_heading_id']:
               self.main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', data['section_heading_id'])
               self.label_main_heading.text = self.main_heading_data['main_heading']
               self.label_section_heading.text = section_heading_data
 
-      self.button_1.visible = self.current_index > 0
-      self.button_2.visible = self.current_index < len(self.data_list) - 1
       self.button_save.visible = self.edit_mode
-      self.button_edit.visible = not self.edit_mode
       self.button_cancel.visible = self.edit_mode 
+      self.button_edit.visible = not self.edit_mode
+      self.label_main_heading.visible = not self.edit_mode
+      self.label_section_heading.visible = not self.edit_mode
+      
+      
 
   def get_current_section_heading_id(self):
       if self.data_list and 0 <= self.current_index < len(self.data_list):
@@ -116,6 +122,5 @@ class word(wordTemplate):
           alert("Failed to save changes")
 
   def button_cancel_click(self, **event_args):
-      print("Cancel button clicked")
       self.edit_mode = False
       self.update_display()
