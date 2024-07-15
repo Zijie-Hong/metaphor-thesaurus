@@ -116,5 +116,6 @@ class word(wordTemplate):
           alert("Failed to save changes")
 
   def button_cancel_click(self, **event_args):
+      print("Cancel button clicked")
       self.edit_mode = False
       self.update_display()

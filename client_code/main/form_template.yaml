@@ -5,121 +5,28 @@ container:
   data_bindings: []
 components:
 - name: column_panel_1
-  properties: {role: null}
+  properties: {role: null, col_widths: '{}'}
   type: ColumnPanel
   layout_properties: {slot: left-nav}
   components:
   - name: label_1
     properties: {text: Expore List, align: center, visible: true, role: title}
     type: Label
-    layout_properties: {grid_position: 'BZEZKO,SMNXPC'}
-  - name: link_4
-    properties: {text: A, visible: true, role: null, col_spacing: medium, bold: false, align: center}
-    type: Link
-    layout_properties: {grid_position: 'CWFHYB,TTRWZI'}
-    data_bindings:
-    - {property: tooltip, code: '', writeback: false}
-  - name: link_18
-    properties: {text: N, align: center}
-    type: Link
-    layout_properties: {grid_position: 'CWFHYB,MTGQXE'}
-  - name: link_5
-    properties: {text: B, align: center}
-    type: Link
-    layout_properties: {grid_position: 'QKULIJ,NMAACQ'}
-  - name: link_19
-    properties: {text: O, align: center}
-    type: Link
-    layout_properties: {grid_position: 'QKULIJ,TSQRGA'}
-  - name: link_6
-    properties: {text: C, align: center}
-    type: Link
-    layout_properties: {grid_position: 'UEWBXK,TKDYZX'}
-  - name: link_20
-    properties: {text: P, align: center}
-    type: Link
-    layout_properties: {grid_position: 'UEWBXK,UOEMJO'}
-  - name: link_8
-    properties: {text: D, align: center}
-    type: Link
-    layout_properties: {grid_position: 'ADCJCF,DIKJNX'}
-  - name: link_21
-    properties: {text: Q, align: center}
-    type: Link
-    layout_properties: {grid_position: 'ADCJCF,XHCRMQ'}
-  - name: link_9
-    properties: {text: E, align: center}
-    type: Link
-    layout_properties: {grid_position: 'VRRQMC,NUHDHR'}
-  - name: link_22
-    properties: {text: R, align: center}
-    type: Link
-    layout_properties: {grid_position: 'VRRQMC,HVPYHY'}
-  - name: link_10
-    properties: {text: F, align: center}
-    type: Link
-    layout_properties: {grid_position: 'FEUQUT,NYIVRF'}
-  - name: link_23
-    properties: {text: S, align: center}
-    type: Link
-    layout_properties: {grid_position: 'FEUQUT,TPLWGX'}
-  - name: link_11
-    properties: {text: G, align: center}
-    type: Link
-    layout_properties: {grid_position: 'SIDTER,IJOOVY'}
-  - name: link_24
-    properties: {text: T, align: center}
-    type: Link
-    layout_properties: {grid_position: 'SIDTER,MYCHVN'}
-  - name: link_12
-    properties: {text: H, align: center}
-    type: Link
-    layout_properties: {grid_position: 'VBXOLC,TXNRTD'}
-  - name: link_25
-    properties: {text: U, align: center}
-    type: Link
-    layout_properties: {grid_position: 'VBXOLC,KCYMSN'}
-  - name: link_13
-    properties: {text: I, align: center}
-    type: Link
-    layout_properties: {grid_position: 'FUECBH,BZSXJD'}
-  - name: link_26
-    properties: {text: V, align: center}
-    type: Link
-    layout_properties: {grid_position: 'FUECBH,RWSZNQ'}
-  - name: link_14
-    properties: {text: J, align: center}
-    type: Link
-    layout_properties: {grid_position: 'PQABWW,ZYWSBC'}
-  - name: link_27
-    properties: {text: W, align: center}
-    type: Link
-    layout_properties: {grid_position: 'PQABWW,CRAQMN'}
-  - name: link_15
-    properties: {text: K, align: center}
-    type: Link
-    layout_properties: {grid_position: 'WZUUUI,ICZKUZ'}
-  - name: link_28
-    properties: {text: X, align: center}
-    type: Link
-    layout_properties: {grid_position: 'WZUUUI,NPXHCR'}
-  - name: link_16
-    properties: {text: L, align: center}
-    type: Link
-    layout_properties: {grid_position: 'APGGYW,XAGQUD'}
-    components: []
-  - name: link_29
-    properties: {text: Y, align: center}
-    type: Link
-    layout_properties: {grid_position: 'APGGYW,WXGOZQ'}
-  - name: link_17
-    properties: {text: M, align: center}
-    type: Link
-    layout_properties: {grid_position: 'JXWZTQ,RGGROC'}
-  - name: link_30
-    properties: {text: Z, align: center}
-    type: Link
-    layout_properties: {grid_position: 'JXWZTQ,CZXJAF'}
+    layout_properties: {grid_position: ''}
+  - name: letters_panel
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'HFYXEU,CXWZKI'}
+    components:
+    - name: column_1
+      properties: {}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'CZTFHF,RCACEY'}
+      components: []
+    - name: column_2
+      properties: {}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'CZTFHF,AMBPOT'}
   data_bindings:
   - {property: wrap_on, code: 'self.item['''']', writeback: false}
 - name: label_2
@@ -145,7 +52,7 @@ components:
     properties: {text: Log in}
     type: Link
     layout_properties: {}
-- name: column_panel
+- name: colum_panel
   properties: {}
   type: ColumnPanel
   layout_properties: {slot: default}

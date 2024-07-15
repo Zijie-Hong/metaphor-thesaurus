@@ -1,0 +1,7 @@
+container: {type: ColumnPanel}
+components:
+- name: grid_panel
+  properties: {}
+  type: GridPanel
+  layout_properties: {grid_position: 'DFADSR,XYYQPN'}
+is_package: true

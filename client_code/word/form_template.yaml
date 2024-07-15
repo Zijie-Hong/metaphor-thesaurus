@@ -96,24 +96,30 @@ components:
       properties: {role: outlined}
       type: TextBox
       layout_properties: {expand: true}
-  - name: button_1
-    properties: {text: Last item, icon: 'fa:arrow-left'}
-    type: Button
-    layout_properties: {grid_position: 'QNDRXP,UBIFQN'}
-    event_bindings: {click: button_1_click}
-  - name: button_2
-    properties: {text: Next item, icon: 'fa:arrow-right'}
-    type: Button
-    layout_properties: {grid_position: 'QNDRXP,UDLGQV WRHCNG,ODZSNV'}
-    event_bindings: {click: button_2_click}
-  - name: button_cancel
-    properties: {text: Cancel}
-    type: Button
-    layout_properties: {grid_position: 'QNDRXP,UDLGQV WRHCNG,OTOBNB'}
-  - name: button_save
-    properties: {text: Save}
-    type: Button
-    layout_properties: {grid_position: 'QNDRXP,NOWBGE'}
-    event_bindings: {click: button_save_click}
+  - name: column_panel_1
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'SNMLOC,TMAPTQ'}
+    components:
+    - name: button_1
+      properties: {text: Last item, icon: 'fa:arrow-left'}
+      type: Button
+      layout_properties: {grid_position: 'LHTMTE,ZPTPHB', full_width_row: false}
+      event_bindings: {click: button_1_click}
+    - name: button_2
+      properties: {text: Next item, icon: 'fa:arrow-right'}
+      type: Button
+      layout_properties: {grid_position: 'LHTMTE,RSXSTM', full_width_row: false}
+      event_bindings: {click: button_2_click}
+    - name: button_cancel
+      properties: {text: Cancel}
+      type: Button
+      layout_properties: {grid_position: 'LHTMTE,MIPRLX'}
+      event_bindings: {click: button_cancel_click}
+    - name: button_save
+      properties: {text: Save}
+      type: Button
+      layout_properties: {grid_position: 'LHTMTE,FLHBDM'}
+      event_bindings: {click: button_save_click}
 is_package: true
 custom_component: false

@@ -24,6 +24,24 @@ def search_lexical_items(headword):
         return None
 
 @anvil.server.callable
+def get_lexical_item_details(headword):
+    row = app_tables.lexical_items.get(english_headword=headword)
+    results = []
+    results.append({
+        "lexical_item_id": row['lexical_item_id'],
+        "section_heading_id": row['section_heading_id'],
+        "english_headword": row['english_headword'],
+        "word_class": row['word_class'],
+        "literal_meaning": row['literal_meaning'],
+        "metaphor_meaning": row['metaphor_meaning'],
+        "english_example_sentence": row['english_example_sentence'],
+    })
+    if results:
+        return results
+    else:
+        return None
+
+@anvil.server.callable
 def search_main_headings(input1, input2):
     connectors = ['IS', 'ARE']
     if input1 and input2:
@@ -117,3 +135,10 @@ def update_data_in_database(record_id, new_data):
         return {"status": "success", "message": "Record updated successfully"}
     else:
         return None
+
+
+@anvil.server.callable
+def get_lexical_items_by_letter(letter):
+    items = app_tables.lexical_items.search(english_headword = q.like(letter.lower() + '%'))
+    return [item['english_headword'] for item in items]
+
