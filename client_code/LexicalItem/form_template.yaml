@@ -23,10 +23,6 @@ components:
     type: Link
     layout_properties: {}
     event_bindings: {click: link_2_click}
-  - name: link_1
-    properties: {text: Log in}
-    type: Link
-    layout_properties: {}
 - name: column_panel_1
   properties: {role: null}
   type: ColumnPanel
@@ -67,9 +63,28 @@ components:
       type: Button
       layout_properties: {grid_position: 'OUYJXY,COATUO', full_width_row: false}
       event_bindings: {click: button_2_click}
+  - name: link_panel
+    properties: {role: null}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'VTUNCC,IFJPMG', full_width_row: true}
+    components:
+    - name: button_3
+      properties:
+        text: |
+          Links to Other Theme
+        role: custom-button
+        background: ''
+        align: full
+        foreground: ''
+        enabled: true
+        bold: false
+        font_size: 20
+      type: Button
+      layout_properties: {grid_position: 'MRMTCB,YTCLOL'}
+      event_bindings: {click: button_3_click}
   data_bindings:
   - {property: wrap_on, code: 'self.item['''']', writeback: false}
-- name: column_panel_4
+- name: output_panel
   properties: {}
   type: ColumnPanel
   layout_properties: {slot: default}

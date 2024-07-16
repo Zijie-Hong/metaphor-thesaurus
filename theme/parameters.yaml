@@ -53,6 +53,8 @@ roles:
 - {name: fixed-right, components: null}
 - name: subtitle
   components: [Label]
+- name: selected-button
+  components: [Button]
 color_scheme:
   preset_groups:
   - name: Colour Scheme

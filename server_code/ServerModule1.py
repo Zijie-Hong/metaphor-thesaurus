@@ -15,9 +15,27 @@ def search_lexical_items(headword):
             "english_headword": row['english_headword'],
             "word_class": row['word_class'],
             "literal_meaning": row['literal_meaning'],
-            "metaphor_meaning": row['matephor_meaning'],
+            "metaphor_meaning": row['metaphor_meaning'],
             "english_example_sentence": row['english_example_sentence'],
         })
+    if results:
+        return results
+    else:
+        return None
+
+@anvil.server.callable
+def get_lexical_item_details(headword):
+    row = app_tables.lexical_items.get(english_headword=headword)
+    results = []
+    results.append({
+        "lexical_item_id": row['lexical_item_id'],
+        "section_heading_id": row['section_heading_id'],
+        "english_headword": row['english_headword'],
+        "word_class": row['word_class'],
+        "literal_meaning": row['literal_meaning'],
+        "metaphor_meaning": row['metaphor_meaning'],
+        "english_example_sentence": row['english_example_sentence'],
+    })
     if results:
         return results
     else:
@@ -100,3 +118,50 @@ def get_section_heading(main_heading_id):
 def get_lexical_items(section_heading_id):
     rows = app_tables.lexical_items.search(section_heading_id=section_heading_id)
     return [row['english_headword'] for row in rows]
+
+@anvil.server.callable
+def update_data_in_database(record_id, new_data):
+    record = app_tables.lexical_items.get(lexical_item_id=record_id)
+    
+    if record:
+        # Update the record with the new data
+        record['english_headword'] = new_data['english_headword']
+        record['literal_meaning'] = new_data['literal_meaning']
+        record['word_class'] = new_data['word_class']
+        record['metaphor_meaning'] = new_data['metaphor_meaning']
+        record['english_example_sentence'] = new_data['english_example_sentence']
+        
+        # Optionally return a success message or updated record
+        return {"status": "success", "message": "Record updated successfully"}
+    else:
+        return None
+
+
+@anvil.server.callable
+def get_lexical_items_by_letter(letter):
+    items = app_tables.lexical_items.search(english_headword=q.like(letter.lower() + '%'))
+    unique_headwords = []
+    seen = set()
+    for item in items:
+        headword = item['english_headword']
+        if headword not in seen:
+            unique_headwords.append(headword)
+            seen.add(headword)
+    return unique_headwords
+
+@anvil.server.callable
+def get_matching_headings(source_text, target_text):
+    source_row = app_tables.category_sources.get(category_source=source_text)
+    target_row = app_tables.category_targets.get(category_target=target_text)
+
+    matching_rows = app_tables.main_headings.search(
+        q.all_of(category_source_id=source_row['category_source_id'], category_target_id=target_row['category_target_id'])
+    )
+    
+    return [row['main_heading'] for row in matching_rows]
+ 
+
+@anvil.server.callable
+def get_relationships_by_main_heading_id(main_heading_id):
+    matching_rows = app_tables.relationships.search(main_heading_id=main_heading_id)
+    return [{'relationship': row['relationship'], 'related_heading': row['related_heading']} for row in matching_rows]

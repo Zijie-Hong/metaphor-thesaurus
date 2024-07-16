@@ -5,17 +5,17 @@ import anvil.server
 
 class homepage(homepageTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
-
-    # Any code you write here will run before the form opens.
+      self.init_components(**properties)
 
   def outlined_button_1_click(self, **event_args):
     user_input = self.outlined_1.text
-    results = anvil.server.call('search_lexical_items', user_input)
-    if results:
-      open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data =results)
+    result = anvil.server.call('search_lexical_items', user_input)
+    if result:
+      open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data =result)
     else:
+      results = anvil.server.call('search_lexical_items_vague', user_input)
+      if results:
+        open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data =result)
       alert("No results found.")
       
   def outlined_button_2_click(self, **event_args):

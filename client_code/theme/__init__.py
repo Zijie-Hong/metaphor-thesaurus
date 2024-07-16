@@ -9,12 +9,12 @@ class theme(themeTemplate):
     self.main_heading_id = None
     self.section_heading_id = None
 
-    if isinstance(data, int):
+    if isinstance(data, int):         #section_heading_id搜索
         self.data = data
         self.update_display()
-    elif isinstance(data, dict):
+    elif isinstance(data, dict):     #确定的theme
         self.load_main_heading(data)
-    elif isinstance(data, list):
+    elif isinstance(data, list):      #搜索theme的列表
         self.main_heading_list(data)
 
   def load_main_heading(self, data):
@@ -22,6 +22,7 @@ class theme(themeTemplate):
         self.column_panel.clear() 
         self.data = data
         self.main_heading.text = data['main_heading']
+        self.main_heading_id = data['main_heading_id']
         self.category_source.text, self.category_target.text = anvil.server.call('get_category_descriptions', data['category_source_id'], data['category_target_id'])
         section_heading_data = anvil.server.call('get_section_heading', data['main_heading_id'])
         if section_heading_data:
@@ -31,6 +32,7 @@ class theme(themeTemplate):
       if self.data:
         main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', self.data)
         self.main_heading.text = main_heading_data['main_heading']
+        self.main_heading_id = main_heading_data['main_heading_id']
         self.category_source.text, self.category_target.text = anvil.server.call('get_category_descriptions', main_heading_data['category_source_id'], main_heading_data['category_target_id'])
         section_heading_data = anvil.server.call('get_section_heading', main_heading_data['main_heading_id'])
         if section_heading_data:
@@ -51,6 +53,7 @@ class theme(themeTemplate):
         self.column_panel.add_component(header_link)
         self.column_panel.add_component(content_panel)
 
+  
   def header_click(self, sender, **event_args):
       # 切换内容的可见性
       content_panel = sender.tag.content_panel
@@ -59,10 +62,21 @@ class theme(themeTemplate):
       if not content_panel.tag.loaded:
           section_heading_id = sender.tag.section_heading_id
           lexical_items = anvil.server.call('get_lexical_items', section_heading_id)
+
+          def create_link_click_handler(headword):
+            def link_click_handler(**event_args):
+               self.open_lexical_item(headword)
+            return link_click_handler
+            
           for index, item in enumerate(lexical_items, start=1):
               content_link = Link(text=f"{index}. {item}", role='body')
+              content_link.set_event_handler('click', create_link_click_handler(item))
               content_panel.add_component(content_link)
           content_panel.tag.loaded = True
+
+  def open_lexical_item(self, user_input):
+      results = anvil.server.call('search_lexical_items', user_input)
+      open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
 
   def main_heading_list(self, data_list):
       self.column_panel_1.visible = False
@@ -78,3 +92,10 @@ class theme(themeTemplate):
         main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
         if main_heading_data:
             self.load_main_heading(main_heading_data)
+
+  def get_data(self):
+        return {
+        'main_heading_id': self.main_heading_id,
+          'main_heading': self.main_heading.text
+        
+    }
