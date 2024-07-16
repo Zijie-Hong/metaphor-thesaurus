@@ -24,5 +24,5 @@ class LexicalItem_List(LexicalItem_ListTemplate):
       self.grid_panel.add_component(content_link, row=row, col_xs=col_xs, width_xs=3)
 
   def open_lexical_item(self, user_input):
-    results = anvil.server.call('search_lexical_items', user_input)
-    open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
+      results = anvil.server.call('search_lexical_items', user_input)
+      open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)

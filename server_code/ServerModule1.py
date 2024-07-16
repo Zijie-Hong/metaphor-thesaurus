@@ -149,3 +149,19 @@ def get_lexical_items_by_letter(letter):
             seen.add(headword)
     return unique_headwords
 
+@anvil.server.callable
+def get_matching_headings(source_text, target_text):
+    source_row = app_tables.category_sources.get(category_source=source_text)
+    target_row = app_tables.category_targets.get(category_target=target_text)
+
+    matching_rows = app_tables.main_headings.search(
+        q.all_of(category_source_id=source_row['category_source_id'], category_target_id=target_row['category_target_id'])
+    )
+    
+    return [row['main_heading'] for row in matching_rows]
+ 
+
+@anvil.server.callable
+def get_relationships_by_main_heading_id(main_heading_id):
+    matching_rows = app_tables.relationships.search(main_heading_id=main_heading_id)
+    return [{'relationship': row['relationship'], 'related_heading': row['related_heading']} for row in matching_rows]

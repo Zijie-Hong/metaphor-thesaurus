@@ -80,12 +80,6 @@ class word(wordTemplate):
       self.label_main_heading.visible = not self.edit_mode
       self.label_section_heading.visible = not self.edit_mode
       
-      
-
-  def get_current_section_heading_id(self):
-      if self.data_list and 0 <= self.current_index < len(self.data_list):
-          return self.data_list[self.current_index].get('section_heading_id')
-      return None
    
   def button_1_click(self, **event_args):
       self.current_index -= 1
@@ -124,3 +118,8 @@ class word(wordTemplate):
   def button_cancel_click(self, **event_args):
       self.edit_mode = False
       self.update_display()
+
+  def get_data(self):
+      if self.data_list and 0 <= self.current_index < len(self.data_list):
+          return self.data_list[self.current_index].get('section_heading_id')
+      return None

@@ -1,0 +1,33 @@
+container: {type: ColumnPanel}
+components:
+- name: column_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'FGECGE,FHOUQD'}
+  components:
+  - name: main_heading
+    properties: {bold: true, font_size: 25, align: center}
+    type: Label
+    layout_properties: {grid_position: 'DIFDZP,AWDXNV'}
+  - name: column_panel_2
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'FCGECA,ZINSLX'}
+    components:
+    - name: label_1
+      properties: {text: 'Relationship:', align: right}
+      type: Label
+      layout_properties: {grid_position: 'FZVHXW,FYCOOR'}
+    - name: results_panel
+      properties: {}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'FZVHXW,VJMTMS'}
+    - name: label_2
+      properties: {text: 'Related theme:', align: right}
+      type: Label
+      layout_properties: {grid_position: 'FZVHXW,QLUKKK'}
+    - name: related_headings_panel
+      properties: {}
+      type: ColumnPanel
+      layout_properties: {grid_position: 'FZVHXW,ADHLWL'}
+is_package: true

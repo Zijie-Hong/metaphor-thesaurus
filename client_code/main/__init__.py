@@ -2,6 +2,7 @@ from ._anvil_designer import mainTemplate
 from anvil import *
 import plotly.graph_objects as go
 from ..homepage import homepage
+from ..map import map
 from ..LexicalItem import LexicalItem
 import anvil.server
 from ..LexicalItem_List import LexicalItem_List
@@ -18,8 +19,8 @@ class main(mainTemplate):
       open_form('main')
 
     def link_2_click(self, **event_args):
-      """This method is called when the link is clicked"""
-      pass
+      self.content_panel.clear()
+      self.content_panel.add_component(map(), full_width_row=True)
 
     def add_letter_links(self):
         self.letter_links = {}
