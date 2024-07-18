@@ -4,7 +4,9 @@ import plotly.graph_objects as go
 from ..homepage import homepage
 from ..theme import theme
 from ..word import word
-from ..link import link
+from ..map import map
+from ..main import main
+
 
 class LexicalItem(LexicalItemTemplate):
   def __init__(self, data=None, item_panel_role='default', theme_panel_role='default', item_panel_visibility=True, **properties):
@@ -16,29 +18,20 @@ class LexicalItem(LexicalItemTemplate):
       
       # 初始化并添加不同的表单
       if item_panel_role == 'elevated-card':
+          print(data)
           self.word_form = word(data=data)
           self.theme_form = theme(data=None)
-          self.link_form = link(data=None)
           self.output_panel.add_component(self.word_form, full_width_row=True)
           self.output_panel.add_component(self.theme_form, full_width_row=True)
-          self.output_panel.add_component(self.link_form, full_width_row=True)
           # 默认显示 word_form
           self.show_form(self.word_form)
-          self.theme_form.on_main_heading_click = self.on_theme_main_heading_click
+
        
       elif theme_panel_role == 'elevated-card':
           self.theme_form = theme(data=data)
-          self.link_form = link(data=None)
           self.output_panel.add_component(self.theme_form, full_width_row=True)
-          self.output_panel.add_component(self.link_form, full_width_row=True)
-          self.theme_form.on_main_heading_click = self.on_theme_main_heading_click
           self.show_form(self.theme_form)
 
-
-
-  def on_theme_main_heading_click(self):
-        self.button_3.visible = True
-  
   def show_form(self, form):
       # 隐藏所有表单
       for component in self.output_panel.get_components():
@@ -46,8 +39,6 @@ class LexicalItem(LexicalItemTemplate):
       # 显示指定的表单
       form.visible = True
 
-      if form == self.theme_form:
-            self.button_3.visible = False
       # if isinstance(form, theme):
       #     if hasattr(self, 'word_form'):
       #       section_heading_id = self.word_form.get_current_section_heading_id()
@@ -60,13 +51,12 @@ class LexicalItem(LexicalItemTemplate):
   def reset_button_styles(self):
     self.item_panel.role = "default"
     self.theme_panel.role = "default"
-    self.link_panel.role = "default"
+
 
   def button_1_click(self, **event_args):
     self.reset_button_styles()
     self.item_panel.role = "elevated-card"
     self.show_form(self.word_form)
-    self.button_3.visible = False
     
   def button_2_click(self, **event_args):
       self.reset_button_styles()
@@ -79,7 +69,6 @@ class LexicalItem(LexicalItemTemplate):
                     self.theme_form.data = section_heading_id
             
       self.theme_form.update_display()
-      self.theme_form.on_main_heading_click = self.on_theme_main_heading_click
       self.show_form(self.theme_form)
 
 
@@ -87,8 +76,8 @@ class LexicalItem(LexicalItemTemplate):
       open_form('main')
 
   def link_2_click(self, **event_args):
-      self.content_panel.clear()
-      self.content_panel.add_component(map(), full_width_row=True)
+      main_form = open_form('main')
+      main_form.add_map_to_content_panel()
 
 
 

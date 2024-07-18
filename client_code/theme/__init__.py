@@ -5,32 +5,41 @@ from ..link import link
 
 class theme(themeTemplate):
   def __init__(self, data=None, **properties):
-    # Set Form properties and Data Bindings.
-    self.init_components(**properties)
-    self.main_heading_id = None
-    self.section_heading_id = None
-    self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
-    self.link_form = None
-
-    if isinstance(data, int):         #section_heading_id搜索
-        self.data = data
-        self.update_display()
-    elif isinstance(data, dict):     #确定的theme
-        self.load_main_heading(data)
-    elif isinstance(data, list):      #搜索theme的列表
-        self.main_heading_list(data)
+      # Set Form properties and Data Bindings.
+      self.init_components(**properties)
+      self.main_heading_id = None
+      self.section_heading_id = None
+      self.back_link.visible = False
+      self.link_form = None
+    
+      if isinstance(data, int):         #section_heading_id搜索
+          self.data = data
+          self.update_display()
+      elif isinstance(data, dict):     #确定的theme
+          self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
+          self.link_other_themes.visible = True
+          self.load_main_heading(data)
+      elif isinstance(data, list):      #搜索theme的列表
+          self.link_other_themes.visible = False
+          self.main_heading_list(data)
 
 
   def link_other_themes_click(self, **event_args):
       if not self.link_form:
-        self.link_form = link(data=None)
-        self.list_panel.clear()
-        self.list_panel.add_component(self.link_form)
+          self.link_form = link(data=None)
+          self.link_panel.add_component(self.link_form)
+          theme_data = {
+            'main_heading_id': self.main_heading_id,
+              'main_heading': self.main_heading.text
+        }
+          self.link_form.data = theme_data
+          self.link_form.update_display()
 
-      theme_data = {'main_heading_id': self.main_heading_id, 'main_heading': self.main_heading.text}
-      self.link_form.data = theme_data
-      self.link_form.update_display()
-      self.link_form.visible = True
+      self.link_panel.visible = True
+      self.list_panel.visible = False
+      self.link_other_themes.visible = False
+      self.back_link.visible = True
+
     
   def update_display(self):
       if self.data:
@@ -40,12 +49,15 @@ class theme(themeTemplate):
         self.category_source.text, self.category_target.text = anvil.server.call('get_category_descriptions', main_heading_data['category_source_id'], main_heading_data['category_target_id'])
         section_heading_data = anvil.server.call('get_section_heading', main_heading_data['main_heading_id'])
         if section_heading_data:
-          self.init_list(section_heading_data)
+            self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
+            self.link_other_themes.visible = True
+            self.init_list(section_heading_data)
+          
         
   def init_list(self, section_heading_data):
       for item in section_heading_data:
         # 假设 item 是一个字典，包含 'section_heading_id' 和 'section_heading' 键
-        header_link = Link(text=item.get('section_heading', 'No Title'), role='title')
+        header_link = Link(text=item.get('section_heading', 'No Title'), role='title', icon='fa:chevron-right')
         header_link.tag.section_heading_id = item.get('section_heading_id')
         content_panel = ColumnPanel(visible=False)
         content_panel.tag.loaded = False
@@ -83,7 +95,8 @@ class theme(themeTemplate):
       open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
 
   def main_heading_list(self, data_list):
-      self.list_panel_1.visible = False
+      self.column_panel_1.visible = False
+      self.list_panel.visible = True
       for index, item in enumerate(data_list, start=1):
           link = Link(text=f"{index}. {item}", role='title')
           link.tag.main_heading = item
@@ -92,6 +105,9 @@ class theme(themeTemplate):
 
   def main_heading_click(self, sender, **event_args):
         main_heading = sender.tag.main_heading
+        self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
+        self.link_other_themes.visible = True
+        self.subtitle_panel.visible = True
         # Call the server function to get the main heading data
         main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
         if main_heading_data:
@@ -99,7 +115,7 @@ class theme(themeTemplate):
   
 
   def load_main_heading(self, data):
-        self.list_panel_1.visible = True
+        self.column_panel_1.visible = True
         self.list_panel.clear() 
         self.data = data
         self.main_heading.text = data['main_heading']
@@ -110,8 +126,10 @@ class theme(themeTemplate):
             self.init_list(section_heading_data)
 
   def back_link_click(self, **event_args):
-      if self.link_form and self.link_form.visible:
-          self.link_form.visible = False
+      if self.link_form and self.link_panel.visible:
+          self.link_panel.visible = False
           self.list_panel.visible = True
+          self.back_link.visible = False
+          self.link_other_themes.visible = True
             
         

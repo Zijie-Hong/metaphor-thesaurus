@@ -4,19 +4,19 @@ import anvil.server
 
 class word(wordTemplate):
   def __init__(self, data=None, **properties):
-    self.init_components(**properties)
-    self.data_list = data
-    self.current_index = 0
-    self.main_heading_data = None
-    self.edit_mode = False
-    self.update_display()
-
-    if len(self.data_list) <= 1:
-        self.button_1.visible = False
-        self.button_2.visible = False
-    else:
-        self.button_1.visible = False
-        self.button_2.visible = True
+      self.init_components(**properties)
+      self.data_list = data
+      self.current_index = 0
+      self.main_heading_data = None
+      self.edit_mode = False
+      self.update_display()
+      if self.data_list:
+          if len(self.data_list) <= 1:
+              self.button_1.visible = False
+              self.button_2.visible = False
+          else:
+              self.button_1.visible = False
+              self.button_2.visible = True
     
   def update_display(self):
       if self.data_list and 0 <= self.current_index < len(self.data_list):

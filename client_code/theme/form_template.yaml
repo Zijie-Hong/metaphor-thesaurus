@@ -11,26 +11,32 @@ components:
     layout_properties: {grid_position: 'XPOFBP,RNTLTM'}
     components:
     - name: back_link
-      properties: {role: fixed-left, text: Back}
+      properties: {role: fixed-left, text: Back, icon: 'fa:angle-double-left'}
       type: Link
       event_bindings: {click: back_link_click}
+      layout_properties: {}
     - name: main_heading
       properties: {bold: true, font_size: 25, align: center}
       type: Label
       layout_properties: {expand: false}
     - name: link_other_themes
-      properties: {role: fixed-right, text: Links to other themes}
+      properties: {role: fixed-right, text: Links to other themes, icon: 'fa:angle-double-right'}
       type: Link
       layout_properties: {}
       components: []
-  - name: category_target
-    properties: {role: subtitle, align: center}
-    type: Label
-    layout_properties: {grid_position: 'ZCHFPX,NSAMNW'}
-  - name: category_source
-    properties: {role: subtitle, align: center}
-    type: Label
-    layout_properties: {grid_position: 'ZCHFPX,FFIJQY'}
+  - name: subtitle_panel
+    properties: {visible: true}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'UDBHTU,PUZUMB'}
+    components:
+    - name: category_target
+      properties: {role: subtitle, align: center}
+      type: Label
+      layout_properties: {grid_position: 'QBDTOT,XLWOWB'}
+    - name: category_source
+      properties: {role: subtitle, align: center}
+      type: Label
+      layout_properties: {grid_position: 'QBDTOT,PBWHDS'}
 - name: list_panel
   properties: {}
   type: ColumnPanel

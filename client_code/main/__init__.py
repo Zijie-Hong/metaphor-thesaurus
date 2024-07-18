@@ -3,7 +3,6 @@ from anvil import *
 import plotly.graph_objects as go
 from ..homepage import homepage
 from ..map import map
-from ..LexicalItem import LexicalItem
 import anvil.server
 from ..LexicalItem_List import LexicalItem_List
 
@@ -45,4 +44,7 @@ class main(mainTemplate):
         lexical_item_list = LexicalItem_List()
         self.content_panel.add_component(lexical_item_list, full_width_row=True)
         lexical_item_list.setup_list(letter)
- 
+
+    def add_map_to_content_panel(self):
+        self.content_panel.clear()
+        self.content_panel.add_component(map(), full_width_row=True)

@@ -63,26 +63,6 @@ components:
       type: Button
       layout_properties: {grid_position: 'OUYJXY,COATUO', full_width_row: false}
       event_bindings: {click: button_2_click}
-  - name: link_panel
-    properties: {role: null, visible: true}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'VTUNCC,IFJPMG', full_width_row: true}
-    components:
-    - name: button_3
-      properties:
-        role: custom-button
-        bold: false
-        align: full
-        background: ''
-        foreground: ''
-        visible: true
-        enabled: true
-        font_size: 20
-        text: |
-          Links to Other Themes
-      type: Button
-      layout_properties: {grid_position: 'MRMTCB,YTCLOL'}
-      event_bindings: {click: button_3_click}
   data_bindings:
   - {property: wrap_on, code: 'self.item['''']', writeback: false}
 - name: output_panel

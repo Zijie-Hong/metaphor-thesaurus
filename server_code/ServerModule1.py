@@ -24,22 +24,32 @@ def search_lexical_items(headword):
         return None
 
 @anvil.server.callable
-def get_lexical_item_details(headword):
-    row = app_tables.lexical_items.get(english_headword=headword)
+def search_lexical_items_vague(input):
     results = []
-    results.append({
-        "lexical_item_id": row['lexical_item_id'],
-        "section_heading_id": row['section_heading_id'],
-        "english_headword": row['english_headword'],
-        "word_class": row['word_class'],
-        "literal_meaning": row['literal_meaning'],
-        "metaphor_meaning": row['metaphor_meaning'],
-        "english_example_sentence": row['english_example_sentence'],
-    })
+    query = f'%{input}%'
+    matching_rows = app_tables.lexical_items.search(english_headword=q.like(query))
+    results.extend([row['english_headword'] for row in matching_rows]) 
     if results:
         return results
-    else:
-        return None
+    return None
+  
+# @anvil.server.callable
+# def get_lexical_item_details(headword):
+#     row = app_tables.lexical_items.get(english_headword=headword)
+#     results = []
+#     results.append({
+#         "lexical_item_id": row['lexical_item_id'],
+#         "section_heading_id": row['section_heading_id'],
+#         "english_headword": row['english_headword'],
+#         "word_class": row['word_class'],
+#         "literal_meaning": row['literal_meaning'],
+#         "metaphor_meaning": row['metaphor_meaning'],
+#         "english_example_sentence": row['english_example_sentence'],
+#     })
+#     if results:
+#         return results
+#     else:
+#         return None
 
 @anvil.server.callable
 def search_by_theme(input1, input2):

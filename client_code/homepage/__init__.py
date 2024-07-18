@@ -15,8 +15,9 @@ class homepage(homepageTemplate):
       else:
         results = anvil.server.call('search_lexical_items_vague', user_input)
         if results:
-          open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data =result)
-        alert("No results found.")
+          open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data =results)
+        else:
+          alert("No results found.")
       
   def search_theme_button_click(self, **event_args):
       if self.radio_theme.selected:
