@@ -24,9 +24,10 @@ class theme(themeTemplate):
   def link_other_themes_click(self, **event_args):
       if not self.link_form:
         self.link_form = link(data=None)
-        self.column_panel.add_component(self.link_form)
-      
-      theme_data = self.get_data()
+        self.list_panel.clear()
+        self.list_panel.add_component(self.link_form)
+
+      theme_data = {'main_heading_id': self.main_heading_id, 'main_heading': self.main_heading.text}
       self.link_form.data = theme_data
       self.link_form.update_display()
       self.link_form.visible = True
@@ -53,8 +54,8 @@ class theme(themeTemplate):
         header_link.tag.content_panel = content_panel
         
         header_link.set_event_handler('click', self.header_click)
-        self.column_panel.add_component(header_link)
-        self.column_panel.add_component(content_panel)
+        self.list_panel.add_component(header_link)
+        self.list_panel.add_component(content_panel)
 
   
   def header_click(self, sender, **event_args):
@@ -82,12 +83,12 @@ class theme(themeTemplate):
       open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
 
   def main_heading_list(self, data_list):
-      self.column_panel_1.visible = False
+      self.list_panel_1.visible = False
       for index, item in enumerate(data_list, start=1):
           link = Link(text=f"{index}. {item}", role='title')
           link.tag.main_heading = item
           link.set_event_handler('click', self.main_heading_click)
-          self.column_panel.add_component(link)
+          self.list_panel.add_component(link)
 
   def main_heading_click(self, sender, **event_args):
         main_heading = sender.tag.main_heading
@@ -98,8 +99,8 @@ class theme(themeTemplate):
   
 
   def load_main_heading(self, data):
-        self.column_panel_1.visible = True
-        self.column_panel.clear() 
+        self.list_panel_1.visible = True
+        self.list_panel.clear() 
         self.data = data
         self.main_heading.text = data['main_heading']
         self.main_heading_id = data['main_heading_id']
@@ -107,12 +108,10 @@ class theme(themeTemplate):
         section_heading_data = anvil.server.call('get_section_heading', data['main_heading_id'])
         if section_heading_data:
             self.init_list(section_heading_data)
+
+  def back_link_click(self, **event_args):
+      if self.link_form and self.link_form.visible:
+          self.link_form.visible = False
+          self.list_panel.visible = True
             
         
-
-  def get_data(self):
-        return {
-        'main_heading_id': self.main_heading_id,
-          'main_heading': self.main_heading.text
-        
-    }

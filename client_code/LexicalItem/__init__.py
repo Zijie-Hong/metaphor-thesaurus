@@ -83,16 +83,6 @@ class LexicalItem(LexicalItemTemplate):
       self.show_form(self.theme_form)
 
 
-    
-  def button_3_click(self, **event_args):
-      self.reset_button_styles()
-      self.link_panel.role = "elevated-card" 
-
-      theme_data = self.theme_form.get_data()
-      self.link_form.data = theme_data
-      self.link_form.update_display()
-      self.show_form(self.link_form)
-
   def link_3_click(self, **event_args):
       open_form('main')
 

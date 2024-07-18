@@ -10,6 +10,10 @@ components:
     type: FlowPanel
     layout_properties: {grid_position: 'XPOFBP,RNTLTM'}
     components:
+    - name: back_link
+      properties: {role: fixed-left, text: Back}
+      type: Link
+      event_bindings: {click: back_link_click}
     - name: main_heading
       properties: {bold: true, font_size: 25, align: center}
       type: Label
@@ -18,6 +22,7 @@ components:
       properties: {role: fixed-right, text: Links to other themes}
       type: Link
       layout_properties: {}
+      components: []
   - name: category_target
     properties: {role: subtitle, align: center}
     type: Label
@@ -26,9 +31,13 @@ components:
     properties: {role: subtitle, align: center}
     type: Label
     layout_properties: {grid_position: 'ZCHFPX,FFIJQY'}
-- name: column_panel
+- name: list_panel
   properties: {}
   type: ColumnPanel
   layout_properties: {grid_position: 'ZTXTEP,CQZIQD'}
   components: []
+- name: link_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'MSZTNA,AMGIDY'}
 is_package: true

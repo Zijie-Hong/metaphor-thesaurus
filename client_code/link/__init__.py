@@ -15,8 +15,8 @@ class link(linkTemplate):
         
     def update_display(self):
         if self.data:
-            
-            self.main_heading.text = self.data['main_heading']
+            if 'main_heading' in self.data:
+                self.main_heading.text = self.data['main_heading']
             self.display_relationships()
  
     def display_relationships(self):

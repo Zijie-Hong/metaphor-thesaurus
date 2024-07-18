@@ -55,6 +55,7 @@ roles:
   components: [Label]
 - name: selected-button
   components: [Button]
+- {name: fixed-left}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

@@ -1079,6 +1079,11 @@ div.plot-container.plotly svg.main-svg {
   right: 0;
 }
 
+.anvil-role-fixed-left {
+  position: absolute;
+  left: 0;
+}
+
 .anvil-role-subtitle {
   background: %color:Secondary Container%; 
   border-radius: 15px; 
