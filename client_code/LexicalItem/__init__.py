@@ -30,6 +30,7 @@ class LexicalItem(LexicalItemTemplate):
           self.link_form = link(data=None)
           self.output_panel.add_component(self.theme_form, full_width_row=True)
           self.output_panel.add_component(self.link_form, full_width_row=True)
+          self.button_3.visible = False
 
   
   def show_form(self, form):
@@ -61,13 +62,14 @@ class LexicalItem(LexicalItemTemplate):
   def button_2_click(self, **event_args):
       self.reset_button_styles()
       self.theme_panel.role = "elevated-card"
-  
+
+      if hasattr(self, 'word_form'):
       # 获取 word_form 的数据并传递给 theme_form
-      section_heading_id = self.word_form.get_data()
-      if section_heading_id != self.current_section_heading_id: # 仅当 section_heading_id 发生变化时
-                self.current_section_heading_id = section_heading_id  # 更新当前 section_heading_id
-                self.theme_form.data = section_heading_id
-      self.theme_form.update_display()
+          section_heading_id = self.word_form.get_data()
+          if section_heading_id != self.current_section_heading_id: # 仅当 section_heading_id 发生变化时
+                    self.current_section_heading_id = section_heading_id  # 更新当前 section_heading_id
+                    self.theme_form.data = section_heading_id
+          self.theme_form.update_display()
 
       self.show_form(self.theme_form)
       self.button_3.visible = True
