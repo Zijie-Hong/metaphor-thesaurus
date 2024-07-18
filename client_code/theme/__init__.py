@@ -8,25 +8,15 @@ class theme(themeTemplate):
     self.init_components(**properties)
     self.main_heading_id = None
     self.section_heading_id = None
+    self.on_load_main_heading = None
 
     if isinstance(data, int):         #section_heading_id搜索
         self.data = data
         self.update_display()
-    elif isinstance(data, dict):     #确定的theme
-        self.load_main_heading(data)
     elif isinstance(data, list):      #搜索theme的列表
         self.main_heading_list(data)
 
-  def load_main_heading(self, data):
-        self.column_panel_1.visible = True
-        self.column_panel.clear() 
-        self.data = data
-        self.main_heading.text = data['main_heading']
-        self.main_heading_id = data['main_heading_id']
-        self.category_source.text, self.category_target.text = anvil.server.call('get_category_descriptions', data['category_source_id'], data['category_target_id'])
-        section_heading_data = anvil.server.call('get_section_heading', data['main_heading_id'])
-        if section_heading_data:
-            self.init_list(section_heading_data)
+
 
   def update_display(self):
       if self.data:
@@ -92,6 +82,21 @@ class theme(themeTemplate):
         main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
         if main_heading_data:
             self.load_main_heading(main_heading_data)
+        if self.on_load_main_heading:
+            self.on_load_main_heading()
+
+  def load_main_heading(self, data):
+        self.column_panel_1.visible = True
+        self.column_panel.clear() 
+        self.data = data
+        self.main_heading.text = data['main_heading']
+        self.main_heading_id = data['main_heading_id']
+        self.category_source.text, self.category_target.text = anvil.server.call('get_category_descriptions', data['category_source_id'], data['category_target_id'])
+        section_heading_data = anvil.server.call('get_section_heading', data['main_heading_id'])
+        if section_heading_data:
+            self.init_list(section_heading_data)
+            
+        
 
   def get_data(self):
         return {

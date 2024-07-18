@@ -31,7 +31,10 @@ class LexicalItem(LexicalItemTemplate):
           self.output_panel.add_component(self.theme_form, full_width_row=True)
           self.output_panel.add_component(self.link_form, full_width_row=True)
           self.button_3.visible = False
+          self.theme_form.on_load_main_heading = self.on_theme_load_main_heading
 
+  def on_theme_load_main_heading(self):
+        self.button_3.visible = True
   
   def show_form(self, form):
       # 隐藏所有表单
