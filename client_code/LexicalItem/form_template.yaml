@@ -71,7 +71,7 @@ components:
     - name: button_3
       properties:
         text: |
-          Links to Other Theme
+          Links to Other Themes
         role: custom-button
         background: ''
         align: full

@@ -46,6 +46,7 @@ class link(linkTemplate):
     def main_heading_click(self, sender, **event_args):
         main_heading = sender.tag.main_heading
         main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
+        print(main_heading_data)
         if main_heading_data:
             open_form('LexicalItem', theme_panel_role='elevated-card', item_panel_visibility=False, data=main_heading_data)
             
