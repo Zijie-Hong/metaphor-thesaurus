@@ -1,6 +1,7 @@
 from ._anvil_designer import themeTemplate
 from anvil import *
 import anvil.server
+from ..link import link
 
 class theme(themeTemplate):
   def __init__(self, data=None, **properties):
@@ -8,7 +9,8 @@ class theme(themeTemplate):
     self.init_components(**properties)
     self.main_heading_id = None
     self.section_heading_id = None
-    self.on_main_heading_click  = None
+    self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
+    self.link_form = None
 
     if isinstance(data, int):         #section_heading_id搜索
         self.data = data
@@ -19,7 +21,16 @@ class theme(themeTemplate):
         self.main_heading_list(data)
 
 
-
+  def link_other_themes_click(self, **event_args):
+      if not self.link_form:
+        self.link_form = link(data=None)
+        self.column_panel.add_component(self.link_form)
+      
+      theme_data = self.get_data()
+      self.link_form.data = theme_data
+      self.link_form.update_display()
+      self.link_form.visible = True
+    
   def update_display(self):
       if self.data:
         main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', self.data)
@@ -84,8 +95,7 @@ class theme(themeTemplate):
         main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
         if main_heading_data:
             self.load_main_heading(main_heading_data)
-        if self.on_main_heading_click:
-            self.on_main_heading_click()
+  
 
   def load_main_heading(self, data):
         self.column_panel_1.visible = True

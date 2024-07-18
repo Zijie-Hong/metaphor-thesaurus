@@ -31,12 +31,10 @@ class LexicalItem(LexicalItemTemplate):
           self.link_form = link(data=None)
           self.output_panel.add_component(self.theme_form, full_width_row=True)
           self.output_panel.add_component(self.link_form, full_width_row=True)
-          self.button_3.visible = False
-          self.setup_theme_form()
+          self.theme_form.on_main_heading_click = self.on_theme_main_heading_click
+          self.show_form(self.theme_form)
 
-  def setup_theme_form(self):
-        self.theme_form.on_main_heading_click = self.on_theme_main_heading_click
-        self.show_form(self.theme_form)
+
 
   def on_theme_main_heading_click(self):
         self.button_3.visible = True
@@ -81,7 +79,8 @@ class LexicalItem(LexicalItemTemplate):
                     self.theme_form.data = section_heading_id
             
       self.theme_form.update_display()
-      self.setup_theme_form()
+      self.theme_form.on_main_heading_click = self.on_theme_main_heading_click
+      self.show_form(self.theme_form)
 
 
     

@@ -5,10 +5,19 @@ components:
   type: ColumnPanel
   layout_properties: {grid_position: 'KKYRDG,VGBFDQ'}
   components:
-  - name: main_heading
-    properties: {bold: true, font_size: 25, align: center}
-    type: Label
-    layout_properties: {grid_position: 'YRTYWR,RAAGBU'}
+  - name: flow_panel_1
+    properties: {align: center}
+    type: FlowPanel
+    layout_properties: {grid_position: 'XPOFBP,RNTLTM'}
+    components:
+    - name: main_heading
+      properties: {bold: true, font_size: 25, align: center}
+      type: Label
+      layout_properties: {expand: false}
+    - name: link_other_themes
+      properties: {role: fixed-right, text: Links to other themes}
+      type: Link
+      layout_properties: {}
   - name: category_target
     properties: {role: subtitle, align: center}
     type: Label

@@ -11,6 +11,7 @@ class link(linkTemplate):
         self.label_1.visible = False
         self.label_2.visible = False
         self.update_display()
+
         
     def update_display(self):
         if self.data:
@@ -56,7 +57,5 @@ class link(linkTemplate):
         main_heading = main_heading.replace('||', '')
         main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
         if main_heading_data:
-            lexical_item = get_open_form()
-            lexical_item.setup_theme_form()
             open_form('LexicalItem', theme_panel_role='elevated-card', item_panel_visibility=False, data=main_heading_data)
             
