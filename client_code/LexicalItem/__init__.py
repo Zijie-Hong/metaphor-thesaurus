@@ -24,16 +24,21 @@ class LexicalItem(LexicalItemTemplate):
           self.output_panel.add_component(self.link_form, full_width_row=True)
           # 默认显示 word_form
           self.show_form(self.word_form)
-          self.button_3.visible = False
+          self.theme_form.on_main_heading_click = self.on_theme_main_heading_click
+       
       elif theme_panel_role == 'elevated-card':
           self.theme_form = theme(data=data)
           self.link_form = link(data=None)
           self.output_panel.add_component(self.theme_form, full_width_row=True)
           self.output_panel.add_component(self.link_form, full_width_row=True)
           self.button_3.visible = False
-          self.theme_form.on_load_main_heading = self.on_theme_load_main_heading
+          self.setup_theme_form()
 
-  def on_theme_load_main_heading(self):
+  def setup_theme_form(self):
+        self.theme_form.on_main_heading_click = self.on_theme_main_heading_click
+        self.show_form(self.theme_form)
+
+  def on_theme_main_heading_click(self):
         self.button_3.visible = True
   
   def show_form(self, form):
@@ -42,6 +47,9 @@ class LexicalItem(LexicalItemTemplate):
           component.visible = False
       # 显示指定的表单
       form.visible = True
+
+      if form == self.theme_form:
+            self.button_3.visible = False
       # if isinstance(form, theme):
       #     if hasattr(self, 'word_form'):
       #       section_heading_id = self.word_form.get_current_section_heading_id()
@@ -67,15 +75,14 @@ class LexicalItem(LexicalItemTemplate):
       self.theme_panel.role = "elevated-card"
 
       if hasattr(self, 'word_form'):
-      # 获取 word_form 的数据并传递给 theme_form
           section_heading_id = self.word_form.get_data()
           if section_heading_id != self.current_section_heading_id: # 仅当 section_heading_id 发生变化时
                     self.current_section_heading_id = section_heading_id  # 更新当前 section_heading_id
                     self.theme_form.data = section_heading_id
-          self.theme_form.update_display()
+            
+      self.theme_form.update_display()
+      self.setup_theme_form()
 
-      self.show_form(self.theme_form)
-      self.button_3.visible = True
 
     
   def button_3_click(self, **event_args):

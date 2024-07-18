@@ -8,11 +8,13 @@ class theme(themeTemplate):
     self.init_components(**properties)
     self.main_heading_id = None
     self.section_heading_id = None
-    self.on_load_main_heading = None
+    self.on_main_heading_click  = None
 
     if isinstance(data, int):         #section_heading_id搜索
         self.data = data
         self.update_display()
+    elif isinstance(data, dict):     #确定的theme
+        self.load_main_heading(data)
     elif isinstance(data, list):      #搜索theme的列表
         self.main_heading_list(data)
 
@@ -82,8 +84,8 @@ class theme(themeTemplate):
         main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
         if main_heading_data:
             self.load_main_heading(main_heading_data)
-        if self.on_load_main_heading:
-            self.on_load_main_heading()
+        if self.on_main_heading_click:
+            self.on_main_heading_click()
 
   def load_main_heading(self, data):
         self.column_panel_1.visible = True
