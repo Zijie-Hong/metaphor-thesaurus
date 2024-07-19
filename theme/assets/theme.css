@@ -1129,53 +1129,52 @@ div.plot-container.plotly svg.main-svg {
 
 .anvil-role-search-container {
   border: 1px solid %color:Primary%;
-  border-radius: 30px; /*wè“ */
+  border-radius: 5px;
   display: flex;
   align-items: center;
   width: 100%;
   max-width: 600px;
   height: 44px;
   background-color: white;
-  border-radius: 22px;
   box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
   overflow: hidden;
-
 }
 
+.anvil-role-search-container:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
 
 textarea.anvil-component.anvil-role-search-input, 
 input.anvil-component.anvil-role-search-input, 
 .anvil-component.anvil-role-search-input select, 
 .anvil-datepicker.anvil-role-search-input input {
   background-color: transparent;
-  border: none; /*w(ˇyÖNü è˘F */
-  flex-grow: 1; /*Øìm«ÍÍ}U */
+  border: none; 
+  flex-grow: 1;
   font-size: 16px;
   padding: 10px;
   color: #5f6368;
 }
 
+textarea.anvil-component.anvil-role-search-input::placeholder, 
+input.anvil-component.anvil-role-search-input::placeholder, 
+.anvil-component.anvil-role-search-input select::placeholder, 
+.anvil-datepicker.anvil-role-search-input input::placeholder {
+  color: #aaa; 
+  font-style: italic; 
+  font-size: 14px; 
+}
+
+
 .anvil-role-search-button {
-
-  width: 40px;
-  height: 40px;
-  background-color: white;
-  border: none;
-  border-radius: 50%;
+  background-color: %color:Primary Container%;;
+  border-radius: 5px;
   margin-top: 6px;
-  margin-right: 2px; */
-  cursor: pointer;
-
-
+  margin-right: 1px; 
+  transition: box-shadow 0.3s ease, background-color 0.3s ease; 
 }
 
 .anvil-role-search-button:hover {
-  background-color: %color:Primary Container%; /* ¸}Hú */
-
-}
-
-.anvil-role-search-button i {
-  width: 20px;
-  height: 20px;
-  fill: white;
+  background-color: %color:On Primary%;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
