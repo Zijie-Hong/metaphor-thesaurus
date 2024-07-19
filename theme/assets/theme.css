@@ -1092,6 +1092,22 @@ div.plot-container.plotly svg.main-svg {
   color: #3f3d56; 
 }
 
+.anvil-role-text-link {
+  font-family: 'Arial', sans-serif; /* þûWS */
+  font-size: 16px; /* W÷ */
+  display: inline-block;
+  cursor: pointer;
+  color: blue;  /* Set the desired link color */
+  padding-left: 20px; 
+  padding-right: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+.anvil-role-text-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+}
+
 
 .anvil-role-selected-button > .btn, .anvil-role-selected-button.file-loader>label {
   color: white;

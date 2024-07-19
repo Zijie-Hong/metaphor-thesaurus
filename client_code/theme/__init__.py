@@ -65,15 +65,21 @@ class theme(themeTemplate):
         # 将 content_panel 存储在 header_link 的 tag 中
         header_link.tag.content_panel = content_panel
         
-        header_link.set_event_handler('click', self.header_click)
+        header_link.set_event_handler('click', self.section_header_click)
         self.list_panel.add_component(header_link)
         self.list_panel.add_component(content_panel)
 
   
-  def header_click(self, sender, **event_args):
+  def section_header_click(self, sender, **event_args):
       # 切换内容的可见性
       content_panel = sender.tag.content_panel
       content_panel.visible = not content_panel.visible
+
+      if content_panel.visible:
+            sender.icon = 'fa:chevron-down'
+      else:
+            sender.icon = 'fa:chevron-right'
+        
       # 如果内容尚未加载，则加载内容
       if not content_panel.tag.loaded:
           section_heading_id = sender.tag.section_heading_id
@@ -85,13 +91,13 @@ class theme(themeTemplate):
             return link_click_handler
             
           for index, item in enumerate(lexical_items, start=1):
-              content_link = Link(text=f"{index}. {item}", role='body')
+              content_link = Link(text=f"{index}. {item}", role='text-link')
               content_link.set_event_handler('click', create_link_click_handler(item))
               content_panel.add_component(content_link)
           content_panel.tag.loaded = True
 
   def open_lexical_item(self, user_input):
-      results = anvil.server.call('search_lexical_items', user_input)
+      results = anvil.server.call('get_lexical_item_details', user_input)
       open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
 
   def main_heading_list(self, data_list):
@@ -113,7 +119,6 @@ class theme(themeTemplate):
         if main_heading_data:
             self.load_main_heading(main_heading_data)
   
-
   def load_main_heading(self, data):
         self.column_panel_1.visible = True
         self.list_panel.clear() 

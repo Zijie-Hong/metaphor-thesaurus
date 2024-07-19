@@ -12,8 +12,8 @@ class main(mainTemplate):
         self.init_components(**properties)
         self.content_panel.add_component(homepage(), full_width_row=True)
         self.add_letter_links()
-       
 
+      
     def link_3_click(self, **event_args):
       open_form('main')
 
@@ -37,14 +37,21 @@ class main(mainTemplate):
             else:
                 self.column_2.add_component(link)
         
-
     def on_letter_click(self, sender, **event_args):
         letter = sender.text
         self.content_panel.clear()
         lexical_item_list = LexicalItem_List()
         self.content_panel.add_component(lexical_item_list, full_width_row=True)
-        lexical_item_list.setup_list(letter)
+        lexical_item_list.explore_list(letter)
 
     def add_map_to_content_panel(self):
         self.content_panel.clear()
         self.content_panel.add_component(map(), full_width_row=True)
+
+    def search_lexical_item(self, data):
+        self.content_panel.clear()
+        lexical_item_list = LexicalItem_List()
+        self.content_panel.add_component(lexical_item_list, full_width_row=True)
+        lexical_item_list.search_list(data)
+        
+        

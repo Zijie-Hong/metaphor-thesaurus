@@ -4,10 +4,30 @@ from anvil.tables import app_tables
 import anvil.server
 
 @anvil.server.callable
-def search_lexical_items(headword):
-    headword = headword.strip() 
+def search_lexical_items(input):
+    query1 = f'% {input} %'  # 单词在中间
+    query2 = f'{input} %'    # 单词在开头
+    query3 = f'% {input}'    # 单词在结尾
+    query4 = f'{input}'      # 精确匹配
+
+    matching_rows = app_tables.lexical_items.search(
+        english_headword=q.any_of(
+            q.like(query1),
+            q.like(query2),
+            q.like(query3),
+            q.like(query4)
+        )
+    )
+    results = []
+    results.extend([row['english_headword'] for row in matching_rows])     
+    unique_results = list(set(results))
+    return unique_results if unique_results else None
+  
+@anvil.server.callable
+def get_lexical_item_details(headword):
     matching_rows = app_tables.lexical_items.search(english_headword=headword)
     results = []
+    
     for row in matching_rows:
         results.append({
             "lexical_item_id": row['lexical_item_id'],
@@ -18,38 +38,7 @@ def search_lexical_items(headword):
             "metaphor_meaning": row['metaphor_meaning'],
             "english_example_sentence": row['english_example_sentence'],
         })
-    if results:
-        return results
-    else:
-        return None
-
-@anvil.server.callable
-def search_lexical_items_vague(input):
-    results = []
-    query = f'%{input}%'
-    matching_rows = app_tables.lexical_items.search(english_headword=q.like(query))
-    results.extend([row['english_headword'] for row in matching_rows]) 
-    if results:
-        return results
-    return None
-  
-# @anvil.server.callable
-# def get_lexical_item_details(headword):
-#     row = app_tables.lexical_items.get(english_headword=headword)
-#     results = []
-#     results.append({
-#         "lexical_item_id": row['lexical_item_id'],
-#         "section_heading_id": row['section_heading_id'],
-#         "english_headword": row['english_headword'],
-#         "word_class": row['word_class'],
-#         "literal_meaning": row['literal_meaning'],
-#         "metaphor_meaning": row['metaphor_meaning'],
-#         "english_example_sentence": row['english_example_sentence'],
-#     })
-#     if results:
-#         return results
-#     else:
-#         return None
+    return results if results else None
 
 @anvil.server.callable
 def search_by_theme(input1, input2):
