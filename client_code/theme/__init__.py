@@ -2,6 +2,7 @@ from ._anvil_designer import themeTemplate
 from anvil import *
 import anvil.server
 from ..link import link
+from utils import populate_content_panel, open_lexical_item
 
 class theme(themeTemplate):
   def __init__(self, data=None, **properties):
@@ -84,21 +85,8 @@ class theme(themeTemplate):
       if not content_panel.tag.loaded:
           section_heading_id = sender.tag.section_heading_id
           lexical_items = anvil.server.call('get_lexical_items', section_heading_id)
-
-          def create_link_click_handler(headword):
-            def link_click_handler(**event_args):
-               self.open_lexical_item(headword)
-            return link_click_handler
-            
-          for index, item in enumerate(lexical_items, start=1):
-              content_link = Link(text=f"{index}. {item}", role='text-link')
-              content_link.set_event_handler('click', create_link_click_handler(item))
-              content_panel.add_component(content_link)
-          content_panel.tag.loaded = True
-
-  def open_lexical_item(self, user_input):
-      results = anvil.server.call('get_lexical_item_details', user_input)
-      open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
+          populate_content_panel(content_panel, lexical_items, open_lexical_item)
+ 
 
   def main_heading_list(self, data_list):
       self.column_panel_1.visible = False
