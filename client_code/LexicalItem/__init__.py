@@ -18,7 +18,6 @@ class LexicalItem(LexicalItemTemplate):
       
       # 初始化并添加不同的表单
       if item_panel_role == 'elevated-card':
-          print(data)
           self.word_form = word(data=data)
           self.theme_form = theme(data=None)
           self.output_panel.add_component(self.word_form, full_width_row=True)
