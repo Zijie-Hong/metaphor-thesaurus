@@ -35,8 +35,6 @@ roles:
   components: [TextBox, TextArea, DatePicker, DropDown]
   display_in_toolbox: true
   title: Outlined TextBox
-- name: display
-  components: [Label, Link]
 - name: headline
   components: [Label, Link]
 - name: title
@@ -57,6 +55,10 @@ roles:
   components: [Button]
 - {name: fixed-left}
 - {name: text-link}
+- name: search-input
+  components: [TextBox]
+- {name: search-container}
+- {name: search-button}
 color_scheme:
   preset_groups:
   - name: Colour Scheme

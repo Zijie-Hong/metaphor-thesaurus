@@ -2,7 +2,7 @@ from ._anvil_designer import themeTemplate
 from anvil import *
 import anvil.server
 from ..link import link
-from utils import populate_content_panel, open_lexical_item
+from ..utils import populate_content_panel, open_lexical_item
 
 class theme(themeTemplate):
   def __init__(self, data=None, **properties):

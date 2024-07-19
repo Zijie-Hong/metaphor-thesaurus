@@ -39,9 +39,9 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - name: link_3
-    properties: {text: Search}
+    properties: {text: Search, role: null, underline: false}
     type: Link
-    layout_properties: {}
+    layout_properties: {expand: false}
     event_bindings: {click: link_3_click}
   - name: link_2
     properties: {text: Map}

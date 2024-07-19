@@ -9,14 +9,21 @@ components:
     properties: {text: Lexical Item, align: center, spacing_above: small, underline: false, bold: false, role: input-prompt}
     type: Label
     layout_properties: {}
-  - name: outlined_1
-    properties: {role: outlined}
-    type: TextBox
-    layout_properties: {width: 436.3901005859375}
+  - name: flow_panel_4
+    properties: {role: search-container, align: left, vertical_align: full, spacing: none}
+    type: FlowPanel
+    layout_properties: {}
+    components:
+    - name: outlined_1
+      properties: {role: search-input, align: left, hide_text: false, spacing_above: small, spacing_below: none}
+      type: TextBox
+      layout_properties: {width: 385.386884765625}
+      event_bindings: {pressed_enter: outlined_1_pressed_enter}
   - name: search_lexical_item_button
-    properties: {text: '', role: tonal-button, align: left, icon: 'fa:search'}
+    properties: {text: '', role: tonal-button, align: center, icon: 'fa:search', icon_align: left, spacing_above: small, spacing_below: none}
     type: Button
     event_bindings: {click: search_lexical_item_button_click}
+    layout_properties: {}
 - name: flow_panel_2
   properties: {align: center}
   type: FlowPanel
