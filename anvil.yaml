@@ -21,7 +21,7 @@ db_schema:
       admin_ui: {width: 200}
       type: number
     - name: category_target
-      admin_ui: {order: 1, width: 319}
+      admin_ui: {width: 319}
       type: string
   sources:
     title: sources
@@ -35,31 +35,31 @@ db_schema:
       admin_ui: {width: 200}
       type: string
   suggestion:
+    title: suggestion
     client: none
     server: full
     columns:
     - name: id
-      admin_ui: {width: 200, order: 0}
+      admin_ui: {width: 200}
       type: number
     - name: english_headword
-      admin_ui: {width: 200, order: 1}
+      admin_ui: {width: 200}
       type: string
     - name: literal_meaning
-      admin_ui: {width: 200, order: 2}
+      admin_ui: {width: 200}
       type: string
     - name: word_class
-      admin_ui: {width: 200, order: 3}
+      admin_ui: {width: 200}
       type: string
     - name: metaphor_meaning
-      admin_ui: {width: 200, order: 4}
+      admin_ui: {width: 200}
       type: string
     - name: english_example_sentence
-      admin_ui: {width: 200, order: 5}
+      admin_ui: {width: 200}
       type: string
     - name: added_time
-      admin_ui: {order: 6, width: 200}
-      type: datetime
-    title: suggestion
+      admin_ui: {width: 200}
+      type: string
   targets:
     title: targets
     client: none
@@ -92,7 +92,7 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     - name: metaphor_meaning
-      admin_ui: {order: 5, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: english_example_sentence
       admin_ui: {width: 200}

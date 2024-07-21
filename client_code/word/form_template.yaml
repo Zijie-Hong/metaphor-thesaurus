@@ -47,6 +47,8 @@ components:
       properties: {visible: true, role: outlined}
       type: TextBox
       layout_properties: {expand: true}
+      data_bindings:
+      - {property: text, code: 'self.item[''word_class'']', writeback: true}
   - name: flow_panel_3
     properties: {}
     type: FlowPanel

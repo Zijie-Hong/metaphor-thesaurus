@@ -2,7 +2,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
-import datetime
+from datetime import datetime
 
 @anvil.server.callable
 def search_lexical_items(input):
@@ -185,8 +185,9 @@ def get_relationships_by_main_heading_id(main_heading_id):
 def add_new_lexical_item(data):
     max_id_entry = app_tables.suggestion.search(tables.order_by("id", ascending=False))
     max_id = max_id_entry[0]['id'] if max_id_entry else 0
-    
     new_id = max_id + 1 if max_id is not None else 1 
+    now = datetime.now().replace(microsecond=0)
+    formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
     try:
         # 添加条目到 suggestion 表中
         new_entry = app_tables.suggestion.add_row(
@@ -196,7 +197,7 @@ def add_new_lexical_item(data):
             word_class=data['word_class'],
             metaphor_meaning=data['metaphor_meaning'],
             english_example_sentence=data['english_example_sentence'],
-            added_time=datetime.datetime.now()
+            added_time=formatted_time
         )
         return {'status': 'success', 'message': 'Item added successfully.', 'id': new_entry.get_id()}
     except Exception as e:
@@ -209,3 +210,22 @@ def get_entries():
     return app_tables.suggestion.search(
       tables.order_by("added_time", ascending=False)
     )
+
+@anvil.server.callable
+def update_entry(entry, entry_dict):
+  # check that the entry given is really a row in the ‘entries’ table
+  if app_tables.suggestion.has_row(entry):
+    now = datetime.now().replace(microsecond=0)
+    formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    entry_dict['added_time'] = formatted_time
+    entry.update(**entry_dict)
+  else:
+    raise Exception("Entry does not exist")
+    
+@anvil.server.callable
+def delete_entry(entry):
+  # check that the entry being deleted exists in the Data Table
+  if app_tables.suggestion.has_row(entry):
+    entry.delete()
+  else:
+    raise Exception("Entry does not exist")
