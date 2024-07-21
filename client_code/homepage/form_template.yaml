@@ -1,10 +1,14 @@
 container: {type: ColumnPanel}
 components:
 - name: flow_panel_1
-  properties: {align: center}
+  properties: {align: left}
   type: FlowPanel
   layout_properties: {grid_position: 'EKLZVA,LNKPYG'}
   components:
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {width: 147.039884765625}
   - name: label_3
     properties: {text: Lexical Item, align: left, spacing_above: small, underline: false, bold: false, role: input-prompt}
     type: Label
@@ -24,11 +28,20 @@ components:
       type: Button
       event_bindings: {click: search_lexical_item_button_click}
       layout_properties: {}
+  - name: link_suggest
+    properties: {text: Suggest new lexical item, spacing_above: large, wrap_on: mobile, role: null, col_spacing: small, underline: true}
+    type: Link
+    layout_properties: {}
+    event_bindings: {click: link_suggest_click}
 - name: flow_panel_2
-  properties: {align: center, spacing: medium, vertical_align: full}
+  properties: {align: left, spacing: medium, vertical_align: full}
   type: FlowPanel
   layout_properties: {grid_position: 'ZLQSIB,CABOSF'}
   components:
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {width: 113.2066474609375}
   - name: label_1
     properties: {text: Metaphor Theme, role: input-prompt, font: ''}
     type: Label
@@ -41,7 +54,7 @@ components:
     - name: input_box_1
       properties: {role: search-input, spacing_above: medium, spacing_below: small, placeholder: Target}
       type: TextBox
-      layout_properties: {}
+      layout_properties: {width: 143.56058984375}
     - name: label_2
       properties: {text: IS/ARE, spacing_above: small, spacing_below: small, bold: false, underline: false, italic: false}
       type: Label
@@ -49,7 +62,7 @@ components:
     - name: input_box_2
       properties: {role: search-input, spacing_above: medium, placeholder: Source}
       type: TextBox
-      layout_properties: {}
+      layout_properties: {width: 150.597021484375}
     - name: search_theme_button
       properties: {text: '', role: search-button, align: center, icon: 'fa:search', spacing_above: medium, spacing_below: small, icon_align: left}
       type: Button

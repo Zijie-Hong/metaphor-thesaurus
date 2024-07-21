@@ -158,8 +158,8 @@ def get_lexical_items_by_letter(letter):
     for item in items:
         headword = item['english_headword']
         if headword not in seen:
-            unique_headwords.append(headword)
             seen.add(headword)
+    unique_headwords = sorted(seen)
     return unique_headwords
 
 @anvil.server.callable
