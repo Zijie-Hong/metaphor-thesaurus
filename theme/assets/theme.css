@@ -861,6 +861,7 @@ textarea.anvil-component.anvil-role-outlined, input.anvil-component.anvil-role-o
   border: 1px solid %color:Outline%;
   border-radius: 4px;
   color: %color:On Surface%;
+
 }
 
 textarea.anvil-component.anvil-role-outlined:hover, textarea.anvil-component.anvil-role-outlined:focus, 
@@ -869,6 +870,14 @@ input.anvil-component.anvil-role-outlined:hover, input.anvil-component.anvil-rol
 .anvil-datepicker.anvil-role-outlined input:hover, .anvil-datepicker.anvil-role-outlined input:focus{
   border: 2px solid %color:Primary%;
   padding: 7px 15px;
+
+}
+
+textarea.anvil-component.anvil-role-outlined::placeholder, input.anvil-component.anvil-role-outlined::placeholder, 
+.anvil-component.anvil-role-outlined select::placeholder, .anvil-datepicker.anvil-role-outlined input::placeholder {
+  color: #aaa; 
+  font-style: italic; 
+  font-size: 14px; 
 }
 
 textarea.anvil-component.anvil-role-outlined-error:hover, textarea.anvil-component.anvil-role-outlined-error:focus, 

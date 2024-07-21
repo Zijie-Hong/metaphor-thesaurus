@@ -5,6 +5,7 @@ from ..homepage import homepage
 from ..map import map
 import anvil.server
 from ..LexicalItem_List import LexicalItem_List
+from ..word import word
 
 class main(mainTemplate):
     def __init__(self, **properties):
@@ -47,11 +48,17 @@ class main(mainTemplate):
     def add_map_to_content_panel(self):
         self.content_panel.clear()
         self.content_panel.add_component(map(), full_width_row=True)
-
+      
     def search_lexical_item(self, data):
         self.content_panel.clear()
         lexical_item_list = LexicalItem_List()
         self.content_panel.add_component(lexical_item_list, full_width_row=True)
         lexical_item_list.search_list(data)
-        
+
+    def link_suggest_click(self, **event_args):
+        self.content_panel.clear()
+        word_form = word(add_mode=True)
+        self.content_panel.add_component(word_form, full_width_row=True)
+
+    
         

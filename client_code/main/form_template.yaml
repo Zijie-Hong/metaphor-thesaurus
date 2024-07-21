@@ -48,15 +48,25 @@ components:
     type: Link
     layout_properties: {}
     event_bindings: {click: link_2_click}
+  - name: link_1
+    properties: {text: Suggestion List}
+    type: Link
+    layout_properties: {}
 - name: colum_panel
   properties: {}
   type: ColumnPanel
   layout_properties: {slot: default}
   components:
+  - name: link_suggest
+    properties: {text: Suggest new lexical item, spacing_above: large, wrap_on: mobile, role: null, col_spacing: small, underline: true, align: right}
+    type: Link
+    layout_properties: {grid_position: 'DVDBRQ,DECIYN'}
+    event_bindings: {click: link_suggest_click}
   - name: content_panel
     properties: {}
     type: ColumnPanel
     layout_properties: {grid_position: 'WOVTHE,SMIBLA'}
+    components: []
   - name: spacer_1
     properties: {height: 275.66668701171875}
     type: Spacer

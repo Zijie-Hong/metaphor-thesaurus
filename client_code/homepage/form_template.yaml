@@ -28,11 +28,6 @@ components:
       type: Button
       event_bindings: {click: search_lexical_item_button_click}
       layout_properties: {}
-  - name: link_suggest
-    properties: {text: Suggest new lexical item, spacing_above: large, wrap_on: mobile, role: null, col_spacing: small, underline: true}
-    type: Link
-    layout_properties: {}
-    event_bindings: {click: link_suggest_click}
 - name: flow_panel_2
   properties: {align: left, spacing: medium, vertical_align: full}
   type: FlowPanel

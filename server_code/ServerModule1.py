@@ -2,6 +2,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+import datetime
 
 @anvil.server.callable
 def search_lexical_items(input):
@@ -178,3 +179,26 @@ def get_matching_headings(source_text, target_text):
 def get_relationships_by_main_heading_id(main_heading_id):
     matching_rows = app_tables.relationships.search(main_heading_id=main_heading_id)
     return [{'relationship': row['relationship'], 'related_heading': row['related_heading']} for row in matching_rows]
+
+
+@anvil.server.callable
+def add_new_lexical_item(data):
+    max_id_entry = app_tables.suggestion.search(tables.order_by("id", ascending=False))
+    max_id = max_id_entry[0]['id'] if max_id_entry else 0
+    
+    new_id = max_id + 1 if max_id is not None else 1 
+    try:
+        # 添加条目到 suggestion 表中
+        new_entry = app_tables.suggestion.add_row(
+            id=new_id,
+            english_headword=data['english_headword'],
+            literal_meaning=data['literal_meaning'],
+            word_class=data['word_class'],
+            metaphor_meaning=data['metaphor_meaning'],
+            english_example_sentence=data['english_example_sentence'],
+            added_time=datetime.datetime.now()
+        )
+        return {'status': 'success', 'message': 'Item added successfully.', 'id': new_entry.get_id()}
+    except Exception as e:
+        # 发生错误时返回错误消息
+        return {'status': 'error', 'message': str(e)}

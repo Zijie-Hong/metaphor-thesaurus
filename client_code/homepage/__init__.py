@@ -67,8 +67,9 @@ class homepage(homepageTemplate):
       self.input_box_1.visible = True
       self.input_box_2.visible = True
 
-  def link_suggest_click(self, **event_args):
-      open_form('word',add_mode=True)
+
+      
+      
 
 
 
