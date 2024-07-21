@@ -1,6 +1,6 @@
 container: {type: ColumnPanel}
 components:
-- name: column_panel_4
+- name: details_panel
   properties: {}
   type: ColumnPanel
   layout_properties: {grid_position: 'XJMJQA,LATLWE'}
@@ -8,16 +8,13 @@ components:
   - name: flow_panel_1
     properties: {}
     type: FlowPanel
-    layout_properties: {grid_position: 'JLAVWM,YVPWND'}
+    layout_properties: {grid_position: 'QVVXUU,QQBGJB'}
     components:
     - name: label_item
       properties: {italic: false, bold: true, font_size: 25}
       type: Label
-      layout_properties: {expand: false}
-    - name: textbox_item
-      properties: {role: outlined}
-      type: TextBox
-      layout_properties: {expand: true}
+      data_bindings:
+      - {property: text, code: 'self.item[''english_headword'']', writeback: false}
     - name: button_edit
       properties: {text: Edit, align: right, role: fixed-right, icon_align: right, icon: 'fa:edit'}
       type: Button
@@ -26,105 +23,77 @@ components:
   - name: flow_panel_6
     properties: {}
     type: FlowPanel
-    layout_properties: {grid_position: 'FJZEDJ,PBSBAM'}
+    layout_properties: {grid_position: 'BCROZU,SGMJGS'}
     components:
     - name: label_main_heading
       properties: {align: center, role: subtitle, border: '', background: '', font_size: 13}
       type: Label
-      data_bindings: []
+      data_bindings:
+      - {property: text, code: 'self.item[''main_heading'']', writeback: false}
     - name: label_section_heading
       properties: {align: center, background: '', border: '', role: subtitle, font_size: 13}
       type: Label
-  - name: flow_panel_2
-    properties: {}
-    type: FlowPanel
-    layout_properties: {grid_position: 'GXDLLC,JQNDTW'}
-    components:
-    - name: label_word_class
-      properties: {italic: true, align: left}
-      type: Label
-    - name: textbox_word_class
-      properties: {visible: true, role: outlined}
-      type: TextBox
-      layout_properties: {expand: true}
       data_bindings:
-      - {property: text, code: 'self.item[''word_class'']', writeback: true}
-  - name: flow_panel_3
+      - {property: text, code: 'self.item[''section_heading'']', writeback: false}
+  - name: label_word_class
+    properties: {italic: true, align: left, text: word_class}
+    type: Label
+    layout_properties: {grid_position: 'DIZWEX,CRNCSL'}
+    data_bindings:
+    - {property: text, code: 'self.item[''word_class'']', writeback: false}
+  - name: label_literal_meaning
     properties: {}
-    type: FlowPanel
-    layout_properties: {grid_position: 'PJGOZJ,XEPHBS'}
-    components:
-    - name: label_literal_meaning
-      properties: {}
-      type: Label
-    - name: textbox_literal_meaning
-      properties: {role: outlined}
-      type: TextBox
-      layout_properties: {expand: true}
+    type: Label
+    data_bindings:
+    - {property: text, code: 'self.item[''literal_meaning'']', writeback: false}
+    layout_properties: {grid_position: 'OCVUFV,DLTZUN'}
   - name: spacer_3
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'UPLKUN,EFETQS'}
+    layout_properties: {grid_position: 'STCDTJ,BSOKEJ'}
   - name: label_7
     properties: {italic: true, bold: true, text: Metaphor Meaning}
     type: Label
-    layout_properties: {grid_position: 'RSURJE,GENHQV', full_width_row: false}
-  - name: flow_panel_4
+    layout_properties: {grid_position: 'OEJHGP,GVOKMP'}
+  - name: label_metaphor_meaning
     properties: {}
-    type: FlowPanel
-    layout_properties: {grid_position: 'FRWYDK,DHHXMF'}
-    components:
-    - name: label_metaphor_meaning
-      properties: {}
-      type: Label
-    - name: textbox_metaphor_meaning
-      properties: {role: outlined}
-      type: TextBox
-      layout_properties: {expand: true}
+    type: Label
+    data_bindings:
+    - {property: text, code: 'self.item[''metaphor_meaning'']', writeback: false}
+    layout_properties: {grid_position: 'NBUBEE,KFCSFN'}
   - name: spacer_4
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'QYMNMI,CDISDR'}
+    layout_properties: {grid_position: 'IDCZIA,SCJBPO'}
   - name: label_9
     properties: {bold: true, italic: true, text: Example Sentence}
     type: Label
-    layout_properties: {grid_position: 'OUGZQB,HRPLOM'}
-  - name: flow_panel_5
+    layout_properties: {grid_position: 'BWFNBF,MAVQRY'}
+  - name: label_english_example_sentence
     properties: {}
-    type: FlowPanel
-    layout_properties: {grid_position: 'ITRXCM,GZYJVP'}
-    components:
-    - name: label_english_example_sentence
-      properties: {}
-      type: Label
-    - name: textbox_english_example_sentence
-      properties: {role: outlined}
-      type: TextBox
-      layout_properties: {expand: true}
-  - name: column_panel_1
-    properties: {}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'SNMLOC,TMAPTQ'}
-    components:
-    - name: button_1
-      properties: {text: Last item, icon: 'fa:arrow-left'}
-      type: Button
-      layout_properties: {grid_position: 'LHTMTE,ZPTPHB GWEHFW,OYLSAP', full_width_row: false}
-      event_bindings: {click: button_1_click}
-    - name: button_cancel
-      properties: {text: Cancel}
-      type: Button
-      layout_properties: {grid_position: 'LHTMTE,ZPTPHB SHZSAY,IHOCWU'}
-      event_bindings: {click: button_cancel_click}
-    - name: button_2
-      properties: {text: Next item, icon: 'fa:arrow-right'}
-      type: Button
-      layout_properties: {grid_position: 'LHTMTE,RSXSTM NGUOIN,JCIMDL', full_width_row: false}
-      event_bindings: {click: button_2_click}
-    - name: button_save
-      properties: {text: Save}
-      type: Button
-      layout_properties: {grid_position: 'LHTMTE,RSXSTM HTHHNM,CSEVHT'}
-      event_bindings: {click: button_save_click}
+    type: Label
+    data_bindings:
+    - {property: text, code: 'self.item[''english_example_sentence'']', writeback: false}
+    layout_properties: {grid_position: 'DOSTRB,MJEDFS'}
+  - name: button_1
+    properties: {text: Last item, icon: 'fa:arrow-left'}
+    type: Button
+    layout_properties: {grid_position: ',HQKAEC'}
+    event_bindings: {click: button_1_click}
+  - name: button_2
+    properties: {text: Next item, icon: 'fa:arrow-right'}
+    type: Button
+    layout_properties: {grid_position: ''}
+    event_bindings: {click: button_2_click}
+  - name: button_save
+    properties: {text: Save}
+    type: Button
+    layout_properties: {grid_position: ''}
+    event_bindings: {click: button_save_click}
+  - name: button_cancel
+    properties: {text: Cancel}
+    type: Button
+    layout_properties: {grid_position: ''}
+    event_bindings: {click: button_cancel_click}
 is_package: true
 custom_component: false

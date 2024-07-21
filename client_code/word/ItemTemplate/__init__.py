@@ -1,9 +1,10 @@
-from ._anvil_designer import entry_editTemplate
+from ._anvil_designer import ItemTemplateTemplate
 from anvil import *
 import anvil.server
 
 
-class entry_edit(entry_editTemplate):
+
+class ItemTemplate(ItemTemplateTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)

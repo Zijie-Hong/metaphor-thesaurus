@@ -213,14 +213,15 @@ def get_entries():
 
 @anvil.server.callable
 def update_entry(entry, entry_dict):
-  # check that the entry given is really a row in the ‘entries’ table
-  if app_tables.suggestion.has_row(entry):
-    now = datetime.now().replace(microsecond=0)
-    formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
-    entry_dict['added_time'] = formatted_time
-    entry.update(**entry_dict)
+  if app_tables.lexical_items.has_row(entry):
+        print(f"Entry exists in lexical_items: {entry}")
+        entry.update(**entry_dict)
+  elif app_tables.suggestion.has_row(entry):
+      print(f"Entry exists in suggestion: {entry}")
+      entry.update(**entry_dict)
   else:
-    raise Exception("Entry does not exist")
+      print(f"Entry does not exist in either tables: {entry}")
+      raise Exception("Entry does not exist in either tables")
     
 @anvil.server.callable
 def delete_entry(entry):

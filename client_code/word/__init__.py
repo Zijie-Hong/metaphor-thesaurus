@@ -1,13 +1,14 @@
 from ._anvil_designer import wordTemplate
+from ..entry_edit import entry_edit
 from anvil import *
 import anvil.server
-
+import copy 
 class word(wordTemplate):
   def __init__(self, data=None, add_mode=False, **properties):
       self.init_components(**properties)
       self.data_list = data
       self.current_index = 0
-      self.main_heading_data = None
+
       self.edit_mode = False
       self.add_mode = add_mode
       self.update_display()
@@ -23,63 +24,33 @@ class word(wordTemplate):
   def update_display(self):
       if self.data_list and 0 <= self.current_index < len(self.data_list):
           data = self.data_list[self.current_index]
-          
+          data_with_subtitle = {}
           if self.edit_mode:
-              self.button_1.visible = False
-              self.button_2.visible = False
-
-              self.label_item.visible = False
-              self.textbox_item.visible = True
-              self.textbox_item.text = data.get('english_headword', '')
-              
-              self.label_literal_meaning.visible = False
-              self.textbox_literal_meaning.visible = True
-              self.textbox_literal_meaning.text = data.get('literal_meaning', '')
-
-              self.label_word_class.visible = False
-              self.textbox_word_class.visible = True
-              self.textbox_word_class.text = data.get('word_class', '')
-
-              self.label_metaphor_meaning.visible = False
-              self.textbox_metaphor_meaning.visible = True
-              self.textbox_metaphor_meaning.text = data.get('metaphor_meaning', '')
-
-              self.label_english_example_sentence.visible = False
-              self.textbox_english_example_sentence.visible = True
-              self.textbox_english_example_sentence.text = data.get('english_example_sentence', '')
+              entry_copy = copy.deepcopy(data)
+              save_clicked = alert(
+              content=entry_edit(item=entry_copy),
+              title="Update Entry",
+              large=True,
+              buttons=[("Save", True), ("Cancel", False)]
+            )
+              if save_clicked:
+                  self.item.pop('main_heading', None)
+                  self.item.pop('section_heading', None)
+                  anvil.server.call('update_entry', self.data_list[self.current_index], entry_copy)
+           
           else:
-              self.label_item.visible = True
-              self.label_item.text = data.get('english_headword', 'No data found')
-              self.textbox_item.visible = False
-
-              self.label_literal_meaning.visible = True
-              self.label_literal_meaning.text = data.get('literal_meaning', '')
-              self.textbox_literal_meaning.visible = False
-
-              self.label_word_class.visible = True
-              self.label_word_class.text = data.get('word_class', '')
-              self.textbox_word_class.visible = False
-
-              self.label_metaphor_meaning.visible = True
-              self.label_metaphor_meaning.text = data.get('metaphor_meaning', '')
-              self.textbox_metaphor_meaning.visible = False
-
-              self.label_english_example_sentence.visible = True
-              self.label_english_example_sentence.text = data.get('english_example_sentence', '')
-              self.textbox_english_example_sentence.visible = False
-            
               self.button_1.visible = self.current_index > 0
               self.button_2.visible = self.current_index < len(self.data_list) - 1
-            
-          if data['section_heading_id']:
-              self.main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', data['section_heading_id'])
-              self.label_main_heading.text = self.main_heading_data['main_heading']
-              self.label_section_heading.text = section_heading_data
+              main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', data['section_heading_id'])
+              data_with_subtitle['main_heading'] = main_heading_data['main_heading']
+              data_with_subtitle['section_heading'] = section_heading_data
+              data_copy = data_with_subtitle.copy()
+              data_copy.update(data)
+              self.item = data_copy
+
           self.button_save.visible = self.edit_mode
           self.button_cancel.visible = self.edit_mode 
-          self.button_edit.visible = not self.edit_mode
-          self.label_main_heading.visible = not self.edit_mode
-          self.label_section_heading.visible = not self.edit_mode
+
         
       elif self.add_mode:
             self.button_1.visible = False
