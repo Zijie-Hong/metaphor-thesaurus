@@ -8,8 +8,6 @@ class word(wordTemplate):
       self.init_components(**properties)
       self.data_list = data
       self.current_index = 0
-
-      self.edit_mode = False
       self.add_mode = add_mode
       self.update_display()
       if self.data_list:
@@ -25,33 +23,15 @@ class word(wordTemplate):
       if self.data_list and 0 <= self.current_index < len(self.data_list):
           data = self.data_list[self.current_index]
           data_with_subtitle = {}
-          if self.edit_mode:
-              entry_copy = copy.deepcopy(data)
-              save_clicked = alert(
-              content=entry_edit(item=entry_copy),
-              title="Update Entry",
-              large=True,
-              buttons=[("Save", True), ("Cancel", False)]
-            )
-              if save_clicked:
-                  self.item.pop('main_heading', None)
-                  self.item.pop('section_heading', None)
-                  anvil.server.call('update_entry', self.data_list[self.current_index], entry_copy)
-           
-          else:
-              self.button_1.visible = self.current_index > 0
-              self.button_2.visible = self.current_index < len(self.data_list) - 1
-              main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', data['section_heading_id'])
-              data_with_subtitle['main_heading'] = main_heading_data['main_heading']
-              data_with_subtitle['section_heading'] = section_heading_data
-              data_copy = data_with_subtitle.copy()
-              data_copy.update(data)
-              self.item = data_copy
+          self.button_1.visible = self.current_index > 0
+          self.button_2.visible = self.current_index < len(self.data_list) - 1
+          main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', data['section_heading_id'])
+          data_with_subtitle['main_heading'] = main_heading_data['main_heading']
+          data_with_subtitle['section_heading'] = section_heading_data
+          data_copy = data_with_subtitle.copy()
+          data_copy.update(data)
+          self.item = data_copy
 
-          self.button_save.visible = self.edit_mode
-          self.button_cancel.visible = self.edit_mode 
-
-        
       elif self.add_mode:
             self.button_1.visible = False
             self.button_2.visible = False
@@ -59,12 +39,6 @@ class word(wordTemplate):
             self.button_edit.visible = False  
             self.label_main_heading.visible = False
             self.label_section_heading.visible = False
-
-            self.textbox_item.placeholder = 'Enter English headword'
-            self.textbox_literal_meaning.placeholder = 'Enter literal meaning'
-            self.textbox_word_class.placeholder = 'Enter word class'
-            self.textbox_metaphor_meaning.placeholder = 'Enter metaphor meaning'
-            self.textbox_english_example_sentence.placeholder = 'Enter English example sentence'
 
   def button_1_click(self, **event_args):
       self.current_index -= 1
@@ -85,47 +59,22 @@ class word(wordTemplate):
       if result:
           entered_password = password_box.text
           if entered_password == "123":  # 替换为您的实际密码
-              self.edit_mode = True
-              self.update_display()
+              data = self.data_list[self.current_index]
+              entry_copy = data
+              save_clicked = alert(
+                  content=entry_edit(item=entry_copy),
+                  title="Update Entry",
+                  large=True,
+                  buttons=[("Save", True), ("Cancel", False)]
+              )
+              if save_clicked:
+                  anvil.server.call('update_entry', self.item, entry_copy)
+                  self.data_list[self.current_index] = entry_copy
+                  self.item = entry_copy
+                  self.update_display()
           else:
               alert("Incorrect password. Edit mode not activated.")
-          
-  def button_save_click(self, **event_args):
-      new_data = {
-          'english_headword': self.textbox_item.text,
-          'literal_meaning': self.textbox_literal_meaning.text,
-          'word_class': self.textbox_word_class.text,
-          'metaphor_meaning': self.textbox_metaphor_meaning.text,
-          'english_example_sentence': self.textbox_english_example_sentence.text
-      }
-      if self.add_mode:
-        # 调用添加到数据库的方法
-          result = anvil.server.call('add_new_lexical_item', new_data)
-          if result['status'] == 'success':
-              alert("New item added successfully")
-              open_form('main')
-          else:
-              alert(result['message'])
-      else:
-          data = self.data_list[self.current_index]
-          new_data['lexical_item_id'] = data['lexical_item_id']
-          new_data['section_heading_id'] = data['section_heading_id']
-          self.data_list[self.current_index] = new_data
-          result = anvil.server.call('update_data_in_database', data['lexical_item_id'], new_data)
-          
-          if result['status'] == 'success':
-              self.edit_mode = False
-              self.update_display()
-              alert("Changes saved successfully")
-          else:
-              alert("Failed to save changes")
 
-  def button_cancel_click(self, **event_args):
-      if self.add_mode:
-          open_form('main')
-      else:
-          self.edit_mode = False
-          self.update_display()
 
   def get_data(self):
       if self.data_list and 0 <= self.current_index < len(self.data_list):

@@ -182,24 +182,32 @@ def get_relationships_by_main_heading_id(main_heading_id):
 
 
 @anvil.server.callable
-def add_new_lexical_item(data):
+def add_new_lexical_item(entry_dict):
     max_id_entry = app_tables.suggestion.search(tables.order_by("id", ascending=False))
-    max_id = max_id_entry[0]['id'] if max_id_entry else 0
-    new_id = max_id + 1 if max_id is not None else 1 
+    if max_id_entry and len(max_id_entry) > 0:
+      max_id = max_id_entry[0]['id']
+      new_id = max_id + 1
+    else:
+      new_id = 1
+    entry_dict['id'] = new_id
     now = datetime.now().replace(microsecond=0)
     formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
     try:
         # 添加条目到 suggestion 表中
-        new_entry = app_tables.suggestion.add_row(
-            id=new_id,
-            english_headword=data['english_headword'],
-            literal_meaning=data['literal_meaning'],
-            word_class=data['word_class'],
-            metaphor_meaning=data['metaphor_meaning'],
-            english_example_sentence=data['english_example_sentence'],
-            added_time=formatted_time
-        )
-        return {'status': 'success', 'message': 'Item added successfully.', 'id': new_entry.get_id()}
+        # new_entry = app_tables.suggestion.add_row(
+        #     id=new_id,
+        #     english_headword=data['english_headword'],
+        #     literal_meaning=data['literal_meaning'],
+        #     word_class=data['word_class'],
+        #     metaphor_meaning=data['metaphor_meaning'],
+        #     english_example_sentence=data['english_example_sentence'],
+        #     added_time=formatted_time
+        # )
+        app_tables.suggestion.add_row(
+        added_time=formatted_time,
+        **entry_dict
+    )
+        return {'status': 'success', 'message': 'Item added successfully.'}
     except Exception as e:
         # 发生错误时返回错误消息
         return {'status': 'error', 'message': str(e)}
@@ -213,14 +221,12 @@ def get_entries():
 
 @anvil.server.callable
 def update_entry(entry, entry_dict):
-  if app_tables.lexical_items.has_row(entry):
-        print(f"Entry exists in lexical_items: {entry}")
-        entry.update(**entry_dict)
+  existing_entry = app_tables.lexical_items.get(lexical_item_id=entry['lexical_item_id'])
+  if existing_entry:
+      existing_entry.update(**entry_dict)
   elif app_tables.suggestion.has_row(entry):
-      print(f"Entry exists in suggestion: {entry}")
-      entry.update(**entry_dict)
+      existing_entry.update(**entry_dict)
   else:
-      print(f"Entry does not exist in either tables: {entry}")
       raise Exception("Entry does not exist in either tables")
     
 @anvil.server.callable
@@ -230,3 +236,5 @@ def delete_entry(entry):
     entry.delete()
   else:
     raise Exception("Entry does not exist")
+
+    

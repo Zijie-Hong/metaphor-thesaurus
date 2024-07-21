@@ -7,6 +7,7 @@ import anvil.server
 from ..LexicalItem_List import LexicalItem_List
 from ..word import word
 from ..suggestion_list import suggestion_list
+from ..entry_edit import entry_edit
 
 class main(mainTemplate):
     def __init__(self, **properties):
@@ -57,10 +58,41 @@ class main(mainTemplate):
         lexical_item_list.search_list(data)
 
     def link_suggest_click(self, **event_args):
-        self.content_panel.clear()
-        word_form = word(add_mode=True)
-        self.content_panel.add_component(word_form, full_width_row=True)
-
+        new_entry = {}
+  
+        while True:
+        # Open an alert displaying the 'EntryEdit' Form
+            entry_form = entry_edit(item=new_entry)
+            save_clicked = alert(
+                content=entry_form,
+                title="Add Entry",
+                large=True,
+                buttons=[("Save", True), ("Cancel", False)]
+            )
+            
+            # If the alert returned 'True', the save button was clicked.
+            if save_clicked:
+                # 检查所有必填字段
+                required_fields = ['english_headword', 'literal_meaning', 'metaphor_meaning', 'word_class', 'english_example_sentence']  # 添加所有必填字段
+                empty_fields = [field for field in required_fields if not new_entry.get(field)]
+                
+                if empty_fields:
+                    # 如果有空字段，显示错误消息并重新打开表单
+                    error_message = f"Please fill in all required fields: {', '.join(empty_fields)}"
+                    alert(error_message)
+                    continue  # 继续循环，重新显示表单
+                else:
+                    # 所有字段都已填写，保存条目
+                    result = anvil.server.call('add_new_lexical_item', new_entry)
+                    if result['status'] == 'success':
+                        alert("Entry added successfully!")
+                        break  # 退出循环
+                    else:
+                        alert(f"Error adding entry: {result['message']}")
+                        # 可以选择是否继续循环或退出
+            else:
+                # 用户点击了取消
+                break
     def link_1_click(self, **event_args):
         self.content_panel.clear()
         suggestion_list_form = suggestion_list()
