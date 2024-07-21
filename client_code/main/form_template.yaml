@@ -58,16 +58,32 @@ components:
   type: ColumnPanel
   layout_properties: {slot: default}
   components:
-  - name: link_suggest
-    properties: {text: Suggest new lexical item, spacing_above: large, wrap_on: mobile, role: selected, col_spacing: small, underline: true, align: right}
-    type: Link
-    layout_properties: {grid_position: 'DVDBRQ,DECIYN', full_width_row: false}
-    event_bindings: {click: link_suggest_click}
   - name: content_panel
     properties: {}
     type: ColumnPanel
     layout_properties: {grid_position: 'WOVTHE,SMIBLA'}
-    components: []
+    components:
+    - name: spacer_2
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'UNJFZJ,HDPSQT', full_width_row: false}
+    - name: spacer_3
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'UNJFZJ,BWVFFV'}
+    - name: spacer_4
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'UNJFZJ,JFBPRM'}
+    - name: spacer_5
+      properties: {height: 32}
+      type: Spacer
+      layout_properties: {grid_position: 'UNJFZJ,DHUTSZ'}
+    - name: link_suggest
+      properties: {text: Suggest new lexical item, spacing_above: large, wrap_on: mobile, role: null, col_spacing: small, underline: true, align: right}
+      type: Link
+      layout_properties: {grid_position: 'UNJFZJ,HFQUPX', full_width_row: false}
+      event_bindings: {click: link_suggest_click}
   - name: spacer_1
     properties: {height: 275.66668701171875}
     type: Spacer
