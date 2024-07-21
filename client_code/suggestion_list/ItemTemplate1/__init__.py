@@ -21,9 +21,9 @@ class ItemTemplate1(ItemTemplate1Template):
       entry_copy = dict(self.item)
       save_clicked = alert(
         content=entry_edit(item=entry_copy),
-        title="Update Entry",
+        title="Reiew Entry",
         large=True,
-        buttons=[("Save", True), ("Cancel", False)]
+        buttons=[("Accept", True), ("Cancel", False)]
       )
       # Update the entry if the user clicks save
       if save_clicked:

@@ -67,7 +67,7 @@ class main(mainTemplate):
                 content=entry_form,
                 title="Add Entry",
                 large=True,
-                buttons=[("Save", True), ("Cancel", False)]
+                buttons=[("Submit", True), ("Cancel", False)]
             )
             
             # If the alert returned 'True', the save button was clicked.
@@ -78,7 +78,7 @@ class main(mainTemplate):
                 
                 if empty_fields:
                     # 如果有空字段，显示错误消息并重新打开表单
-                    error_message = f"Please fill in all required fields: {', '.join(empty_fields)}"
+                    error_message = f"Please fill in all required fields"
                     alert(error_message)
                     continue  # 继续循环，重新显示表单
                 else:
@@ -93,6 +93,7 @@ class main(mainTemplate):
             else:
                 # 用户点击了取消
                 break
+              
     def link_1_click(self, **event_args):
         self.content_panel.clear()
         suggestion_list_form = suggestion_list()
