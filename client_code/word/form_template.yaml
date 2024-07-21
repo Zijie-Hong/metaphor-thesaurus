@@ -1,5 +1,9 @@
 container: {type: ColumnPanel}
 components:
+- name: list_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'WWUDBH,RPPBAI'}
 - name: column_panel_4
   properties: {}
   type: ColumnPanel

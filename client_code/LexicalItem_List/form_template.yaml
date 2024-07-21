@@ -4,4 +4,5 @@ components:
   properties: {}
   type: GridPanel
   layout_properties: {grid_position: 'DFADSR,XYYQPN', full_width_row: false}
+  components: []
 is_package: true

@@ -3,20 +3,22 @@ from anvil import *
 import anvil.server
 
 class word(wordTemplate):
-  def __init__(self, data=None, **properties):
-    self.init_components(**properties)
-    self.data_list = data
-    self.current_index = 0
-    self.main_heading_data = None
-    self.edit_mode = False
-    self.update_display()
-
-    if len(self.data_list) <= 1:
-        self.button_1.visible = False
-        self.button_2.visible = False
-    else:
-        self.button_1.visible = False
-        self.button_2.visible = True
+  def __init__(self, data=None, add_mode=False, **properties):
+      self.init_components(**properties)
+      self.data_list = data
+      self.current_index = 0
+      self.main_heading_data = None
+      self.edit_mode = False
+      self.add_mode = add_mode
+      self.update_display()
+      if self.data_list:
+          if len(self.data_list) <= 1:
+              self.button_1.visible = False
+              self.button_2.visible = False
+          else:
+              self.button_1.visible = False
+              self.button_2.visible = True
+      
     
   def update_display(self):
       if self.data_list and 0 <= self.current_index < len(self.data_list):
@@ -73,12 +75,29 @@ class word(wordTemplate):
               self.main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', data['section_heading_id'])
               self.label_main_heading.text = self.main_heading_data['main_heading']
               self.label_section_heading.text = section_heading_data
+          self.button_save.visible = self.edit_mode
+          self.button_cancel.visible = self.edit_mode 
+          self.button_edit.visible = not self.edit_mode
+          self.label_main_heading.visible = not self.edit_mode
+          self.label_section_heading.visible = not self.edit_mode
+        
+      elif self.add_mode:
+            self.button_1.visible = False
+            self.button_2.visible = False
+            self.button_save.text = "Add Item"  # 更改保存按钮的文本     
+            self.button_edit.visible = False  
+            self.label_main_heading.visible = False
+            self.label_section_heading.visible = False
+    
+            self.label_item.visible = False
+            self.label_literal_meaning.visible = False
+            self.label_word_class.visible = False
+            self.label_metaphor_meaning.visible = False
+            self.label_english_example_sentence.visible = False
 
-      self.button_save.visible = self.edit_mode
-      self.button_cancel.visible = self.edit_mode 
-      self.button_edit.visible = not self.edit_mode
-      self.label_main_heading.visible = not self.edit_mode
-      self.label_section_heading.visible = not self.edit_mode
+            
+        
+      
       
    
   def button_1_click(self, **event_args):
@@ -90,9 +109,21 @@ class word(wordTemplate):
       self.update_display()
   
   def button_edit_click(self, **event_args):
-      self.edit_mode = True
-      self.update_display()
+      password_box = TextBox(placeholder="Enter password", hide_text=True)
+      result = alert(
+          content=password_box,
+          title="Password Required",
+          buttons=[("OK", True), ("Cancel", False)],
+      )
       
+      if result:
+          entered_password = password_box.text
+          if entered_password == "123":  # 替换为您的实际密码
+              self.edit_mode = True
+              self.update_display()
+          else:
+              alert("Incorrect password. Edit mode not activated.")
+          
   def button_save_click(self, **event_args):
       data = self.data_list[self.current_index]
       new_data = {

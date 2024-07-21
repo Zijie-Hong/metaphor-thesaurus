@@ -1,45 +1,72 @@
 container: {type: ColumnPanel}
 components:
 - name: flow_panel_1
-  properties: {align: center}
+  properties: {align: left}
   type: FlowPanel
   layout_properties: {grid_position: 'EKLZVA,LNKPYG'}
   components:
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {width: 147.039884765625}
   - name: label_3
-    properties: {text: Lexical Item, align: center, spacing_above: small, underline: false, bold: false, role: input-prompt}
+    properties: {text: Lexical Item, align: left, spacing_above: small, underline: false, bold: false, role: input-prompt}
     type: Label
     layout_properties: {}
-  - name: outlined_1
-    properties: {role: outlined}
-    type: TextBox
-    layout_properties: {width: 436.3901005859375}
-  - name: search_lexical_item_button
-    properties: {text: '', role: tonal-button, align: left, icon: 'fa:search'}
-    type: Button
-    event_bindings: {click: search_lexical_item_button_click}
+  - name: flow_panel_4
+    properties: {role: search-container, align: left, vertical_align: full, spacing: none}
+    type: FlowPanel
+    layout_properties: {expand: false}
+    components:
+    - name: outlined_1
+      properties: {role: search-input, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search Dictionary}
+      type: TextBox
+      layout_properties: {width: 385.386884765625}
+      event_bindings: {}
+    - name: search_lexical_item_button
+      properties: {text: '', role: search-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
+      type: Button
+      event_bindings: {click: search_lexical_item_button_click}
+      layout_properties: {}
+  - name: link_suggest
+    properties: {text: Suggest new lexical item, spacing_above: large, wrap_on: mobile, role: null, col_spacing: small, underline: true}
+    type: Link
+    layout_properties: {}
+    event_bindings: {click: link_suggest_click}
 - name: flow_panel_2
-  properties: {align: center}
+  properties: {align: left, spacing: medium, vertical_align: full}
   type: FlowPanel
   layout_properties: {grid_position: 'ZLQSIB,CABOSF'}
   components:
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {width: 113.2066474609375}
   - name: label_1
     properties: {text: Metaphor Theme, role: input-prompt, font: ''}
     type: Label
     layout_properties: {}
-  - name: input_box_1
-    properties: {role: outlined}
-    type: TextBox
-  - name: label_2
-    properties: {text: IS/ARE}
-    type: Label
+  - name: flow_panel_5
+    properties: {role: search-container, spacing: medium, vertical_align: middle}
+    type: FlowPanel
     layout_properties: {}
-  - name: input_box_2
-    properties: {role: outlined}
-    type: TextBox
-  - name: search_theme_button
-    properties: {text: '', role: tonal-button, align: left, icon: 'fa:search'}
-    type: Button
-    event_bindings: {click: search_theme_button_click}
+    components:
+    - name: input_box_1
+      properties: {role: search-input, spacing_above: medium, spacing_below: small, placeholder: Target}
+      type: TextBox
+      layout_properties: {width: 143.56058984375}
+    - name: label_2
+      properties: {text: IS/ARE, spacing_above: small, spacing_below: small, bold: false, underline: false, italic: false}
+      type: Label
+      layout_properties: {}
+    - name: input_box_2
+      properties: {role: search-input, spacing_above: medium, placeholder: Source}
+      type: TextBox
+      layout_properties: {width: 150.597021484375}
+    - name: search_theme_button
+      properties: {text: '', role: search-button, align: center, icon: 'fa:search', spacing_above: medium, spacing_below: small, icon_align: left}
+      type: Button
+      event_bindings: {click: search_theme_button_click}
 - name: flow_panel_3
   properties: {align: center}
   type: FlowPanel
