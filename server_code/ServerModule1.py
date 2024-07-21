@@ -202,3 +202,10 @@ def add_new_lexical_item(data):
     except Exception as e:
         # 发生错误时返回错误消息
         return {'status': 'error', 'message': str(e)}
+      
+@anvil.server.callable
+def get_entries():
+    # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
+    return app_tables.suggestion.search(
+      tables.order_by("added_time", ascending=False)
+    )

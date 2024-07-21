@@ -6,6 +6,7 @@ from ..map import map
 import anvil.server
 from ..LexicalItem_List import LexicalItem_List
 from ..word import word
+from ..suggestion_list import suggestion_list
 
 class main(mainTemplate):
     def __init__(self, **properties):
@@ -59,6 +60,11 @@ class main(mainTemplate):
         self.content_panel.clear()
         word_form = word(add_mode=True)
         self.content_panel.add_component(word_form, full_width_row=True)
+
+    def link_1_click(self, **event_args):
+        self.content_panel.clear()
+        suggestion_list_form = suggestion_list()
+        self.content_panel.add_component(suggestion_list_form, full_width_row=True)
 
     
         

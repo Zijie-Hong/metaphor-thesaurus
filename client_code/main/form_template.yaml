@@ -52,6 +52,7 @@ components:
     properties: {text: Suggestion List}
     type: Link
     layout_properties: {}
+    event_bindings: {click: link_1_click}
 - name: colum_panel
   properties: {}
   type: ColumnPanel
