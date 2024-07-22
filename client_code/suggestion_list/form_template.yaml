@@ -1,0 +1,11 @@
+container: {type: ColumnPanel}
+components:
+- name: label_no_suggestion
+  properties: {text: No Suggestion, role: null, font_size: 30}
+  type: Label
+  layout_properties: {grid_position: 'PAIVCL,JFJXFX'}
+- name: entries_panel
+  properties: {item_template: suggestion_list.ItemTemplate1, visible: true}
+  type: RepeatingPanel
+  layout_properties: {grid_position: 'RLPZIN,SIRUIS'}
+is_package: true

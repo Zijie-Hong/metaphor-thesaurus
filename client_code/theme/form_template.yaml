@@ -24,6 +24,7 @@ components:
       type: Link
       layout_properties: {}
       components: []
+      event_bindings: {click: link_other_themes_click}
   - name: subtitle_panel
     properties: {visible: true}
     type: ColumnPanel

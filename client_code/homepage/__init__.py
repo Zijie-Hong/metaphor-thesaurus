@@ -9,17 +9,21 @@ class homepage(homepageTemplate):
       
 
   def search_lexical_item_button_click(self, **event_args):
-      user_input = self.outlined_1.text.strip().lower()
-      results = anvil.server.call('search_lexical_items', user_input)
-      if results:
-        open_form('main')
-        main_form = get_open_form()
-        main_form.search_lexical_item(results)
-      else:
-        alert(
-        f"No results found for ‘{user_input}’",
-        title="Search Result",
-    )
+    user_input = self.outlined_1.text.strip().lower()
+    if user_input:
+        results = anvil.server.call('search_lexical_items', user_input)
+        if results:
+            open_form('main')
+            main_form = get_open_form()
+            main_form.search_lexical_item(results)
+        else:
+            alert(
+                f"No results found for '{user_input}'",
+                title="Search Result"
+            )
+    else:
+        alert("Please input the search field")
+  
       
   def search_theme_button_click(self, **event_args):
       result = None
@@ -67,8 +71,9 @@ class homepage(homepageTemplate):
       self.input_box_1.visible = True
       self.input_box_2.visible = True
 
-  def link_suggest_click(self, **event_args):
-      open_form('word',add_mode=True)
+
+      
+      
 
 
 

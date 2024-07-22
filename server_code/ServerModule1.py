@@ -2,6 +2,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
+from datetime import datetime
 
 @anvil.server.callable
 def search_lexical_items(input):
@@ -170,11 +171,77 @@ def get_matching_headings(source_text, target_text):
     matching_rows = app_tables.main_headings.search(
         q.all_of(category_source_id=source_row['category_source_id'], category_target_id=target_row['category_target_id'])
     )
-    
-    return [row['main_heading'] for row in matching_rows]
+    result = [{'main_heading_id': row['main_heading_id'], 'main_heading': row['main_heading']} for row in matching_rows]
+    return result
  
 
 @anvil.server.callable
 def get_relationships_by_main_heading_id(main_heading_id):
     matching_rows = app_tables.relationships.search(main_heading_id=main_heading_id)
     return [{'relationship': row['relationship'], 'related_heading': row['related_heading']} for row in matching_rows]
+
+
+@anvil.server.callable
+def add_new_lexical_item(entry_dict):
+    max_id_entry = app_tables.suggestion.search(tables.order_by("id", ascending=False))
+    if max_id_entry and len(max_id_entry) > 0:
+      max_id = max_id_entry[0]['id']
+      new_id = max_id + 1
+    else:
+      new_id = 1
+    entry_dict['id'] = new_id
+    now = datetime.now().replace(microsecond=0)
+    formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
+    try:
+        app_tables.suggestion.add_row(
+        added_time=formatted_time,
+        **entry_dict
+    )
+        return {'status': 'success', 'message': 'Item added successfully.'}
+    except Exception as e:
+        # 发生错误时返回错误消息
+        return {'status': 'error', 'message': str(e)}
+      
+@anvil.server.callable
+def get_entries():
+    # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
+    return app_tables.suggestion.search(
+      tables.order_by("added_time", ascending=False)
+    )
+
+@anvil.server.callable
+def update_entry(entry, entry_dict):
+  existing_entry = app_tables.lexical_items.get(lexical_item_id=entry['lexical_item_id'])
+  if existing_entry:
+      existing_entry.update(**entry_dict)
+  else:
+      raise Exception("Entry does not exist in either tables")
+    
+@anvil.server.callable
+def delete_entry(entry):
+  # check that the entry being deleted exists in the Data Table
+  if app_tables.suggestion.has_row(entry):
+    entry.delete()
+  else:
+    raise Exception("Entry does not exist")
+
+
+@anvil.server.callable
+def accept_entry(entry, section_heading_id):
+    max_id_entry = app_tables.lexical_items.search(tables.order_by("lexical_item_id", ascending=False))
+    if max_id_entry and len(max_id_entry) > 0:
+      max_id = max_id_entry[0]['lexical_item_id']
+      new_id = max_id + 1
+    else:
+      new_id = 1
+
+    try:
+        app_tables.lexical_items.add_row(
+            lexical_item_id=new_id,
+            section_heading_id=section_heading_id,
+            **entry
+        )
+        return {'status': 'success', 'message': 'Item added successfully.'}
+    except Exception as e:
+        # 发生错误时返回错误消息
+        return {'status': 'error', 'message': str(e)}

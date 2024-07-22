@@ -27,20 +27,23 @@ class theme(themeTemplate):
 
   def link_other_themes_click(self, **event_args):
       if not self.link_form:
-          self.link_form = link(data=None)
-          self.link_panel.add_component(self.link_form)
           theme_data = {
-            'main_heading_id': self.main_heading_id,
-              'main_heading': self.main_heading.text
-        }
-          self.link_form.data = theme_data
-          self.link_form.update_display()
-
+                'main_heading_id': self.main_heading_id,
+                  'main_heading': self.main_heading.text
+            }
+          relationships = anvil.server.call('get_relationships_by_main_heading_id', theme_data['main_heading_id'])
+          if relationships:
+              self.link_form = link(data=relationships) 
+              self.link_form.update_display()
+              self.link_panel.add_component(self.link_form)
+              
+          else:
+              alert('No relationships for this theme')
       self.link_panel.visible = True
       self.list_panel.visible = False
       self.link_other_themes.visible = False
       self.back_link.visible = True
-
+                
     
   def update_display(self):
       if self.data:
