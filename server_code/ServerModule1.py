@@ -171,8 +171,8 @@ def get_matching_headings(source_text, target_text):
     matching_rows = app_tables.main_headings.search(
         q.all_of(category_source_id=source_row['category_source_id'], category_target_id=target_row['category_target_id'])
     )
-    
-    return [row['main_heading'] for row in matching_rows]
+    result = [{'main_heading_id': row['main_heading_id'], 'main_heading': row['main_heading']} for row in matching_rows]
+    return result
  
 
 @anvil.server.callable
