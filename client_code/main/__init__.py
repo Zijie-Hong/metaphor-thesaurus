@@ -78,14 +78,14 @@ class main(mainTemplate):
                 
                 if empty_fields:
                     # 如果有空字段，显示错误消息并重新打开表单
-                    error_message = f"Please fill in all required fields"
+                    error_message = "Please fill in all required fields"
                     alert(error_message)
                     continue  # 继续循环，重新显示表单
                 else:
                     # 所有字段都已填写，保存条目
                     result = anvil.server.call('add_new_lexical_item', new_entry)
                     if result['status'] == 'success':
-                        alert("Entry added successfully!")
+                        alert("Suggestion submitted successfully!")
                         break  # 退出循环
                     else:
                         alert(f"Error adding entry: {result['message']}")
