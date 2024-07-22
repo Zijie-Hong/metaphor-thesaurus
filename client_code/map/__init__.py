@@ -48,8 +48,9 @@ class map(mapTemplate):
       if self.selected_source and self.selected_target:
           self.result_panel.clear()
           results = anvil.server.call('get_matching_headings', self.selected_source, self.selected_target)
-          if results:
-            for index, item in enumerate(results, start=1):
+          results_heading = [d['main_heading'] for d in results]
+          if results_heading:
+            for index, item in enumerate(results_heading, start=1):
             
                 content_link = Link(text=f"{index}. {item}", role='body')  
                 content_link.tag.main_heading = item

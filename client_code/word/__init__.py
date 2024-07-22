@@ -3,6 +3,7 @@ from ..entry_edit import entry_edit
 from anvil import *
 import anvil.server
 import copy 
+from ..utils import check_password
 class word(wordTemplate):
   def __init__(self, data=None, add_mode=False, **properties):
       self.init_components(**properties)
@@ -49,20 +50,12 @@ class word(wordTemplate):
       self.update_display()
   
   def button_edit_click(self, **event_args):
-      password_box = TextBox(placeholder="Enter password", hide_text=True)
-      result = alert(
-          content=password_box,
-          title="Password Required",
-          buttons=[("OK", True), ("Cancel", False)],
-      )
-      
-      if result:
-          entered_password = password_box.text
-          if entered_password == "123":  # 替换为您的实际密码
+          result = check_password()
+          if result: 
               data = self.data_list[self.current_index]
               entry_copy = data
               save_clicked = alert(
-                  content=entry_edit(item=entry_copy),
+                  content=entry_edit(item=entry_copy, hide_components=True),
                   title="Update Entry",
                   large=True,
                   buttons=[("Save", True), ("Cancel", False)]

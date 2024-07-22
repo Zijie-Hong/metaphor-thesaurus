@@ -13,7 +13,12 @@ class suggestion_list(suggestion_listTemplate):
   def refresh_entries(self):
      # Load existing entries from the Data Table, 
      # and display them in the RepeatingPanel
-     self.entries_panel.items = anvil.server.call('get_entries')
+     entries = anvil.server.call('get_entries')
+     self.entries_panel.items = entries
+     if len(entries) == 0:
+          self.label_no_suggestion.visible = True
+     else:
+          self.label_no_suggestion.visible = False
 
   def delete_entry(self, entry, **event_args):
       # Delete the entry

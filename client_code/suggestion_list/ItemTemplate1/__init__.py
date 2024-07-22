@@ -2,7 +2,7 @@ from ._anvil_designer import ItemTemplate1Template
 from anvil import *
 import anvil.server
 from ...entry_edit import entry_edit
-
+from ...utils import check_password
 class ItemTemplate1(ItemTemplate1Template):
   def __init__(self, **properties):
       # Set Form properties and Data Bindings.
@@ -18,15 +18,29 @@ class ItemTemplate1(ItemTemplate1Template):
           self.parent.raise_event('x-delete-entry', entry=self.item)
 
   def edit_entry_button_click(self, **event_args):
-      entry_copy = dict(self.item)
-      save_clicked = alert(
-        content=entry_edit(item=entry_copy),
-        title="Reiew Entry",
-        large=True,
-        buttons=[("Accept", True), ("Cancel", False)]
-      )
-      # Update the entry if the user clicks save
-      if save_clicked:
-        anvil.server.call('update_entry', self.item, entry_copy)
-        # Now refresh the page
-        self.refresh_data_bindings()
+      result = check_password()
+      if result: 
+          entry_copy = dict(self.item)
+          entry_form = entry_edit(item=entry_copy)
+          save_clicked = alert(
+            content=entry_form,
+            title="Reiew Entry",
+            large=True,
+            buttons=[("Accept", True), ("Cancel", False)]
+          )
+          # Update the entry if the user clicks save
+          if save_clicked:
+            entry_accept, section_heading_id = entry_form.get_data()
+            entry_accept_copy = dict(entry_accept)
+            del entry_accept_copy['added_time']
+            del entry_accept_copy['id']
+            print(entry_accept_copy)
+            result = anvil.server.call('accept_entry', entry_accept_copy, section_heading_id)
+            if result == 'success':
+                alert('Item approved successfully')
+            else:
+                alert(result['message'])
+            # Now refresh the page
+            self.refresh_data_bindings()
+      else:
+              alert("Incorrect password.")

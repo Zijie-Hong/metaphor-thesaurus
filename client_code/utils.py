@@ -23,3 +23,16 @@ def open_lexical_item(sender, **event_args):
     results = anvil.server.call('get_lexical_item_details', user_input)
     open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
 
+def check_password():
+      password_box = TextBox(placeholder="Enter password", hide_text=True)
+      result = alert(
+          content=password_box,
+          title="Password Required",
+          buttons=[("OK", True), ("Cancel", False)],
+      )
+      if result:
+          if password_box.text == '123':
+            return True
+          else:
+            return False
+
