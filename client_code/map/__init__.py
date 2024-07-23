@@ -1,7 +1,7 @@
 from ._anvil_designer import mapTemplate
 from anvil import *
 import anvil.server
-
+from ..utils import populate_content_panel
 
 class map(mapTemplate):
   def __init__(self, **properties):
@@ -26,36 +26,44 @@ class map(mapTemplate):
             button.role = 'elevated-button'
 
   def select_button(self, button, buttons, button_type):
-      self.reset_buttons(buttons)
-      button.role = 'selected-button'
+    # 如果按钮已经是选中状态，点击时将其重置为未选中状态
+    if button.role == 'selected-button':
+        button.role = 'elevated-button'  # 假设'default-button'是未选中状态的角色
+        if button_type == 'source':
+            self.selected_source = None
+        elif button_type == 'target':
+            self.selected_target = None
+    else:
+        # 否则将其设置为选中状态并重置其他按钮
+        self.reset_buttons(buttons)
+        button.role = 'selected-button'
+        if button_type == 'source':
+            self.selected_source = button.text
+        elif button_type == 'target':
+            self.selected_target = button.text
 
-      if button_type == 'source':
-          self.selected_source = button.text
-      elif button_type == 'target':
-          self.selected_target = button.text
-            
-      self.check_selection()
+    self.check_selection()
 
   def source_button_click(self, **event_args):
       clicked_button = event_args['sender']
       self.select_button(clicked_button, self.source_buttons, 'source')
-
+  
   def target_button_click(self, **event_args):
       clicked_button = event_args['sender']
       self.select_button(clicked_button, self.target_buttons, 'target')
-
+  
   def check_selection(self):
-      if self.selected_source and self.selected_target:
+      if self.selected_source or self.selected_target:
           self.result_panel.clear()
           results = anvil.server.call('get_matching_headings', self.selected_source, self.selected_target)
           results_heading = [d['main_heading'] for d in results]
           if results_heading:
-            for index, item in enumerate(results_heading, start=1):
-            
-                content_link = Link(text=f"{index}. {item}", role='body')  
-                content_link.tag.main_heading = item
-                content_link.set_event_handler('click', self.main_heading_click)
-                self.result_panel.add_component(content_link)
+            populate_content_panel(self.result_panel, results_heading, self.main_heading_click)
+            # for index, item in enumerate(results_heading, start=1):
+            #     content_link = Link(text=f"{index}. {item}", role='body')  
+            #     content_link.tag.main_heading = item
+            #     content_link.set_event_handler('click', self.main_heading_click)
+            #     self.result_panel.add_component(content_link)
           else:
                 self.result_panel.add_component(Label(text="No matching rows found."), row=0, col_xs=0)
 

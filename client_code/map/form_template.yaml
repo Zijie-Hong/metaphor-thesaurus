@@ -1,7 +1,7 @@
 container: {type: ColumnPanel}
 components:
 - name: label_1
-  properties: {text: Root Analogies, bold: true, role: headline}
+  properties: {text: Map, bold: true, role: headline}
   type: Label
   layout_properties: {grid_position: 'HPQGWW,IEYNJK'}
 - name: label_2

@@ -1180,6 +1180,7 @@ input.anvil-component.anvil-role-search-input::placeholder,
   border-radius: 5px;
   margin-top: 6px;
   margin-right: 1px; 
+
   transition: box-shadow 0.3s ease, background-color 0.3s ease; 
 }
 

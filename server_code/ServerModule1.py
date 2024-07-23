@@ -12,17 +12,14 @@ def search_lexical_items(input):
     query4 = f'{input}'      # 精确匹配
 
     matching_rows = app_tables.lexical_items.search(
-        english_headword=q.any_of(
-            q.like(query1),
-            q.like(query2),
-            q.like(query3),
-            q.like(query4)
+    english_headword=q.any_of(
+        q.like(query1),
+        q.like(query2),
+        q.like(query3),
+        q.like(query4)
         )
     )
-    results = []
-    results.extend([row['english_headword'] for row in matching_rows])     
-    unique_results = list(set(results))
-    return unique_results if unique_results else None
+    return list(set(row['english_headword'] for row in matching_rows)) or None
   
 @anvil.server.callable
 def get_lexical_item_details(headword):
@@ -136,7 +133,6 @@ def get_lexical_items(section_heading_id):
 @anvil.server.callable
 def update_data_in_database(record_id, new_data):
     record = app_tables.lexical_items.get(lexical_item_id=record_id)
-    
     if record:
         # Update the record with the new data
         record['english_headword'] = new_data['english_headword']
@@ -168,9 +164,23 @@ def get_matching_headings(source_text, target_text):
     source_row = app_tables.category_sources.get(category_source=source_text)
     target_row = app_tables.category_targets.get(category_target=target_text)
 
-    matching_rows = app_tables.main_headings.search(
-        q.all_of(category_source_id=source_row['category_source_id'], category_target_id=target_row['category_target_id'])
-    )
+    source_id = source_row['category_source_id'] if source_row else None
+    target_id = target_row['category_target_id'] if target_row else None
+  
+    if source_id and target_id:
+        matching_rows = app_tables.main_headings.search(
+            q.all_of(category_source_id=source_id, category_target_id=target_id)
+        )
+    elif source_id:
+        matching_rows = app_tables.main_headings.search(
+            q.any_of(category_source_id=source_id)
+        )
+    elif target_id:
+        matching_rows = app_tables.main_headings.search(
+            q.any_of(category_target_id=target_id)
+        )
+    else:
+        return []
     result = [{'main_heading_id': row['main_heading_id'], 'main_heading': row['main_heading']} for row in matching_rows]
     return result
  

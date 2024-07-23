@@ -14,15 +14,18 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - name: link_3
-    properties: {text: Search}
+    properties: {text: Homepage, role: null, underline: false}
     type: Link
-    layout_properties: {}
     event_bindings: {click: link_3_click}
   - name: link_2
     properties: {text: Map}
     type: Link
     layout_properties: {}
     event_bindings: {click: link_2_click}
+  - name: link_1
+    properties: {text: Suggestion List}
+    type: Link
+    event_bindings: {click: link_1_click}
 - name: column_panel_1
   properties: {role: null}
   type: ColumnPanel

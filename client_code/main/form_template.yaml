@@ -39,7 +39,7 @@ components:
   layout_properties: {slot: nav-right}
   components:
   - name: link_3
-    properties: {text: Search, role: null, underline: false}
+    properties: {text: Homepage, role: null, underline: false}
     type: Link
     layout_properties: {expand: false}
     event_bindings: {click: link_3_click}
@@ -80,7 +80,7 @@ components:
       type: Spacer
       layout_properties: {grid_position: 'UNJFZJ,DHUTSZ'}
     - name: link_suggest
-      properties: {text: Suggest new lexical item, spacing_above: large, wrap_on: mobile, role: null, col_spacing: small, underline: true, align: right}
+      properties: {role: null, align: right, spacing_above: large, icon: 'fa:plus', wrap_on: mobile, underline: true, col_spacing: small, icon_align: left, text: Suggest new lexical item}
       type: Link
       layout_properties: {grid_position: 'UNJFZJ,HFQUPX', full_width_row: false}
       event_bindings: {click: link_suggest_click}

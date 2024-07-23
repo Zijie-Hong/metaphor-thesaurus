@@ -21,6 +21,9 @@ class main(mainTemplate):
       open_form('main')
 
     def link_2_click(self, **event_args):
+      self.add_map_to_content_panel()
+
+    def add_map_to_content_panel(self):
       self.content_panel.clear()
       self.content_panel.add_component(map(), full_width_row=True)
 
@@ -47,9 +50,7 @@ class main(mainTemplate):
         self.content_panel.add_component(lexical_item_list, full_width_row=True)
         lexical_item_list.explore_list(letter)
 
-    def add_map_to_content_panel(self):
-        self.content_panel.clear()
-        self.content_panel.add_component(map(), full_width_row=True)
+    
       
     def search_lexical_item(self, data):
         self.content_panel.clear()
@@ -62,7 +63,7 @@ class main(mainTemplate):
   
         while True:
         # Open an alert displaying the 'EntryEdit' Form
-            entry_form = entry_edit(item=new_entry)
+            entry_form = entry_edit(item=new_entry, hide_components=True)
             save_clicked = alert(
                 content=entry_form,
                 title="Add Entry",

@@ -41,27 +41,31 @@ components:
     properties: {text: Metaphor Theme, role: input-prompt, font: ''}
     type: Label
     layout_properties: {}
-  - name: flow_panel_5
-    properties: {role: search-container, spacing: medium, vertical_align: middle}
-    type: FlowPanel
-    layout_properties: {}
+  - name: column_panel_3
+    properties: {}
+    type: ColumnPanel
     components:
-    - name: input_box_1
-      properties: {role: search-input, spacing_above: medium, spacing_below: small, placeholder: Target}
-      type: TextBox
-      layout_properties: {width: 143.56058984375}
-    - name: label_2
-      properties: {text: IS/ARE, spacing_above: small, spacing_below: small, bold: false, underline: false, italic: false}
-      type: Label
-      layout_properties: {}
-    - name: input_box_2
-      properties: {role: search-input, spacing_above: medium, placeholder: Source}
-      type: TextBox
-      layout_properties: {width: 150.597021484375}
-    - name: search_theme_button
-      properties: {text: '', role: search-button, align: center, icon: 'fa:search', spacing_above: medium, spacing_below: small, icon_align: left}
-      type: Button
-      event_bindings: {click: search_theme_button_click}
+    - name: flow_panel_4_copy
+      properties: {role: search-container, align: left, vertical_align: full, spacing: none}
+      type: FlowPanel
+      layout_properties: {grid_position: 'KOJJWC,EBNECE', full_width_row: false}
+      components:
+      - name: input_box_1
+        properties: {role: search-input, spacing_above: small, spacing_below: none, placeholder: Target}
+        type: TextBox
+        layout_properties: {width: 162.431884765625}
+      - name: label_2
+        properties: {text: IS/ARE, spacing_above: medium, spacing_below: none, bold: false, underline: false, italic: false}
+        type: Label
+        layout_properties: {}
+      - name: input_box_2
+        properties: {role: search-input, spacing_above: small, placeholder: Source, spacing_below: none}
+        type: TextBox
+        layout_properties: {width: 177.5381005859375}
+      - name: search_theme_button
+        properties: {text: '', role: search-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
+        type: Button
+        event_bindings: {click: search_theme_button_click}
 - name: flow_panel_3
   properties: {align: center}
   type: FlowPanel

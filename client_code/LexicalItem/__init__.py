@@ -6,6 +6,7 @@ from ..theme import theme
 from ..word import word
 from ..map import map
 from ..main import main
+from ..suggestion_list import suggestion_list
 
 
 class LexicalItem(LexicalItemTemplate):
@@ -75,8 +76,17 @@ class LexicalItem(LexicalItemTemplate):
       open_form('main')
 
   def link_2_click(self, **event_args):
-      main_form = open_form('main')
+      main_form = main()
       main_form.add_map_to_content_panel()
+      open_form(main_form)
+    
+
+  def link_1_click(self, **event_args):
+      main_form = main()
+      main_form.content_panel.clear()
+      suggestion_list_form = suggestion_list()
+      main_form.content_panel.add_component(suggestion_list_form, full_width_row=True)
+      open_form(main_form)
 
 
 
