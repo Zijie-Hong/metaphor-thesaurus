@@ -10,7 +10,7 @@ components:
   layout_properties: {slot: left-nav}
   components:
   - name: label_1
-    properties: {text: Expore List, align: center, visible: true, role: title}
+    properties: {text: List of Lexis, align: center, visible: true, role: title}
     type: Label
     layout_properties: {grid_position: ''}
   - name: letters_panel
