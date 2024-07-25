@@ -38,13 +38,32 @@ components:
       properties: {role: subtitle, align: center}
       type: Label
       layout_properties: {grid_position: 'QBDTOT,PBWHDS'}
+- name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'AAYHKX,XOGJMQ'}
+- name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'AAYHKX,VSCZOM'}
+- name: drop_down
+  properties:
+    items: [All, "adj\tadjective", "adjphr \tadjective phrase ", "adv\tadverb", "advphr\tadverbial phrase", "art\tarticle", "cl\tclause", "excl\texclamation", "idi\tidiom", "n\tnoun", "nplur\tplural noun", "nphr\tnoun phrase", "pr\tpreposition", "pref\tprefix", "prphr\tprepositional phrase", "pt\tparticle", "v\tverb", "verg\tergative verb", "vi\tintransitive verb", "v-inf\tinfinitive of the verb", "virec\treciprocal verb", "vtref\treflexive verb", "vt\ttransitive verb", "prp\tpresent participle", "pp\tpast participle ", '']
+    include_placeholder: true
+    placeholder: Choose word class
+    role: outlined
+    spacing_above: small
+    spacing_below: small
+  type: DropDown
+  layout_properties: {grid_position: 'AAYHKX,NWJWYJ'}
+  event_bindings: {change: drop_down_change}
 - name: list_panel
   properties: {}
   type: ColumnPanel
-  layout_properties: {grid_position: 'ZTXTEP,CQZIQD'}
+  layout_properties: {grid_position: 'GEKEKB,RUEEVW'}
   components: []
 - name: link_panel
   properties: {}
   type: ColumnPanel
-  layout_properties: {grid_position: 'MSZTNA,AMGIDY'}
+  layout_properties: {grid_position: 'CXFLOV,NPJKJO'}
 is_package: true

@@ -122,19 +122,6 @@ color: %color:On Primary Container%;
 }
 
 
-
-.anvil-role-headline {
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: 400;
-}
-
-.anvil-role-title {
-  font-size: 22px;
-  line-height: 28px;
-  font-weight: 500;
-}
-
 .anvil-role-body {
   font-size: 14px;
   line-height: 20px;
@@ -497,11 +484,14 @@ color: %color:On Primary Container%;
 
 
 /* Component: Dialog (alert), Notification */
+
 .modal-content, body>div[data-notify="container"] {
   border-radius: 28px;
   background: linear-gradient(0deg, %color:Primary Overlay 3%, %color:Primary Overlay 3%), %color:Background%;
   box-shadow: none;
   border: none;
+  top: 100px;
+
 }
 
 .modal-header {
@@ -841,9 +831,8 @@ input.anvil-component:hover, input.anvil-component:focus, textarea.anvil-compone
 }
 
 
-input.anvil-component[disabled], .anvil-component select[disabled], .anvil-datepicker input[disabled], textarea.anvil-component[disabled], 
-textarea.anvil-component.anvil-role-input-error[disabled], input.anvil-component.anvil-role-input-error[disabled], 
-.anvil-component.anvil-role-input-error select[disabled], .anvil-datepicker.anvil-role-input-error input[disabled] {
+input.anvil-component[disabled], .anvil-component select[disabled], 
+.anvil-datepicker input[disabled], textarea.anvil-component[disabled]{
   background-color: %color:Dark Overlay 1%;
   color: %color:On Disabled%;
   border-bottom: 1px solid %color:On Disabled%;
@@ -880,18 +869,9 @@ textarea.anvil-component.anvil-role-outlined::placeholder, input.anvil-component
   font-size: 14px; 
 }
 
-textarea.anvil-component.anvil-role-outlined-error:hover, textarea.anvil-component.anvil-role-outlined-error:focus, 
-input.anvil-component.anvil-role-outlined-error:hover, input.anvil-component.anvil-role-outlined-error:focus,
-.anvil-component.anvil-role-outlined-error select:hover, .anvil-component.anvil-role-outlined-error select:focus,
-.anvil-datepicker.anvil-role-outlined-error input:hover, .anvil-datepicker.anvil-role-outlined-error input:focus{
-  border: 2px solid %color:Error%;
-  padding-bottom: 6px;
-}
 
 textarea.anvil-component.anvil-role-outlined[disabled], input.anvil-component.anvil-role-outlined[disabled], 
-.anvil-component.anvil-role-outlined select[disabled], .anvil-datepicker.anvil-role-outlined input[disabled], 
-textarea.anvil-component.anvil-role-outlined-error[disabled], input.anvil-component.anvil-role-outlined-error[disabled], 
-.anvil-component.anvil-role-outlined-error select[disabled], .anvil-datepicker.anvil-role-outlined-error input[disabled] {
+.anvil-component.anvil-role-outlined select[disabled], .anvil-datepicker.anvil-role-outlined input[disabled]{
   border: 1px solid %color:On Disabled%;
   color: %color:On Disabled%;
   padding-bottom: 8px;
@@ -911,20 +891,6 @@ textarea.anvil-component.anvil-role-outlined-error[disabled], input.anvil-compon
 
 .daterangepicker td.off {
   color: %color:On Disabled%;
-}
-
-textarea.anvil-component.anvil-role-outlined-error, input.anvil-component.anvil-role-outlined-error, 
-.anvil-component.anvil-role-outlined-error select, .anvil-datepicker.anvil-role-outlined-error input {
-  color: %color:Error%;
-  background-color: transparent;
-  border: 1px solid %color:Error%;;
-  border-radius: 4px;
-}
-
-textarea.anvil-component.anvil-role-input-error, input.anvil-component.anvil-role-input-error, 
-.anvil-component.anvil-role-input-error select, .anvil-datepicker.anvil-role-input-error input {
-  color: %color:Error%;
-  border-color: %color:Error%; 
 }
 
 /*TODO: figure out what this is used for*/

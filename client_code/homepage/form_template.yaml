@@ -22,7 +22,7 @@ components:
       properties: {role: search-input, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search Dictionary}
       type: TextBox
       layout_properties: {width: 385.386884765625}
-      event_bindings: {}
+      event_bindings: {pressed_enter: outlined_1_pressed_enter}
     - name: search_lexical_item_button
       properties: {text: '', role: search-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
       type: Button
@@ -97,7 +97,7 @@ components:
   type: Label
   layout_properties: {grid_position: 'XJQKRB,FDOTUH'}
 - name: label_4
-  properties: {text: Introduction to the Metaphor Thesaurus, role: headline, underline: false, border: ''}
+  properties: {text: Introduction to the Metaphor Thesaurus, role: headline, underline: false, border: '', font_size: 22}
   type: Label
   layout_properties: {grid_position: 'VZKQCX,QHQPHB'}
   data_bindings: []

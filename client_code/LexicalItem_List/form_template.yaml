@@ -33,6 +33,24 @@ components:
       type: Button
       event_bindings: {click: search_lexical_item_button_click}
       layout_properties: {}
+- name: flow_panel_2
+  properties: {}
+  type: FlowPanel
+  layout_properties: {grid_position: 'IUUHAC,MHJSAO'}
+  components:
+  - name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {width: 249.42425537109375}
+  - name: drop_down
+    properties:
+      items: [All, "adj\tadjective", "adjphr \tadjective phrase ", "adv\tadverb", "advphr\tadverbial phrase", "art\tarticle", "cl\tclause", "excl\texclamation", "idi\tidiom", "n\tnoun", "nplur\tplural noun", "nphr\tnoun phrase", "pr\tpreposition", "pref\tprefix", "prphr\tprepositional phrase", "pt\tparticle", "v\tverb", "verg\tergative verb", "vi\tintransitive verb", "v-inf\tinfinitive of the verb", "virec\treciprocal verb", "vtref\treflexive verb", "vt\ttransitive verb", "prp\tpresent participle", "pp\tpast participle ", '']
+      include_placeholder: true
+      placeholder: Choose word class
+      role: outlined
+    type: DropDown
+    layout_properties: {width: 400.19486328125004}
+    event_bindings: {change: drop_down_change}
 - name: spacer_1
   properties: {height: 32}
   type: Spacer

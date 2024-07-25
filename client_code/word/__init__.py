@@ -73,3 +73,6 @@ class word(wordTemplate):
       if self.data_list and 0 <= self.current_index < len(self.data_list):
           return self.data_list[self.current_index].get('section_heading_id')
       return None
+
+  def link_1_click(self, **event_args):
+      open_form('main')

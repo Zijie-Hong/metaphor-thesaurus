@@ -35,18 +35,10 @@ roles:
   components: [TextBox, TextArea, DatePicker, DropDown]
   display_in_toolbox: true
   title: Outlined TextBox
-- name: headline
-  components: [Label, Link]
-- name: title
-  components: [Label, Link]
 - name: body
   components: [Label, Link]
 - name: tonal-data-grid
   components: [DataGrid]
-- name: outlined-error
-  components: [TextBox, TextArea, DatePicker, DropDown]
-- name: input-error
-  components: [TextBox, TextArea, DatePicker, DropDown]
 - {name: custom-divider, components: null}
 - {name: fixed-right, components: null}
 - name: subtitle
@@ -57,8 +49,9 @@ roles:
 - {name: text-link}
 - name: search-input
   components: [TextBox]
-- {name: search-container}
-- {name: search-button}
+- {name: search-container, components: null}
+- name: search-button
+  components: [Button]
 color_scheme:
   preset_groups:
   - name: Colour Scheme

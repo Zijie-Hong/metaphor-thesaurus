@@ -2,7 +2,7 @@ from ._anvil_designer import themeTemplate
 from anvil import *
 import anvil.server
 from ..link import link
-from ..utils import populate_content_panel, open_lexical_item
+from ..utils import populate_content_panel, open_lexical_item, drop_down_change
 
 class theme(themeTemplate):
   def __init__(self, data=None, **properties):
@@ -12,6 +12,8 @@ class theme(themeTemplate):
       self.section_heading_id = None
       self.back_link.visible = False
       self.link_form = None
+      self.headwords = None
+      self.expanded_content_panels = []
     
       if isinstance(data, int):         #section_heading_id搜索
           self.data = data
@@ -81,14 +83,17 @@ class theme(themeTemplate):
 
       if content_panel.visible:
             sender.icon = 'fa:chevron-down'
+            self.expanded_content_panels.append(content_panel)
       else:
             sender.icon = 'fa:chevron-right'
+            self.expanded_content_panels.remove(content_panel)
         
       # 如果内容尚未加载，则加载内容
       if not content_panel.tag.loaded:
           section_heading_id = sender.tag.section_heading_id
           lexical_items = anvil.server.call('get_lexical_items', section_heading_id)
-          populate_content_panel(content_panel, lexical_items, open_lexical_item)
+          self.headwords = lexical_items
+          populate_content_panel(content_panel, lexical_items, open_lexical_item, word_class=True)
  
 
   def main_heading_list(self, data_list):
@@ -127,5 +132,12 @@ class theme(themeTemplate):
           self.list_panel.visible = True
           self.back_link.visible = False
           self.link_other_themes.visible = True
+
+  def drop_down_change(self, **event_args):
+      if self.expanded_content_panels:
+        for panel in self.expanded_content_panels:
+            drop_down_change(self, panel)
+      else:
+        alert("Please expand a section before filtering.")
             
         

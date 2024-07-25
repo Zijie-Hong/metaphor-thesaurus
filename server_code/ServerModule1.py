@@ -129,7 +129,7 @@ def get_section_heading(main_heading_id):
 @anvil.server.callable
 def get_lexical_items(section_heading_id):
     rows = app_tables.lexical_items.search(section_heading_id=section_heading_id)
-    return [row['english_headword'] for row in rows]
+    return [(row['english_headword'], row['metaphorical_word_class']) for row in rows]
 
 @anvil.server.callable
 def update_data_in_database(record_id, new_data):
@@ -156,10 +156,21 @@ def get_lexical_items_by_letter(letter):
     seen = set()
     for item in items:
         headword = item['english_headword']
+        metaphorical_word_class = item['metaphorical_word_class']
         if headword not in seen:
-            seen.add(headword)
+            seen.add((headword,metaphorical_word_class))
     unique_headwords = sorted(seen)
     return unique_headwords
+
+@anvil.server.callable
+def search_in_lexical_list(input_list, search_target):
+    search_target = search_target.lower()
+    
+    results = [item for item in input_list if search_target in item]
+    
+    return results if results else None
+
+
 
 @anvil.server.callable
 def get_matching_headings(source_text, target_text):
