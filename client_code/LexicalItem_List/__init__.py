@@ -14,3 +14,6 @@ class LexicalItem_List(LexicalItem_ListTemplate):
     def search_list(self, data):
         populate_content_panel(self.grid_panel, data, open_lexical_item, is_grid=True)
 
+    def link_1_click(self, **event_args):
+      open_form('main')
+

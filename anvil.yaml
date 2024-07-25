@@ -48,8 +48,8 @@ db_schema:
     - name: literal_meaning
       admin_ui: {width: 200}
       type: string
-    - name: word_class
-      admin_ui: {width: 200}
+    - name: literal_word_class
+      admin_ui: {order: 3, width: 200}
       type: string
     - name: metaphor_meaning
       admin_ui: {width: 200}
@@ -59,6 +59,9 @@ db_schema:
       type: string
     - name: added_time
       admin_ui: {width: 200}
+      type: string
+    - name: metaphorical_word_class
+      admin_ui: {order: 3.5, width: 200}
       type: string
   targets:
     title: targets

@@ -1,7 +1,7 @@
 from anvil import *
 import anvil.server
 
-def populate_content_panel(content_panel, lexical_items, open_item_function, is_grid=False, num_columns=4):
+def populate_content_panel(content_panel, lexical_items, open_item_function, is_grid=False, num_columns=3):
     content_panel.clear()
     
     for index, item in enumerate(lexical_items):
@@ -12,7 +12,7 @@ def populate_content_panel(content_panel, lexical_items, open_item_function, is_
         if is_grid:
             row = f"row_{index // num_columns}"
             col_xs = index % num_columns
-            content_panel.add_component(content_link, row=row, col_xs=col_xs, width_xs=3)
+            content_panel.add_component(content_link, row=row, col_xs=col_xs, width_xs=4.5)
         else:
             content_panel.add_component(content_link)
             

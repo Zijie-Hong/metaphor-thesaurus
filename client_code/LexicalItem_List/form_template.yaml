@@ -1,8 +1,45 @@
 container: {type: ColumnPanel}
 components:
+- name: link_1
+  properties: {text: Back, icon: 'fa:chevron-left', icon_align: left}
+  type: Link
+  layout_properties: {grid_position: 'XUESMQ,HFZTOU'}
+  event_bindings: {click: link_1_click}
+- name: flow_panel_1
+  properties: {align: left}
+  type: FlowPanel
+  layout_properties: {grid_position: 'LSUGSX,CFOUQU'}
+  components:
+  - name: spacer_3
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {width: 147.039884765625}
+  - name: label_3
+    properties: {text: Lexical Item, align: left, spacing_above: small, underline: false, bold: false, role: input-prompt}
+    type: Label
+    layout_properties: {}
+  - name: flow_panel_4
+    properties: {role: search-container, align: left, vertical_align: full, spacing: none}
+    type: FlowPanel
+    layout_properties: {expand: false}
+    components:
+    - name: outlined_1
+      properties: {role: search-input, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search Dictionary}
+      type: TextBox
+      layout_properties: {width: 385.386884765625}
+      event_bindings: {}
+    - name: search_lexical_item_button
+      properties: {text: '', role: search-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
+      type: Button
+      event_bindings: {click: search_lexical_item_button_click}
+      layout_properties: {}
+- name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'BTBFUE,OFEMJA'}
 - name: grid_panel
   properties: {}
   type: GridPanel
-  layout_properties: {grid_position: 'DFADSR,XYYQPN', full_width_row: false}
+  layout_properties: {grid_position: 'ZOXFAA,ZJDVYF'}
   components: []
 is_package: true

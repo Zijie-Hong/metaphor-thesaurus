@@ -31,7 +31,8 @@ def get_lexical_item_details(headword):
             "lexical_item_id": row['lexical_item_id'],
             "section_heading_id": row['section_heading_id'],
             "english_headword": row['english_headword'],
-            "word_class": row['word_class'],
+            "literal_word_class": row['literal_word_class'],
+            "metaphorical_word_class": row['metaphorical_word_class'],
             "literal_meaning": row['literal_meaning'],
             "metaphor_meaning": row['metaphor_meaning'],
             "english_example_sentence": row['english_example_sentence'],
@@ -137,7 +138,8 @@ def update_data_in_database(record_id, new_data):
         # Update the record with the new data
         record['english_headword'] = new_data['english_headword']
         record['literal_meaning'] = new_data['literal_meaning']
-        record['word_class'] = new_data['word_class']
+        record["literal_word_class"]= new_data['literal_word_class']
+        record["metaphorical_word_class"]= new_data['metaphorical_word_class']
         record['metaphor_meaning'] = new_data['metaphor_meaning']
         record['english_example_sentence'] = new_data['english_example_sentence']
         

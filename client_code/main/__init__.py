@@ -49,8 +49,6 @@ class main(mainTemplate):
         lexical_item_list = LexicalItem_List()
         self.content_panel.add_component(lexical_item_list, full_width_row=True)
         lexical_item_list.explore_list(letter)
-
-    
       
     def search_lexical_item(self, data):
         self.content_panel.clear()
@@ -74,7 +72,7 @@ class main(mainTemplate):
             # If the alert returned 'True', the save button was clicked.
             if save_clicked:
                 # 检查所有必填字段
-                required_fields = ['english_headword', 'literal_meaning', 'metaphor_meaning', 'word_class', 'english_example_sentence']  # 添加所有必填字段
+                required_fields = ['english_headword', 'literal_meaning', 'metaphor_meaning', 'literal_word_class', 'metaphorical_word_class','english_example_sentence']  # 添加所有必填字段
                 empty_fields = [field for field in required_fields if not new_entry.get(field)]
                 
                 if empty_fields:
