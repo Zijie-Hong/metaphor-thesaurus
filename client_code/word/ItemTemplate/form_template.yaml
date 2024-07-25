@@ -31,10 +31,14 @@ components:
     type: Label
     data_bindings:
     - {property: text, code: 'self.item[''section_heading'']', writeback: false}
+- name: label_7_copy
+  properties: {italic: true, bold: true, text: Literal Meaning}
+  type: Label
+  layout_properties: {grid_position: 'SWITOZ,BLGNBN'}
 - name: label_word_class
   properties: {italic: true, align: left, text: word_class}
   type: Label
-  layout_properties: {grid_position: 'MJYFFR,VANVLU'}
+  layout_properties: {grid_position: 'SWITOZ,AGLGVG'}
   data_bindings:
   - {property: text, code: 'self.item[''word_class'']', writeback: false}
 - name: label_literal_meaning

@@ -88,14 +88,17 @@ db_schema:
     - name: literal_meaning
       admin_ui: {width: 200}
       type: string
-    - name: word_class
-      admin_ui: {width: 200}
+    - name: metaphorical_word_class
+      admin_ui: {order: 4, width: 200}
       type: string
     - name: metaphor_meaning
       admin_ui: {width: 200}
       type: string
     - name: english_example_sentence
       admin_ui: {width: 200}
+      type: string
+    - name: literal_word_class
+      admin_ui: {width: 200, order: 3.5}
       type: string
   category_sources:
     title: category_sources
