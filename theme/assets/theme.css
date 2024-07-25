@@ -389,7 +389,7 @@ color: %color:On Primary Container%;
   line-height: 40px;
   font-size: 20px;
 
-  background-color: %color:Surface%;
+  background-color: %color:Surface Variant%;
   transition: background-color 250ms;
   -webkit-transition: background-color 250ms;
   -moz-transition: background-color 250ms;
@@ -1155,4 +1155,17 @@ input.anvil-component.anvil-role-search-input::placeholder,
 .anvil-role-search-button:hover {
   background-color: %color:On Primary%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.anvil-role-section-title {
+  font-size: 20px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.anvil-role-section-title:hover {
+  color: %color:Primary%;
+  transform: translateX(5px);
 }

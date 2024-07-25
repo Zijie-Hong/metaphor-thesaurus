@@ -63,7 +63,7 @@ class theme(themeTemplate):
   def init_list(self, section_heading_data):
       for item in section_heading_data:
         # 假设 item 是一个字典，包含 'section_heading_id' 和 'section_heading' 键
-        header_link = Link(text=item.get('section_heading', 'No Title'), role='title', icon='fa:chevron-right')
+        header_link = Link(text=item.get('section_heading', 'No Title'), role='section-title', icon='fa:chevron-right')
         header_link.tag.section_heading_id = item.get('section_heading_id')
         content_panel = ColumnPanel(visible=False)
         content_panel.tag.loaded = False
@@ -100,7 +100,7 @@ class theme(themeTemplate):
       self.column_panel_1.visible = False
       self.list_panel.visible = True
       for index, item in enumerate(data_list, start=1):
-          link = Link(text=f"{index}. {item}", role='title')
+          link = Link(text=f"{index}. {item}", role='section-title')
           link.tag.main_heading = item
           link.set_event_handler('click', self.main_heading_click)
           self.list_panel.add_component(link)

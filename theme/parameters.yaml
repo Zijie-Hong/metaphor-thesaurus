@@ -52,6 +52,8 @@ roles:
 - {name: search-container, components: null}
 - name: search-button
   components: [Button]
+- name: section-title
+  components: [Label, Link]
 color_scheme:
   preset_groups:
   - name: Colour Scheme

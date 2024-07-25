@@ -56,9 +56,11 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'FNSCBJ,JPUBBU'}
   - name: label_7_copy
-    properties: {italic: false, bold: true, text: Literal Meaning, font_size: 16}
+    properties: {italic: false, bold: true, text: ' Literal Meaning', font_size: 16, background: 'theme:Primary Overlay 2', foreground: ''}
     type: Label
     layout_properties: {grid_position: 'MXPEGJ,USTMRC'}
+    data_bindings:
+    - {property: border, code: '', writeback: false}
   - name: label_literal_word_class
     properties: {role: null, align: left, spacing_above: small, background: '', font: times, foreground: '', spacing_below: none, border: '', italic: true, font_size: 16, text: word_class}
     type: Label
@@ -76,7 +78,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'STCDTJ,BSOKEJ'}
   - name: label_7
-    properties: {italic: false, bold: true, text: Metaphor Meaning, font_size: 16}
+    properties: {italic: false, bold: true, text: ' Metaphor Meaning', font_size: 16, background: 'theme:Primary Overlay 2'}
     type: Label
     layout_properties: {grid_position: 'XDDUBI,JUVRIR'}
   - name: label_metaphorical_word_class
@@ -96,7 +98,7 @@ components:
     type: Spacer
     layout_properties: {grid_position: 'IDCZIA,SCJBPO'}
   - name: label_9
-    properties: {bold: true, italic: false, text: Example Sentence, font_size: 16}
+    properties: {bold: true, italic: false, text: ' Example Sentence', font_size: 16, background: 'theme:Primary Overlay 2'}
     type: Label
     layout_properties: {grid_position: 'BWFNBF,MAVQRY'}
   - name: label_english_example_sentence
