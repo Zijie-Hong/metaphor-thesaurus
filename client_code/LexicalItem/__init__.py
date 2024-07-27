@@ -47,7 +47,8 @@ class LexicalItem(LexicalItemTemplate):
       #           form.data = section_heading_id
       #           form.update_display() 
 
-      
+
+    
   def reset_button_styles(self):
     self.item_panel.role = "default"
     self.theme_panel.role = "default"

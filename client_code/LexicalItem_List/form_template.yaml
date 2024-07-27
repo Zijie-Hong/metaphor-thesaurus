@@ -33,15 +33,23 @@ components:
       type: Button
       event_bindings: {click: search_lexical_item_button_click}
       layout_properties: {}
-- name: flow_panel_2
+- name: column_panel_1
   properties: {}
-  type: FlowPanel
-  layout_properties: {grid_position: 'IUUHAC,MHJSAO'}
+  type: ColumnPanel
+  layout_properties: {grid_position: 'CLKFBG,QOLOBX'}
   components:
   - name: spacer_2
     properties: {height: 32}
     type: Spacer
-    layout_properties: {width: 249.42425537109375}
+    layout_properties: {grid_position: 'CQWQLQ,XFNXGH'}
+  - name: spacer_4
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'CQWQLQ,VHYUWW'}
+  - name: spacer_5
+    properties: {height: 32}
+    type: Spacer
+    layout_properties: {grid_position: 'CQWQLQ,WGSQIT'}
   - name: drop_down
     properties:
       items: [All, idi, "adj\tadjective", "adjphr \tadjective phrase ", "adv\tadverb", "advphr\tadverbial phrase", "art\tarticle", "cl\tclause", "excl\texclamation", "idi\tidiom", "n\tnoun", "nplur\tplural noun", "nphr\tnoun phrase", "pr\tpreposition", "pref\tprefix", "prphr\tprepositional phrase", "pt\tparticle", "v\tverb", "verg\tergative verb", "vi\tintransitive verb", "v-inf\tinfinitive of the verb", "virec\treciprocal verb", "vtref\treflexive verb", "vt\ttransitive verb", "prp\tpresent participle", "pp\tpast participle ", '']
@@ -49,7 +57,7 @@ components:
       placeholder: Filter by word class
       role: outlined
     type: DropDown
-    layout_properties: {width: 400.19486328125004}
+    layout_properties: {grid_position: 'CQWQLQ,GCHXRH'}
     event_bindings: {change: drop_down_change}
 - name: spacer_1
   properties: {height: 32}
