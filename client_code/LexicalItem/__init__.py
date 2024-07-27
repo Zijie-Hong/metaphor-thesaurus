@@ -89,6 +89,10 @@ class LexicalItem(LexicalItemTemplate):
       main_form.content_panel.add_component(suggestion_list_form, full_width_row=True)
       open_form(main_form)
 
+  def link_7_copy_click(self, **event_args):
+    """This method is called when the link is clicked"""
+    pass
+
 
 
 

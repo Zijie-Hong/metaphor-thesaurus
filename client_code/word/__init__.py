@@ -50,7 +50,7 @@ class word(wordTemplate):
   
   def button_edit_click(self, **event_args):
           result = check_password()
-          if result: 
+          if result is True:
               data = self.data_list[self.current_index]
               entry_copy = data
               save_clicked = alert(
@@ -64,7 +64,7 @@ class word(wordTemplate):
                   self.data_list[self.current_index] = entry_copy
                   self.item = entry_copy
                   self.update_display()
-          else:
+          elif result == 'wrong':
               alert("Incorrect password. Edit mode not activated.")
 
 

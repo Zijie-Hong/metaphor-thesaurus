@@ -129,11 +129,6 @@ components:
       properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: privacy policy.}
       type: Link
       layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-    - name: faq_link
-      properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: FAQs.}
-      type: Link
-      layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-      event_bindings: {}
     - name: bottom_contact_link
       properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: contact us.}
       type: Link

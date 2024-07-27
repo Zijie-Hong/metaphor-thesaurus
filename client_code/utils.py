@@ -4,11 +4,15 @@ import re
 
 def populate_content_panel(content_panel, lexical_items, open_item_function, word_class=False, is_grid=False, num_columns=3):
     content_panel.clear()
+    seen = set()
     for index, item in enumerate(lexical_items):
+        main_heading = item[0] if word_class else item
         if word_class:
-            content_link = Link(text=f"{index+1}. {item[0]}", role='text-link')
-        else:
-            content_link = Link(text=f"{index+1}. {item}", role='text-link')
+            if main_heading in seen:
+                continue  # 如果已经处理过，跳过当前项目
+            seen.add(main_heading)  # 记录这个词头已经添加过
+        display_text = f"{index+1}. {main_heading}" if word_class else f"{index+1}. {item}"
+        content_link = Link(text=display_text, role='text-link')
         
         content_link.tag.main_heading = item
         content_link.set_event_handler('click', lambda sender, word_class=word_class, **event_args: open_item_function(sender, word_class=word_class, **event_args))
@@ -40,7 +44,7 @@ def check_password():
           buttons=[("OK", True), ("Cancel", False)],
       )
       if result:
-          if password_box.text == '123':
+          if anvil.server.call('verify_password', password_box.text):
             return True
           else:
             return 'wrong'

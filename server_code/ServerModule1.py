@@ -23,23 +23,6 @@ def search_lexical_items(input):
     )
     return list(set((row['english_headword'], row['metaphorical_word_class']) for row in matching_rows)) or None
   
-@anvil.server.callable
-def get_lexical_item_details(headword):
-    matching_rows = app_tables.lexical_items.search(english_headword=headword)
-    results = []
-    
-    for row in matching_rows:
-        results.append({
-            "lexical_item_id": row['lexical_item_id'],
-            "section_heading_id": row['section_heading_id'],
-            "english_headword": row['english_headword'],
-            "literal_word_class": row['literal_word_class'],
-            "metaphorical_word_class": row['metaphorical_word_class'],
-            "literal_meaning": row['literal_meaning'],
-            "metaphor_meaning": row['metaphor_meaning'],
-            "english_example_sentence": row['english_example_sentence'],
-        })
-    return results if results else None
 
 def search_with_connectors(input1: str, input2: str, connectors: list) -> list:
     results = []
@@ -208,7 +191,7 @@ def add_new_lexical_item(entry_dict):
         return {'status': 'error', 'message': str(e)}
       
 @anvil.server.callable
-def get_entries():
+def get_suggestion_entries():
     # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
     return app_tables.suggestion.search(
       tables.order_by("added_time", ascending=False)
@@ -250,3 +233,8 @@ def accept_entry(entry, section_heading_id):
         return {'status': 'success', 'message': 'Item added successfully.'}
     except Exception as e:
         return {'status': 'error', 'message': str(e)}
+
+@anvil.server.callable
+def verify_password(password):
+    # 假设管理员密码为 "adminpass"，实际使用中应更加复杂并使用哈希存储
+    return password == "adminpass"

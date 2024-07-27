@@ -12,6 +12,7 @@ class homepage(homepageTemplate):
     user_input = self.outlined_1.text.strip().lower()
     if user_input:
         results = anvil.server.call('search_lexical_items', user_input)
+        print
         if results:
             open_form('main')
             main_form = get_open_form()
