@@ -215,6 +215,12 @@ def get_entries():
     )
 
 @anvil.server.callable
+def get_lexical_entries(headword):
+    # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
+    matching_entries = app_tables.lexical_items.search(english_headword=headword)
+    return list(matching_entries)
+  
+@anvil.server.callable
 def update_entry(entry, entry_dict):
   existing_entry = app_tables.lexical_items.get(lexical_item_id=entry['lexical_item_id'])
   if existing_entry:

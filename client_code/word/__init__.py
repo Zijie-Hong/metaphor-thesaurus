@@ -18,8 +18,7 @@ class word(wordTemplate):
           else:
               self.button_1.visible = False
               self.button_2.visible = True
-      
-    
+          
   def update_display(self):
       if self.data_list and 0 <= self.current_index < len(self.data_list):
           data = self.data_list[self.current_index]
@@ -71,7 +70,7 @@ class word(wordTemplate):
 
   def get_data(self):
       if self.data_list and 0 <= self.current_index < len(self.data_list):
-          return self.data_list[self.current_index].get('section_heading_id')
+          return self.data_list[self.current_index]['section_heading_id']
       return None
 
   def link_1_click(self, **event_args):

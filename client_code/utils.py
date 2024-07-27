@@ -25,11 +25,10 @@ def populate_content_panel(content_panel, lexical_items, open_item_function, wor
 def open_lexical_item(sender, word_class=False, **event_args):
     if not word_class:
         user_input = sender.tag.main_heading
-        results = anvil.server.call('get_lexical_item_details', user_input)
-        
+        results = anvil.server.call('get_lexical_entries', user_input)
     else:
         user_input = sender.tag.main_heading[0]
-        results = anvil.server.call('get_lexical_item_details', user_input)
+        results = anvil.server.call('get_lexical_entries', user_input)
       
     open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
 
