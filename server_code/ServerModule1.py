@@ -3,7 +3,9 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
+from functools import lru_cache
 
+@lru_cache(maxsize=128)
 @anvil.server.callable
 def search_lexical_items(input):
     query1 = f'% {input} %'  # 单词在中间
@@ -19,7 +21,7 @@ def search_lexical_items(input):
         q.like(query4)
         )
     )
-    return list(set(row['english_headword'] for row in matching_rows)) or None
+    return list(set((row['english_headword'], row['metaphorical_word_class']) for row in matching_rows)) or None
   
 @anvil.server.callable
 def get_lexical_item_details(headword):
@@ -164,9 +166,9 @@ def get_lexical_items_by_letter(letter):
 
 @anvil.server.callable
 def search_in_lexical_list(input_list, search_target):
-    search_target = search_target.lower()
+    search_target = search_target.lower().split()  # 将搜索目标拆分为单词
     
-    results = [item for item in input_list if search_target in item]
+    results = [item for item in input_list if any(target in word for target in search_target for word in item.split())]
     
     return results if results else None
 

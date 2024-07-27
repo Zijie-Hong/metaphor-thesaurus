@@ -14,7 +14,9 @@ class LexicalItem_List(LexicalItem_ListTemplate):
         populate_content_panel(self.grid_panel, headwords, open_lexical_item, word_class=True, is_grid=True)
 
     def search_list(self, data):
-        populate_content_panel(self.grid_panel, data, open_lexical_item, is_grid=True)
+        headwords = [item[0] for item in data]
+        self.headwords = headwords
+        populate_content_panel(self.grid_panel, headwords, open_lexical_item, is_grid=True)
 
     def link_1_click(self, **event_args):
       open_form('main')
