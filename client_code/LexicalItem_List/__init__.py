@@ -7,16 +7,18 @@ class LexicalItem_List(LexicalItem_ListTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
         self.headwords = None
+        self.data = None
  
     def explore_list(self, letter):
         headwords = anvil.server.call('get_lexical_items_by_letter', letter)
+        self.data = headwords
         self.headwords = headwords
         populate_content_panel(self.grid_panel, headwords, open_lexical_item, word_class=True, is_grid=True)
 
     def search_list(self, data):
-        headwords = [item[0] for item in data]
+        headwords = data
         self.headwords = headwords
-        populate_content_panel(self.grid_panel, headwords, open_lexical_item, is_grid=True)
+        populate_content_panel(self.grid_panel, headwords, open_lexical_item, word_class=True, is_grid=True)
 
     def link_1_click(self, **event_args):
       open_form('main')

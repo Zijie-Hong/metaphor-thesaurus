@@ -41,41 +41,25 @@ def get_lexical_item_details(headword):
         })
     return results if results else None
 
-@anvil.server.callable
-def search_by_theme(input1, input2):
-    connectors = ['IS', 'ARE']
+def search_with_connectors(input1: str, input2: str, connectors: list) -> list:
     results = []
     for connector in connectors:
         query = f'%{input1}% {connector} %{input2}%'
         matching_rows = app_tables.main_headings.search(main_heading=q.like(query))
-        results.extend([row['main_heading'] for row in matching_rows]) 
-    if results:
-        return results
-    return None
+        results.extend([row['main_heading'] for row in matching_rows])
+    return results or None
 
 @anvil.server.callable
-def search_themes_by_target(input):
-    connectors = ['IS', 'ARE']
-    results = []
-    for connector in connectors:
-        query = f'%{input}% {connector}%'
-        matching_rows = app_tables.main_headings.search(main_heading=q.like(query))
-        results.extend([row['main_heading'] for row in matching_rows]) 
-    if results:
-        return results
-    return None
+def search_by_theme(input1: str, input2: str) -> list:
+    return search_with_connectors(input1, input2, ['IS', 'ARE'])
 
 @anvil.server.callable
-def search_themes_by_source(input):
-    connectors = ['IS', 'ARE']
-    results = []
-    for connector in connectors:
-        query = f'%{connector} %{input}%'
-        matching_rows = app_tables.main_headings.search(main_heading=q.like(query))
-        results.extend([row['main_heading'] for row in matching_rows]) 
-    if results:
-        return results
-    return None
+def search_themes_by_target(input: str) -> list:
+    return search_with_connectors(input, '', ['IS', 'ARE'])
+
+@anvil.server.callable
+def search_themes_by_source(input: str) -> list:
+    return search_with_connectors('', input, ['IS', 'ARE'])
 
   
 @anvil.server.callable
@@ -209,22 +193,14 @@ def get_relationships_by_main_heading_id(main_heading_id):
 @anvil.server.callable
 def add_new_lexical_item(entry_dict):
     max_id_entry = app_tables.suggestion.search(tables.order_by("id", ascending=False))
-    if max_id_entry and len(max_id_entry) > 0:
-      max_id = max_id_entry[0]['id']
-      new_id = max_id + 1
-    else:
-      new_id = 1
+    new_id = max_id_entry[0]['id'] + 1 if max_id_entry else 1
     entry_dict['id'] = new_id
     now = datetime.now().replace(microsecond=0)
     formatted_time = now.strftime("%Y-%m-%d %H:%M:%S")
     try:
-        app_tables.suggestion.add_row(
-        added_time=formatted_time,
-        **entry_dict
-    )
+        app_tables.suggestion.add_row(added_time=formatted_time, **entry_dict)
         return {'status': 'success', 'message': 'Item added successfully.'}
     except Exception as e:
-        # 发生错误时返回错误消息
         return {'status': 'error', 'message': str(e)}
       
 @anvil.server.callable
@@ -254,12 +230,7 @@ def delete_entry(entry):
 @anvil.server.callable
 def accept_entry(entry, section_heading_id):
     max_id_entry = app_tables.lexical_items.search(tables.order_by("lexical_item_id", ascending=False))
-    if max_id_entry and len(max_id_entry) > 0:
-      max_id = max_id_entry[0]['lexical_item_id']
-      new_id = max_id + 1
-    else:
-      new_id = 1
-
+    new_id = max_id_entry[0]['lexical_item_id'] + 1 if max_id_entry else 1
     try:
         app_tables.lexical_items.add_row(
             lexical_item_id=new_id,
@@ -268,5 +239,4 @@ def accept_entry(entry, section_heading_id):
         )
         return {'status': 'success', 'message': 'Item added successfully.'}
     except Exception as e:
-        # 发生错误时返回错误消息
         return {'status': 'error', 'message': str(e)}
