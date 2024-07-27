@@ -24,7 +24,7 @@ components:
     layout_properties: {expand: false}
     components:
     - name: outlined_1
-      properties: {role: search-input, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search Dictionary}
+      properties: {role: search-input, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search List}
       type: TextBox
       layout_properties: {width: 385.386884765625}
       event_bindings: {}
@@ -46,7 +46,7 @@ components:
     properties:
       items: [All, "adj\tadjective", "adjphr \tadjective phrase ", "adv\tadverb", "advphr\tadverbial phrase", "art\tarticle", "cl\tclause", "excl\texclamation", "idi\tidiom", "n\tnoun", "nplur\tplural noun", "nphr\tnoun phrase", "pr\tpreposition", "pref\tprefix", "prphr\tprepositional phrase", "pt\tparticle", "v\tverb", "verg\tergative verb", "vi\tintransitive verb", "v-inf\tinfinitive of the verb", "virec\treciprocal verb", "vtref\treflexive verb", "vt\ttransitive verb", "prp\tpresent participle", "pp\tpast participle ", '']
       include_placeholder: true
-      placeholder: Choose word class
+      placeholder: Filter by word class
       role: outlined
     type: DropDown
     layout_properties: {width: 400.19486328125004}

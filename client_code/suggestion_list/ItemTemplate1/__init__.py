@@ -14,12 +14,16 @@ class ItemTemplate1(ItemTemplate1Template):
       # Any code you write here will run before the form opens.
 
   def delete_entry_button_click(self, **event_args):
-      if confirm(f"Are you sure you want to delete {self.item['english_headword']}?"):
-          self.parent.raise_event('x-delete-entry', entry=self.item)
+      result = check_password()
+      if result is True:
+        if confirm(f"Are you sure you want to delete {self.item['english_headword']}?"):
+            self.parent.raise_event('x-delete-entry', entry=self.item)
+      elif result == 'wrong':
+        alert("Incorrect password.")
 
   def edit_entry_button_click(self, **event_args):
       result = check_password()
-      if result: 
+      if result is True:
           entry_copy = dict(self.item)
           entry_form = entry_edit(item=entry_copy)
           save_clicked = alert(
@@ -42,5 +46,5 @@ class ItemTemplate1(ItemTemplate1Template):
                 alert(result['message'])
             # Now refresh the page
             self.refresh_data_bindings()
-      else:
-              alert("Incorrect password.")
+      elif result == 'wrong':
+            alert("Incorrect password.")

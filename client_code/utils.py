@@ -34,7 +34,7 @@ def open_lexical_item(sender, word_class=False, **event_args):
     open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
 
 def check_password():
-      password_box = TextBox(placeholder="Enter password", hide_text=True)
+      password_box = TextBox(placeholder="Enter password", role="outlined", hide_text=True)
       result = alert(
           content=password_box,
           title="Password Required",
@@ -44,7 +44,9 @@ def check_password():
           if password_box.text == '123':
             return True
           else:
-            return False
+            return 'wrong'
+      else:
+          return False
 
 
 def drop_down_change(self, panel, **event_args):      #filter by word class
