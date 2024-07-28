@@ -44,11 +44,22 @@ class main(mainTemplate):
                 self.column_2.add_component(link)
         
     def on_letter_click(self, sender, **event_args):
-        letter = sender.text
-        self.content_panel.clear()
-        lexical_item_list = LexicalItem_List()
-        self.content_panel.add_component(lexical_item_list, full_width_row=True)
-        lexical_item_list.explore_list(letter)
+        if (self.link_lexis.role != "selected" and
+            self.link_theme.role != "selected" and
+            self.link_source.role != "selected"):
+            print('no')
+            alert('Please select one list')
+        else:
+            letter = sender.text
+            self.content_panel.clear()
+            lexical_item_list = LexicalItem_List()
+            self.content_panel.add_component(lexical_item_list, full_width_row=True)
+            if self.link_lexis.role == "selected":
+                lexical_item_list.explore_letter_list(letter)
+            elif self.link_theme.role == "selected":
+                lexical_item_list.explore_theme_list(letter)
+            elif self.link_source.role == "selected":
+                lexical_item_list.explore_source(letter)
       
     def search_lexical_item(self, data):
         self.content_panel.clear()
@@ -90,13 +101,30 @@ class main(mainTemplate):
                         alert(f"Error adding entry: {result['message']}")
                         # 可以选择是否继续循环或退出
             else:
-                # 用户点击了取消
                 break
-              
+
+
+    def reset_link_styles(self):
+        self.link_lexis.role = "default"
+        self.link_theme.role = "default"
+        self.link_source.role = "default"
+    
     def link_1_click(self, **event_args):
         self.content_panel.clear()
         suggestion_list_form = suggestion_list()
         self.content_panel.add_component(suggestion_list_form, full_width_row=True)
+
+    def link_lexis_click(self, **event_args):
+        self.reset_link_styles()
+        self.link_lexis.role = "selected"
+
+    def link_theme_click(self, **event_args):
+        self.reset_link_styles()
+        self.link_theme.role = "selected"
+
+    def link_source_click(self, **event_args):
+        self.reset_link_styles()
+        self.link_source.role = "selected"
 
     
         

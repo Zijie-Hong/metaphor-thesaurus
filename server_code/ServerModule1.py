@@ -44,6 +44,15 @@ def search_themes_by_target(input: str) -> list:
 def search_themes_by_source(input: str) -> list:
     return search_with_connectors('', input, ['IS', 'ARE'])
 
+@anvil.server.callable
+def get_theme_by_letter(letter):
+    # 查询以指定字母开头的主题，不区分大小写
+    results = app_tables.main_headings.search(
+        main_heading=q.ilike(letter + '%')
+    )
+    # 按字母排序并返回结果
+    sorted_results = sorted(results, key=lambda x: x['main_heading'])
+    return [theme['main_heading'] for theme in sorted_results]
   
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):

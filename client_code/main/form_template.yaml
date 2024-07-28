@@ -9,10 +9,21 @@ components:
   type: ColumnPanel
   layout_properties: {slot: left-nav}
   components:
-  - name: label_1
-    properties: {text: List of Lexis, align: center, visible: true, role: title, font_size: 18}
-    type: Label
-    layout_properties: {grid_position: ''}
+  - name: link_lexis
+    properties: {text: List of Lexis, role: null, align: center}
+    type: Link
+    layout_properties: {grid_position: 'YFYWRA,LMMSAD'}
+    event_bindings: {click: link_lexis_click}
+  - name: link_theme
+    properties: {text: List of Theme, align: center}
+    type: Link
+    layout_properties: {grid_position: 'ZIDTWF,IKJPOT'}
+    event_bindings: {click: link_theme_click}
+  - name: link_source
+    properties: {text: List of Source, align: center}
+    type: Link
+    layout_properties: {grid_position: 'YREEGF,XNVEDJ'}
+    event_bindings: {click: link_source_click}
   - name: letters_panel
     properties: {}
     type: ColumnPanel

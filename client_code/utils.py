@@ -2,7 +2,7 @@ from anvil import *
 import anvil.server
 import re
 
-def populate_content_panel(content_panel, lexical_items, open_item_function, word_class=False, is_grid=False, num_columns=3):
+def populate_content_panel(content_panel, lexical_items, open_item_function, theme=False, word_class=False, is_grid=False, num_columns=3):
     content_panel.clear()
     seen = set()
     for index, item in enumerate(lexical_items):
