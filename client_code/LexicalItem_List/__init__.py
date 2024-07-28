@@ -17,10 +17,15 @@ class LexicalItem_List(LexicalItem_ListTemplate):
 
     def explore_theme_list(self, letter):
         theme = anvil.server.call('get_theme_by_letter', letter)
-        print(theme)
         self.theme = theme
-        populate_content_panel(self.grid_panel, theme, open_lexical_item, word_class=True, is_grid=True)
+        populate_content_panel(self.grid_panel, theme, open_lexical_item, theme=True, is_grid=True)
 
+    def explore_source_list(self, letter):
+        sources = anvil.server.call('explore_source_by_letter', letter)
+        print(sources)
+
+        
+      
     def search_list(self, data):
         headwords = data
         self.headwords = headwords

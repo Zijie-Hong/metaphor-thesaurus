@@ -15,7 +15,10 @@ def populate_content_panel(content_panel, lexical_items, open_item_function, the
         content_link = Link(text=display_text, role='text-link')
         
         content_link.tag.main_heading = item
-        content_link.set_event_handler('click', lambda sender, word_class=word_class, **event_args: open_item_function(sender, word_class=word_class, **event_args))
+        if theme:
+          content_link.set_event_handler('click', lambda sender, **event_args: open_theme(sender, **event_args))
+        else:
+          content_link.set_event_handler('click', lambda sender, word_class=word_class, **event_args: open_item_function(sender, word_class=word_class, **event_args))
         
         if is_grid:
             row = f"row_{index // num_columns}"
@@ -35,6 +38,12 @@ def open_lexical_item(sender, word_class=False, **event_args):
         results = anvil.server.call('get_lexical_entries', user_input)
       
     open_form('LexicalItem', item_panel_role='elevated-card', item_panel_visibility=True, data=results)
+
+def open_theme(sender, **event_args):
+    user_input = sender.tag.main_heading
+    result = anvil.server.call('get_main_heading_data_by_heading', user_input)
+    open_form('LexicalItem', theme_panel_role='elevated-card', item_panel_visibility=False, data=result)
+
 
 def check_password():
       password_box = TextBox(placeholder="Enter password", role="outlined", hide_text=True)

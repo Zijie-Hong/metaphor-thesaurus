@@ -53,6 +53,16 @@ def get_theme_by_letter(letter):
     # 按字母排序并返回结果
     sorted_results = sorted(results, key=lambda x: x['main_heading'])
     return [theme['main_heading'] for theme in sorted_results]
+
+@anvil.server.callable
+def explore_source_by_letter(letter):
+    # 查询以指定字母开头的主题，不区分大小写
+    results = app_tables.sources.search(
+        source=q.ilike(f'%{letter}%')
+    )
+    # 按字母排序并返回结果
+    sorted_results = sorted(results, key=lambda x: x['source'])
+    return [theme['source'] for theme in sorted_results]
   
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):

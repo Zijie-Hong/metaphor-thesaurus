@@ -47,7 +47,6 @@ class main(mainTemplate):
         if (self.link_lexis.role != "selected" and
             self.link_theme.role != "selected" and
             self.link_source.role != "selected"):
-            print('no')
             alert('Please select one list')
         else:
             letter = sender.text
@@ -59,7 +58,7 @@ class main(mainTemplate):
             elif self.link_theme.role == "selected":
                 lexical_item_list.explore_theme_list(letter)
             elif self.link_source.role == "selected":
-                lexical_item_list.explore_source(letter)
+                lexical_item_list.explore_source_list(letter)
       
     def search_lexical_item(self, data):
         self.content_panel.clear()
