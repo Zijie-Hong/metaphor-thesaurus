@@ -1042,7 +1042,7 @@ div.plot-container.plotly svg.main-svg {
   width: 100%; /* Ensure it spans the full width */
   height: 0; /* Set height to 0 since we are using border for the line */
   border-top: 1px solid #ccc; /* Set the color and thickness of the border */
-  margin: 20px 0; /* Adjust the margin as needed */
+  
 }
 
 .anvil-role-fixed-right {
@@ -1168,4 +1168,11 @@ input.anvil-component.anvil-role-search-input::placeholder,
 .anvil-role-section-title:hover {
   color: %color:Primary%;
   transform: translateX(5px);
+}
+
+.anvil-role-bordered-link {
+    border-top: 1px solid #000; /*æ—~èπF */
+    border-left: 1px solid #000; /*æ—ÔπF */
+    border-right: 1px solid #000; /* ”sÛ˘F */
+    border-radius: 0px;
 }

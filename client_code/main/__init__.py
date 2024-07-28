@@ -44,20 +44,20 @@ class main(mainTemplate):
                 self.column_2.add_component(link)
         
     def on_letter_click(self, sender, **event_args):
-        if (self.link_lexis.role != "selected" and
-            self.link_theme.role != "selected" and
-            self.link_source.role != "selected"):
+        if (self.link_lexis.role != "bordered-link" and
+            self.link_theme.role != "bordered-link" and
+            self.link_source.role != "bordered-link"):
             alert('Please select one list')
         else:
             letter = sender.text
             self.content_panel.clear()
             lexical_item_list = LexicalItem_List()
             self.content_panel.add_component(lexical_item_list, full_width_row=True)
-            if self.link_lexis.role == "selected":
+            if self.link_lexis.role == "bordered-link":
                 lexical_item_list.explore_letter_list(letter)
-            elif self.link_theme.role == "selected":
+            elif self.link_theme.role == "bordered-link":
                 lexical_item_list.explore_theme_list(letter)
-            elif self.link_source.role == "selected":
+            elif self.link_source.role == "bordered-link":
                 lexical_item_list.explore_source_list(letter)
       
     def search_lexical_item(self, data):
@@ -115,15 +115,15 @@ class main(mainTemplate):
 
     def link_lexis_click(self, **event_args):
         self.reset_link_styles()
-        self.link_lexis.role = "selected"
+        self.link_lexis.role = "bordered-link"
 
     def link_theme_click(self, **event_args):
         self.reset_link_styles()
-        self.link_theme.role = "selected"
+        self.link_theme.role = "bordered-link"
 
     def link_source_click(self, **event_args):
         self.reset_link_styles()
-        self.link_source.role = "selected"
+        self.link_source.role = "bordered-link"
 
     
         
