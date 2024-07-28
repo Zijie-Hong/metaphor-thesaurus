@@ -7,9 +7,7 @@ class LexicalItem_List(LexicalItem_ListTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
         self.headwords = None
-        self.theme = None
    
- 
     def explore_letter_list(self, letter):
         headwords = anvil.server.call('get_lexical_items_by_letter', letter)
         self.headwords = headwords
@@ -17,15 +15,16 @@ class LexicalItem_List(LexicalItem_ListTemplate):
 
     def explore_theme_list(self, letter):
         theme = anvil.server.call('get_theme_by_letter', letter)
-        self.theme = theme
-        populate_content_panel(self.grid_panel, theme, open_lexical_item, theme=True, is_grid=True)
+        populate_content_panel(self.grid_panel, theme, open_lexical_item, theme=True, is_grid=True, num_columns=2, width_xs=6)
 
     def explore_source_list(self, letter):
         sources = anvil.server.call('explore_source_by_letter', letter)
-        print(sources)
+        combination = anvil.server.call('find_combinations', sources)
+        populate_content_panel(self.grid_panel, combination, open_lexical_item, theme=True, source=True, is_grid=True, num_columns=2, width_xs=6)
 
-        
-      
+
+
+
     def search_list(self, data):
         headwords = data
         self.headwords = headwords

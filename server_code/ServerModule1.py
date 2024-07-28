@@ -4,6 +4,7 @@ from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
 from functools import lru_cache
+import itertools
 
 @lru_cache(maxsize=128)
 @anvil.server.callable
@@ -58,11 +59,33 @@ def get_theme_by_letter(letter):
 def explore_source_by_letter(letter):
     # 查询以指定字母开头的主题，不区分大小写
     results = app_tables.sources.search(
-        source=q.ilike(f'%{letter}%')
+        source=q.ilike(letter + '%')
     )
     # 按字母排序并返回结果
     sorted_results = sorted(results, key=lambda x: x['source'])
     return [theme['source'] for theme in sorted_results]
+
+@anvil.server.callable
+def find_combinations(source):
+    combinations = []
+
+    for item in source:
+        # 从 sources 表中找到对应的 source id
+        source_row = app_tables.sources.get(source=item)
+        # 从 main_headings 表中获取所有匹配的行
+        matching_rows = app_tables.main_headings.search(source_id=source_row['source_id'])
+    
+        # 收集所有不重复的 target_id
+        target_ids = []
+        for row in matching_rows:
+            target_ids.append(row['target_id'])
+        
+        for target_id in target_ids:
+            target_row = app_tables.targets.get(target_id=target_id)
+            target = target_row['target']
+            combinations.append((item, target))
+
+    return combinations
   
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):
@@ -73,15 +96,13 @@ def get_main_heading_data(section_heading_id):
     section_heading = section_heading_row['section_heading']
     main_heading_id = section_heading_row['main_heading_id']
     
-    main_heading_row = app_tables.main_headings.get(main_heading_id=main_heading_id)
+    main_heading_row = next(iter(app_tables.main_headings.search(main_heading_id=main_heading_id)), None)
     if not main_heading_row:
         return None
     
     main_heading_data = {
         "main_heading_id": main_heading_row['main_heading_id'],
         "main_heading": main_heading_row['main_heading'],
-        "target_id": main_heading_row['target_id'],
-        "source_id": main_heading_row['source_id'],
         "category_source_id": main_heading_row['category_source_id'],
         "category_target_id": main_heading_row['category_target_id']
     }
@@ -90,16 +111,32 @@ def get_main_heading_data(section_heading_id):
 
 @anvil.server.callable
 def get_main_heading_data_by_heading(main_heading):
-    row = app_tables.main_headings.get(main_heading=main_heading)
+    row = next(iter(app_tables.main_headings.search(main_heading=main_heading)), None)
     if row:
         return {
             "main_heading_id": row['main_heading_id'],
             "main_heading": row['main_heading'],
-            "target_id": row['target_id'],
-            "source_id": row['source_id'],
             "category_source_id": row['category_source_id'],
             "category_target_id": row['category_target_id']
         }
+    return None
+  
+@lru_cache(maxsize=128)
+@anvil.server.callable
+def get_main_heading_data_by_vague_source(parts):
+    part1, part2 = parts[0], parts[1]
+    source_row = app_tables.sources.get(source=part1)
+    source_id = source_row['source_id']
+    target_row = app_tables.targets.get(target=part2)
+    target_id = target_row['target_id']
+    row = next(iter(app_tables.main_headings.search(source_id=source_id, target_id=target_id)), None)
+    if row:
+            return {
+                "main_heading_id": row['main_heading_id'],
+                "main_heading": row['main_heading'],
+                "category_source_id": row['category_source_id'],
+                "category_target_id": row['category_target_id']
+            }
     return None
   
 @anvil.server.callable

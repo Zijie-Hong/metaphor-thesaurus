@@ -41,6 +41,7 @@ class theme(themeTemplate):
               
           else:
               alert('No relationships for this theme')
+              return
       self.link_panel.visible = True
       self.list_panel.visible = False
       self.link_other_themes.visible = False

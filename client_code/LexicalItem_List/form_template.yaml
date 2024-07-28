@@ -66,6 +66,6 @@ components:
 - name: grid_panel
   properties: {}
   type: GridPanel
-  layout_properties: {grid_position: 'ZOXFAA,ZJDVYF'}
+  layout_properties: {grid_position: 'ZOXFAA,ZJDVYF', full_width_row: true}
   components: []
 is_package: true
