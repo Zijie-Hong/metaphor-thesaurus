@@ -1,5 +1,6 @@
 from ._anvil_designer import LexicalItemTemplate
 from anvil import *
+import anvil.server
 import plotly.graph_objects as go
 from ..homepage import homepage
 from ..theme import theme
@@ -7,7 +8,7 @@ from ..word import word
 from ..map import map
 from ..main import main
 from ..suggestion_list import suggestion_list
-
+from ..utils import search_lexical_item
 
 class LexicalItem(LexicalItemTemplate):
   def __init__(self, data=None, item_panel_role='default', theme_panel_role='default', item_panel_visibility=True, **properties):
@@ -39,16 +40,6 @@ class LexicalItem(LexicalItemTemplate):
       # 显示指定的表单
       form.visible = True
 
-      # if isinstance(form, theme):
-      #     if hasattr(self, 'word_form'):
-      #       section_heading_id = self.word_form.get_current_section_heading_id()
-      #       if section_heading_id != self.current_section_heading_id:  # 仅当 section_heading_id 发生变化时
-      #           self.current_section_heading_id = section_heading_id  # 更新当前 section_heading_id
-      #           form.data = section_heading_id
-      #           form.update_display() 
-
-
-    
   def reset_button_styles(self):
     self.item_panel.role = "default"
     self.theme_panel.role = "default"
@@ -89,9 +80,10 @@ class LexicalItem(LexicalItemTemplate):
       main_form.content_panel.add_component(suggestion_list_form, full_width_row=True)
       open_form(main_form)
 
-  def link_7_copy_click(self, **event_args):
-    """This method is called when the link is clicked"""
-    pass
+
+  def search_lexical_item_button_click(self, **event_args):
+      user_input = self.outlined_1.text.strip().lower()
+      search_lexical_item(user_input)
 
 
 

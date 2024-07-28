@@ -44,21 +44,25 @@ class main(mainTemplate):
                 self.column_2.add_component(link)
         
     def on_letter_click(self, sender, **event_args):
-        if (self.link_lexis.role != "bordered-link" and
-            self.link_theme.role != "bordered-link" and
-            self.link_source.role != "bordered-link"):
+        if (self.link_lexis.role != "bordered" and
+            self.link_theme.role != "bordered" and
+            self.link_source.role != "bordered"):
             alert('Please select one list')
         else:
             letter = sender.text
             self.content_panel.clear()
-            lexical_item_list = LexicalItem_List()
-            self.content_panel.add_component(lexical_item_list, full_width_row=True)
-            if self.link_lexis.role == "bordered-link":
+
+            if self.link_lexis.role == "bordered":
+                lexical_item_list = LexicalItem_List()
                 lexical_item_list.explore_letter_list(letter)
-            elif self.link_theme.role == "bordered-link":
+            elif self.link_theme.role == "bordered":
+                lexical_item_list = LexicalItem_List(lexis=False)
                 lexical_item_list.explore_theme_list(letter)
-            elif self.link_source.role == "bordered-link":
+            elif self.link_source.role == "bordered":
+                lexical_item_list = LexicalItem_List(lexis=False)
                 lexical_item_list.explore_source_list(letter)
+            self.content_panel.add_component(lexical_item_list, full_width_row=True)
+              
       
     def search_lexical_item(self, data):
         self.content_panel.clear()
@@ -115,15 +119,15 @@ class main(mainTemplate):
 
     def link_lexis_click(self, **event_args):
         self.reset_link_styles()
-        self.link_lexis.role = "bordered-link"
+        self.link_lexis.role = "bordered"
 
     def link_theme_click(self, **event_args):
         self.reset_link_styles()
-        self.link_theme.role = "bordered-link"
+        self.link_theme.role = "bordered"
 
     def link_source_click(self, **event_args):
         self.reset_link_styles()
-        self.link_source.role = "bordered-link"
+        self.link_source.role = "bordered"
 
     
         

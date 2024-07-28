@@ -54,8 +54,8 @@ roles:
   components: [Button]
 - name: section-title
   components: [Label, Link]
-- name: bordered-link
-  components: [Link]
+- name: bordered
+  components: [Link, Button]
 color_scheme:
   preset_groups:
   - name: Colour Scheme

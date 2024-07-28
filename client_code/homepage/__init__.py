@@ -1,7 +1,7 @@
 from ._anvil_designer import homepageTemplate
 from anvil import *
 import anvil.server
-
+from ..utils import search_lexical_item
 
 class homepage(homepageTemplate):
   def __init__(self, **properties):
@@ -10,20 +10,7 @@ class homepage(homepageTemplate):
 
   def search_lexical_item_button_click(self, **event_args):
     user_input = self.outlined_1.text.strip().lower()
-    if user_input:
-        results = anvil.server.call('search_lexical_items', user_input)
-        print
-        if results:
-            open_form('main')
-            main_form = get_open_form()
-            main_form.search_lexical_item(results)
-        else:
-            alert(
-                f"No results found for '{user_input}'",
-                title="Search Result"
-            )
-    else:
-        alert("Please input the search field")
+    search_lexical_item(user_input)
   
       
   def search_theme_button_click(self, **event_args):

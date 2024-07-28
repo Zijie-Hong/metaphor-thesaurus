@@ -12,7 +12,7 @@ class theme(themeTemplate):
       self.section_heading_id = None
       self.back_link.visible = False
       self.link_form = None
-      self.headwords = None
+      self.data_lexis = None
       self.expanded_content_panels = []
     
       if isinstance(data, int):         #section_heading_id搜索
@@ -46,6 +46,7 @@ class theme(themeTemplate):
       self.list_panel.visible = False
       self.link_other_themes.visible = False
       self.back_link.visible = True
+      self.drop_down.visible = False
                 
     
   def update_display(self):
@@ -93,7 +94,7 @@ class theme(themeTemplate):
       if not content_panel.tag.loaded:
           section_heading_id = sender.tag.section_heading_id
           lexical_items = anvil.server.call('get_lexical_items', section_heading_id)
-          self.headwords = lexical_items
+          self.data_lexis = lexical_items
           populate_content_panel(content_panel, lexical_items, open_lexical_item, word_class=True)
  
 
@@ -133,6 +134,7 @@ class theme(themeTemplate):
           self.list_panel.visible = True
           self.back_link.visible = False
           self.link_other_themes.visible = True
+          self.drop_down.visible = False
 
   def drop_down_change(self, **event_args):
       if self.expanded_content_panels:

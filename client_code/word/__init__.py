@@ -73,5 +73,3 @@ class word(wordTemplate):
           return self.data_list[self.current_index]['section_heading_id']
       return None
 
-  def link_1_click(self, **event_args):
-      open_form('main')

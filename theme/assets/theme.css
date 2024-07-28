@@ -1170,9 +1170,12 @@ input.anvil-component.anvil-role-search-input::placeholder,
   transform: translateX(5px);
 }
 
-.anvil-role-bordered-link {
-    border-top: 1px solid #000; /*¾Ñ~¹F */
-    border-left: 1px solid #000; /*¾Ñï¹F */
-    border-right: 1px solid #000; /* ÓsóùF */
-    border-radius: 0px;
+.anvil-role-bordered {
+    margin-bottom: -1px;
+    border-radius: 0 !important;
+    padding: 10px 15px ;
+    border: 1px solid #000 ; /*«¾ng	ùF */
+    border-bottom: none ; /* ÿnùF */
+    color: black ; /* ÿo‡ßr */
 }
+

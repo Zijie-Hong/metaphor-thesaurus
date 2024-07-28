@@ -82,11 +82,27 @@ def drop_down_change(self, panel, **event_args):      #filter by word class
           if selected_value !='All':
             search_key = re.split(r'\s+', selected_value)[0]
             if search_key == 'idi':
-                matching_items = [item for item in self.headwords if search_key in item[1]]
+                matching_items = [item for item in self.data_lexis if search_key in item[1]]
             else:
-                matching_items = [item for item in self.headwords if search_key == item[1]]
+                matching_items = [item for item in self.data_lexis if search_key == item[1]]
             populate_content_panel(panel, matching_items, open_lexical_item, word_class=True, is_grid=True)
           else:
-            populate_content_panel(panel, self.headwords, open_lexical_item, word_class=True, is_grid=True)
+            populate_content_panel(panel, self.data_lexis, open_lexical_item, word_class=True, is_grid=True)
+
+def search_lexical_item(user_input):
+      if user_input:
+          results = anvil.server.call('search_lexical_items', user_input)
+          print
+          if results:
+              open_form('main')
+              main_form = get_open_form()
+              main_form.search_lexical_item(results)
+          else:
+              alert(
+                  f"No results found for '{user_input}'",
+                  title="Search Result"
+              )
+      else:
+          alert("Please input the search field")
 
 

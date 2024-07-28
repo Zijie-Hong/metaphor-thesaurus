@@ -26,7 +26,7 @@ class link(linkTemplate):
                 unique_relationships[relationship['relationship']].append(relationship['related_heading'])
     
             for relationship, related_headings in unique_relationships.items():
-                button = Button(text=relationship, align='left')
+                button = Button(text=relationship, role='elevated-button', align='left')
                 button.tag.related_headings = related_headings
                 button.set_event_handler('click', self.show_related_heading_list)
                 self.results_panel.add_component(button)

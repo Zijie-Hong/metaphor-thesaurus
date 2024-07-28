@@ -190,13 +190,10 @@ def get_lexical_items_by_letter(letter):
 @anvil.server.callable
 def search_in_lexical_list(input_list, search_target):
     search_target = search_target.lower()
-    print(search_target)
-    print(input_list)
     results = []
     for item in input_list:
-      if search_target in item[0]:
-          results.append(item)
- 
+      if search_target in item[0].lower():
+          results.append(item) 
     return results if results else None
 
 
