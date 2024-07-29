@@ -14,7 +14,7 @@ def populate_content_panel(content_panel, items, open_item_function, theme=False
                 continue  # 如果已经处理过，跳过当前项目
             seen.add(main_heading)  # 记录这个词头已经添加过
         elif source:
-            main_heading = ','.join(item)
+            main_heading = ', '.join(item)
         else:
             main_heading = item
 

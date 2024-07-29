@@ -47,40 +47,34 @@ def search_themes_by_source(input: str) -> list:
 
 @anvil.server.callable
 def get_theme_by_letter(letter):
-    # 查询以指定字母开头的主题，不区分大小写
     results = app_tables.main_headings.search(
         main_heading=q.ilike(letter + '%')
     )
-    # 按字母排序并返回结果
+
     sorted_results = sorted(results, key=lambda x: x['main_heading'])
     return [theme['main_heading'] for theme in sorted_results]
 
 @anvil.server.callable
 def explore_source_by_letter(letter):
-    # 查询以指定字母开头的主题，不区分大小写
     results = app_tables.sources.search(
         source=q.ilike(letter + '%')
     )
-    # 按字母排序并返回结果
-    sorted_results = sorted(results, key=lambda x: x['source'])
-    return [theme['source'] for theme in sorted_results]
-
-@anvil.server.callable
-def find_combinations(source):
     combinations = []
 
-    for item in source:
-        source_row = app_tables.sources.get(source=item)
-        # 从 sources 表中找到对应的 source id
-        matching_rows = app_tables.main_headings.search(source_id=source_row)
+    for item in results:
+        source_identifier = str(item['source']) 
+        matching_rows = app_tables.main_headings.search(source_id=item)
 
         target_ids = set()
         for row in matching_rows:
-            target_ids.add(row['target_id']['target'])
+            target_identifier = row['target_id']['target'] 
+            target_ids.add(str(target_identifier)) 
         
         for target_id in target_ids:
-            combinations.append((item, target_id))
+            combinations.append((source_identifier, target_id))
+    combinations = sorted(combinations, key=lambda x: (x[0], x[1]))
     return combinations
+
   
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):
@@ -125,7 +119,8 @@ def get_main_heading_data_by_vague_source(parts):
                 "main_heading_id": row['main_heading_id'],
                 "main_heading": row['main_heading'],
                 "category_source": row['category_source_id']['category_source'],
-                "category_target": row['category_target_id']['category_target']
+                "category_target": row['category_target_id']['category_target'],
+                "section_headings": row['section_heading_ids']
             }
     return None
   
@@ -173,12 +168,16 @@ def get_lexical_items_by_letter(letter):
     return unique_headwords
 
 @anvil.server.callable
-def search_in_lexical_list(input_list, search_target):
-    search_target = search_target.lower()
+def search_in_lexical_list(input_list, search_target, lexis):
     results = []
-    for item in input_list:
-      if search_target in item[0].lower():
-          results.append(item) 
+    if lexis:
+        for item in input_list:
+          if search_target in item[0]:
+              results.append(item) 
+    else:
+        for item in input_list:
+          if search_target in item:
+              results.append(item) 
     return results if results else None
 
 

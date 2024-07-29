@@ -57,10 +57,10 @@ class main(mainTemplate):
                 lexical_item_list = LexicalItem_List()
                 lexical_item_list.explore_letter_list(letter)
             elif self.link_theme.role == "bordered":
-                lexical_item_list = LexicalItem_List(lexis=False)
+                lexical_item_list = LexicalItem_List(lexis=False, theme=True)
                 lexical_item_list.explore_theme_list(letter)
             elif self.link_source.role == "bordered":
-                lexical_item_list = LexicalItem_List(lexis=False)
+                lexical_item_list = LexicalItem_List(lexis=False, theme=False, source=True)
                 lexical_item_list.explore_source_list(letter)
             self.content_panel.add_component(lexical_item_list, full_width_row=True)
               

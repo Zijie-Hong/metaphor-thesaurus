@@ -27,7 +27,7 @@ class word(wordTemplate):
           self.button_2.visible = self.current_index < len(self.data_list) - 1
           main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', data['section_heading_id'])
           data_with_subtitle['main_heading'] = main_heading_data['main_heading']
-          data_with_subtitle['section_heading'] = section_heading_data[0]
+          data_with_subtitle['section_heading'] = section_heading_data[0]['section_heading']
           data_copy = data_with_subtitle.copy()
           data_copy.update(data)
           self.item = data_copy
