@@ -70,21 +70,16 @@ def find_combinations(source):
     combinations = []
 
     for item in source:
-        # 从 sources 表中找到对应的 source id
         source_row = app_tables.sources.get(source=item)
-        # 从 main_headings 表中获取所有匹配的行
-        matching_rows = app_tables.main_headings.search(source_id=source_row['source_id'])
-    
-        # 收集所有不重复的 target_id
-        target_ids = []
+        # 从 sources 表中找到对应的 source id
+        matching_rows = app_tables.main_headings.search(source_id=source_row)
+
+        target_ids = set()
         for row in matching_rows:
-            target_ids.append(row['target_id'])
+            target_ids.add(row['target_id']['target'])
         
         for target_id in target_ids:
-            target_row = app_tables.targets.get(target_id=target_id)
-            target = target_row['target']
-            combinations.append((item, target))
-
+            combinations.append((item, target_id))
     return combinations
   
 @anvil.server.callable
@@ -93,21 +88,18 @@ def get_main_heading_data(section_heading_id):
     if not section_heading_row:
         return None
     
-    section_heading = section_heading_row['section_heading']
-    main_heading_id = section_heading_row['main_heading_id']
-    
-    main_heading_row = next(iter(app_tables.main_headings.search(main_heading_id=main_heading_id)), None)
+    main_heading_row = section_heading_row['main_heading_id']
     if not main_heading_row:
         return None
     
     main_heading_data = {
         "main_heading_id": main_heading_row['main_heading_id'],
         "main_heading": main_heading_row['main_heading'],
-        "category_source_id": main_heading_row['category_source_id'],
-        "category_target_id": main_heading_row['category_target_id']
+        "category_source": main_heading_row['category_source_id']['category_source'],
+        "category_target": main_heading_row['category_target_id']['category_target']
     }
     
-    return main_heading_data, section_heading
+    return main_heading_data, section_heading_row['section_heading']
 
 @anvil.server.callable
 def get_main_heading_data_by_heading(main_heading):
@@ -116,8 +108,8 @@ def get_main_heading_data_by_heading(main_heading):
         return {
             "main_heading_id": row['main_heading_id'],
             "main_heading": row['main_heading'],
-            "category_source_id": row['category_source_id'],
-            "category_target_id": row['category_target_id']
+            "category_source": row['category_source_id']['category_source'],
+            "category_target": row['category_target_id']['category_target']
         }
     return None
   
@@ -126,29 +118,31 @@ def get_main_heading_data_by_heading(main_heading):
 def get_main_heading_data_by_vague_source(parts):
     part1, part2 = parts[0], parts[1]
     source_row = app_tables.sources.get(source=part1)
-    source_id = source_row['source_id']
     target_row = app_tables.targets.get(target=part2)
-    target_id = target_row['target_id']
-    row = next(iter(app_tables.main_headings.search(source_id=source_id, target_id=target_id)), None)
+    row = next(iter(app_tables.main_headings.search(
+        source_id=source_row,
+        target_id=target_row
+    )), None)
     if row:
             return {
                 "main_heading_id": row['main_heading_id'],
                 "main_heading": row['main_heading'],
-                "category_source_id": row['category_source_id'],
-                "category_target_id": row['category_target_id']
+                "category_source": row['category_source_id']['category_source'],
+                "category_target": row['category_target_id']['category_target']
             }
     return None
   
 @anvil.server.callable
-def get_category_descriptions(source_id, target_id):
-    source_description = app_tables.category_sources.get(category_source_id=source_id)['category_source']
-    target_description = app_tables.category_targets.get(category_target_id=target_id)['category_target']
+def get_category_descriptions(source_row, target_row):
+    # 直接从行对象获取描述信息
+    source_description = source_row['category_source'] if source_row else "Source not found"
+    target_description = target_row['category_target'] if target_row else "Target not found"
     return source_description, target_description
 
 
 @anvil.server.callable
 def get_section_heading(main_heading_id):
-    section_headings = app_tables.section_headings.search(main_heading_id=main_heading_id)
+    section_headings = app_tables.section_headings.search(main_heading_id['main_heading_id']=main_heading_id)
     return [{'section_heading_id': row['section_heading_id'], 'section_heading': row['section_heading']} for row in section_headings]
 
 @anvil.server.callable
@@ -208,15 +202,15 @@ def get_matching_headings(source_text, target_text):
   
     if source_id and target_id:
         matching_rows = app_tables.main_headings.search(
-            q.all_of(category_source_id=source_id, category_target_id=target_id)
+            category_source_id=source_row, category_target_id=target_row
         )
     elif source_id:
         matching_rows = app_tables.main_headings.search(
-            q.any_of(category_source_id=source_id)
+            category_source_id=source_row
         )
     elif target_id:
         matching_rows = app_tables.main_headings.search(
-            q.any_of(category_target_id=target_id)
+            category_target_id=target_row
         )
     else:
         return []

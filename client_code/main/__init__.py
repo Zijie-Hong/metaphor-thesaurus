@@ -9,6 +9,7 @@ from ..word import word
 from ..suggestion_list import suggestion_list
 from ..entry_edit import entry_edit
 
+
 class main(mainTemplate):
     def __init__(self, **properties):
         # 初始化组件

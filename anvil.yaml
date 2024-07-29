@@ -165,3 +165,7 @@ db_schema:
     - name: category_target_id
       admin_ui: {width: 200}
       type: number
+    - name: target_link
+      admin_ui: {order: 6, width: 200}
+      type: link_single
+      target: sources
