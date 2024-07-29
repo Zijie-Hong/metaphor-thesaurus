@@ -12,7 +12,7 @@ class theme(themeTemplate):
       self.section_heading_id = None
       self.back_link.visible = False
       self.link_form = None
-      self.headwords = None
+      self.data_lexis = None
       self.expanded_content_panels = []
     
       if isinstance(data, int):         #section_heading_id搜索
@@ -41,10 +41,12 @@ class theme(themeTemplate):
               
           else:
               alert('No relationships for this theme')
+              return
       self.link_panel.visible = True
       self.list_panel.visible = False
       self.link_other_themes.visible = False
       self.back_link.visible = True
+      self.drop_down.visible = False
                 
     
   def update_display(self):
@@ -52,19 +54,20 @@ class theme(themeTemplate):
         main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', self.data)
         self.main_heading.text = main_heading_data['main_heading']
         self.main_heading_id = main_heading_data['main_heading_id']
-        self.category_source.text, self.category_target.text = anvil.server.call('get_category_descriptions', main_heading_data['category_source_id'], main_heading_data['category_target_id'])
-        section_heading_data = anvil.server.call('get_section_heading', main_heading_data['main_heading_id'])
+        self.category_source.text, self.category_target.text = main_heading_data['category_source'], main_heading_data['category_target']
         if section_heading_data:
             self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
             self.link_other_themes.visible = True
             self.init_list(section_heading_data)
           
         
-  def init_list(self, section_heading_data):
+  def init_list(self, section_heading_data):      
       for item in section_heading_data:
-        # 假设 item 是一个字典，包含 'section_heading_id' 和 'section_heading' 键
-        header_link = Link(text=item.get('section_heading', 'No Title'), role='section-title', icon='fa:chevron-right')
-        header_link.tag.section_heading_id = item.get('section_heading_id')
+        section_heading = item['section_heading']
+        section_heading_id = item['section_heading_id']
+    
+        header_link = Link(text=section_heading, role='section-title', icon='fa:chevron-right')
+        header_link.tag.section_heading_id = section_heading_id
         content_panel = ColumnPanel(visible=False)
         content_panel.tag.loaded = False
         
@@ -92,7 +95,7 @@ class theme(themeTemplate):
       if not content_panel.tag.loaded:
           section_heading_id = sender.tag.section_heading_id
           lexical_items = anvil.server.call('get_lexical_items', section_heading_id)
-          self.headwords = lexical_items
+          self.data_lexis = lexical_items
           populate_content_panel(content_panel, lexical_items, open_lexical_item, word_class=True)
  
 
@@ -121,8 +124,8 @@ class theme(themeTemplate):
         self.data = data
         self.main_heading.text = data['main_heading']
         self.main_heading_id = data['main_heading_id']
-        self.category_source.text, self.category_target.text = anvil.server.call('get_category_descriptions', data['category_source_id'], data['category_target_id'])
-        section_heading_data = anvil.server.call('get_section_heading', data['main_heading_id'])
+        self.category_source.text, self.category_target.text = data['category_source'], data['category_target']
+        section_heading_data = data['section_headings']
         if section_heading_data:
             self.init_list(section_heading_data)
 
@@ -132,6 +135,7 @@ class theme(themeTemplate):
           self.list_panel.visible = True
           self.back_link.visible = False
           self.link_other_themes.visible = True
+          self.drop_down.visible = False
 
   def drop_down_change(self, **event_args):
       if self.expanded_content_panels:

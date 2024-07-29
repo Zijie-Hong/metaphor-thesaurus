@@ -4,6 +4,7 @@ from anvil.tables import app_tables
 import anvil.server
 from datetime import datetime
 from functools import lru_cache
+import itertools
 
 @lru_cache(maxsize=128)
 @anvil.server.callable
@@ -23,23 +24,6 @@ def search_lexical_items(input):
     )
     return list(set((row['english_headword'], row['metaphorical_word_class']) for row in matching_rows)) or None
   
-@anvil.server.callable
-def get_lexical_item_details(headword):
-    matching_rows = app_tables.lexical_items.search(english_headword=headword)
-    results = []
-    
-    for row in matching_rows:
-        results.append({
-            "lexical_item_id": row['lexical_item_id'],
-            "section_heading_id": row['section_heading_id'],
-            "english_headword": row['english_headword'],
-            "literal_word_class": row['literal_word_class'],
-            "metaphorical_word_class": row['metaphorical_word_class'],
-            "literal_meaning": row['literal_meaning'],
-            "metaphor_meaning": row['metaphor_meaning'],
-            "english_example_sentence": row['english_example_sentence'],
-        })
-    return results if results else None
 
 def search_with_connectors(input1: str, input2: str, connectors: list) -> list:
     results = []
@@ -61,56 +45,96 @@ def search_themes_by_target(input: str) -> list:
 def search_themes_by_source(input: str) -> list:
     return search_with_connectors('', input, ['IS', 'ARE'])
 
+@anvil.server.callable
+def get_theme_by_letter(letter):
+    # 查询以指定字母开头的主题，不区分大小写
+    results = app_tables.main_headings.search(
+        main_heading=q.ilike(letter + '%')
+    )
+    # 按字母排序并返回结果
+    sorted_results = sorted(results, key=lambda x: x['main_heading'])
+    return [theme['main_heading'] for theme in sorted_results]
+
+@anvil.server.callable
+def explore_source_by_letter(letter):
+    # 查询以指定字母开头的主题，不区分大小写
+    results = app_tables.sources.search(
+        source=q.ilike(letter + '%')
+    )
+    # 按字母排序并返回结果
+    sorted_results = sorted(results, key=lambda x: x['source'])
+    return [theme['source'] for theme in sorted_results]
+
+@anvil.server.callable
+def find_combinations(source):
+    combinations = []
+
+    for item in source:
+        source_row = app_tables.sources.get(source=item)
+        # 从 sources 表中找到对应的 source id
+        matching_rows = app_tables.main_headings.search(source_id=source_row)
+
+        target_ids = set()
+        for row in matching_rows:
+            target_ids.add(row['target_id']['target'])
+        
+        for target_id in target_ids:
+            combinations.append((item, target_id))
+    return combinations
   
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):
     section_heading_row = app_tables.section_headings.get(section_heading_id=section_heading_id)
-    if not section_heading_row:
-        return None
-    
-    section_heading = section_heading_row['section_heading']
-    main_heading_id = section_heading_row['main_heading_id']
-    
-    main_heading_row = app_tables.main_headings.get(main_heading_id=main_heading_id)
-    if not main_heading_row:
-        return None
-    
+    main_heading_rows = app_tables.main_headings.search(main_heading_id=section_heading_row['main_heading_id'])
+    main_heading_row = main_heading_rows[0] 
     main_heading_data = {
         "main_heading_id": main_heading_row['main_heading_id'],
         "main_heading": main_heading_row['main_heading'],
-        "target_id": main_heading_row['target_id'],
-        "source_id": main_heading_row['source_id'],
-        "category_source_id": main_heading_row['category_source_id'],
-        "category_target_id": main_heading_row['category_target_id']
+        "category_source": main_heading_row['category_source_id']['category_source'],
+        "category_target": main_heading_row['category_target_id']['category_target'],
+        "section_headings": main_heading_row['section_heading_ids']
     }
-    
-    return main_heading_data, section_heading
+    return main_heading_data, main_heading_data["section_headings"]
+
 
 @anvil.server.callable
 def get_main_heading_data_by_heading(main_heading):
-    row = app_tables.main_headings.get(main_heading=main_heading)
+    row = next(iter(app_tables.main_headings.search(main_heading=main_heading)), None)
     if row:
         return {
             "main_heading_id": row['main_heading_id'],
             "main_heading": row['main_heading'],
-            "target_id": row['target_id'],
-            "source_id": row['source_id'],
-            "category_source_id": row['category_source_id'],
-            "category_target_id": row['category_target_id']
+            "category_source": row['category_source_id']['category_source'],
+            "category_target": row['category_target_id']['category_target'],
+            "section_headings": row['section_heading_ids']
         }
     return None
   
+@lru_cache(maxsize=128)
 @anvil.server.callable
-def get_category_descriptions(source_id, target_id):
-    source_description = app_tables.category_sources.get(category_source_id=source_id)['category_source']
-    target_description = app_tables.category_targets.get(category_target_id=target_id)['category_target']
+def get_main_heading_data_by_vague_source(parts):
+    part1, part2 = parts[0], parts[1]
+    source_row = app_tables.sources.get(source=part1)
+    target_row = app_tables.targets.get(target=part2)
+    row = next(iter(app_tables.main_headings.search(
+        source_id=source_row,
+        target_id=target_row
+    )), None)
+    if row:
+            return {
+                "main_heading_id": row['main_heading_id'],
+                "main_heading": row['main_heading'],
+                "category_source": row['category_source_id']['category_source'],
+                "category_target": row['category_target_id']['category_target']
+            }
+    return None
+  
+@anvil.server.callable
+def get_category_descriptions(source_row, target_row):
+    # 直接从行对象获取描述信息
+    source_description = source_row['category_source'] if source_row else "Source not found"
+    target_description = target_row['category_target'] if target_row else "Target not found"
     return source_description, target_description
-
-
-@anvil.server.callable
-def get_section_heading(main_heading_id):
-    section_headings = app_tables.section_headings.search(main_heading_id=main_heading_id)
-    return [{'section_heading_id': row['section_heading_id'], 'section_heading': row['section_heading']} for row in section_headings]
 
 @anvil.server.callable
 def get_lexical_items(section_heading_id):
@@ -151,13 +175,10 @@ def get_lexical_items_by_letter(letter):
 @anvil.server.callable
 def search_in_lexical_list(input_list, search_target):
     search_target = search_target.lower()
-    print(search_target)
-    print(input_list)
     results = []
     for item in input_list:
-      if search_target in item[0]:
-          results.append(item)
- 
+      if search_target in item[0].lower():
+          results.append(item) 
     return results if results else None
 
 
@@ -167,20 +188,17 @@ def get_matching_headings(source_text, target_text):
     source_row = app_tables.category_sources.get(category_source=source_text)
     target_row = app_tables.category_targets.get(category_target=target_text)
 
-    source_id = source_row['category_source_id'] if source_row else None
-    target_id = target_row['category_target_id'] if target_row else None
-  
-    if source_id and target_id:
+    if source_row and target_row:
         matching_rows = app_tables.main_headings.search(
-            q.all_of(category_source_id=source_id, category_target_id=target_id)
+            category_source_id=source_row, category_target_id=target_row
         )
-    elif source_id:
+    elif source_row:
         matching_rows = app_tables.main_headings.search(
-            q.any_of(category_source_id=source_id)
+            category_source_id=source_row
         )
-    elif target_id:
+    elif target_row:
         matching_rows = app_tables.main_headings.search(
-            q.any_of(category_target_id=target_id)
+            category_target_id=target_row
         )
     else:
         return []
@@ -208,7 +226,7 @@ def add_new_lexical_item(entry_dict):
         return {'status': 'error', 'message': str(e)}
       
 @anvil.server.callable
-def get_entries():
+def get_suggestion_entries():
     # Get a list of entries from the Data Table, sorted by 'created' column, in descending order
     return app_tables.suggestion.search(
       tables.order_by("added_time", ascending=False)
@@ -250,3 +268,8 @@ def accept_entry(entry, section_heading_id):
         return {'status': 'success', 'message': 'Item added successfully.'}
     except Exception as e:
         return {'status': 'error', 'message': str(e)}
+
+@anvil.server.callable
+def verify_password(password):
+    # 假设管理员密码为 "adminpass"，实际使用中应更加复杂并使用哈希存储
+    return password == "adminpass"

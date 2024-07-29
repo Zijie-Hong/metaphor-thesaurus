@@ -10,13 +10,28 @@ components:
   layout_properties: {slot: left-nav}
   components:
   - name: label_1
-    properties: {text: List of Lexis, align: center, visible: true, role: title, font_size: 18}
+    properties: {text: Explore List, font_size: 25, align: center}
     type: Label
-    layout_properties: {grid_position: ''}
+    layout_properties: {grid_position: 'HNEPGR,SCJZPA', full_width_row: true}
+  - name: link_theme
+    properties: {text: Theme, align: center, role: null}
+    type: Link
+    layout_properties: {grid_position: 'YFYWRA,EUUOTE', full_width_row: true}
+    event_bindings: {click: link_theme_click}
+  - name: link_lexis
+    properties: {text: Lexis, role: bordered, align: center}
+    type: Link
+    layout_properties: {grid_position: 'YFYWRA,DDRNIK'}
+    event_bindings: {click: link_lexis_click}
+  - name: link_source
+    properties: {text: Source, align: center}
+    type: Link
+    layout_properties: {grid_position: 'YFYWRA,CCTNVK', full_width_row: true}
+    event_bindings: {click: link_source_click}
   - name: letters_panel
-    properties: {}
+    properties: {role: custom-divider}
     type: ColumnPanel
-    layout_properties: {grid_position: 'HFYXEU,CXWZKI'}
+    layout_properties: {grid_position: 'HFYXEU,CXWZKI', full_width_row: true}
     components:
     - name: column_1
       properties: {}
@@ -129,11 +144,6 @@ components:
       properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: privacy policy.}
       type: Link
       layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-    - name: faq_link
-      properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: FAQs.}
-      type: Link
-      layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-      event_bindings: {}
     - name: bottom_contact_link
       properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: contact us.}
       type: Link

@@ -20,14 +20,14 @@ class word(wordTemplate):
               self.button_2.visible = True
           
   def update_display(self):
-      if self.data_list and 0 <= self.current_index < len(self.data_list):
+      if self.data_list and 0 <= self.current_index < len(self.data_list):    
           data = self.data_list[self.current_index]
           data_with_subtitle = {}
           self.button_1.visible = self.current_index > 0
           self.button_2.visible = self.current_index < len(self.data_list) - 1
           main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', data['section_heading_id'])
           data_with_subtitle['main_heading'] = main_heading_data['main_heading']
-          data_with_subtitle['section_heading'] = section_heading_data
+          data_with_subtitle['section_heading'] = section_heading_data[0]
           data_copy = data_with_subtitle.copy()
           data_copy.update(data)
           self.item = data_copy
@@ -50,7 +50,7 @@ class word(wordTemplate):
   
   def button_edit_click(self, **event_args):
           result = check_password()
-          if result: 
+          if result is True:
               data = self.data_list[self.current_index]
               entry_copy = data
               save_clicked = alert(
@@ -64,7 +64,7 @@ class word(wordTemplate):
                   self.data_list[self.current_index] = entry_copy
                   self.item = entry_copy
                   self.update_display()
-          else:
+          elif result == 'wrong':
               alert("Incorrect password. Edit mode not activated.")
 
 
@@ -73,5 +73,3 @@ class word(wordTemplate):
           return self.data_list[self.current_index]['section_heading_id']
       return None
 
-  def link_1_click(self, **event_args):
-      open_form('main')

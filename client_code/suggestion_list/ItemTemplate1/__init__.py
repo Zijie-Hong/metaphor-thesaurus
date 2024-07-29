@@ -11,7 +11,7 @@ class ItemTemplate1(ItemTemplate1Template):
       self.literal_meaning_label.visible = bool(self.item['literal_meaning'])
       self.metaphor_meaning_label.visible = bool(self.item['metaphor_meaning'])
       self.english_example_sentence_label.visible = bool(self.item['english_example_sentence'])
-      # Any code you write here will run before the form opens.
+
 
   def delete_entry_button_click(self, **event_args):
       result = check_password()

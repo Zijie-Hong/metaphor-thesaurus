@@ -49,7 +49,10 @@ db_schema:
       admin_ui: {width: 200}
       type: string
     - name: literal_word_class
-      admin_ui: {order: 3, width: 200}
+      admin_ui: {width: 200}
+      type: string
+    - name: metaphorical_word_class
+      admin_ui: {width: 200}
       type: string
     - name: metaphor_meaning
       admin_ui: {width: 200}
@@ -59,9 +62,6 @@ db_schema:
       type: string
     - name: added_time
       admin_ui: {width: 200}
-      type: string
-    - name: metaphorical_word_class
-      admin_ui: {order: 3.5, width: 200}
       type: string
   targets:
     title: targets
@@ -91,17 +91,17 @@ db_schema:
     - name: literal_meaning
       admin_ui: {width: 200}
       type: string
+    - name: literal_word_class
+      admin_ui: {width: 200}
+      type: string
     - name: metaphorical_word_class
-      admin_ui: {order: 4, width: 200}
+      admin_ui: {width: 200}
       type: string
     - name: metaphor_meaning
       admin_ui: {width: 200}
       type: string
     - name: english_example_sentence
       admin_ui: {width: 200}
-      type: string
-    - name: literal_word_class
-      admin_ui: {width: 200, order: 3.5}
       type: string
   category_sources:
     title: category_sources
@@ -122,12 +122,12 @@ db_schema:
     - name: section_heading_id
       admin_ui: {width: 200}
       type: number
-    - name: main_heading_id
-      admin_ui: {width: 200}
-      type: number
     - name: section_heading
       admin_ui: {width: 200}
       type: string
+    - name: main_heading_id
+      admin_ui: {width: 200}
+      type: number
   relationships:
     title: relationships
     client: none
@@ -151,17 +151,25 @@ db_schema:
       admin_ui: {width: 200}
       type: number
     - name: main_heading
-      admin_ui: {width: 200}
+      admin_ui: {width: 248}
       type: string
     - name: target_id
       admin_ui: {width: 200}
-      type: number
+      type: link_single
+      target: targets
     - name: source_id
       admin_ui: {width: 200}
-      type: number
+      type: link_single
+      target: sources
     - name: category_source_id
       admin_ui: {width: 200}
-      type: number
+      type: link_single
+      target: category_sources
     - name: category_target_id
       admin_ui: {width: 200}
-      type: number
+      type: link_single
+      target: category_targets
+    - name: section_heading_ids
+      admin_ui: {width: 200}
+      type: link_multiple
+      target: section_headings

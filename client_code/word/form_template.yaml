@@ -5,11 +5,6 @@ components:
   type: ColumnPanel
   layout_properties: {grid_position: 'XJMJQA,LATLWE'}
   components:
-  - name: link_1
-    properties: {text: Back, icon: 'fa:chevron-left', icon_align: left}
-    type: Link
-    layout_properties: {grid_position: 'MIQGVG,DHYXAS'}
-    event_bindings: {click: link_1_click}
   - name: flow_panel_1
     properties: {}
     type: FlowPanel
@@ -44,12 +39,12 @@ components:
   - name: button_1
     properties: {text: Last, icon: 'fa:arrow-left'}
     type: Button
-    layout_properties: {grid_position: ''}
+    layout_properties: {grid_position: 'ZWLGCB,PIGJNB'}
     event_bindings: {click: button_1_click}
   - name: button_2
     properties: {text: Next, icon: 'fa:arrow-right'}
     type: Button
-    layout_properties: {grid_position: ',DRKJJN'}
+    layout_properties: {grid_position: 'ZWLGCB,YNIIZD'}
     event_bindings: {click: button_2_click}
   - name: spacer_1
     properties: {height: 16.121246337890625}
