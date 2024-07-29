@@ -55,7 +55,7 @@ class theme(themeTemplate):
         self.main_heading.text = main_heading_data['main_heading']
         self.main_heading_id = main_heading_data['main_heading_id']
         self.category_source.text, self.category_target.text = main_heading_data['category_source'], main_heading_data['category_target']
-        section_heading_data = anvil.server.call('get_section_heading', main_heading_data['main_heading_id'])
+        section_heading_data = main_heading_data['section_headings']
         if section_heading_data:
             self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
             self.link_other_themes.visible = True
@@ -64,9 +64,15 @@ class theme(themeTemplate):
         
   def init_list(self, section_heading_data):
       for item in section_heading_data:
-        # 假设 item 是一个字典，包含 'section_heading_id' 和 'section_heading' 键
-        header_link = Link(text=item.get('section_heading', 'No Title'), role='section-title', icon='fa:chevron-right')
-        header_link.tag.section_heading_id = item.get('section_heading_id')
+        try:
+            section_heading = item['section_heading']
+            section_heading_id = item['section_heading_id']
+        except KeyError:
+            section_heading = 'No Title'
+            section_heading_id = None
+
+        header_link = Link(text=section_heading, role='section-title', icon='fa:chevron-right')
+        header_link.tag.section_heading_id = section_heading_id
         content_panel = ColumnPanel(visible=False)
         content_panel.tag.loaded = False
         
@@ -124,7 +130,7 @@ class theme(themeTemplate):
         self.main_heading.text = data['main_heading']
         self.main_heading_id = data['main_heading_id']
         self.category_source.text, self.category_target.text = data['category_source'], data['category_target']
-        section_heading_data = anvil.server.call('get_section_heading', data['main_heading_id'])
+        section_heading_data = data['section_headings']
         if section_heading_data:
             self.init_list(section_heading_data)
 

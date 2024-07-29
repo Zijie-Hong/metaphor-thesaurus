@@ -20,7 +20,7 @@ class word(wordTemplate):
               self.button_2.visible = True
           
   def update_display(self):
-      if self.data_list and 0 <= self.current_index < len(self.data_list):
+      if self.data_list and 0 <= self.current_index < len(self.data_list):    
           data = self.data_list[self.current_index]
           data_with_subtitle = {}
           self.button_1.visible = self.current_index > 0

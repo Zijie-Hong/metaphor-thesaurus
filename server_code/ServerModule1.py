@@ -85,21 +85,17 @@ def find_combinations(source):
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):
     section_heading_row = app_tables.section_headings.get(section_heading_id=section_heading_id)
-    if not section_heading_row:
-        return None
-    
-    main_heading_row = section_heading_row['main_heading_id']
-    if not main_heading_row:
-        return None
-    
+    main_heading_rows = app_tables.main_headings.search(main_heading_id=section_heading_row['main_heading_id'])
+    main_heading_row = main_heading_rows[0] 
     main_heading_data = {
         "main_heading_id": main_heading_row['main_heading_id'],
         "main_heading": main_heading_row['main_heading'],
         "category_source": main_heading_row['category_source_id']['category_source'],
-        "category_target": main_heading_row['category_target_id']['category_target']
+        "category_target": main_heading_row['category_target_id']['category_target'],
+        "section_headings": main_heading_row['section_heading_ids']
     }
-    
-    return main_heading_data, section_heading_row['section_heading']
+    return main_heading_data, section_heading_row
+
 
 @anvil.server.callable
 def get_main_heading_data_by_heading(main_heading):
@@ -109,7 +105,8 @@ def get_main_heading_data_by_heading(main_heading):
             "main_heading_id": row['main_heading_id'],
             "main_heading": row['main_heading'],
             "category_source": row['category_source_id']['category_source'],
-            "category_target": row['category_target_id']['category_target']
+            "category_target": row['category_target_id']['category_target'],
+            "section_headings": row['section_heading_ids']
         }
     return None
   
@@ -138,12 +135,6 @@ def get_category_descriptions(source_row, target_row):
     source_description = source_row['category_source'] if source_row else "Source not found"
     target_description = target_row['category_target'] if target_row else "Target not found"
     return source_description, target_description
-
-
-@anvil.server.callable
-def get_section_heading(main_heading_id):
-    section_headings = app_tables.section_headings.search(main_heading_id['main_heading_id']=main_heading_id)
-    return [{'section_heading_id': row['section_heading_id'], 'section_heading': row['section_heading']} for row in section_headings]
 
 @anvil.server.callable
 def get_lexical_items(section_heading_id):
