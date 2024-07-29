@@ -55,22 +55,17 @@ class theme(themeTemplate):
         self.main_heading.text = main_heading_data['main_heading']
         self.main_heading_id = main_heading_data['main_heading_id']
         self.category_source.text, self.category_target.text = main_heading_data['category_source'], main_heading_data['category_target']
-        section_heading_data = main_heading_data['section_headings']
         if section_heading_data:
             self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
             self.link_other_themes.visible = True
             self.init_list(section_heading_data)
           
         
-  def init_list(self, section_heading_data):
+  def init_list(self, section_heading_data):      
       for item in section_heading_data:
-        try:
-            section_heading = item['section_heading']
-            section_heading_id = item['section_heading_id']
-        except KeyError:
-            section_heading = 'No Title'
-            section_heading_id = None
-
+        section_heading = item[0]
+        section_heading_id = item[1]
+    
         header_link = Link(text=section_heading, role='section-title', icon='fa:chevron-right')
         header_link.tag.section_heading_id = section_heading_id
         content_panel = ColumnPanel(visible=False)
