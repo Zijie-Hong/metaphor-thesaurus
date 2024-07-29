@@ -94,7 +94,7 @@ def get_main_heading_data(section_heading_id):
         "category_target": main_heading_row['category_target_id']['category_target'],
         "section_headings": main_heading_row['section_heading_ids']
     }
-    return main_heading_data, section_heading_row
+    return main_heading_data, main_heading_data["section_headings"]
 
 
 @anvil.server.callable
@@ -188,18 +188,15 @@ def get_matching_headings(source_text, target_text):
     source_row = app_tables.category_sources.get(category_source=source_text)
     target_row = app_tables.category_targets.get(category_target=target_text)
 
-    source_id = source_row['category_source_id'] if source_row else None
-    target_id = target_row['category_target_id'] if target_row else None
-  
-    if source_id and target_id:
+    if source_row and target_row:
         matching_rows = app_tables.main_headings.search(
             category_source_id=source_row, category_target_id=target_row
         )
-    elif source_id:
+    elif source_row:
         matching_rows = app_tables.main_headings.search(
             category_source_id=source_row
         )
-    elif target_id:
+    elif target_row:
         matching_rows = app_tables.main_headings.search(
             category_target_id=target_row
         )

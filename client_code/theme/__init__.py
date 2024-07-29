@@ -63,8 +63,8 @@ class theme(themeTemplate):
         
   def init_list(self, section_heading_data):      
       for item in section_heading_data:
-        section_heading = item[0]
-        section_heading_id = item[1]
+        section_heading = item['section_heading']
+        section_heading_id = item['section_heading_id']
     
         header_link = Link(text=section_heading, role='section-title', icon='fa:chevron-right')
         header_link.tag.section_heading_id = section_heading_id

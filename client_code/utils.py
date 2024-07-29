@@ -92,7 +92,6 @@ def drop_down_change(self, panel, **event_args):      #filter by word class
 def search_lexical_item(user_input):
       if user_input:
           results = anvil.server.call('search_lexical_items', user_input)
-          print
           if results:
               open_form('main')
               main_form = get_open_form()
