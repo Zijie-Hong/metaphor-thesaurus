@@ -1,7 +1,11 @@
 container: {type: ColumnPanel}
 components:
+- name: label_1
+  properties: {text: Suggestion List, font_size: 25}
+  type: Label
+  layout_properties: {grid_position: 'VHVEYH,VBROAI'}
 - name: label_no_suggestion
-  properties: {text: No Suggestion, role: null, font_size: 30}
+  properties: {text: No Suggestion, role: null, font_size: 25}
   type: Label
   layout_properties: {grid_position: 'PAIVCL,JFJXFX'}
 - name: entries_panel
