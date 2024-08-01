@@ -21,7 +21,7 @@ components:
     - name: outlined_1
       properties: {role: search-input, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search Dictionary}
       type: TextBox
-      layout_properties: {width: 385.386884765625}
+      layout_properties: {width: 385}
       event_bindings: {}
     - name: search_lexical_item_button
       properties: {text: '', role: search-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
@@ -53,7 +53,7 @@ components:
       - name: input_box_1
         properties: {role: search-input, spacing_above: small, spacing_below: none, placeholder: Target}
         type: TextBox
-        layout_properties: {width: 162.431884765625}
+        layout_properties: {width: 170}
       - name: label_2
         properties: {text: IS/ARE, spacing_above: medium, spacing_below: none, bold: false, underline: false, italic: false}
         type: Label
@@ -61,7 +61,7 @@ components:
       - name: input_box_2
         properties: {role: search-input, spacing_above: small, placeholder: Source, spacing_below: none}
         type: TextBox
-        layout_properties: {width: 177.5381005859375}
+        layout_properties: {width: 170}
       - name: search_theme_button
         properties: {text: '', role: search-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
         type: Button
@@ -106,3 +106,4 @@ components:
   type: ColumnPanel
   layout_properties: {grid_position: 'VIXQCU,ZHFYCT'}
 is_package: true
+custom_component: false

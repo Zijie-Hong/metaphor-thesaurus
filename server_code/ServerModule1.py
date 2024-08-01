@@ -30,8 +30,8 @@ def search_with_connectors(input1: str, input2: str, connectors: list) -> list:
     for connector in connectors:
         query = f'%{input1}% {connector} %{input2}%'
         matching_rows = app_tables.main_headings.search(main_heading=q.like(query))
-        results.extend([row['main_heading'] for row in matching_rows])
-    return results or None
+        results.extend(row['main_heading'] for row in matching_rows)
+    return list(set(results)) or None
 
 @anvil.server.callable
 def search_by_theme(input1: str, input2: str) -> list:
