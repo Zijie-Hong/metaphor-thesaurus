@@ -201,7 +201,12 @@ def get_matching_headings(source_text, target_text):
         )
     else:
         return []
-    result = [{'main_heading_id': row['main_heading_id'], 'main_heading': row['main_heading']} for row in matching_rows]
+    seen = set()
+    result = []
+    for row in matching_rows:
+        if row['main_heading_id'] not in seen:
+            seen.add(row['main_heading_id'])
+            result.append({'main_heading_id': row['main_heading_id'], 'main_heading': row['main_heading']})
     return result
  
 
