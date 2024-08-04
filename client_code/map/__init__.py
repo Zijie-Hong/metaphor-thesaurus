@@ -14,7 +14,6 @@ class map(mapTemplate):
       self.selected_source = None
       self.selected_target = None
       
-      # 为每个按钮绑定点击事件
       for idx, button in enumerate(self.source_buttons):
           button.set_event_handler('click', self.source_button_click)
     
@@ -26,15 +25,13 @@ class map(mapTemplate):
             button.role = 'elevated-button'
 
   def select_button(self, button, buttons, button_type):
-    # 如果按钮已经是选中状态，点击时将其重置为未选中状态
     if button.role == 'selected-button':
-        button.role = 'elevated-button'  # 假设'default-button'是未选中状态的角色
+        button.role = 'elevated-button' 
         if button_type == 'source':
             self.selected_source = None
         elif button_type == 'target':
             self.selected_target = None
     else:
-        # 否则将其设置为选中状态并重置其他按钮
         self.reset_buttons(buttons)
         button.role = 'selected-button'
         if button_type == 'source':
@@ -59,11 +56,6 @@ class map(mapTemplate):
           results_heading = [d['main_heading'] for d in results]
           if results_heading:
             populate_content_panel(self.result_panel, results_heading, self.main_heading_click)
-            # for index, item in enumerate(results_heading, start=1):
-            #     content_link = Link(text=f"{index}. {item}", role='body')  
-            #     content_link.tag.main_heading = item
-            #     content_link.set_event_handler('click', self.main_heading_click)
-            #     self.result_panel.add_component(content_link)
           else:
                 self.result_panel.add_component(Label(text="No matching rows found."), row=0, col_xs=0)
 
