@@ -11,7 +11,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''english_headword'']', writeback: true}
 - name: label_2
-  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'literal word class:'}
+  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Literal word class:'}
   type: Label
   layout_properties: {grid_position: 'LYUQSF,OMJZGN'}
 - name: textbox_literal_word_class
@@ -21,7 +21,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''literal_word_class'']', writeback: true}
 - name: label_4_copy_2
-  properties: {text: 'metaphorical_word_class:'}
+  properties: {text: 'Metaphorical word class:'}
   type: Label
   layout_properties: {grid_position: 'FATUMH,HVSNZY'}
 - name: textbox_metaphorical_word_class
@@ -31,7 +31,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''metaphorical_word_class'']', writeback: true}
 - name: label_4
-  properties: {text: 'literal_meaning:'}
+  properties: {text: 'Literal meaning:'}
   type: Label
   layout_properties: {grid_position: 'UUYPUX,TIRLNT'}
 - name: textbox_literal_meaning
@@ -41,7 +41,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''literal_meaning'']', writeback: true}
 - name: label_4_copy
-  properties: {text: 'metaphor_meaning:'}
+  properties: {text: 'Metaphor meaning:'}
   type: Label
   layout_properties: {grid_position: 'KYFWKK,GYAPTN'}
 - name: textbox_metaphor_meaning
@@ -51,7 +51,7 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''metaphor_meaning'']', writeback: true}
 - name: label_4_copy_copy
-  properties: {text: 'example_sentence:'}
+  properties: {text: 'Example sentence:'}
   type: Label
   layout_properties: {grid_position: 'FRFHXR,GKKVPX'}
 - name: textbox_english_example_sentence
@@ -60,6 +60,10 @@ components:
   layout_properties: {grid_position: 'FRFHXR,ZNBARO'}
   data_bindings:
   - {property: text, code: 'self.item[''english_example_sentence'']', writeback: true}
+- name: label_5
+  properties: {role: custom-divider, text: ''}
+  type: Label
+  layout_properties: {grid_position: 'WCIETU,ISCRMB'}
 - name: label_source_category
   properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Source category:'}
   type: Label

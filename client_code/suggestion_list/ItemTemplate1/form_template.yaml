@@ -2,7 +2,7 @@ is_package: true
 container: {type: ColumnPanel}
 components:
 - name: column_panel_1
-  properties: {role: elevated-card, col_widths: '{"UDUFKC":29,"TAHOSC":15,"PUZFVR":3,"XGUAPS":74,"UGUKIZ":3}', spacing_above: small, background: '', wrap_on: mobile, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
+  properties: {role: elevated-card, col_widths: '{"TAHOSC":15,"PUZFVR":3,"XGUAPS":74,"UGUKIZ":3}', spacing_above: small, background: '', wrap_on: never, col_spacing: medium, foreground: '', spacing_below: small, visible: true, border: '', tooltip: ''}
   type: ColumnPanel
   layout_properties: {grid_position: 'NVMEFJ,UJLKRF'}
   components:
@@ -10,24 +10,48 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'MHWRRD,PUZFVR'}
-  - name: english_headword_label
-    properties: {role: title, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: ''}
-    type: Label
-    layout_properties: {grid_position: 'MHWRRD,XGUAPS WAARJG,UDUFKC DQEUPH,VHLMYR'}
-    data_bindings:
-    - {property: text, code: 'self.item[''english_headword'']', writeback: false}
-  - name: literal_word_class
-    properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: null, tooltip: '', text: ''}
-    type: Label
-    layout_properties: {grid_position: 'MHWRRD,XGUAPS WAARJG,UDUFKC DQEUPH,RBCONQ IDICCD,XSAXSX'}
-    data_bindings:
-    - {property: text, code: '''Literal Word Class: ''+self.item[''literal_word_class'']', writeback: false}
-  - name: metaphorical_word_class
-    properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: null, tooltip: '', text: ''}
-    type: Label
-    layout_properties: {grid_position: 'MHWRRD,XGUAPS WAARJG,UDUFKC DQEUPH,RBCONQ UYUCUG,YNKVAP'}
-    data_bindings:
-    - {property: text, code: '''Metaphorical Word Class: ''+self.item[''metaphorical_word_class'']', writeback: false}
+  - name: column_panel_2
+    properties: {wrap_on: mobile}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'MHWRRD,XGUAPS WAARJG,QYVSCW'}
+    components:
+    - name: english_headword_label
+      properties: {role: title, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: ''}
+      type: Label
+      layout_properties: {grid_position: 'ENPQPA,OTIDCX'}
+      data_bindings:
+      - {property: text, code: 'self.item[''english_headword'']', writeback: false}
+    - name: literal_word_class
+      properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: null, tooltip: '', text: ''}
+      type: Label
+      layout_properties: {grid_position: 'ENPQPA,NNHBXA EULGAE,LTGHPU'}
+      data_bindings:
+      - {property: text, code: '''Literal Word Class: ''+self.item[''literal_word_class'']', writeback: false}
+    - name: metaphorical_word_class
+      properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: true, font_size: null, tooltip: '', text: ''}
+      type: Label
+      layout_properties: {grid_position: 'ENPQPA,NNHBXA RCKQJZ,AOJMQZ'}
+      data_bindings:
+      - {property: text, code: '''Metaphorical Word Class: ''+self.item[''metaphorical_word_class'']', writeback: false}
+    - name: literal_meaning_label
+      properties: {}
+      type: Label
+      layout_properties: {grid_position: 'UFHCYB,YIRATX'}
+      data_bindings:
+      - {property: text, code: '''Literal meaning: ''+self.item[''literal_meaning'']', writeback: false}
+    - name: metaphor_meaning_label
+      properties: {}
+      type: Label
+      layout_properties: {grid_position: 'RNTGGV,HNXGLX'}
+      data_bindings:
+      - {property: text, code: '''Metaphor meaning: ''+self.item[''metaphor_meaning'']', writeback: false}
+    - name: english_example_sentence_label
+      properties: {}
+      type: Label
+      layout_properties: {grid_position: 'CBDXZF,TPPTTQ'}
+      data_bindings:
+      - {property: text, code: '''English example sentence: ''+self.item[''english_example_sentence'']', writeback: false}
+    data_bindings: []
   - name: flow_panel_1
     properties: {role: null, align: right, spacing_above: small, background: '', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', spacing: medium}
     type: FlowPanel
@@ -42,28 +66,10 @@ components:
       type: Button
       layout_properties: {}
       event_bindings: {click: delete_entry_button_click}
-  - name: literal_meaning_label
-    properties: {}
-    type: Label
-    layout_properties: {grid_position: 'MHWRRD,XGUAPS MZUVVF,KOMBXG'}
-    data_bindings:
-    - {property: text, code: '''Literal meaning: ''+self.item[''literal_meaning'']', writeback: false}
-  - name: metaphor_meaning_label
-    properties: {}
-    type: Label
-    layout_properties: {grid_position: 'MHWRRD,XGUAPS COULOG,HQQBIV'}
-    data_bindings:
-    - {property: text, code: '''Metaphor meaning: ''+self.item[''metaphor_meaning'']', writeback: false}
   - name: spacer_2
     properties: {height: 32}
     type: Spacer
     layout_properties: {grid_position: 'MHWRRD,UGUKIZ'}
-  - name: english_example_sentence_label
-    properties: {}
-    type: Label
-    layout_properties: {grid_position: 'MHWRRD,XGUAPS QPDJCK,ZARVPJ'}
-    data_bindings:
-    - {property: text, code: '''English example sentence: ''+self.item[''english_example_sentence'']', writeback: false}
   - name: time_label
     properties: {align: right, spacing_above: none, text: ''}
     type: Label

@@ -22,12 +22,12 @@ components:
   - name: results_panel
     properties: {}
     type: ColumnPanel
-    layout_properties: {width: 182.15727685546875}
+    layout_properties: {width: 171.0135107421875}
     components: []
   - name: spacer_1
     properties: {height: 32}
     type: Spacer
-    layout_properties: {width: 133.65006103515626}
+    layout_properties: {width: 102.396158203125}
   - name: label_2
     properties: {text: 'Related theme:', align: right, role: title, font_size: 18}
     type: Label

@@ -46,18 +46,18 @@ class homepage(homepageTemplate):
 
   def radio_target_clicked(self, **event_args):
       self.label_2.visible = False
-      self.input_box_1.visible = True
-      self.input_box_2.visible = False
+      self.column_panel_2.visible = True
+      self.column_panel_3.visible = False
 
   def radio_source_clicked(self, **event_args):
       self.label_2.visible = False
-      self.input_box_1.visible = False
-      self.input_box_2.visible = True
+      self.column_panel_2.visible = False
+      self.column_panel_3.visible = True
 
   def radio_theme_clicked(self, **event_args):
       self.label_2.visible = True
-      self.input_box_1.visible = True
-      self.input_box_2.visible = True
+      self.column_panel_2.visible = True
+      self.column_panel_3.visible = True
 
 
 

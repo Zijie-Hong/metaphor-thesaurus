@@ -45,7 +45,7 @@ components:
   data_bindings:
   - {property: wrap_on, code: 'self.item['''']', writeback: false}
 - name: label_2
-  properties: {text: Metaphor Thesaurus, role: headline}
+  properties: {text: Metaphor Thesaurus, role: headline, bold: true}
   type: Label
   layout_properties: {slot: title}
 - name: flow_panel_1
