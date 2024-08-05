@@ -80,7 +80,6 @@ class theme(themeTemplate):
 
   
   def section_header_click(self, sender, **event_args):
-      # 切换内容的可见性
       content_panel = sender.tag.content_panel
       content_panel.visible = not content_panel.visible
 
@@ -91,7 +90,6 @@ class theme(themeTemplate):
             sender.icon = 'fa:chevron-right'
             self.expanded_content_panels.remove(content_panel)
         
-      # 如果内容尚未加载，则加载内容
       if not content_panel.tag.loaded:
           section_heading_id = sender.tag.section_heading_id
           lexical_items = anvil.server.call('get_lexical_items', section_heading_id)

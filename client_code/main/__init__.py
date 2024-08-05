@@ -75,7 +75,6 @@ class main(mainTemplate):
         new_entry = {}
   
         while True:
-        # Open an alert displaying the 'EntryEdit' Form
             entry_form = entry_edit(item=new_entry, hide_components=True)
             save_clicked = alert(
                 content=entry_form,
@@ -84,26 +83,21 @@ class main(mainTemplate):
                 buttons=[("Submit", True), ("Cancel", False)]
             )
             
-            # If the alert returned 'True', the save button was clicked.
             if save_clicked:
-                # 检查所有必填字段
                 required_fields = ['english_headword', 'literal_meaning', 'metaphor_meaning', 'literal_word_class', 'metaphorical_word_class','english_example_sentence']  # 添加所有必填字段
                 empty_fields = [field for field in required_fields if not new_entry.get(field)]
                 
                 if empty_fields:
-                    # 如果有空字段，显示错误消息并重新打开表单
                     error_message = "Please fill in all required fields"
                     alert(error_message)
-                    continue  # 继续循环，重新显示表单
+                    continue 
                 else:
-                    # 所有字段都已填写，保存条目
                     result = anvil.server.call('add_new_lexical_item', new_entry)
                     if result['status'] == 'success':
                         alert("Suggestion submitted successfully!")
-                        break  # 退出循环
+                        break  
                     else:
                         alert(f"Error adding entry: {result['message']}")
-                        # 可以选择是否继续循环或退出
             else:
                 break
 
