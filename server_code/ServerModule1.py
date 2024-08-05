@@ -80,7 +80,12 @@ def explore_source_by_letter(letter):
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):
     section_heading_row = app_tables.section_headings.get(section_heading_id=section_heading_id)
+    if section_heading_row is None:
+        raise ValueError("Section heading not found")
+
     main_heading_rows = app_tables.main_headings.search(main_heading_id=section_heading_row['main_heading_id'])
+    if not main_heading_rows:
+        raise ValueError("Main heading not found")
     main_heading_row = main_heading_rows[0] 
     main_heading_data = {
         "main_heading_id": main_heading_row['main_heading_id'],
