@@ -9,14 +9,12 @@ from ..word import word
 from ..suggestion_list import suggestion_list
 from ..entry_edit import entry_edit
 
-
 class main(mainTemplate):
     def __init__(self, **properties):
         # 初始化组件
         self.init_components(**properties)
         self.content_panel.add_component(homepage(), full_width_row=True)
         self.add_letter_links()
-
       
     def link_3_click(self, **event_args):
       open_form('main')
