@@ -11,27 +11,28 @@ components:
   data_bindings:
   - {property: text, code: 'self.item[''english_headword'']', writeback: true}
 - name: label_2
-  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Literal word class:'}
+  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Literal/Metaphorical  word class:'}
   type: Label
   layout_properties: {grid_position: 'LYUQSF,OMJZGN'}
-- name: textbox_literal_word_class
-  properties: {visible: true, role: outlined, text: ''}
-  type: TextBox
-  layout_properties: {grid_position: 'LYUQSF,DUWSJX'}
-  data_bindings:
-  - {property: text, code: 'self.item[''literal_word_class'']', writeback: true}
-- name: label_4_copy_2
-  properties: {text: 'Metaphorical word class:'}
-  type: Label
-  layout_properties: {grid_position: 'FATUMH,HVSNZY'}
-- name: textbox_metaphorical_word_class
-  properties: {role: outlined}
-  type: TextBox
-  layout_properties: {grid_position: 'FATUMH,PAELKL'}
-  data_bindings:
-  - {property: text, code: 'self.item[''metaphorical_word_class'']', writeback: true}
+- name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+  layout_properties: {grid_position: 'LYUQSF,FRDYCG'}
+  components:
+  - name: textbox_literal_word_class
+    properties: {visible: true, role: outlined, text: ''}
+    type: TextBox
+    layout_properties: {width: 171.67070849609374}
+    data_bindings:
+    - {property: text, code: 'self.item[''literal_word_class'']', writeback: true}
+  - name: textbox_metaphorical_word_class
+    properties: {role: outlined}
+    type: TextBox
+    layout_properties: {width: 174.8329423828125}
+    data_bindings:
+    - {property: text, code: 'self.item[''metaphorical_word_class'']', writeback: true}
 - name: label_4
-  properties: {text: 'Literal meaning:'}
+  properties: {text: 'Literal meaning:', italic: false}
   type: Label
   layout_properties: {grid_position: 'UUYPUX,TIRLNT'}
 - name: textbox_literal_meaning

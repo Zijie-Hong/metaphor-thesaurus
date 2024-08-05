@@ -141,6 +141,18 @@ def get_category_descriptions(source_row, target_row):
 def get_lexical_items(section_heading_id):
     rows = app_tables.lexical_items.search(section_heading_id=section_heading_id)
     return [(row['english_headword'], row['metaphorical_word_class']) for row in rows]
+  
+@anvil.server.callable
+def get_section_heading(main_heading_id):
+    main_rows = app_tables.main_headings.search(main_heading_id=main_heading_id)
+    section_heading_ids = []
+    
+    for main_row in main_rows:
+        section_heading_ids.extend(main_row['section_heading_ids'])
+    
+    section_heading_rows = list(set(section_heading_ids))
+    return [{'section_heading': row['section_heading'], 'section_heading_id': row.get_id()} 
+            for row in section_heading_rows]
 
 @anvil.server.callable
 def update_data_in_database(record_id, new_data):

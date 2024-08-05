@@ -40,12 +40,10 @@ roles:
 - name: tonal-data-grid
   components: [DataGrid]
 - {name: custom-divider, components: null}
-- {name: fixed-right, components: null}
 - name: subtitle
   components: [Label]
 - name: selected-button
   components: [Button]
-- {name: fixed-left}
 - {name: text-link}
 - name: search-input
   components: [TextBox]

@@ -9,7 +9,7 @@ components:
   type: Label
   layout_properties: {slot: title}
 - name: flow_panel_1
-  properties: {}
+  properties: {align: left}
   type: FlowPanel
   layout_properties: {slot: nav-right}
   components:
@@ -20,13 +20,14 @@ components:
     - name: outlined_1
       properties: {role: null, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search Dictionary, foreground: 'theme:On Primary Container'}
       type: TextBox
-      layout_properties: {width: 385.386884765625}
+      layout_properties: {width: 193.78790283203125}
       event_bindings: {}
     - name: search_lexical_item_button
       properties: {text: '', role: filled-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
       type: Button
       event_bindings: {click: search_lexical_item_button_click}
       layout_properties: {}
+    layout_properties: {width: 288.63641357421875}
   - name: spacer_3
     properties: {height: 32}
     type: Spacer

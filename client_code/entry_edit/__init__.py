@@ -44,10 +44,8 @@ class entry_edit(entry_editTemplate):
       selected_id = self.theme_box.selected_value 
       if selected_id:
         section_heading_data = anvil.server.call('get_section_heading', selected_id)
-        for item in section_heading_data:
-          self.section_heading_box.items = [(item['section_heading'], item['section_heading_id']) 
-                                            for item in section_heading_data]
-          self.section_heading_box.items = self.section_heading_box.items
+        self.section_heading_box.items = [(item['section_heading'], item['section_heading_id']) 
+                                  for item in section_heading_data]
 
   def get_data(self):
     return self.item, self.section_heading_box.selected_value
