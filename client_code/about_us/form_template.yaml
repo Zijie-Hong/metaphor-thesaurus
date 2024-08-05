@@ -12,10 +12,6 @@ components:
   properties: {content: 'The Metaphor Thesaurus is a comprehensive resource designed for researchers, educators, and students interested in exploring the rich metaphorical structure of the English lexicon. This thesaurus systematically categorizes metaphorical expressions, offering valuable insights into how metaphors shape our understanding and use of language.', font: ''}
   type: RichText
   layout_properties: {grid_position: 'MAKMZN,ZKLIIZ'}
-- name: rich_text_3
-  properties: {content: Organizational Structure}
-  type: RichText
-  layout_properties: {grid_position: 'VXAAIH,TNGUKT'}
 - name: rich_text_4
   properties: {}
   type: RichText
