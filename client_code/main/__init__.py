@@ -8,6 +8,7 @@ from ..LexicalItem_List import LexicalItem_List
 from ..word import word
 from ..suggestion_list import suggestion_list
 from ..entry_edit import entry_edit
+from ..about_us import about_us
 
 class main(mainTemplate):
     def __init__(self, **properties):
@@ -121,6 +122,11 @@ class main(mainTemplate):
     def link_source_click(self, **event_args):
         self.reset_link_styles()
         self.link_source.role = "bordered"
+
+    def bottom_about_link_click(self, **event_args):
+      self.content_panel.clear()
+      
+      self.content_panel.add_component(about_us(), full_width_row=True)
 
     
         

@@ -81,15 +81,6 @@ components:
   properties: {role: custom-divider, text: ''}
   type: Label
   layout_properties: {grid_position: 'XJQKRB,FDOTUH'}
-- name: label_4
-  properties: {text: Introduction to the Metaphor Thesaurus, role: headline, underline: false, border: '', font_size: 22}
-  type: Label
-  layout_properties: {grid_position: 'VZKQCX,QHQPHB'}
-  data_bindings: []
-- name: label_7
-  properties: {text: 'an introduction to the database, its use, terminology, how to search etc.'}
-  type: Label
-  layout_properties: {grid_position: 'VFKLDL,GQIDHF'}
 - name: column_panel_1
   properties: {}
   type: ColumnPanel
