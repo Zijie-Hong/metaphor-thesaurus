@@ -14,17 +14,17 @@ components:
       properties: {role: null, text: Back, icon: 'fa:angle-double-left'}
       type: Link
       event_bindings: {click: back_link_click}
-      layout_properties: {grid_position: 'LCMUQX,BDYXWP'}
+      layout_properties: {grid_position: 'PUNTAS,SUUJGL'}
+    - name: link_other_themes
+      properties: {role: null, text: Links to other themes, icon: 'fa:angle-double-right', wrap_on: mobile, align: right}
+      type: Link
+      layout_properties: {grid_position: 'PUNTAS,VHVCVW'}
+      components: []
+      event_bindings: {click: link_other_themes_click}
     - name: main_heading
       properties: {bold: true, font_size: 25, align: center}
       type: Label
       layout_properties: {grid_position: 'LCMUQX,JPUQIF'}
-    - name: link_other_themes
-      properties: {role: null, text: Links to other themes, icon: 'fa:angle-double-right', wrap_on: mobile, align: right}
-      type: Link
-      layout_properties: {grid_position: 'LCMUQX,KZKDUL'}
-      components: []
-      event_bindings: {click: link_other_themes_click}
   - name: subtitle_panel
     properties: {visible: true}
     type: ColumnPanel
