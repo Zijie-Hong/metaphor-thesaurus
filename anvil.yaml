@@ -7,7 +7,7 @@ runtime_options: {version: 2, client_version: '3', server_version: python3-sandb
 dependencies: []
 services:
 - source: /runtime/services/tables.yml
-  client_config: {}
+  client_config: {enable_v2: false}
   server_config: {}
 metadata: {logo_img: null}
 startup: {type: form, module: main}
