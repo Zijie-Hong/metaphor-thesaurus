@@ -6,7 +6,7 @@ def populate_content_panel(content_panel, items, open_item_function, theme=False
     content_panel.clear()
     seen = set()
     display_index = 1 
-
+    items.sort()
     for index, item in enumerate(items):
         if word_class:
             main_heading = item[0]

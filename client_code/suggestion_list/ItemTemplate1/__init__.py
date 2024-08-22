@@ -34,17 +34,19 @@ class ItemTemplate1(ItemTemplate1Template):
           )
           # Update the entry if the user clicks save
           if save_clicked:
-            entry_accept, section_heading_id = entry_form.get_data()
-            entry_accept_copy = dict(entry_accept)
-            del entry_accept_copy['added_time']
-            del entry_accept_copy['id']
-            print(entry_accept_copy)
-            result = anvil.server.call('accept_entry', entry_accept_copy, section_heading_id)
-            if result == 'success':
-                alert('Item approved successfully')
+            if entry_form.are_fields_filled():
+                entry_accept, section_heading_id = entry_form.get_data()
+                entry_accept_copy = dict(entry_accept)
+                del entry_accept_copy['added_time']
+                del entry_accept_copy['id']
+                result = anvil.server.call('accept_entry', entry_accept_copy, section_heading_id)
+                if result == 'success':
+                    alert('Item approved successfully')
+                else:
+                    alert(result['message'])
+                # Now refresh the page
+                self.refresh_data_bindings()
             else:
-                alert(result['message'])
-            # Now refresh the page
-            self.refresh_data_bindings()
+                alert("Please fill in all required fields.")
       elif result == 'wrong':
             alert("Incorrect password.")

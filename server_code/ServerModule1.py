@@ -151,7 +151,7 @@ def get_section_heading(main_heading_id):
         section_heading_ids.extend(main_row['section_heading_ids'])
     
     section_heading_rows = list(set(section_heading_ids))
-    return [{'section_heading': row['section_heading'], 'section_heading_id': row.get_id()} 
+    return [{'section_heading': row['section_heading'], 'section_heading_id': row['section_heading_id']} 
             for row in section_heading_rows]
 
 @anvil.server.callable
@@ -293,5 +293,4 @@ def accept_entry(entry, section_heading_id):
 
 @anvil.server.callable
 def verify_password(password):
-    # 假设管理员密码为 "adminpass"，实际使用中应更加复杂并使用哈希存储
     return password == "adminpass"

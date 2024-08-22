@@ -41,13 +41,19 @@ class entry_edit(entry_editTemplate):
               self.theme_box_change()
 
   def theme_box_change(self, **event_args):
-      selected_id = self.theme_box.selected_value 
+      selected_id = self.theme_box.selected_value
       if selected_id:
         section_heading_data = anvil.server.call('get_section_heading', selected_id)
         self.section_heading_box.items = [(item['section_heading'], item['section_heading_id']) 
                                   for item in section_heading_data]
 
+
   def get_data(self):
     return self.item, self.section_heading_box.selected_value
+
+  def are_fields_filled(self):
+        if not self.source_category_box.selected_value or not self.target_category_box.selected_value:
+            return False
+        return True
 
     
