@@ -264,7 +264,9 @@ def get_lexical_entries(headword):
 def update_entry(entry, entry_dict):
   existing_entry = app_tables.lexical_items.get(lexical_item_id=entry['lexical_item_id'])
   if existing_entry:
-      existing_entry.update(**entry_dict)
+    if not isinstance(entry_dict, dict):
+            entry_dict = dict(entry_dict)
+    existing_entry.update(**entry_dict)
   else:
       raise Exception("Entry does not exist in either tables")
     

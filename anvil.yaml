@@ -76,7 +76,7 @@ db_schema:
       type: string
   lexical_items:
     title: lexical_items
-    client: none
+    client: full
     server: full
     columns:
     - name: lexical_item_id
