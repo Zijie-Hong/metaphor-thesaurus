@@ -1103,13 +1103,13 @@ div.plot-container.plotly svg.main-svg {
   max-width: 600px;
   height: 44px;
   background-color: white;
-  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  /* box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28); */
   overflow: hidden;
 }
 
-.anvil-role-search-container:hover {
+/* .anvil-role-search-container:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-}
+} */
 
 textarea.anvil-component.anvil-role-search-input, 
 input.anvil-component.anvil-role-search-input, 

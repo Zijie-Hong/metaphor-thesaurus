@@ -6,7 +6,7 @@ components:
   layout_properties: {grid_position: 'QJSJAF,XPFDWR', full_width_row: false}
   components:
   - name: label_3
-    properties: {text: Lexical Item, align: left, spacing_above: small, underline: false, bold: true, role: input-prompt, font_size: 15}
+    properties: {text: '        Lexical Item', align: left, spacing_above: small, underline: false, bold: true, role: input-prompt, font_size: 20}
     type: Label
     layout_properties: {}
   - name: flow_panel_4
@@ -16,7 +16,7 @@ components:
     - name: outlined_1
       properties: {role: search-input, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search Dictionary, background: 'theme:On Primary', border: ''}
       type: TextBox
-      layout_properties: {width: 350.1856689453125}
+      layout_properties: {width: 419.802546875}
       event_bindings: {}
   - name: search_lexical_item_button
     properties: {text: '', role: search-button, align: left, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
@@ -29,7 +29,7 @@ components:
   layout_properties: {grid_position: 'RWSPWH,BNRIUQ', full_width_row: true}
   components:
   - name: label_1
-    properties: {text: Metaphor Theme, role: input-prompt, font: '', font_size: 15, bold: true}
+    properties: {text: Metaphor Theme, role: input-prompt, font: '', font_size: 20, bold: true}
     type: Label
     layout_properties: {}
   - name: column_panel_2
@@ -59,12 +59,13 @@ components:
   layout_properties: {grid_position: 'NBJTFG,KKBZEZ', full_width_row: true}
   components:
   - name: label_4
-    properties: {text: Target, font_size: 15, bold: true}
+    properties: {text: '                               Target', font_size: 15, bold: true}
     type: Label
     layout_properties: {}
   - name: column_panel_2_copy
     properties: {role: search-container, wrap_on: never}
     type: ColumnPanel
+    layout_properties: {width: 134.05268359375}
     components:
     - name: target_input_box
       properties: {role: search-input, spacing_above: small, spacing_below: none, placeholder: Target, enabled: true, visible: true, align: left}
@@ -74,10 +75,6 @@ components:
     properties: {text: '', role: search-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
     type: Button
     event_bindings: {click: search_target_button_click}
-  - name: spacer_2
-    properties: {height: 32}
-    type: Spacer
-    layout_properties: {width: 50.96966552734375}
   - name: label_4_copy
     properties: {text: Source, font_size: 15, bold: true}
     type: Label
@@ -85,6 +82,7 @@ components:
   - name: column_panel_2_copy_2
     properties: {role: search-container, wrap_on: never}
     type: ColumnPanel
+    layout_properties: {width: 124.507798828125}
     components:
     - name: source_input_box
       properties: {role: search-input, spacing_above: small, placeholder: Source, spacing_below: none, align: left}
