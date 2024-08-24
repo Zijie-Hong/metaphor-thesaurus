@@ -61,6 +61,16 @@ components:
   layout_properties: {grid_position: 'FRFHXR,ZNBARO'}
   data_bindings:
   - {property: text, code: 'self.item[''english_example_sentence'']', writeback: true}
+- name: label_4_copy_copy_copy
+  properties: {text: Cite from which dictionary}
+  type: Label
+  layout_properties: {grid_position: 'VFSHAA,FEJYLQ'}
+- name: textbox_dictionary
+  properties: {role: outlined}
+  type: TextBox
+  layout_properties: {grid_position: 'VFSHAA,NBUJWV'}
+  data_bindings:
+  - {property: text, code: 'self.item[''dictionary'']', writeback: true}
 - name: label_5
   properties: {role: custom-divider, text: ''}
   type: Label

@@ -53,21 +53,27 @@ components:
   type: FlowPanel
   layout_properties: {slot: nav-right}
   components:
-  - name: link_3
-    properties: {text: Homepage, role: null, underline: false}
-    type: Link
-    layout_properties: {expand: false}
-    event_bindings: {click: link_3_click}
-  - name: link_2
-    properties: {text: Map}
-    type: Link
-    layout_properties: {}
-    event_bindings: {click: link_2_click}
-  - name: link_1
-    properties: {text: Suggestion List}
-    type: Link
-    layout_properties: {}
-    event_bindings: {click: link_1_click}
+  - name: column_panel_2
+    properties: {}
+    type: ColumnPanel
+    components:
+    - name: link_3
+      properties: {text: Homepage, role: null, underline: false, align: center}
+      type: Link
+      layout_properties: {grid_position: 'SDFKJZ,KBERMJ'}
+      event_bindings: {click: link_3_click}
+    - name: link_2
+      properties: {text: Map, align: center, border: ''}
+      type: Link
+      layout_properties: {grid_position: 'SDFKJZ,GJOHUK'}
+      event_bindings: {click: link_2_click}
+      data_bindings: []
+    - name: link_1
+      properties: {text: Suggestion List, align: center}
+      type: Link
+      layout_properties: {grid_position: 'SDFKJZ,MBMTNB'}
+      event_bindings: {click: link_1_click}
+    layout_properties: {width: 550, expand: true}
 - name: colum_panel
   properties: {}
   type: ColumnPanel

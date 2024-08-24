@@ -39,6 +39,7 @@ class ItemTemplate1(ItemTemplate1Template):
                 entry_accept_copy = dict(entry_accept)
                 del entry_accept_copy['added_time']
                 del entry_accept_copy['id']
+                del entry_accept_copy['dictionary']
                 result = anvil.server.call('accept_entry', entry_accept_copy, section_heading_id)
                 if result == 'success':
                     alert('Item approved successfully')

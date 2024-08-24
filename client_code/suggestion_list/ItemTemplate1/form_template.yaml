@@ -51,6 +51,12 @@ components:
       layout_properties: {grid_position: 'CBDXZF,TPPTTQ'}
       data_bindings:
       - {property: text, code: '''English example sentence: ''+self.item[''english_example_sentence'']', writeback: false}
+    - name: dictionary_label
+      properties: {}
+      type: Label
+      layout_properties: {grid_position: 'ZVJWZE,ZPQUPW'}
+      data_bindings:
+      - {property: text, code: '''From: ''+self.item[''dictionary'']', writeback: false}
     data_bindings: []
   - name: flow_panel_1
     properties: {role: null, align: right, spacing_above: small, background: '', foreground: '', spacing_below: small, visible: true, border: '', tooltip: '', spacing: medium}

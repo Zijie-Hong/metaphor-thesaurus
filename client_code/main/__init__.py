@@ -83,7 +83,7 @@ class main(mainTemplate):
             )
             
             if save_clicked:
-                required_fields = ['english_headword', 'literal_meaning', 'metaphor_meaning', 'literal_word_class', 'metaphorical_word_class','english_example_sentence']  # 添加所有必填字段
+                required_fields = ['english_headword', 'literal_meaning', 'metaphor_meaning', 'literal_word_class', 'metaphorical_word_class','english_example_sentence','dictionary']  # 添加所有必填字段
                 empty_fields = [field for field in required_fields if not new_entry.get(field)]
                 
                 if empty_fields:
@@ -93,7 +93,7 @@ class main(mainTemplate):
                 else:
                     result = anvil.server.call('add_new_lexical_item', new_entry)
                     if result['status'] == 'success':
-                        alert("Suggestion submitted successfully!")
+                        alert('Suggestion submitted successfully!')                  
                         break  
                     else:
                         alert(f"Error adding entry: {result['message']}")

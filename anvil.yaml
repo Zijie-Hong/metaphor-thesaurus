@@ -63,6 +63,9 @@ db_schema:
     - name: added_time
       admin_ui: {width: 200}
       type: string
+    - name: dictionary
+      admin_ui: {width: 200, order: 7}
+      type: string
   targets:
     title: targets
     client: none
