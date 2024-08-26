@@ -1,17 +1,5 @@
 container: {type: ColumnPanel}
 components:
-- name: label_7
-  properties: {text: 'an introduction to the database, its use, terminology, how to search etc.'}
-  type: Label
-  layout_properties: {grid_position: 'BARDES,XWFVIS'}
-- name: rich_text_1
-  properties: {content: Introduction to the Metaphor Thesaurus, font_size: 20, format: markdown, font: ''}
-  type: RichText
-  layout_properties: {grid_position: 'KAHDCX,TIHDFF'}
-- name: rich_text_2
-  properties: {content: 'The Metaphor Thesaurus is a comprehensive resource designed for researchers, educators, and students interested in exploring the rich metaphorical structure of the English lexicon. This thesaurus systematically categorizes metaphorical expressions, offering valuable insights into how metaphors shape our understanding and use of language.', font: ''}
-  type: RichText
-  layout_properties: {grid_position: 'MAKMZN,ZKLIIZ'}
 - name: rich_text_4
   properties: {}
   type: RichText

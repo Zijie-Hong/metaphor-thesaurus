@@ -5,13 +5,13 @@ import anvil.tables.query as q
 from anvil.tables import app_tables
 import anvil.server
 from ..suggestion_list import suggestion_list
-
+from ..introduction_text import introduction_text
 class introduction(introductionTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.panel_1.role="elevated-card"
-
+    self.column_panel.add_component(introduction_text())
 
   def reset_button_styles(self):
     self.panel_1.role = "default"
@@ -21,14 +21,18 @@ class introduction(introductionTemplate):
   def button_1_click(self, **event_args):
     self.reset_button_styles()
     self.panel_1.role = "elevated-card"
+    self.column_panel.clear()
+    self.column_panel.add_component(introduction_text())
 
   def button_2_click(self, **event_args):
     self.reset_button_styles()
     self.panel_2.role = "elevated-card"
+    self.column_panel.clear()
     
   def button_3_click(self, **event_args):
     self.reset_button_styles()
     self.panel_3.role = "elevated-card"
+    self.column_panel.clear()
 
 
   def link_3_click(self, **event_args):

@@ -133,6 +133,11 @@ color: %color:On Primary Container%;
   line-height: 1.5;
 }
 
+.anvil-role-justify-text {
+  text-align: justify !important;
+}
+
+
 .anvil-role-body > .label-text, .anvil-role-body .link-text {
   padding-top: 0;
   padding-bottom: 0;

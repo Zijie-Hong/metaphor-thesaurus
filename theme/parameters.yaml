@@ -54,6 +54,7 @@ roles:
   components: [Label, Link]
 - name: bordered
   components: [Link, Button]
+- {name: justify-text}
 color_scheme:
   preset_groups:
   - name: Colour Scheme
