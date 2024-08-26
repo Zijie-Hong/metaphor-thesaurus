@@ -57,6 +57,11 @@ components:
     properties: {}
     type: ColumnPanel
     components:
+    - name: link_4
+      properties: {text: Introduction, align: center}
+      type: Link
+      layout_properties: {grid_position: 'SDFKJZ,CZLYBJ'}
+      event_bindings: {click: link_4_click}
     - name: link_3
       properties: {text: Homepage, role: null, underline: false, align: center}
       type: Link
@@ -73,7 +78,7 @@ components:
       type: Link
       layout_properties: {grid_position: 'SDFKJZ,MBMTNB'}
       event_bindings: {click: link_1_click}
-    layout_properties: {width: 550, expand: true}
+    layout_properties: {width: 700, expand: true}
 - name: colum_panel
   properties: {}
   type: ColumnPanel

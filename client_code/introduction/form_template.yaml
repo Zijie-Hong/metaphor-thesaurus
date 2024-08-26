@@ -1,0 +1,99 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {html: '@theme:standard-page.html', visible: true}
+  data_bindings: []
+components:
+- name: label_2
+  properties: {text: Metaphor Thesaurus, role: headline}
+  type: Label
+  layout_properties: {slot: title}
+- name: column_panel_1
+  properties: {role: null}
+  type: ColumnPanel
+  layout_properties: {slot: left-nav}
+  components:
+  - name: spacer_1
+    properties: {height: -10.57574462890625}
+    type: Spacer
+    layout_properties: {grid_position: 'CXKTXG,OHEJNI'}
+  - name: panel_1
+    properties: {wrap_on: mobile, role: null}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'IBOFYK,JBOPVL', full_width_row: true}
+    components:
+    - name: button_1
+      properties: {text: Introduction, role: null, align: full, bold: false, enabled: true, italic: false, font_size: 20, visible: true}
+      type: Button
+      layout_properties: {grid_position: 'LJCHPB,IONNSH', full_width_row: false}
+      event_bindings: {click: button_1_click}
+      data_bindings:
+      - {property: font, code: '', writeback: false}
+  - name: panel_2
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'LHSJSH,GFTZWE', full_width_row: true}
+    components:
+    - name: button_2
+      properties: {text: Users Guide, role: null, align: full, bold: false, enabled: true, italic: false, font_size: 20, visible: true}
+      type: Button
+      layout_properties: {grid_position: 'PYDCDG,BILWUC'}
+      event_bindings: {click: button_2_click}
+      data_bindings:
+      - {property: font, code: '', writeback: false}
+  - name: panel_3
+    properties: {role: null}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'ESJVZP,YEWIYD', full_width_row: true}
+    components:
+    - name: button_3
+      properties:
+        text: "Metaphor and \nTeaching Vocabulary\n"
+        role: custom-button
+        background: ''
+        align: full
+        foreground: ''
+        enabled: true
+        bold: false
+        font_size: 20
+      type: Button
+      layout_properties: {grid_position: 'OUYJXY,COATUO', full_width_row: false}
+      event_bindings: {click: button_3_click}
+  data_bindings:
+  - {property: wrap_on, code: 'self.item['''']', writeback: false}
+- name: output_panel
+  properties: {}
+  type: ColumnPanel
+  layout_properties: {slot: default}
+  components: []
+- name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+  layout_properties: {slot: nav-right}
+  components:
+  - name: column_panel_2
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {expand: false, width: 700}
+    components:
+    - name: link_4
+      properties: {text: Introduction, align: center}
+      type: Link
+      layout_properties: {grid_position: 'SDFKJZ,CZLYBJ'}
+    - name: link_3
+      properties: {text: Homepage, role: null, underline: false, align: center}
+      type: Link
+      layout_properties: {grid_position: 'SDFKJZ,KBERMJ'}
+      event_bindings: {click: link_3_click}
+    - name: link_2
+      properties: {text: Map, align: center, border: ''}
+      type: Link
+      layout_properties: {grid_position: 'SDFKJZ,GJOHUK'}
+      event_bindings: {click: link_2_click}
+      data_bindings: []
+    - name: link_1
+      properties: {text: Suggestion List, align: center}
+      type: Link
+      layout_properties: {grid_position: 'SDFKJZ,MBMTNB'}
+      event_bindings: {click: link_1_click}
+custom_component: false

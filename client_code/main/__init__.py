@@ -9,6 +9,7 @@ from ..word import word
 from ..suggestion_list import suggestion_list
 from ..entry_edit import entry_edit
 from ..about_us import about_us
+from ..introduction import introduction
 
 class main(mainTemplate):
     def __init__(self, **properties):
@@ -127,6 +128,9 @@ class main(mainTemplate):
       self.content_panel.clear()
       
       self.content_panel.add_component(about_us(), full_width_row=True)
+
+    def link_4_click(self, **event_args):
+      open_form('introduction')
 
     
         
