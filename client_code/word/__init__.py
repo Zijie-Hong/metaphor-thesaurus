@@ -54,7 +54,7 @@ class word(wordTemplate):
               data = self.data_list[self.current_index]
               entry_copy = data
               save_clicked = alert(
-                  content=entry_edit(item=entry_copy, hide_components=True),
+                  content=entry_edit(item=entry_copy, edit_item=True),
                   title="Update Entry",
                   large=True,
                   buttons=[("Save", True), ("Cancel", False)]

@@ -4,8 +4,7 @@ import anvil.server
 
 
 class entry_edit(entry_editTemplate):
-  def __init__(self, hide_components=False, **properties):
-    # Set Form properties and Data Bindings.
+  def __init__(self, hide_components=False, edit_item=False, **properties):
     self.init_components(**properties)
     self.source_category = None
     self.target_category = None
@@ -18,6 +17,18 @@ class entry_edit(entry_editTemplate):
             self.target_category_box.visible = False
             self.theme_box.visible = False
             self.section_heading_box.visible = False
+    elif edit_item:
+            self.label_source_category.visible = False
+            self.label_target_category.visible = False
+            self.label_select_theme.visible = False
+            self.source_category_box.visible = False
+            self.target_category_box.visible = False
+            self.theme_box.visible = False
+            self.section_heading_box.visible = False
+            self.textbox_dictionary.visible = False
+            self.label_dictionary.visible = False
+    else:
+            self.textbox_dictionary.text = self.item['dictionary']
     # Any code you write here will run before the form opens.
 
   
