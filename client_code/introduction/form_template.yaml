@@ -81,8 +81,7 @@ components:
       layout_properties: {grid_position: 'CPGVEV,NDZHOR'}
   - name: rich_text_1
     properties:
-      content: |2+
-
+      content: "\n\nMetaphor can be briefly defined as thinking of one thing (A) as though it were another thing (B). A is known as the TARGET and B is known as the SOURCE. When expressed in language this results in items of vocabulary being applied in an unusual or new way. For instance in\n\n                              The past is a foreign country; they do things differently there.\n\n“a foreign country” (SOURCE) is unusually applied to or equated with “the past” (TARGET).\n\n\n\nA similarity between SOURCE and TARGET, justifying the \"as though\", is provided by \"they do things differently there\". \n\n\n\nIn 1980 George Lakoff and Mark Johnson published the book Metaphors We Live By. This popularised the theory that thought and language are impossible without metaphor and employ metaphors all the time. For instance the last sentence uses the words “employs” and “without” metaphorically. The evidence for the importance of metaphor in language and thought comes from patterns of vocabulary which have found their way into the dictionary. These are labelled according to the formula TARGET IS SOURCE. For instance consider this table which shows some of the metaphorical vocabulary under the metaphor theme UNDERSTAND IS HOLD/GRASP.\n\n\n"
       align: left
     type: RichText
     layout_properties: {grid_position: 'SNLVFJ,FIVAMQ'}
