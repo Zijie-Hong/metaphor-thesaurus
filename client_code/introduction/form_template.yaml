@@ -65,7 +65,27 @@ components:
   properties: {}
   type: ColumnPanel
   layout_properties: {slot: default}
-  components: []
+  components:
+  - name: content_panel_1
+    properties: {}
+    type: ColumnPanel
+    layout_properties: {grid_position: 'BKCPAH,YKZLDJ'}
+    components:
+    - name: label_1
+      properties:
+        text: |
+          Metaphors in the dictionary
+        bold: true
+        font_size: 23
+      type: Label
+      layout_properties: {grid_position: 'CPGVEV,NDZHOR'}
+  - name: rich_text_1
+    properties:
+      content: |2+
+
+      align: left
+    type: RichText
+    layout_properties: {grid_position: 'SNLVFJ,FIVAMQ'}
 - name: flow_panel_1
   properties: {}
   type: FlowPanel
