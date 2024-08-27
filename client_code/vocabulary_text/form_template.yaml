@@ -84,6 +84,7 @@ components:
   properties:
     text: |
       Here are some examples of how you might use diagrams and pictures in the teaching of groups of vocabulary items, using as examples for UNDERSTANDING IS PENETRATION, and CATEGORY IS A DIVIDED AREA.
+    role: justify-text
   type: Label
   layout_properties: {grid_position: 'DLMUQB,UHPTBV'}
 - name: rich_text_5
@@ -123,6 +124,7 @@ components:
       Amanda is very **acute**. She has a **sharp** mind that allows her to **probe deep** into problems. And she often makes **penetrating, incisive** comments.
     spacing_above: none
     spacing_below: none
+    role: justify-text
   type: RichText
   layout_properties: {grid_position: 'ZSPQEK,KWPJLW'}
 - name: rich_text_7
@@ -137,6 +139,7 @@ components:
       **impenetrable** cannot be penetrated adj DIFFICULT TO UNDERSTAND the lyrics of this song are impenetrable
 
       **superficial** on the surface only adj having little understanding of anything serious or important the article begins with a very superficial discussion of Islam
+    role: justify-text
   type: RichText
   layout_properties: {grid_position: 'CMGTLI,JVJYBQ'}
 - name: flow_panel_2
@@ -149,7 +152,133 @@ components:
     type: Image
     layout_properties: {width: 643.3746259765625}
 - name: rich_text_8
-  properties: {content: 'But John’s classmates call him **thick**, as he is rather **obtuse**. Little problems seem **hard** or **impenetrable** to him. His comments are **superficial**.', spacing_above: none, spacing_below: none}
+  properties: {content: 'But John’s classmates call him **thick**, as he is rather **obtuse**. Little problems seem **hard** or **impenetrable** to him. His comments are **superficial**.', spacing_above: none, spacing_below: none, role: justify-text}
   type: RichText
   layout_properties: {grid_position: 'WQNTUQ,UGEOXV'}
+- name: label_4
+  properties:
+    text: |
+      CATEGORY IS A DIVIDED AREA
+    bold: true
+  type: Label
+  layout_properties: {grid_position: 'YPIXPU,OSMDBX'}
+- name: label_5
+  properties:
+    text: |
+      Categories are divided areas, with the different categories separated from each other.
+  type: Label
+  layout_properties: {grid_position: 'UAYQGU,MBDQSI'}
+- name: image_7
+  properties: {source: _/theme/屏幕截图 2024-08-27 181406.png}
+  type: Image
+  layout_properties: {grid_position: 'FMQOYV,VSKPKU'}
+- name: rich_text_9
+  properties:
+    content: "**separate** split up or take apart vt TO CONSIDER INDEPENDENTLY AS BELONGING TO DIFFERENT CATEGORIES you can’t separate technology from morality\n**divide** split vt TO DISTINGUISH AS BELONGING TO SEPARATE CATEGORIES in a country with a long history of immigration like the UK, how can we divide the natives from immigrants? \n\nThe areas/categories will be divided by lines or partitions and categorising is placing within them."
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'DECXBM,VOAPWJ'}
+- name: image_8
+  properties: {source: _/theme/屏幕截图 2024-08-27 181549.png}
+  type: Image
+  layout_properties: {grid_position: 'HOZQCO,ODXCCE'}
+- name: rich_text_10
+  properties:
+    content: "**pigeon-hole** mailbox (vn) vt CATEGORIZE he can’t be pigeonholed as either a popular or classical musician \n**place** put deliberately in a position vt CATEGORISE IN A PARTICULAR CLASS OR GROUP the law places road rage in the same category as wife-beating and vandalism; I can’t place that tune: is it from Mozart’s 39th, 40th or 41st symphony? \n**subdivide** divide an area into smaller areas vt DIVIDE A CATEGORY INTO SMALLER CATEGORIES jazz can be divided into traditional and modern"
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'XUULCY,YJEIUT'}
+- name: flow_panel_3
+  properties: {}
+  type: FlowPanel
+  layout_properties: {grid_position: 'GSUFMK,KIOQUN'}
+  components:
+  - name: image_9
+    properties: {source: _/theme/屏幕截图 2024-08-27 181826.png, height: 114.6666259765625}
+    type: Image
+    layout_properties: {width: 745.906}
+- name: rich_text_11
+  properties:
+    content: |-
+      The divided categories can keep ideas separate from each other
+
+      **compartment** divided section in an enclosed space n CATEGORY he keeps his biological studies and his religious beliefs in separate compartment
+
+      Besides using words in groups, one could use narratives with pictures to illustrate the schemas for other metaphor themes and thereby enhance their retention (Lindstromberg 2001, Holme 2001) For example, considering IDEA/EMOTION IS HUMAN or THOUGHT IS RELATIONSHIP the following narrative suggests itself:
+
+
+      One can invite ideas or suggestions, then welcome them with open arms, entertain them, flirt with them, embrace them, find them seductive, espouse them and end up wedded to them, before one finally distances and divorces oneself from them!
+
+      The following pictures illustrate the potential narrative.
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'HASTQT,YIZNBL'}
+  components:
+  - name: image_10
+    properties: {source: _/theme/屏幕截图 2024-08-27 182050.png}
+    type: Image
+    layout_properties: {}
+  - name: rich_text_12
+    properties:
+      content: |-
+        **introduce** identify people to one another vt MAKE KNOWN FOR THE FIRST TIME he introduced the idea of herbal medicine to the hospital
+        **invite** ask to come to an event vt ASK FOR QUESTIONS SUGGESTIONS OR PROPOSALS the company would like to invite suggestions on how to improve efficiency.
+      role: justify-text
+    type: RichText
+    layout_properties: {}
+  - name: image_11
+    properties: {source: _/theme/屏幕截图 2024-08-27 182511.png}
+    type: Image
+    layout_properties: {}
+- name: rich_text_13
+  properties:
+    content: |-
+      **welcome with open arms** greet on arrival in a friendly way with arms extended vt SUPPORT OR ACCEPT the new plan has been welcomed with open arms
+
+      **entertain** invite and be hospitable towards vt WILLINGLY CONSIDER OR ACCEPT I might entertain the idea of lending her $100 but not $200
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'LDQXIG,IHIBMM'}
+- name: image_12
+  properties: {source: _/theme/屏幕截图 2024-08-27 182815.png}
+  type: Image
+  layout_properties: {grid_position: 'NVIPZT,ZTVKTM'}
+- name: rich_text_14
+  properties:
+    content: |-
+      **flirt with** playfully behave as if sexually attracted by vi+pr CONSIDER I'm flirting with the idea of sailing round the world
+      **embrace** hug, hold tight with both arms vt ACCEPT ENTHUSIASTICALLY how old were you when you embraced Marxism?
+      **enamoured of** in love with adj+pr IMPRESSED BY, KEEN ON he was much enamoured of the Australian sense of fair play
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'EROEKW,IQCHCP'}
+- name: image_13
+  properties: {source: _/theme/屏幕截图 2024-08-27 183114.png}
+  type: Image
+  layout_properties: {grid_position: 'DESKZO,LEOFDK'}
+- name: rich_text_15
+  properties:
+    content: |-
+      **seductive** sexually attractive adj TOO EASY TO ACCEPT the argument for sanctions against Burma is seductive
+      **espouse** become engaged to vt SUPPORT OR ACCEPT vegetarianism is one cause she does not espouse
+      **wedded** to married to adj/v-pp+pr BELIEVING FIRMLY IN he's wedded to the idea of worker co-operatives
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'ZWANCV,YCQJDA'}
+- name: image_14
+  properties: {source: _/theme/屏幕截图 2024-08-27 183234.png}
+  type: Image
+  layout_properties: {grid_position: 'ADKLHZ,VGWSPZ'}
+- name: rich_text_16
+  properties:
+    content: "**distance yourself from** move away to leave space between you and vphr DISASSOCIATE YOURSELF FROM I wish to distance myself from the proposal to extend the death penalty to children under 16\n**divorce … from** \_(take legal action to end a marriage___) vt. vrec. END YOUR ASSOCIATION WITH A MOVEMENT OR BELIEF it was years before he finally divorced himself from Stalinism.\_\_\_ "
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'HOYIWN,RWHCCP'}
+- name: rich_text_17
+  properties:
+    content: "**Bibliography**\nBoers, F. & Demecheleer, M 1998 A cognitive approach to teaching prepositions ELT Journal 52(3), 197-204\nBoers, F. 2000 Metaphor awareness and vocabulary retention, Applied Linguistics 21(4), 553-571.\nCsabi, S. 2004. A cognitive linguistic view of polysemy in English and its implications for teaching, in M.Achard and S. Niemeyer (eds) Cognitive linguistics, second language acquisition, and foreign language teaching, Berlin: Mouton, 233-256.\nDeignan, A. 1995 Collins Cobuild English Guides vol.7: Metaphor. London: HarperCollins\nGairns, R. and Redman, S. 1986 Working with Words Cambridge: CUP\nGoatly, A. 2007 Washing the Brain: metaphor and hidden ideology. Amsterdam: Benjamins.\nHolme, R. 2001. Metaphor language, learning and affect, Humanising Language Teaching (online) 3(6) http:www.hltmag.co.uk/\nKövecses, Z. 2005. Metaphor in Culture: Universality and Variation. Cambridge: Cambridge University Press.\nLakoff, G. and Johnson, M 1980 Metaphors We Live by Chicago: Chicago UP\nLi, Fuyin, Thomas 2002 The Acquisition of Metaphorical Expressions, Idioms and Proverbs by Chinese Learners of English Unpublished Ph.D thesis, Graduate School Chinese University of Hong Kong.\nLindstromberg 2001, (Sometimes) against the grain. Total physical response for teaching metaphorical language. Humanising Language Teaching 3(5) http://www.hltmag.co.uk/sep01/lind.htm (accessed 28 Dec. 2004) \nNation, I.S. P. 1983 Teaching and Learning Vocabulary English Language Institute, University of Wellington\nWilkinson, P. R. 2002. A Thesaurus of Traditional English Metaphors.  London: Routledge\n"
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'GZZERF,ZBPJBR'}
 is_package: true

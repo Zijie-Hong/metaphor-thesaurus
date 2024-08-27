@@ -9,6 +9,7 @@ from ..map import map
 from ..main import main
 from ..suggestion_list import suggestion_list
 from ..utils import search_lexical_item
+from ..introduction import introduction
 
 class LexicalItem(LexicalItemTemplate):
   def __init__(self, data=None, item_panel_role='default', theme_panel_role='default', item_panel_visibility=True, **properties):
@@ -84,6 +85,9 @@ class LexicalItem(LexicalItemTemplate):
   def search_lexical_item_button_click(self, **event_args):
       user_input = self.outlined_1.text.strip().lower()
       search_lexical_item(user_input)
+
+  def link_4_click(self, **event_args):
+    open_form('introduction')
 
 
 

@@ -32,12 +32,16 @@ components:
     properties: {height: 32}
     type: Spacer
     layout_properties: {width: 124.6562}
+  - name: link_4
+    properties: {text: Introduction, align: center}
+    type: Link
+    event_bindings: {click: link_4_click}
   - name: link_3
     properties: {text: Homepage, role: null, underline: false}
     type: Link
     event_bindings: {click: link_3_click}
   - name: link_2
-    properties: {text: Map}
+    properties: {text: Theme Map}
     type: Link
     layout_properties: {}
     event_bindings: {click: link_2_click}
