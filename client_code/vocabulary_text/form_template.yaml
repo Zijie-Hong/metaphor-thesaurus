@@ -1,0 +1,121 @@
+container: {type: ColumnPanel}
+components:
+- name: label_1
+  properties:
+    text: |
+      Metaphor and Teaching Vocabulary
+    bold: true
+    font_size: 23
+  type: Label
+  layout_properties: {grid_position: 'XBDOFM,ZPZNIG'}
+- name: rich_text_1
+  properties:
+    content: "Another by-product of cognitive approaches to metaphor was research into the use of metaphor themes in the teaching of vocabulary. \n\nThis Online Thesaurus, of course, can be used simply as a reference database, for the interested researcher or students to browse through on their own, investigating various patterns of metaphors themes and, perhaps, comparing them or contrasting them with metaphor themes in other languages. However, below I suggest ways in which it might be used more systematically for the teaching of vocabulary to upper-intermediate and advanced students of English.\n\nThe Map of the Thesaurus shows it is organised by intersections between categories of Target and Source. Target: VALUES QUALITY QUANTITY; EMOTION EXPERIENCE RELATIONSHIP; THINKING & COMMUNICATING; ACTIVITY & MOVEMENT; HUMAN (ANIMAL) SENSES AND SOCIETY; THING & SUBSTANCE Source: THING & SUBSTANCE; ANIMAL, HUMAN, SENSES; ACTIVITY & MOVEMENT; PLACE & SPACE \n\nIf, for example, one was teaching economic or business students, then the selection of metaphor themes to concentrate on would be determined by target. One could look at the metaphors for quantity and change of quantity in VALUES QUALITY QUANTITY. Psychology students could learn a great deal of vocabulary if the teacher would concentrate on the metaphors under EMOTION EXPERIENCE RELATIONSHIP. Students of communication and mass media would benefit from expanding their vocabulary with the metaphors in target THINKING & COMMUNICATING, while sociology and business students might want to concentrate on HUMAN (ANIMAL) SENSES AND SOCIETY. Most students would benefit from selective attention to the target category ACTIVITY & MOVEMENT, whatever their discipline.\n\nWith varying degrees of validity, studies have shown that using metaphor themes as a framework can enhance the acquisition of vocabulary (e.g. Boers & Demecheleer 1998, Li 2002). This is hardly surprising, since it has long been established that vocabulary is best taught in groups of words, rather than as individual items (Gairns and Redman 1986),\nand that imagery is one of the main means of enhancing memory (Nation 1983). Lexis is grouped by metaphor themes sharing a source and target. And the source of conceptual metaphors is normally more concrete and imageable than its abstract target.\n\nIt is easy enough for the teacher to find pictures which illustrate individual metaphorical lexical items. For example for the theme MONEY IS FOOD, the following pictures can easily be found on Word Art or in the internet.\n\n"
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'LLDOHR,EZKHBE'}
+  components: []
+- name: label_2
+  properties:
+    text: |
+      MONEY IS FOOD
+    bold: true
+  type: Label
+  layout_properties: {grid_position: ''}
+- name: rich_text_2
+  properties:
+    align: left
+    content: |+
+      Money is different types of food, and poor pay is poor (animal) food
+
+    format: markdown
+  type: RichText
+  layout_properties: {grid_position: 'HUGRKF,TLISIM'}
+  components: []
+- name: image_1
+  properties: {source: _/theme/图片1.png, display_mode: original_size}
+  type: Image
+  layout_properties: {grid_position: 'HLMDMF,JZIZMT'}
+- name: image_2
+  properties: {source: _/theme/图片2.png, visible: true, display_mode: shrink_to_fit, height: 139.6666259765625}
+  type: Image
+  layout_properties: {grid_position: 'HLMDMF,CLRZGD'}
+- name: spacer_2
+  properties: {height: 139.33331298828125}
+  type: Spacer
+  layout_properties: {grid_position: 'HLMDMF,TYCUGB'}
+- name: spacer_1
+  properties: {height: 142.6666259765625}
+  type: Spacer
+  layout_properties: {grid_position: 'HLMDMF,EJHVOP'}
+- name: rich_text_3
+  properties:
+    content: |
+      **bean** edible seed rather like a pea n MONEY I don't have a bean
+      **lolly** sweet on a stick n MONEY I won lots of lolly in the lottery
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'WYFRSQ,IVZLFI'}
+- name: image_3
+  properties: {source: _/theme/图片3.jpg}
+  type: Image
+  layout_properties: {grid_position: 'QXDLRJ,UDPJNP'}
+- name: image_4
+  properties: {source: _/theme/图片4.png}
+  type: Image
+  layout_properties: {grid_position: 'QXDLRJ,FOADOX'}
+- name: spacer_3
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'QXDLRJ,XJACVT'}
+- name: spacer_4
+  properties: {height: 32}
+  type: Spacer
+  layout_properties: {grid_position: 'QXDLRJ,LBEOFF'}
+- name: rich_text_4
+  properties:
+    content: |-
+      **peanuts** small seeds that ripen underground in a shell n VERY SMALL SUM OF MONEY I liked the job but they were offering peanuts
+      **chickenfeed** food for hens n UNIMPORTANT ALMOST VALUELESS AMOUNT OF MONEY don’t worry about your expense account--it's chicken feed compared with the boss's
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'DDIFQG,DAFZQD'}
+- name: label_3
+  properties:
+    text: |
+      Here are some examples of how you might use diagrams and pictures in the teaching of groups of vocabulary items, using as examples for UNDERSTANDING IS PENETRATION, and CATEGORY IS A DIVIDED AREA.
+  type: Label
+  layout_properties: {grid_position: 'DLMUQB,UHPTBV'}
+- name: rich_text_5
+  properties:
+    content: |2+
+
+
+      **UNDERSTANDING IS PENETRATION**
+
+      **acute** (angle) of less than 90 degrees adj clever and accurate her latest novel shows her acute observation of the working classes
+
+      **sharp** having a thin point that can penetrate easily adj quick to notice, clever He's quite handsome, but with a sharp mind too
+
+      **probe** examine the body by inserting a long thin instrument vi/vt try to discover hidden information the police questioned him for hours, probing for inconsistencies
+
+      **deep** a long way inside and from the surface adj adv showing serious thought and understanding this book gives a deep analysis of the structure of black Harlem society
+
+      **penetrate** go into or pass through a physical object or body vt succeed in understanding it was full of long answers that were often difficult to penetrate
+
+      **incisive** able to cut or penetrate with a sharp edge adj with the ability to think clearly he's a bold businessman with an incisive mind
+
+    role: justify-text
+  type: RichText
+  layout_properties: {grid_position: 'RXOWDM,ZXTXQI'}
+- name: image_5
+  properties: {source: _/theme/屏幕截图 2024-08-27 170115.png}
+  type: Image
+  layout_properties: {grid_position: 'QPQWHA,YWKPUJ'}
+- name: rich_text_6
+  properties:
+    content: |
+      Amanda is very acute. She has a sharp mind that allows her to probe deep into problems. And she often makes penetrating, incisive comments.
+  type: RichText
+  layout_properties: {grid_position: 'ZSPQEK,KWPJLW'}
+is_package: true

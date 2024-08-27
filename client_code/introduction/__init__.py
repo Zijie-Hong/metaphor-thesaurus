@@ -6,6 +6,8 @@ from anvil.tables import app_tables
 import anvil.server
 from ..suggestion_list import suggestion_list
 from ..introduction_text import introduction_text
+from ..vocabulary_text import vocabulary_text
+
 class introduction(introductionTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
@@ -28,6 +30,7 @@ class introduction(introductionTemplate):
     self.reset_button_styles()
     self.panel_2.role = "elevated-card"
     self.column_panel.clear()
+    self.column_panel.add_component(vocabulary_text())
     
   def button_3_click(self, **event_args):
     self.reset_button_styles()
