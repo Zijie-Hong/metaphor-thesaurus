@@ -108,14 +108,48 @@ components:
     role: justify-text
   type: RichText
   layout_properties: {grid_position: 'RXOWDM,ZXTXQI'}
-- name: image_5
-  properties: {source: _/theme/屏幕截图 2024-08-27 170115.png}
-  type: Image
-  layout_properties: {grid_position: 'QPQWHA,YWKPUJ'}
+- name: flow_panel_1
+  properties: {spacing_below: none, spacing_above: none, spacing: none}
+  type: FlowPanel
+  layout_properties: {grid_position: 'YMHMHW,FSDKMK'}
+  components:
+  - name: image_5
+    properties: {source: _/theme/屏幕截图 2024-08-27 170115.png, height: 192.33331298828125, spacing_above: none, spacing_below: none}
+    type: Image
+    layout_properties: {width: 616.896}
 - name: rich_text_6
   properties:
     content: |
-      Amanda is very acute. She has a sharp mind that allows her to probe deep into problems. And she often makes penetrating, incisive comments.
+      Amanda is very **acute**. She has a **sharp** mind that allows her to **probe deep** into problems. And she often makes **penetrating, incisive** comments.
+    spacing_above: none
+    spacing_below: none
   type: RichText
   layout_properties: {grid_position: 'ZSPQEK,KWPJLW'}
+- name: rich_text_7
+  properties:
+    content: |-
+      **thick** having a large distance between the two sides adj stupid  he's a nice enough guy, just a bit thick
+
+      **obtuse** (angle) of more than 90 degrees adj stupid, slow or unwilling to understand the answer's obvious - or are you being deliberately obtuse?
+
+      **hard** not soft, unyielding adj DIFFICULT I find maths very hard and always have done
+
+      **impenetrable** cannot be penetrated adj DIFFICULT TO UNDERSTAND the lyrics of this song are impenetrable
+
+      **superficial** on the surface only adj having little understanding of anything serious or important the article begins with a very superficial discussion of Islam
+  type: RichText
+  layout_properties: {grid_position: 'CMGTLI,JVJYBQ'}
+- name: flow_panel_2
+  properties: {spacing_below: none, spacing_above: none}
+  type: FlowPanel
+  layout_properties: {grid_position: 'HBZUZC,HZOPCX'}
+  components:
+  - name: image_6
+    properties: {source: _/theme/屏幕截图 2024-08-27 172432.png, spacing_above: none, spacing_below: none}
+    type: Image
+    layout_properties: {width: 643.3746259765625}
+- name: rich_text_8
+  properties: {content: 'But John’s classmates call him **thick**, as he is rather **obtuse**. Little problems seem **hard** or **impenetrable** to him. His comments are **superficial**.', spacing_above: none, spacing_below: none}
+  type: RichText
+  layout_properties: {grid_position: 'WQNTUQ,UGEOXV'}
 is_package: true
