@@ -13,7 +13,6 @@ from ..introduction import introduction
 
 class main(mainTemplate):
     def __init__(self, **properties):
-        # 初始化组件
         self.init_components(**properties)
         self.content_panel.add_component(homepage(), full_width_row=True)
         self.add_letter_links()
@@ -30,7 +29,6 @@ class main(mainTemplate):
 
     def add_letter_links(self):
         self.letter_links = {}
-      
         # Add links for each letter
         letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
         for index, letter in enumerate(letters):
@@ -38,7 +36,6 @@ class main(mainTemplate):
             link.set_event_handler('click', self.on_letter_click)
             self.letter_links[letter] = link
             
-            # Alternate links between the two columns
             if index % 2 == 0:
                 self.column_1.add_component(link)
             else:

@@ -1,28 +1,29 @@
-container: {type: ColumnPanel}
 components:
-- name: label_1
+- layout_properties: {grid_position: 'XBDOFM,ZPZNIG'}
+  name: label_1
   properties:
-    text: |
-      Metaphor and Teaching Vocabulary
     bold: true
     font_size: 23
+    text: |
+      Metaphor and Teaching Vocabulary
   type: Label
-  layout_properties: {grid_position: 'XBDOFM,ZPZNIG'}
-- name: rich_text_1
+- components: []
+  layout_properties: {grid_position: 'LLDOHR,EZKHBE'}
+  name: rich_text_1
   properties:
     content: "Another by-product of cognitive approaches to metaphor was research into the use of metaphor themes in the teaching of vocabulary. \n\nThis Online Thesaurus, of course, can be used simply as a reference database, for the interested researcher or students to browse through on their own, investigating various patterns of metaphors themes and, perhaps, comparing them or contrasting them with metaphor themes in other languages. However, below I suggest ways in which it might be used more systematically for the teaching of vocabulary to upper-intermediate and advanced students of English.\n\nThe Map of the Thesaurus shows it is organised by intersections between categories of Target and Source. Target: VALUES QUALITY QUANTITY; EMOTION EXPERIENCE RELATIONSHIP; THINKING & COMMUNICATING; ACTIVITY & MOVEMENT; HUMAN (ANIMAL) SENSES AND SOCIETY; THING & SUBSTANCE Source: THING & SUBSTANCE; ANIMAL, HUMAN, SENSES; ACTIVITY & MOVEMENT; PLACE & SPACE \n\nIf, for example, one was teaching economic or business students, then the selection of metaphor themes to concentrate on would be determined by target. One could look at the metaphors for quantity and change of quantity in VALUES QUALITY QUANTITY. Psychology students could learn a great deal of vocabulary if the teacher would concentrate on the metaphors under EMOTION EXPERIENCE RELATIONSHIP. Students of communication and mass media would benefit from expanding their vocabulary with the metaphors in target THINKING & COMMUNICATING, while sociology and business students might want to concentrate on HUMAN (ANIMAL) SENSES AND SOCIETY. Most students would benefit from selective attention to the target category ACTIVITY & MOVEMENT, whatever their discipline.\n\nWith varying degrees of validity, studies have shown that using metaphor themes as a framework can enhance the acquisition of vocabulary (e.g. Boers & Demecheleer 1998, Li 2002). This is hardly surprising, since it has long been established that vocabulary is best taught in groups of words, rather than as individual items (Gairns and Redman 1986),\nand that imagery is one of the main means of enhancing memory (Nation 1983). Lexis is grouped by metaphor themes sharing a source and target. And the source of conceptual metaphors is normally more concrete and imageable than its abstract target.\n\nIt is easy enough for the teacher to find pictures which illustrate individual metaphorical lexical items. For example for the theme MONEY IS FOOD, the following pictures can easily be found on Word Art or in the internet.\n\n"
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'LLDOHR,EZKHBE'}
-  components: []
-- name: label_2
+- layout_properties: {grid_position: ''}
+  name: label_2
   properties:
+    bold: true
     text: |
       MONEY IS FOOD
-    bold: true
   type: Label
-  layout_properties: {grid_position: ''}
-- name: rich_text_2
+- components: []
+  layout_properties: {grid_position: 'HUGRKF,TLISIM'}
+  name: rich_text_2
   properties:
     align: left
     content: |+
@@ -30,64 +31,63 @@ components:
 
     format: markdown
   type: RichText
-  layout_properties: {grid_position: 'HUGRKF,TLISIM'}
-  components: []
-- name: image_1
-  properties: {source: _/theme/图片1.png, display_mode: original_size}
+- layout_properties: {grid_position: 'HLMDMF,JZIZMT'}
+  name: image_1
+  properties: {display_mode: original_size, source: _/theme/图片1.png}
   type: Image
-  layout_properties: {grid_position: 'HLMDMF,JZIZMT'}
-- name: image_2
-  properties: {source: _/theme/图片2.png, visible: true, display_mode: shrink_to_fit, height: 139.6666259765625}
+- layout_properties: {grid_position: 'HLMDMF,CLRZGD'}
+  name: image_2
+  properties: {display_mode: shrink_to_fit, height: 139.6666259765625, source: _/theme/图片2.png, visible: true}
   type: Image
-  layout_properties: {grid_position: 'HLMDMF,CLRZGD'}
-- name: spacer_2
+- layout_properties: {grid_position: 'HLMDMF,TYCUGB'}
+  name: spacer_2
   properties: {height: 139.33331298828125}
   type: Spacer
-  layout_properties: {grid_position: 'HLMDMF,TYCUGB'}
-- name: spacer_1
+- layout_properties: {grid_position: 'HLMDMF,EJHVOP'}
+  name: spacer_1
   properties: {height: 142.6666259765625}
   type: Spacer
-  layout_properties: {grid_position: 'HLMDMF,EJHVOP'}
-- name: rich_text_3
+- layout_properties: {grid_position: 'WYFRSQ,IVZLFI'}
+  name: rich_text_3
   properties:
     content: |
       **bean** edible seed rather like a pea n MONEY I don't have a bean
       **lolly** sweet on a stick n MONEY I won lots of lolly in the lottery
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'WYFRSQ,IVZLFI'}
-- name: image_3
+- layout_properties: {grid_position: 'QXDLRJ,UDPJNP'}
+  name: image_3
   properties: {source: _/theme/图片3.jpg}
   type: Image
-  layout_properties: {grid_position: 'QXDLRJ,UDPJNP'}
-- name: image_4
+- layout_properties: {grid_position: 'QXDLRJ,FOADOX'}
+  name: image_4
   properties: {source: _/theme/图片4.png}
   type: Image
-  layout_properties: {grid_position: 'QXDLRJ,FOADOX'}
-- name: spacer_3
+- layout_properties: {grid_position: 'QXDLRJ,XJACVT'}
+  name: spacer_3
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'QXDLRJ,XJACVT'}
-- name: spacer_4
+- layout_properties: {grid_position: 'QXDLRJ,LBEOFF'}
+  name: spacer_4
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'QXDLRJ,LBEOFF'}
-- name: rich_text_4
+- layout_properties: {grid_position: 'DDIFQG,DAFZQD'}
+  name: rich_text_4
   properties:
     content: |-
       **peanuts** small seeds that ripen underground in a shell n VERY SMALL SUM OF MONEY I liked the job but they were offering peanuts
       **chickenfeed** food for hens n UNIMPORTANT ALMOST VALUELESS AMOUNT OF MONEY don’t worry about your expense account--it's chicken feed compared with the boss's
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'DDIFQG,DAFZQD'}
-- name: label_3
+- layout_properties: {grid_position: 'DLMUQB,UHPTBV'}
+  name: label_3
   properties:
+    role: justify-text
     text: |
       Here are some examples of how you might use diagrams and pictures in the teaching of groups of vocabulary items, using as examples for UNDERSTANDING IS PENETRATION, and CATEGORY IS A DIVIDED AREA.
-    role: justify-text
   type: Label
-  layout_properties: {grid_position: 'DLMUQB,UHPTBV'}
-- name: rich_text_5
+- layout_properties: {grid_position: 'RXOWDM,ZXTXQI'}
+  name: rich_text_5
   properties:
     content: |2+
 
@@ -108,26 +108,26 @@ components:
 
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'RXOWDM,ZXTXQI'}
-- name: flow_panel_1
-  properties: {spacing_below: none, spacing_above: none, spacing: none}
-  type: FlowPanel
-  layout_properties: {grid_position: 'YMHMHW,FSDKMK'}
-  components:
-  - name: image_5
-    properties: {source: _/theme/屏幕截图 2024-08-27 170115.png, height: 192.33331298828125, spacing_above: none, spacing_below: none}
+- components:
+  - layout_properties: {width: 616.896}
+    name: image_5
+    properties: {height: 192.33331298828125, source: _/theme/屏幕截图 2024-08-27 170115.png, spacing_above: none, spacing_below: none}
     type: Image
-    layout_properties: {width: 616.896}
-- name: rich_text_6
+  layout_properties: {grid_position: 'YMHMHW,FSDKMK'}
+  name: flow_panel_1
+  properties: {spacing: none, spacing_above: none, spacing_below: none}
+  type: FlowPanel
+- layout_properties: {grid_position: 'ZSPQEK,KWPJLW'}
+  name: rich_text_6
   properties:
     content: |
       Amanda is very **acute**. She has a **sharp** mind that allows her to **probe deep** into problems. And she often makes **penetrating, incisive** comments.
+    role: justify-text
     spacing_above: none
     spacing_below: none
-    role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'ZSPQEK,KWPJLW'}
-- name: rich_text_7
+- layout_properties: {grid_position: 'CMGTLI,JVJYBQ'}
+  name: rich_text_7
   properties:
     content: |-
       **thick** having a large distance between the two sides adj stupid  he's a nice enough guy, just a bit thick
@@ -141,63 +141,80 @@ components:
       **superficial** on the surface only adj having little understanding of anything serious or important the article begins with a very superficial discussion of Islam
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'CMGTLI,JVJYBQ'}
-- name: flow_panel_2
-  properties: {spacing_below: none, spacing_above: none}
-  type: FlowPanel
-  layout_properties: {grid_position: 'HBZUZC,HZOPCX'}
-  components:
-  - name: image_6
+- components:
+  - layout_properties: {width: 643.3746259765625}
+    name: image_6
     properties: {source: _/theme/屏幕截图 2024-08-27 172432.png, spacing_above: none, spacing_below: none}
     type: Image
-    layout_properties: {width: 643.3746259765625}
-- name: rich_text_8
-  properties: {content: 'But John’s classmates call him **thick**, as he is rather **obtuse**. Little problems seem **hard** or **impenetrable** to him. His comments are **superficial**.', spacing_above: none, spacing_below: none, role: justify-text}
+  layout_properties: {grid_position: 'HBZUZC,HZOPCX'}
+  name: flow_panel_2
+  properties: {spacing_above: none, spacing_below: none}
+  type: FlowPanel
+- layout_properties: {grid_position: 'WQNTUQ,UGEOXV'}
+  name: rich_text_8
+  properties: {content: 'But John’s classmates call him **thick**, as he is rather **obtuse**. Little problems seem **hard** or **impenetrable** to him. His comments are **superficial**.', role: justify-text, spacing_above: none, spacing_below: none}
   type: RichText
-  layout_properties: {grid_position: 'WQNTUQ,UGEOXV'}
-- name: label_4
+- layout_properties: {grid_position: 'YPIXPU,OSMDBX'}
+  name: label_4
   properties:
+    bold: true
     text: |
       CATEGORY IS A DIVIDED AREA
-    bold: true
   type: Label
-  layout_properties: {grid_position: 'YPIXPU,OSMDBX'}
-- name: label_5
+- layout_properties: {grid_position: 'UAYQGU,MBDQSI'}
+  name: label_5
   properties:
     text: |
       Categories are divided areas, with the different categories separated from each other.
   type: Label
-  layout_properties: {grid_position: 'UAYQGU,MBDQSI'}
-- name: image_7
+- layout_properties: {grid_position: 'FMQOYV,VSKPKU'}
+  name: image_7
   properties: {source: _/theme/屏幕截图 2024-08-27 181406.png}
   type: Image
-  layout_properties: {grid_position: 'FMQOYV,VSKPKU'}
-- name: rich_text_9
+- layout_properties: {grid_position: 'DECXBM,VOAPWJ'}
+  name: rich_text_9
   properties:
     content: "**separate** split up or take apart vt TO CONSIDER INDEPENDENTLY AS BELONGING TO DIFFERENT CATEGORIES you can’t separate technology from morality\n**divide** split vt TO DISTINGUISH AS BELONGING TO SEPARATE CATEGORIES in a country with a long history of immigration like the UK, how can we divide the natives from immigrants? \n\nThe areas/categories will be divided by lines or partitions and categorising is placing within them."
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'DECXBM,VOAPWJ'}
-- name: image_8
+- layout_properties: {grid_position: 'HOZQCO,ODXCCE'}
+  name: image_8
   properties: {source: _/theme/屏幕截图 2024-08-27 181549.png}
   type: Image
-  layout_properties: {grid_position: 'HOZQCO,ODXCCE'}
-- name: rich_text_10
+- layout_properties: {grid_position: 'XUULCY,YJEIUT'}
+  name: rich_text_10
   properties:
     content: "**pigeon-hole** mailbox (vn) vt CATEGORIZE he can’t be pigeonholed as either a popular or classical musician \n**place** put deliberately in a position vt CATEGORISE IN A PARTICULAR CLASS OR GROUP the law places road rage in the same category as wife-beating and vandalism; I can’t place that tune: is it from Mozart’s 39th, 40th or 41st symphony? \n**subdivide** divide an area into smaller areas vt DIVIDE A CATEGORY INTO SMALLER CATEGORIES jazz can be divided into traditional and modern"
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'XUULCY,YJEIUT'}
-- name: flow_panel_3
+- components:
+  - layout_properties: {width: 745.906}
+    name: image_9
+    properties: {height: 114.6666259765625, source: _/theme/屏幕截图 2024-08-27 181826.png}
+    type: Image
+  layout_properties: {grid_position: 'GSUFMK,KIOQUN'}
+  name: flow_panel_3
   properties: {}
   type: FlowPanel
-  layout_properties: {grid_position: 'GSUFMK,KIOQUN'}
-  components:
-  - name: image_9
-    properties: {source: _/theme/屏幕截图 2024-08-27 181826.png, height: 114.6666259765625}
+- components:
+  - layout_properties: {}
+    name: image_10
+    properties: {source: _/theme/屏幕截图 2024-08-27 182050.png}
     type: Image
-    layout_properties: {width: 745.906}
-- name: rich_text_11
+  - layout_properties: {}
+    name: rich_text_12
+    properties:
+      content: |-
+        **introduce** identify people to one another vt MAKE KNOWN FOR THE FIRST TIME he introduced the idea of herbal medicine to the hospital
+        **invite** ask to come to an event vt ASK FOR QUESTIONS SUGGESTIONS OR PROPOSALS the company would like to invite suggestions on how to improve efficiency.
+      role: justify-text
+    type: RichText
+  - layout_properties: {}
+    name: image_11
+    properties: {source: _/theme/屏幕截图 2024-08-27 182511.png}
+    type: Image
+  layout_properties: {grid_position: 'HASTQT,YIZNBL'}
+  name: rich_text_11
   properties:
     content: |-
       The divided categories can keep ideas separate from each other
@@ -212,25 +229,8 @@ components:
       The following pictures illustrate the potential narrative.
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'HASTQT,YIZNBL'}
-  components:
-  - name: image_10
-    properties: {source: _/theme/屏幕截图 2024-08-27 182050.png}
-    type: Image
-    layout_properties: {}
-  - name: rich_text_12
-    properties:
-      content: |-
-        **introduce** identify people to one another vt MAKE KNOWN FOR THE FIRST TIME he introduced the idea of herbal medicine to the hospital
-        **invite** ask to come to an event vt ASK FOR QUESTIONS SUGGESTIONS OR PROPOSALS the company would like to invite suggestions on how to improve efficiency.
-      role: justify-text
-    type: RichText
-    layout_properties: {}
-  - name: image_11
-    properties: {source: _/theme/屏幕截图 2024-08-27 182511.png}
-    type: Image
-    layout_properties: {}
-- name: rich_text_13
+- layout_properties: {grid_position: 'LDQXIG,IHIBMM'}
+  name: rich_text_13
   properties:
     content: |-
       **welcome with open arms** greet on arrival in a friendly way with arms extended vt SUPPORT OR ACCEPT the new plan has been welcomed with open arms
@@ -238,12 +238,12 @@ components:
       **entertain** invite and be hospitable towards vt WILLINGLY CONSIDER OR ACCEPT I might entertain the idea of lending her $100 but not $200
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'LDQXIG,IHIBMM'}
-- name: image_12
+- layout_properties: {grid_position: 'NVIPZT,ZTVKTM'}
+  name: image_12
   properties: {source: _/theme/屏幕截图 2024-08-27 182815.png}
   type: Image
-  layout_properties: {grid_position: 'NVIPZT,ZTVKTM'}
-- name: rich_text_14
+- layout_properties: {grid_position: 'EROEKW,IQCHCP'}
+  name: rich_text_14
   properties:
     content: |-
       **flirt with** playfully behave as if sexually attracted by vi+pr CONSIDER I'm flirting with the idea of sailing round the world
@@ -251,12 +251,12 @@ components:
       **enamoured of** in love with adj+pr IMPRESSED BY, KEEN ON he was much enamoured of the Australian sense of fair play
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'EROEKW,IQCHCP'}
-- name: image_13
+- layout_properties: {grid_position: 'DESKZO,LEOFDK'}
+  name: image_13
   properties: {source: _/theme/屏幕截图 2024-08-27 183114.png}
   type: Image
-  layout_properties: {grid_position: 'DESKZO,LEOFDK'}
-- name: rich_text_15
+- layout_properties: {grid_position: 'ZWANCV,YCQJDA'}
+  name: rich_text_15
   properties:
     content: |-
       **seductive** sexually attractive adj TOO EASY TO ACCEPT the argument for sanctions against Burma is seductive
@@ -264,21 +264,21 @@ components:
       **wedded** to married to adj/v-pp+pr BELIEVING FIRMLY IN he's wedded to the idea of worker co-operatives
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'ZWANCV,YCQJDA'}
-- name: image_14
+- layout_properties: {grid_position: 'ADKLHZ,VGWSPZ'}
+  name: image_14
   properties: {source: _/theme/屏幕截图 2024-08-27 183234.png}
   type: Image
-  layout_properties: {grid_position: 'ADKLHZ,VGWSPZ'}
-- name: rich_text_16
+- layout_properties: {grid_position: 'HOYIWN,RWHCCP'}
+  name: rich_text_16
   properties:
     content: "**distance yourself from** move away to leave space between you and vphr DISASSOCIATE YOURSELF FROM I wish to distance myself from the proposal to extend the death penalty to children under 16\n**divorce … from** \_(take legal action to end a marriage___) vt. vrec. END YOUR ASSOCIATION WITH A MOVEMENT OR BELIEF it was years before he finally divorced himself from Stalinism.\_\_\_ "
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'HOYIWN,RWHCCP'}
-- name: rich_text_17
+- layout_properties: {grid_position: 'GZZERF,ZBPJBR'}
+  name: rich_text_17
   properties:
     content: "**Bibliography**\nBoers, F. & Demecheleer, M 1998 A cognitive approach to teaching prepositions ELT Journal 52(3), 197-204\nBoers, F. 2000 Metaphor awareness and vocabulary retention, Applied Linguistics 21(4), 553-571.\nCsabi, S. 2004. A cognitive linguistic view of polysemy in English and its implications for teaching, in M.Achard and S. Niemeyer (eds) Cognitive linguistics, second language acquisition, and foreign language teaching, Berlin: Mouton, 233-256.\nDeignan, A. 1995 Collins Cobuild English Guides vol.7: Metaphor. London: HarperCollins\nGairns, R. and Redman, S. 1986 Working with Words Cambridge: CUP\nGoatly, A. 2007 Washing the Brain: metaphor and hidden ideology. Amsterdam: Benjamins.\nHolme, R. 2001. Metaphor language, learning and affect, Humanising Language Teaching (online) 3(6) http:www.hltmag.co.uk/\nKövecses, Z. 2005. Metaphor in Culture: Universality and Variation. Cambridge: Cambridge University Press.\nLakoff, G. and Johnson, M 1980 Metaphors We Live by Chicago: Chicago UP\nLi, Fuyin, Thomas 2002 The Acquisition of Metaphorical Expressions, Idioms and Proverbs by Chinese Learners of English Unpublished Ph.D thesis, Graduate School Chinese University of Hong Kong.\nLindstromberg 2001, (Sometimes) against the grain. Total physical response for teaching metaphorical language. Humanising Language Teaching 3(5) http://www.hltmag.co.uk/sep01/lind.htm (accessed 28 Dec. 2004) \nNation, I.S. P. 1983 Teaching and Learning Vocabulary English Language Institute, University of Wellington\nWilkinson, P. R. 2002. A Thesaurus of Traditional English Metaphors.  London: Routledge\n"
     role: justify-text
   type: RichText
-  layout_properties: {grid_position: 'GZZERF,ZBPJBR'}
+container: {type: ColumnPanel}
 is_package: true

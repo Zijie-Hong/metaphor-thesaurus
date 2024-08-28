@@ -1,7 +1,7 @@
-container: {type: ColumnPanel}
 components:
-- name: rich_text_4
+- layout_properties: {grid_position: 'CPNJWE,XQBGLJ'}
+  name: rich_text_4
   properties: {}
   type: RichText
-  layout_properties: {grid_position: 'CPNJWE,XQBGLJ'}
+container: {type: ColumnPanel}
 is_package: true

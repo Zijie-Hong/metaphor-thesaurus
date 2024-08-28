@@ -1,152 +1,152 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html', visible: true}
-  data_bindings: []
 components:
-- name: column_panel_1
-  properties: {role: null, col_widths: '{}'}
-  type: ColumnPanel
-  layout_properties: {slot: left-nav}
-  components:
-  - name: label_1
-    properties: {text: Explore List, font_size: 25, align: center}
+- components:
+  - layout_properties: {full_width_row: true, grid_position: 'HNEPGR,SCJZPA'}
+    name: label_1
+    properties: {align: center, font_size: 25, text: Explore List}
     type: Label
-    layout_properties: {grid_position: 'HNEPGR,SCJZPA', full_width_row: true}
-  - name: link_theme
-    properties: {text: Theme, align: center, role: null}
+  - event_bindings: {click: link_theme_click}
+    layout_properties: {full_width_row: false, grid_position: 'YFYWRA,EUUOTE'}
+    name: link_theme
+    properties: {align: center, role: null, text: Theme}
     type: Link
-    layout_properties: {grid_position: 'YFYWRA,EUUOTE', full_width_row: false}
-    event_bindings: {click: link_theme_click}
-  - name: link_lexis
-    properties: {text: Lexis, role: bordered, align: center, bold: false}
-    type: Link
+  - event_bindings: {click: link_lexis_click}
     layout_properties: {grid_position: 'YFYWRA,DDRNIK'}
-    event_bindings: {click: link_lexis_click}
-  - name: link_source
-    properties: {text: Source, align: center, bold: false}
+    name: link_lexis
+    properties: {align: center, bold: false, role: bordered, text: Lexis}
     type: Link
-    layout_properties: {grid_position: 'YFYWRA,CCTNVK', full_width_row: false}
-    event_bindings: {click: link_source_click}
-  - name: letters_panel
-    properties: {role: custom-divider, background: ''}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'HFYXEU,CXWZKI', full_width_row: false}
-    components:
-    - name: column_1
-      properties: {background: ''}
-      type: ColumnPanel
+  - event_bindings: {click: link_source_click}
+    layout_properties: {full_width_row: false, grid_position: 'YFYWRA,CCTNVK'}
+    name: link_source
+    properties: {align: center, bold: false, text: Source}
+    type: Link
+  - components:
+    - components: []
       layout_properties: {grid_position: 'CZTFHF,RCACEY'}
-      components: []
-    - name: column_2
+      name: column_1
       properties: {background: ''}
       type: ColumnPanel
-      layout_properties: {grid_position: 'CZTFHF,AMBPOT'}
+    - layout_properties: {grid_position: 'CZTFHF,AMBPOT'}
+      name: column_2
+      properties: {background: ''}
+      type: ColumnPanel
+    layout_properties: {full_width_row: false, grid_position: 'HFYXEU,CXWZKI'}
+    name: letters_panel
+    properties: {background: '', role: custom-divider}
+    type: ColumnPanel
   data_bindings:
-  - {property: wrap_on, code: 'self.item['''']', writeback: false}
-- name: label_2
-  properties: {text: Metaphor Thesaurus, role: headline, bold: true}
+  - {code: 'self.item['''']', property: wrap_on, writeback: false}
+  layout_properties: {slot: left-nav}
+  name: column_panel_1
+  properties: {col_widths: '{}', role: null}
+  type: ColumnPanel
+- layout_properties: {slot: title}
+  name: label_2
+  properties: {bold: true, role: headline, text: Metaphor Thesaurus}
   type: Label
-  layout_properties: {slot: title}
-- name: flow_panel_1
+- components:
+  - components:
+    - event_bindings: {click: link_4_click}
+      layout_properties: {grid_position: 'SDFKJZ,CZLYBJ'}
+      name: link_4
+      properties: {align: center, text: Introduction}
+      type: Link
+    - event_bindings: {click: link_3_click}
+      layout_properties: {grid_position: 'SDFKJZ,KBERMJ'}
+      name: link_3
+      properties: {align: center, role: null, text: Homepage, underline: false}
+      type: Link
+    - data_bindings: []
+      event_bindings: {click: link_2_click}
+      layout_properties: {grid_position: 'SDFKJZ,GJOHUK'}
+      name: link_2
+      properties: {align: center, border: '', text: Theme Map}
+      type: Link
+    - event_bindings: {click: link_1_click}
+      layout_properties: {grid_position: 'SDFKJZ,MBMTNB'}
+      name: link_1
+      properties: {align: center, text: Suggestion List}
+      type: Link
+    layout_properties: {expand: true, width: 700}
+    name: column_panel_2
+    properties: {}
+    type: ColumnPanel
+  layout_properties: {slot: nav-right}
+  name: flow_panel_1
   properties: {}
   type: FlowPanel
-  layout_properties: {slot: nav-right}
-  components:
-  - name: column_panel_2
-    properties: {}
-    type: ColumnPanel
-    components:
-    - name: link_4
-      properties: {text: Introduction, align: center}
+- components:
+  - components:
+    - event_bindings: {click: link_suggest_click}
+      layout_properties: {full_width_row: false, grid_position: 'UNJFZJ,HFQUPX'}
+      name: link_suggest
+      properties: {align: right, col_spacing: small, icon: 'fa:plus', icon_align: left, role: null, spacing_above: large, text: Suggest new lexical item, underline: true, wrap_on: mobile}
       type: Link
-      layout_properties: {grid_position: 'SDFKJZ,CZLYBJ'}
-      event_bindings: {click: link_4_click}
-    - name: link_3
-      properties: {text: Homepage, role: null, underline: false, align: center}
-      type: Link
-      layout_properties: {grid_position: 'SDFKJZ,KBERMJ'}
-      event_bindings: {click: link_3_click}
-    - name: link_2
-      properties: {text: Theme Map, align: center, border: ''}
-      type: Link
-      layout_properties: {grid_position: 'SDFKJZ,GJOHUK'}
-      event_bindings: {click: link_2_click}
-      data_bindings: []
-    - name: link_1
-      properties: {text: Suggestion List, align: center}
-      type: Link
-      layout_properties: {grid_position: 'SDFKJZ,MBMTNB'}
-      event_bindings: {click: link_1_click}
-    layout_properties: {width: 700, expand: true}
-- name: colum_panel
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {slot: default}
-  components:
-  - name: content_panel
-    properties: {}
-    type: ColumnPanel
     layout_properties: {grid_position: 'WOVTHE,SMIBLA'}
-    components:
-    - name: link_suggest
-      properties: {role: null, align: right, spacing_above: large, icon: 'fa:plus', wrap_on: mobile, underline: true, col_spacing: small, icon_align: left, text: Suggest new lexical item}
-      type: Link
-      layout_properties: {grid_position: 'UNJFZJ,HFQUPX', full_width_row: false}
-      event_bindings: {click: link_suggest_click}
-  - name: spacer_1
+    name: content_panel
+    properties: {}
+    type: ColumnPanel
+  - layout_properties: {grid_position: 'NZNQHF,XNGOKC'}
+    name: spacer_1
     properties: {height: 162.03033447265625}
     type: Spacer
-    layout_properties: {grid_position: 'NZNQHF,XNGOKC'}
-  - name: outlined_card_1
-    properties: {role: null}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'IUACVA,HAAFPV'}
-    components:
-    - name: label_3
-      properties: {text: Metaphor Thesaurus, align: center}
+  - components:
+    - layout_properties: {grid_position: 'RFLHBN,LNNQOQ'}
+      name: label_3
+      properties: {align: center, text: Metaphor Thesaurus}
       type: Label
-      layout_properties: {grid_position: 'RFLHBN,LNNQOQ'}
-    - name: label_3_copy
-      properties: {text: Address, align: center}
+    - layout_properties: {grid_position: 'RFLHBN,FKFIOY QYQOSU,OICJTE'}
+      name: label_3_copy
+      properties: {align: center, text: Address}
       type: Label
-      layout_properties: {grid_position: 'RFLHBN,FKFIOY QYQOSU,OICJTE'}
-    - name: label_27
+    - layout_properties: {grid_position: 'RFLHBN,FKFIOY UJJQVV,VEBEIG'}
+      name: label_27
       properties:
-        role: null
-        bold: false
         align: center
-        spacing_above: none
         background: ''
-        icon: ''
-        underline: false
-        font: ''
-        icon_align: left
-        foreground: ''
-        spacing_below: none
-        visible: true
+        bold: false
         border: ''
-        italic: false
+        font: ''
         font_size: null
-        tooltip: ''
+        foreground: ''
+        icon: ''
+        icon_align: left
+        italic: false
+        role: null
+        spacing_above: none
+        spacing_below: none
         text: |
           XXX
           XXX
           XXX
+        tooltip: ''
+        underline: false
+        visible: true
       type: Label
-      layout_properties: {grid_position: 'RFLHBN,FKFIOY UJJQVV,VEBEIG'}
-    - name: link_7
-      properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: privacy policy.}
+    - layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
+      name: link_7
+      properties: {align: center, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: none, spacing_below: none, text: privacy policy., tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
       type: Link
+    - event_bindings: {}
       layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-    - name: bottom_contact_link
-      properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: contact us.}
+      name: bottom_contact_link
+      properties: {align: center, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: none, spacing_below: none, text: contact us., tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
       type: Link
+    - event_bindings: {click: bottom_about_link_click}
       layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-      event_bindings: {}
-    - name: bottom_about_link
-      properties: {role: null, bold: false, align: center, col_widths: '', spacing_above: none, background: '', icon: '', wrap_on: mobile, underline: false, font: '', col_spacing: medium, icon_align: left, foreground: '', url: '', spacing_below: none, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: about us.}
+      name: bottom_about_link
+      properties: {align: center, background: '', bold: false, border: '', col_spacing: medium, col_widths: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: none, spacing_below: none, text: about us., tooltip: '', underline: false, url: '', visible: true, wrap_on: mobile}
       type: Link
-      layout_properties: {grid_position: 'RFLHBN,MBFIUJ'}
-      event_bindings: {click: bottom_about_link_click}
+    layout_properties: {grid_position: 'IUACVA,HAAFPV'}
+    name: outlined_card_1
+    properties: {role: null}
+    type: ColumnPanel
+  layout_properties: {slot: default}
+  name: colum_panel
+  properties: {}
+  type: ColumnPanel
+container:
+  data_bindings: []
+  properties: {html: '@theme:standard-page.html', visible: true}
+  type: HtmlTemplate
 custom_component: false
+is_package: true

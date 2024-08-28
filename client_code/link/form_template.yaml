@@ -1,40 +1,40 @@
-container: {type: ColumnPanel}
 components:
-- name: column_panel
+- components:
+  - components: []
+    layout_properties: {grid_position: 'FCGECA,ZINSLX'}
+    name: column_panel_2
+    properties: {}
+    type: ColumnPanel
+  layout_properties: {grid_position: 'FGECGE,FHOUQD'}
+  name: column_panel
   properties: {}
   type: ColumnPanel
-  layout_properties: {grid_position: 'FGECGE,FHOUQD'}
-  components:
-  - name: column_panel_2
-    properties: {}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'FCGECA,ZINSLX'}
-    components: []
-- name: flow_panel_1
-  properties: {}
-  type: FlowPanel
-  layout_properties: {grid_position: 'EDXWZQ,NDQTJT'}
-  components:
-  - name: label_1
-    properties: {text: 'Relationship:', align: left, role: title, font_size: 18}
+- components:
+  - layout_properties: {}
+    name: label_1
+    properties: {align: left, font_size: 18, role: title, text: 'Relationship:'}
     type: Label
-    layout_properties: {}
-  - name: results_panel
+  - components: []
+    layout_properties: {width: 171.0135107421875}
+    name: results_panel
     properties: {}
     type: ColumnPanel
-    layout_properties: {width: 171.0135107421875}
-    components: []
-  - name: spacer_1
+  - layout_properties: {width: 102.396158203125}
+    name: spacer_1
     properties: {height: 32}
     type: Spacer
-    layout_properties: {width: 102.396158203125}
-  - name: label_2
-    properties: {text: 'Related theme:', align: right, role: title, font_size: 18}
+  - layout_properties: {}
+    name: label_2
+    properties: {align: right, font_size: 18, role: title, text: 'Related theme:'}
     type: Label
-    layout_properties: {}
-  - name: related_headings_panel
+  - components: []
+    layout_properties: {expand: true, width: 337.8069853515625}
+    name: related_headings_panel
     properties: {}
     type: ColumnPanel
-    layout_properties: {width: 337.8069853515625, expand: true}
-    components: []
+  layout_properties: {grid_position: 'EDXWZQ,NDQTJT'}
+  name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+container: {type: ColumnPanel}
 is_package: true

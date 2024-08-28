@@ -1,66 +1,66 @@
-container: {type: ColumnPanel}
 components:
-- name: link_1
-  properties: {text: Back, icon: 'fa:chevron-left', icon_align: left}
-  type: Link
+- event_bindings: {click: link_1_click}
   layout_properties: {grid_position: 'XUESMQ,HFZTOU'}
-  event_bindings: {click: link_1_click}
-- name: flow_panel_1
-  properties: {align: center}
-  type: FlowPanel
-  layout_properties: {grid_position: 'LSUGSX,CFOUQU'}
-  components:
-  - name: label_3
-    properties: {text: Search in List, align: left, spacing_above: small, underline: false, bold: false, role: input-prompt}
+  name: link_1
+  properties: {icon: 'fa:chevron-left', icon_align: left, text: Back}
+  type: Link
+- components:
+  - layout_properties: {}
+    name: label_3
+    properties: {align: left, bold: false, role: input-prompt, spacing_above: small, text: Search in List, underline: false}
     type: Label
-    layout_properties: {}
-  - name: column_panel_2
+  - components:
+    - event_bindings: {}
+      layout_properties: {full_width_row: false, grid_position: 'SFRSIY,XTJNPW'}
+      name: outlined_1
+      properties: {align: left, hide_text: false, placeholder: Search, role: search-input, spacing_above: small, spacing_below: none}
+      type: TextBox
+    layout_properties: {width: 344.605884765625}
+    name: column_panel_2
     properties: {role: search-container}
     type: ColumnPanel
-    components:
-    - name: outlined_1
-      properties: {role: search-input, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search}
-      type: TextBox
-      layout_properties: {grid_position: 'SFRSIY,XTJNPW', full_width_row: false}
-      event_bindings: {}
-    layout_properties: {width: 344.605884765625}
-  - name: search_lexical_item_button
-    properties: {text: '', role: search-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
+  - event_bindings: {click: search_lexical_item_button_click}
+    name: search_lexical_item_button
+    properties: {align: center, icon: 'fa:search', icon_align: top, role: search-button, spacing_above: small, spacing_below: none, text: ''}
     type: Button
-    event_bindings: {click: search_lexical_item_button_click}
-- name: column_panel_1
-  properties: {}
-  type: ColumnPanel
-  layout_properties: {grid_position: 'CLKFBG,QOLOBX'}
-  components:
-  - name: spacer_2
+  layout_properties: {grid_position: 'LSUGSX,CFOUQU'}
+  name: flow_panel_1
+  properties: {align: center}
+  type: FlowPanel
+- components:
+  - layout_properties: {grid_position: 'CQWQLQ,XFNXGH'}
+    name: spacer_2
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'CQWQLQ,XFNXGH'}
-  - name: spacer_4
+  - layout_properties: {grid_position: 'CQWQLQ,VHYUWW'}
+    name: spacer_4
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'CQWQLQ,VHYUWW'}
-  - name: spacer_5
+  - layout_properties: {grid_position: 'CQWQLQ,WGSQIT'}
+    name: spacer_5
     properties: {height: 32}
     type: Spacer
-    layout_properties: {grid_position: 'CQWQLQ,WGSQIT'}
-  - name: drop_down
+  - event_bindings: {change: drop_down_change}
+    layout_properties: {grid_position: 'CQWQLQ,GCHXRH'}
+    name: drop_down
     properties:
-      items: [All, idi, "adj\tadjective", "adjphr \tadjective phrase ", "adv\tadverb", "advphr\tadverbial phrase", "art\tarticle", "cl\tclause", "excl\texclamation", "idi\tidiom", "n\tnoun", "nplur\tplural noun", "nphr\tnoun phrase", "pr\tpreposition", "pref\tprefix", "prphr\tprepositional phrase", "pt\tparticle", "v\tverb", "verg\tergative verb", "vi\tintransitive verb", "v-inf\tinfinitive of the verb", "virec\treciprocal verb", "vtref\treflexive verb", "vt\ttransitive verb", "prp\tpresent participle", "pp\tpast participle ", '']
       include_placeholder: true
+      items: [All, idi, "adj\tadjective", "adjphr \tadjective phrase ", "adv\tadverb", "advphr\tadverbial phrase", "art\tarticle", "cl\tclause", "excl\texclamation", "idi\tidiom", "n\tnoun", "nplur\tplural noun", "nphr\tnoun phrase", "pr\tpreposition", "pref\tprefix", "prphr\tprepositional phrase", "pt\tparticle", "v\tverb", "verg\tergative verb", "vi\tintransitive verb", "v-inf\tinfinitive of the verb", "virec\treciprocal verb", "vtref\treflexive verb", "vt\ttransitive verb", "prp\tpresent participle", "pp\tpast participle ", '']
       placeholder: Filter by word class
       role: outlined
     type: DropDown
-    layout_properties: {grid_position: 'CQWQLQ,GCHXRH'}
-    event_bindings: {change: drop_down_change}
-- name: spacer_1
+  layout_properties: {grid_position: 'CLKFBG,QOLOBX'}
+  name: column_panel_1
+  properties: {}
+  type: ColumnPanel
+- layout_properties: {grid_position: 'BTBFUE,OFEMJA'}
+  name: spacer_1
   properties: {height: 32}
   type: Spacer
-  layout_properties: {grid_position: 'BTBFUE,OFEMJA'}
-- name: grid_panel
+- components: []
+  layout_properties: {full_width_row: true, grid_position: 'ZOXFAA,ZJDVYF'}
+  name: grid_panel
   properties: {}
   type: GridPanel
-  layout_properties: {grid_position: 'ZOXFAA,ZJDVYF', full_width_row: true}
-  components: []
+container: {type: ColumnPanel}
 is_package: true

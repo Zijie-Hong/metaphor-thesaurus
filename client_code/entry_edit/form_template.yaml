@@ -1,146 +1,146 @@
-container: {type: ColumnPanel}
 components:
-- name: label_1
-  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Lexical Item:'}
+- layout_properties: {grid_position: 'VBRXFZ,ELGFJC'}
+  name: label_1
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Lexical Item:', tooltip: '', underline: false, visible: true}
   type: Label
-  layout_properties: {grid_position: 'VBRXFZ,ELGFJC'}
-- name: textbox_item
+- data_bindings:
+  - {code: 'self.item[''english_headword'']', property: text, writeback: true}
+  layout_properties: {grid_position: 'VBRXFZ,FWNVHL'}
+  name: textbox_item
   properties: {role: outlined}
   type: TextBox
-  layout_properties: {grid_position: 'VBRXFZ,FWNVHL'}
-  data_bindings:
-  - {property: text, code: 'self.item[''english_headword'']', writeback: true}
-- name: label_2
-  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Literal/Metaphorical  word class:'}
+- layout_properties: {grid_position: 'LYUQSF,OMJZGN'}
+  name: label_2
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Literal/Metaphorical  word class:', tooltip: '', underline: false, visible: true}
   type: Label
-  layout_properties: {grid_position: 'LYUQSF,OMJZGN'}
-- name: flow_panel_1
-  properties: {}
-  type: FlowPanel
-  layout_properties: {grid_position: 'LYUQSF,FRDYCG'}
-  components:
-  - name: textbox_literal_word_class
-    properties: {visible: true, role: outlined, text: ''}
-    type: TextBox
+- components:
+  - data_bindings:
+    - {code: 'self.item[''literal_word_class'']', property: text, writeback: true}
     layout_properties: {width: 171.67070849609374}
-    data_bindings:
-    - {property: text, code: 'self.item[''literal_word_class'']', writeback: true}
-  - name: textbox_metaphorical_word_class
+    name: textbox_literal_word_class
+    properties: {role: outlined, text: '', visible: true}
+    type: TextBox
+  - data_bindings:
+    - {code: 'self.item[''metaphorical_word_class'']', property: text, writeback: true}
+    layout_properties: {width: 174.8329423828125}
+    name: textbox_metaphorical_word_class
     properties: {role: outlined}
     type: TextBox
-    layout_properties: {width: 174.8329423828125}
-    data_bindings:
-    - {property: text, code: 'self.item[''metaphorical_word_class'']', writeback: true}
-- name: label_4
-  properties: {text: 'Literal meaning:', italic: false}
+  layout_properties: {grid_position: 'LYUQSF,FRDYCG'}
+  name: flow_panel_1
+  properties: {}
+  type: FlowPanel
+- layout_properties: {grid_position: 'UUYPUX,TIRLNT'}
+  name: label_4
+  properties: {italic: false, text: 'Literal meaning:'}
   type: Label
-  layout_properties: {grid_position: 'UUYPUX,TIRLNT'}
-- name: textbox_literal_meaning
+- data_bindings:
+  - {code: 'self.item[''literal_meaning'']', property: text, writeback: true}
+  layout_properties: {grid_position: 'UUYPUX,IWBVDR'}
+  name: textbox_literal_meaning
   properties: {role: outlined}
   type: TextBox
-  layout_properties: {grid_position: 'UUYPUX,IWBVDR'}
-  data_bindings:
-  - {property: text, code: 'self.item[''literal_meaning'']', writeback: true}
-- name: label_4_copy
+- layout_properties: {grid_position: 'KYFWKK,GYAPTN'}
+  name: label_4_copy
   properties: {text: 'Metaphor meaning:'}
   type: Label
-  layout_properties: {grid_position: 'KYFWKK,GYAPTN'}
-- name: textbox_metaphor_meaning
+- data_bindings:
+  - {code: 'self.item[''metaphor_meaning'']', property: text, writeback: true}
+  layout_properties: {grid_position: 'KYFWKK,EMISXI'}
+  name: textbox_metaphor_meaning
   properties: {role: outlined, text: metaphor_meaning}
   type: TextBox
-  layout_properties: {grid_position: 'KYFWKK,EMISXI'}
-  data_bindings:
-  - {property: text, code: 'self.item[''metaphor_meaning'']', writeback: true}
-- name: label_4_copy_copy
+- layout_properties: {grid_position: 'FRFHXR,GKKVPX'}
+  name: label_4_copy_copy
   properties: {text: 'Example sentence:'}
   type: Label
-  layout_properties: {grid_position: 'FRFHXR,GKKVPX'}
-- name: textbox_english_example_sentence
+- data_bindings:
+  - {code: 'self.item[''english_example_sentence'']', property: text, writeback: true}
+  layout_properties: {grid_position: 'FRFHXR,ZNBARO'}
+  name: textbox_english_example_sentence
   properties: {role: outlined}
   type: TextBox
-  layout_properties: {grid_position: 'FRFHXR,ZNBARO'}
-  data_bindings:
-  - {property: text, code: 'self.item[''english_example_sentence'']', writeback: true}
-- name: label_dictionary
+- layout_properties: {grid_position: 'VFSHAA,FEJYLQ'}
+  name: label_dictionary
   properties: {text: Cite from which dictionary}
   type: Label
-  layout_properties: {grid_position: 'VFSHAA,FEJYLQ'}
-- name: textbox_dictionary
+- data_bindings: []
+  layout_properties: {grid_position: 'VFSHAA,NBUJWV'}
+  name: textbox_dictionary
   properties: {role: outlined}
   type: TextBox
-  layout_properties: {grid_position: 'VFSHAA,NBUJWV'}
-  data_bindings: []
-- name: label_5
+- layout_properties: {grid_position: 'WCIETU,ISCRMB'}
+  name: label_5
   properties: {role: custom-divider, text: ''}
   type: Label
-  layout_properties: {grid_position: 'WCIETU,ISCRMB'}
-- name: label_source_category
-  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Source category:'}
+- layout_properties: {grid_position: 'YWGHNB,VAFVRT RMJIQG,QSSZSR'}
+  name: label_source_category
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Source category:', tooltip: '', underline: false, visible: true}
   type: Label
-  layout_properties: {grid_position: 'YWGHNB,VAFVRT RMJIQG,QSSZSR'}
-- name: label_target_category
-  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Target category:'}
+- layout_properties: {grid_position: 'YWGHNB,VAFVRT UCHHIU,PMPBJK'}
+  name: label_target_category
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Target category:', tooltip: '', underline: false, visible: true}
   type: Label
-  layout_properties: {grid_position: 'YWGHNB,VAFVRT UCHHIU,PMPBJK'}
-- name: label_select_theme
-  properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Select theme:'}
+- layout_properties: {grid_position: 'YWGHNB,VAFVRT MPFTRL,CGTGXX'}
+  name: label_select_theme
+  properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: false, role: null, spacing_above: small, spacing_below: small, text: 'Select theme:', tooltip: '', underline: false, visible: true}
   type: Label
-  layout_properties: {grid_position: 'YWGHNB,VAFVRT MPFTRL,CGTGXX'}
-- name: source_category_box
-  properties:
-    role: outlined
-    include_placeholder: true
-    bold: false
-    align: full
-    placeholder: choose category
-    spacing_above: small
-    background: ''
-    underline: false
-    font: ''
-    foreground: ''
-    items: [THING & SUBSTANCE, 'ANIMAL, HUMAN, SENSES, FEELINGS', ACTIVITY & MOVEMENT, PLACE & SPACE]
-    spacing_below: small
-    visible: true
-    border: ''
-    italic: false
-    enabled: true
-    font_size: null
-    tooltip: ''
-  type: DropDown
-  layout_properties: {grid_position: 'YWGHNB,JYRLOY VFBUXQ,CZBIQC'}
-  data_bindings: []
+- data_bindings: []
   event_bindings: {change: source_category_box_change}
-- name: target_category_box
+  layout_properties: {grid_position: 'YWGHNB,JYRLOY VFBUXQ,CZBIQC'}
+  name: source_category_box
   properties:
-    role: outlined
-    include_placeholder: true
-    bold: false
     align: full
-    placeholder: choose category
-    spacing_above: small
     background: ''
-    underline: false
-    font: ''
-    foreground: ''
-    items: ['VALUES, QUALITIES AND QUANTITIES', 'EMOTIONS, EXPERIENCES AND RELATIONSHIPS', THINKING AND COMMUNICATING, 'ACTIVITIES, PROCESSES, MOVEMENT AND TIME', 'HUMAN, SOCIETY ANIMALS AND SENSES', THINGS AND SUBSTANCES]
-    spacing_below: small
-    visible: true
+    bold: false
     border: ''
-    italic: false
     enabled: true
+    font: ''
     font_size: null
+    foreground: ''
+    include_placeholder: true
+    italic: false
+    items: [THING & SUBSTANCE, 'ANIMAL, HUMAN, SENSES, FEELINGS', ACTIVITY & MOVEMENT, PLACE & SPACE]
+    placeholder: choose category
+    role: outlined
+    spacing_above: small
+    spacing_below: small
     tooltip: ''
+    underline: false
+    visible: true
   type: DropDown
-  layout_properties: {grid_position: 'YWGHNB,JYRLOY EWUKZO,NTRWRK'}
-  data_bindings: []
+- data_bindings: []
   event_bindings: {change: target_category_box_change}
-- name: theme_box
-  properties: {role: outlined}
+  layout_properties: {grid_position: 'YWGHNB,JYRLOY EWUKZO,NTRWRK'}
+  name: target_category_box
+  properties:
+    align: full
+    background: ''
+    bold: false
+    border: ''
+    enabled: true
+    font: ''
+    font_size: null
+    foreground: ''
+    include_placeholder: true
+    italic: false
+    items: ['VALUES, QUALITIES AND QUANTITIES', 'EMOTIONS, EXPERIENCES AND RELATIONSHIPS', THINKING AND COMMUNICATING, 'ACTIVITIES, PROCESSES, MOVEMENT AND TIME', 'HUMAN, SOCIETY ANIMALS AND SENSES', THINGS AND SUBSTANCES]
+    placeholder: choose category
+    role: outlined
+    spacing_above: small
+    spacing_below: small
+    tooltip: ''
+    underline: false
+    visible: true
   type: DropDown
+- event_bindings: {change: theme_box_change}
   layout_properties: {grid_position: 'YWGHNB,JYRLOY AMIWIQ,DLCJDU'}
-  event_bindings: {change: theme_box_change}
-- name: section_heading_box
+  name: theme_box
   properties: {role: outlined}
   type: DropDown
-  layout_properties: {grid_position: 'YWGHNB,JYRLOY XGMTBO,PVAFKT'}
+- layout_properties: {grid_position: 'YWGHNB,JYRLOY XGMTBO,PVAFKT'}
+  name: section_heading_box
+  properties: {role: outlined}
+  type: DropDown
+container: {type: ColumnPanel}
 is_package: true

@@ -12,7 +12,6 @@ class ItemTemplate1(ItemTemplate1Template):
       self.metaphor_meaning_label.visible = bool(self.item['metaphor_meaning'])
       self.english_example_sentence_label.visible = bool(self.item['english_example_sentence'])
 
-
   def delete_entry_button_click(self, **event_args):
       result = check_password()
       if result is True:
@@ -32,7 +31,7 @@ class ItemTemplate1(ItemTemplate1Template):
             large=True,
             buttons=[("Accept", True), ("Cancel", False)]
           )
-          # Update the entry if the user clicks save
+          
           if save_clicked:
             if entry_form.are_fields_filled():
                 entry_accept, section_heading_id = entry_form.get_data()
@@ -45,7 +44,7 @@ class ItemTemplate1(ItemTemplate1Template):
                     alert('Item approved successfully')
                 else:
                     alert(result['message'])
-                # Now refresh the page
+      
                 self.refresh_data_bindings()
             else:
                 alert("Please fill in all required fields.")

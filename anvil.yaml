@@ -1,178 +1,178 @@
 allow_embedding: false
-package_name: Metaphor_Thesaurus
-name: Metaphor Thesaurus
-startup_form: null
-renamed: true
-runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox, server_spec: null}
-dependencies: []
-services:
-- source: /runtime/services/tables.yml
-  client_config: {enable_v2: false}
-  server_config: {}
-metadata: {logo_img: null}
-startup: {type: form, module: main}
 db_schema:
-  category_targets:
-    title: category_targets
-    client: none
-    server: full
-    columns:
-    - name: category_target_id
-      admin_ui: {width: 200}
-      type: number
-    - name: category_target
-      admin_ui: {width: 319}
-      type: string
-  sources:
-    title: sources
-    client: none
-    server: full
-    columns:
-    - name: source_id
-      admin_ui: {width: 200}
-      type: number
-    - name: source
-      admin_ui: {width: 200}
-      type: string
-  suggestion:
-    title: suggestion
-    client: none
-    server: full
-    columns:
-    - name: id
-      admin_ui: {width: 200}
-      type: number
-    - name: english_headword
-      admin_ui: {width: 200}
-      type: string
-    - name: literal_meaning
-      admin_ui: {width: 200}
-      type: string
-    - name: literal_word_class
-      admin_ui: {width: 200}
-      type: string
-    - name: metaphorical_word_class
-      admin_ui: {width: 200}
-      type: string
-    - name: metaphor_meaning
-      admin_ui: {width: 200}
-      type: string
-    - name: english_example_sentence
-      admin_ui: {width: 200}
-      type: string
-    - name: added_time
-      admin_ui: {width: 200}
-      type: string
-    - name: dictionary
-      admin_ui: {width: 200, order: 7}
-      type: string
-  targets:
-    title: targets
-    client: none
-    server: full
-    columns:
-    - name: target_id
-      admin_ui: {width: 200}
-      type: number
-    - name: target
-      admin_ui: {width: 200}
-      type: string
-  lexical_items:
-    title: lexical_items
-    client: full
-    server: full
-    columns:
-    - name: lexical_item_id
-      admin_ui: {width: 200}
-      type: number
-    - name: section_heading_id
-      admin_ui: {width: 200}
-      type: number
-    - name: english_headword
-      admin_ui: {width: 200}
-      type: string
-    - name: literal_meaning
-      admin_ui: {width: 200}
-      type: string
-    - name: literal_word_class
-      admin_ui: {width: 200}
-      type: string
-    - name: metaphorical_word_class
-      admin_ui: {width: 200}
-      type: string
-    - name: metaphor_meaning
-      admin_ui: {width: 200}
-      type: string
-    - name: english_example_sentence
-      admin_ui: {width: 200}
-      type: string
   category_sources:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: category_source_id
+      type: number
+    - admin_ui: {width: 200}
+      name: category_source
+      type: string
+    server: full
     title: category_sources
+  category_targets:
     client: none
-    server: full
     columns:
-    - name: category_source_id
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: category_target_id
       type: number
-    - name: category_source
-      admin_ui: {width: 200}
+    - admin_ui: {width: 319}
+      name: category_target
       type: string
-  section_headings:
-    title: section_headings
-    client: none
     server: full
+    title: category_targets
+  lexical_items:
+    client: full
     columns:
-    - name: section_heading_id
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: lexical_item_id
       type: number
-    - name: section_heading
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: section_heading_id
+      type: number
+    - admin_ui: {width: 200}
+      name: english_headword
       type: string
-    - name: main_heading_id
-      admin_ui: {width: 200}
-      type: number
-  relationships:
-    title: relationships
-    client: none
+    - admin_ui: {width: 200}
+      name: literal_meaning
+      type: string
+    - admin_ui: {width: 200}
+      name: literal_word_class
+      type: string
+    - admin_ui: {width: 200}
+      name: metaphorical_word_class
+      type: string
+    - admin_ui: {width: 200}
+      name: metaphor_meaning
+      type: string
+    - admin_ui: {width: 200}
+      name: english_example_sentence
+      type: string
     server: full
-    columns:
-    - name: main_heading_id
-      admin_ui: {width: 200}
-      type: number
-    - name: relationship
-      admin_ui: {width: 200}
-      type: string
-    - name: related_heading
-      admin_ui: {width: 200}
-      type: string
+    title: lexical_items
   main_headings:
-    title: main_headings
     client: none
-    server: full
     columns:
-    - name: main_heading_id
-      admin_ui: {width: 200}
+    - admin_ui: {width: 200}
+      name: main_heading_id
       type: number
-    - name: main_heading
-      admin_ui: {width: 248}
+    - admin_ui: {width: 248}
+      name: main_heading
       type: string
-    - name: target_id
-      admin_ui: {width: 200}
-      type: link_single
+    - admin_ui: {width: 200}
+      name: target_id
       target: targets
-    - name: source_id
-      admin_ui: {width: 200}
       type: link_single
+    - admin_ui: {width: 200}
+      name: source_id
       target: sources
-    - name: category_source_id
-      admin_ui: {width: 200}
       type: link_single
+    - admin_ui: {width: 200}
+      name: category_source_id
       target: category_sources
-    - name: category_target_id
-      admin_ui: {width: 200}
       type: link_single
+    - admin_ui: {width: 200}
+      name: category_target_id
       target: category_targets
-    - name: section_heading_ids
-      admin_ui: {width: 200}
-      type: link_multiple
+      type: link_single
+    - admin_ui: {width: 200}
+      name: section_heading_ids
       target: section_headings
+      type: link_multiple
+    server: full
+    title: main_headings
+  relationships:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: main_heading_id
+      type: number
+    - admin_ui: {width: 200}
+      name: relationship
+      type: string
+    - admin_ui: {width: 200}
+      name: related_heading
+      type: string
+    server: full
+    title: relationships
+  section_headings:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: section_heading_id
+      type: number
+    - admin_ui: {width: 200}
+      name: section_heading
+      type: string
+    - admin_ui: {width: 200}
+      name: main_heading_id
+      type: number
+    server: full
+    title: section_headings
+  sources:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: source_id
+      type: number
+    - admin_ui: {width: 200}
+      name: source
+      type: string
+    server: full
+    title: sources
+  suggestion:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: id
+      type: number
+    - admin_ui: {width: 200}
+      name: english_headword
+      type: string
+    - admin_ui: {width: 200}
+      name: literal_meaning
+      type: string
+    - admin_ui: {width: 200}
+      name: literal_word_class
+      type: string
+    - admin_ui: {width: 200}
+      name: metaphorical_word_class
+      type: string
+    - admin_ui: {width: 200}
+      name: metaphor_meaning
+      type: string
+    - admin_ui: {width: 200}
+      name: english_example_sentence
+      type: string
+    - admin_ui: {width: 200}
+      name: added_time
+      type: string
+    - admin_ui: {order: 7, width: 200}
+      name: dictionary
+      type: string
+    server: full
+    title: suggestion
+  targets:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: target_id
+      type: number
+    - admin_ui: {width: 200}
+      name: target
+      type: string
+    server: full
+    title: targets
+dependencies: []
+metadata: {logo_img: null}
+name: Metaphor Thesaurus
+package_name: Metaphor_Thesaurus
+renamed: true
+runtime_options: {client_version: '3', server_spec: null, server_version: python3-sandbox, version: 2}
+services:
+- client_config: {enable_v2: false}
+  server_config: {}
+  source: /runtime/services/tables.yml
+startup: {module: main, type: form}
+startup_form: null

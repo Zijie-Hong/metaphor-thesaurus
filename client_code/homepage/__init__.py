@@ -10,8 +10,7 @@ class homepage(homepageTemplate):
   def search_lexical_item_button_click(self, **event_args):
     user_input = self.outlined_1.text.strip().lower()
     search_lexical_item(user_input)
-  
-      
+     
   def search_theme_button_click(self, **event_args):
       result = None
       input1 = self.input_box_1.text.strip().upper()
@@ -27,24 +26,6 @@ class homepage(homepageTemplate):
       else:
           alert("No results found.")
           
-
-  def radio_target_clicked(self, **event_args):
-    self.label_2.visible = False
-    self.column_panel_2.clear()
-    self.column_panel_2.add_component(self.input_box_1)
-
-  def radio_source_clicked(self, **event_args):
-    self.label_2.visible = False
-    self.column_panel_2.clear()
-    self.column_panel_2.add_component(self.input_box_2)
-
-  def radio_theme_clicked(self, **event_args):
-    self.label_2.visible = True
-    self.column_panel_2.clear()
-    self.column_panel_2.add_component(self.input_box_1)
-    self.column_panel_2.add_component(self.label_2)
-    self.column_panel_2.add_component(self.input_box_2)
-
   def search_target_button_click(self, **event_args):
     result = None
     input = self.target_input_box.text.strip().upper()

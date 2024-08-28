@@ -1,99 +1,99 @@
-is_package: true
-container:
-  type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html', visible: true}
-  data_bindings: []
 components:
-- name: label_2
-  properties: {text: Metaphor Thesaurus, role: headline}
+- layout_properties: {slot: title}
+  name: label_2
+  properties: {role: headline, text: Metaphor Thesaurus}
   type: Label
-  layout_properties: {slot: title}
-- name: flow_panel_1
-  properties: {align: left}
-  type: FlowPanel
-  layout_properties: {slot: nav-right}
-  components:
-  - name: flow_panel_4
-    properties: {role: null, align: left, vertical_align: full, spacing: none}
-    type: FlowPanel
-    components:
-    - name: outlined_1
-      properties: {role: null, align: left, hide_text: false, spacing_above: small, spacing_below: none, placeholder: Search Dictionary, foreground: 'theme:On Primary Container'}
-      type: TextBox
+- components:
+  - components:
+    - event_bindings: {}
       layout_properties: {width: 193.78790283203125}
-      event_bindings: {}
-    - name: search_lexical_item_button
-      properties: {text: '', role: filled-button, align: center, icon: 'fa:search', icon_align: top, spacing_above: small, spacing_below: none}
-      type: Button
-      event_bindings: {click: search_lexical_item_button_click}
+      name: outlined_1
+      properties: {align: left, foreground: 'theme:On Primary Container', hide_text: false, placeholder: Search Dictionary, role: null, spacing_above: small, spacing_below: none}
+      type: TextBox
+    - event_bindings: {click: search_lexical_item_button_click}
       layout_properties: {}
+      name: search_lexical_item_button
+      properties: {align: center, icon: 'fa:search', icon_align: top, role: filled-button, spacing_above: small, spacing_below: none, text: ''}
+      type: Button
     layout_properties: {width: 288.63641357421875}
-  - name: spacer_3
+    name: flow_panel_4
+    properties: {align: left, role: null, spacing: none, vertical_align: full}
+    type: FlowPanel
+  - layout_properties: {width: 124.6562}
+    name: spacer_3
     properties: {height: 32}
     type: Spacer
-    layout_properties: {width: 124.6562}
-  - name: link_4
-    properties: {text: Introduction, align: center}
+  - event_bindings: {click: link_4_click}
+    name: link_4
+    properties: {align: center, text: Introduction}
     type: Link
-    event_bindings: {click: link_4_click}
-  - name: link_3
-    properties: {text: Homepage, role: null, underline: false}
+  - event_bindings: {click: link_3_click}
+    name: link_3
+    properties: {role: null, text: Homepage, underline: false}
     type: Link
-    event_bindings: {click: link_3_click}
-  - name: link_2
+  - event_bindings: {click: link_2_click}
+    layout_properties: {}
+    name: link_2
     properties: {text: Theme Map}
     type: Link
-    layout_properties: {}
-    event_bindings: {click: link_2_click}
-  - name: link_1
+  - event_bindings: {click: link_1_click}
+    name: link_1
     properties: {text: Suggestion List}
     type: Link
-    event_bindings: {click: link_1_click}
-- name: column_panel_1
-  properties: {role: null}
-  type: ColumnPanel
-  layout_properties: {slot: left-nav}
-  components:
-  - name: spacer_1
+  layout_properties: {slot: nav-right}
+  name: flow_panel_1
+  properties: {align: left}
+  type: FlowPanel
+- components:
+  - layout_properties: {grid_position: 'CXKTXG,OHEJNI'}
+    name: spacer_1
     properties: {height: -10.57574462890625}
     type: Spacer
-    layout_properties: {grid_position: 'CXKTXG,OHEJNI'}
-  - name: item_panel
-    properties: {wrap_on: mobile, role: null}
-    type: ColumnPanel
-    layout_properties: {grid_position: 'IBOFYK,JBOPVL', full_width_row: true}
-    components:
-    - name: button_1
-      properties: {text: Lexical Item, role: null, align: full, bold: false, enabled: true, italic: false, font_size: 20, visible: true}
-      type: Button
-      layout_properties: {grid_position: 'LJCHPB,IONNSH', full_width_row: false}
+  - components:
+    - data_bindings:
+      - {code: '', property: font, writeback: false}
       event_bindings: {click: button_1_click}
-      data_bindings:
-      - {property: font, code: '', writeback: false}
-  - name: theme_panel
-    properties: {role: null}
+      layout_properties: {full_width_row: false, grid_position: 'LJCHPB,IONNSH'}
+      name: button_1
+      properties: {align: full, bold: false, enabled: true, font_size: 20, italic: false, role: null, text: Lexical Item, visible: true}
+      type: Button
+    layout_properties: {full_width_row: true, grid_position: 'IBOFYK,JBOPVL'}
+    name: item_panel
+    properties: {role: null, wrap_on: mobile}
     type: ColumnPanel
-    layout_properties: {grid_position: 'ESJVZP,YEWIYD', full_width_row: true}
-    components:
-    - name: button_2
+  - components:
+    - event_bindings: {click: button_2_click}
+      layout_properties: {full_width_row: false, grid_position: 'OUYJXY,COATUO'}
+      name: button_2
       properties:
+        align: full
+        background: ''
+        bold: false
+        enabled: true
+        font_size: 20
+        foreground: ''
+        role: custom-button
         text: |
           Metaphor Theme
-        role: custom-button
-        background: ''
-        align: full
-        foreground: ''
-        enabled: true
-        bold: false
-        font_size: 20
       type: Button
-      layout_properties: {grid_position: 'OUYJXY,COATUO', full_width_row: false}
-      event_bindings: {click: button_2_click}
+    layout_properties: {full_width_row: true, grid_position: 'ESJVZP,YEWIYD'}
+    name: theme_panel
+    properties: {role: null}
+    type: ColumnPanel
   data_bindings:
-  - {property: wrap_on, code: 'self.item['''']', writeback: false}
-- name: output_panel
+  - {code: 'self.item['''']', property: wrap_on, writeback: false}
+  layout_properties: {slot: left-nav}
+  name: column_panel_1
+  properties: {role: null}
+  type: ColumnPanel
+- components: []
+  layout_properties: {slot: default}
+  name: output_panel
   properties: {}
   type: ColumnPanel
-  layout_properties: {slot: default}
-  components: []
+container:
+  data_bindings: []
+  properties: {html: '@theme:standard-page.html', visible: true}
+  type: HtmlTemplate
 custom_component: false
+is_package: true
