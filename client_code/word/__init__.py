@@ -52,7 +52,7 @@ class word(wordTemplate):
           result = check_password()
           if result is True:
               data = self.data_list[self.current_index]
-              entry_copy = data
+              entry_copy = dict(data)
               save_clicked = alert(
                   content=entry_edit(item=entry_copy, edit_item=True),
                   title="Update Entry",
@@ -61,6 +61,7 @@ class word(wordTemplate):
               )
               if save_clicked:
                   anvil.server.call('update_entry', self.item, entry_copy)
+
                   self.data_list[self.current_index] = entry_copy
                   self.item = entry_copy
                   self.update_display()
