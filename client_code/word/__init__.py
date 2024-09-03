@@ -61,7 +61,6 @@ class word(wordTemplate):
               )
               if save_clicked:
                   anvil.server.call('update_entry', self.item, entry_copy)
-
                   self.data_list[self.current_index] = entry_copy
                   self.item = entry_copy
                   self.update_display()
