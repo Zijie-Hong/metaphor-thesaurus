@@ -1,6 +1,7 @@
 from ._anvil_designer import mapTemplate
 from anvil import *
 import anvil.server
+from anvil.tables import app_tables
 from ..utils import populate_content_panel
 
 class map(mapTemplate):
@@ -13,12 +14,13 @@ class map(mapTemplate):
   
       self.selected_source = None
       self.selected_target = None
-      
+  
       for idx, button in enumerate(self.source_buttons):
           button.set_event_handler('click', self.source_button_click)
     
       for idx, button in enumerate(self.target_buttons):
           button.set_event_handler('click', self.target_button_click)
+
 
   def reset_buttons(self, buttons):
         for button in buttons:
@@ -50,18 +52,39 @@ class map(mapTemplate):
       self.select_button(clicked_button, self.target_buttons, 'target')
   
   def check_selection(self):
-      if self.selected_source or self.selected_target:
-          self.result_panel.clear()
-          results = anvil.server.call('get_matching_headings', self.selected_source, self.selected_target)
-          results_heading = [d['main_heading'] for d in results]
-          if results_heading:
-            populate_content_panel(self.result_panel, results_heading, self.main_heading_click)
-          else:
-                self.result_panel.add_component(Label(text="No matching rows found."), row=0, col_xs=0)
+      if self.selected_source and self.selected_target:  
+            self.result_panel.clear()
+            source_id = anvil.server.call('get_source_id_by_name', self.selected_source)  
+            target_id = anvil.server.call('get_target_id_by_name', self.selected_target)  
+
+            map_data = anvil.server.call('get_map_data_by_ids', source_id, target_id)  
+
+            if map_data:  
+                print(map_data)
+                lines = map_data.split('\n')  
+
+                for line in lines:  
+                    line = line.strip()  
+                    if line:   
+                        link = Link(text=line, url=None)  
+                        link.tag.main_heading = line  
+                        link.set_event_handler('click', self.main_heading_click)  
+                        self.result_panel.add_component(link)  
+                    else:  
+                        self.result_panel.add_component(Label(role='custom-divider'))  
+            else:  
+                self.result_panel.add_component(Label(text="No matching rows found."), row=0, col_xs=0)  
+      elif self.selected_source or self.selected_target: 
+            self.result_panel.clear()
+            results = anvil.server.call('get_matching_headings', self.selected_source, self.selected_target)
+            results_heading = [d['main_heading'] for d in results]
+            if results_heading:
+              populate_content_panel(self.result_panel, results_heading, self.main_heading_click)
+            else:
+              self.result_panel.add_component(Label(text="No matching rows found."), row=0, col_xs=0)
 
             
   def main_heading_click(self, sender, **event_args):
       main_heading = sender.tag.main_heading
       main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
       open_form('LexicalItem', theme_panel_role='elevated-card', item_panel_visibility=False, data =main_heading_data)
-    

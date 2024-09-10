@@ -297,3 +297,20 @@ def accept_entry(entry, section_heading_id):
 @anvil.server.callable
 def verify_password(password):
     return password == "adminpass"
+
+@anvil.server.callable
+def get_map_data_by_ids(source_id, target_id):  
+    row_data = app_tables.map.get(source=str(target_id))
+    if row_data:  
+        column_name = f'source_{source_id}'
+        column_data = row_data[column_name]
+        return column_data 
+    return None
+
+@anvil.server.callable  
+def get_source_id_by_name(source_name):  
+    return app_tables.category_sources.get(category_source=source_name)['category_source_id']  
+
+@anvil.server.callable  
+def get_target_id_by_name(target_name):  
+    return app_tables.category_targets.get(category_target=target_name)['category_target_id']  

@@ -60,5 +60,9 @@ components:
   name: result_panel
   properties: {}
   type: GridPanel
+- layout_properties: {grid_position: 'VGXGIK,NDBPXM'}
+  name: repeating_panel_1
+  properties: {item_template: map.ItemTemplate2}
+  type: RepeatingPanel
 container: {type: ColumnPanel}
 is_package: true
