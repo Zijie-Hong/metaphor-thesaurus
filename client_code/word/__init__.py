@@ -25,9 +25,9 @@ class word(wordTemplate):
           data_with_subtitle = {}
           self.button_1.visible = self.current_index > 0
           self.button_2.visible = self.current_index < len(self.data_list) - 1
-          main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', data['section_heading_id'])
+          main_heading_data, section_heading_data, current_section_heading = anvil.server.call('get_main_heading_data', data['section_heading_id'])
           data_with_subtitle['main_heading'] = main_heading_data['main_heading']
-          data_with_subtitle['section_heading'] = section_heading_data[0]['section_heading']
+          data_with_subtitle['section_heading'] = current_section_heading['section_heading']
           data_copy = data_with_subtitle.copy()
           data_copy.update(data)
           self.item = data_copy
@@ -35,7 +35,7 @@ class word(wordTemplate):
       elif self.add_mode:
             self.button_1.visible = False
             self.button_2.visible = False
-            self.button_save.text = "Add Item"  # 更改保存按钮的文本     
+            self.button_save.text = "Add Item" 
             self.button_edit.visible = False  
             self.label_main_heading.visible = False
             self.label_section_heading.visible = False

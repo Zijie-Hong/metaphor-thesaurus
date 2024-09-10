@@ -84,6 +84,7 @@ def get_main_heading_data(section_heading_id):
         raise ValueError("Section heading not found")
 
     main_heading_rows = app_tables.main_headings.search(main_heading_id=section_heading_row['main_heading_id'])
+
     if not main_heading_rows:
         raise ValueError("Main heading not found")
     main_heading_row = main_heading_rows[0] 
@@ -94,7 +95,7 @@ def get_main_heading_data(section_heading_id):
         "category_target": main_heading_row['category_target_id']['category_target'],
         "section_headings": main_heading_row['section_heading_ids']
     }
-    return main_heading_data, main_heading_data["section_headings"]
+    return main_heading_data, main_heading_data["section_headings"], dict(section_heading_row)
 
 
 @anvil.server.callable

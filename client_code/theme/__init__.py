@@ -15,14 +15,14 @@ class theme(themeTemplate):
       self.data_lexis = None
       self.expanded_content_panels = []
     
-      if isinstance(data, int):         #section_heading_id搜索
+      if isinstance(data, int):        
           self.data = data
           self.update_display()
-      elif isinstance(data, dict):     #确定的theme
+      elif isinstance(data, dict):     
           self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
           self.link_other_themes.visible = True
           self.load_main_heading(data)
-      elif isinstance(data, list):      #搜索theme的列表
+      elif isinstance(data, list):      
           self.link_other_themes.visible = False
           self.main_heading_list(data)
 
@@ -51,7 +51,7 @@ class theme(themeTemplate):
     
   def update_display(self):
       if self.data:
-        main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', self.data)
+        main_heading_data, section_heading_data = anvil.server.call('get_main_heading_data', self.data)[:2]
         self.main_heading.text = main_heading_data['main_heading']
         self.main_heading_id = main_heading_data['main_heading_id']
         self.category_source.text, self.category_target.text = main_heading_data['category_source'], main_heading_data['category_target']
@@ -71,7 +71,6 @@ class theme(themeTemplate):
         content_panel = ColumnPanel(visible=False)
         content_panel.tag.loaded = False
         
-        # 将 content_panel 存储在 header_link 的 tag 中
         header_link.tag.content_panel = content_panel
         
         header_link.set_event_handler('click', self.section_header_click)
@@ -111,7 +110,6 @@ class theme(themeTemplate):
         self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
         self.link_other_themes.visible = True
         self.subtitle_panel.visible = True
-        # Call the server function to get the main heading data
         main_heading_data = anvil.server.call('get_main_heading_data_by_heading', main_heading)
         if main_heading_data:
             self.load_main_heading(main_heading_data)
