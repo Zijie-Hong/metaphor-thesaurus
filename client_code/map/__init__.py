@@ -1,7 +1,6 @@
 from ._anvil_designer import mapTemplate
 from anvil import *
 import anvil.server
-from anvil.tables import app_tables
 from ..utils import populate_content_panel
 
 class map(mapTemplate):
@@ -56,7 +55,6 @@ class map(mapTemplate):
             self.result_panel.clear()
             source_id = anvil.server.call('get_source_id_by_name', self.selected_source)  
             target_id = anvil.server.call('get_target_id_by_name', self.selected_target)  
-
             map_data = anvil.server.call('get_map_data_by_ids', source_id, target_id)  
 
             if map_data:  

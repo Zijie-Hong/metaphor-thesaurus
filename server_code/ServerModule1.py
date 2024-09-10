@@ -206,11 +206,11 @@ def get_matching_headings(source_text, target_text):
     source_row = app_tables.category_sources.get(category_source=source_text)
     target_row = app_tables.category_targets.get(category_target=target_text)
 
-    if source_row and target_row:
-        matching_rows = app_tables.main_headings.search(
-            category_source_id=source_row, category_target_id=target_row
-        )
-    elif source_row:
+    # if source_row and target_row:
+    #     matching_rows = app_tables.main_headings.search(
+    #         category_source_id=source_row, category_target_id=target_row
+    #     )
+    if source_row:
         matching_rows = app_tables.main_headings.search(
             category_source_id=source_row
         )
