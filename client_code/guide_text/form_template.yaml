@@ -1,0 +1,257 @@
+components:
+- layout_properties: {grid_position: 'ZWGMCO,MDYDEH'}
+  name: label_1
+  properties:
+    bold: true
+    font_size: 25
+    text: |
+      Using the Thesaurus
+  type: Label
+- layout_properties: {grid_position: 'UDMIIQ,GYRJIZ'}
+  name: label_2
+  properties:
+    text: |
+      The Thesaurus may be explored using Lists, Metaphor Theme pages, the Map and Searches. The Lists and the Map guide users to find the lexis and Metaphor Themes included in the Thesaurus to enable them to search.
+  type: Label
+- layout_properties: {grid_position: 'PJWUDH,EIABPU'}
+  name: label_3
+  properties: {bold: true, font_size: null, text: Lists}
+  type: Label
+- layout_properties: {grid_position: 'ETASOW,IKSYMN'}
+  name: image_1
+  properties: {display_mode: shrink_to_fit, height: 394.09088134765625, source: _/theme/图片1_2.png, visible: true}
+  type: Image
+- layout_properties: {grid_position: 'JERIPT,UMKKBH'}
+  name: rich_text_1
+  properties:
+    content: "This interface allows users to browse different categories (Theme, Lexis, and Source). They are listed alphabetically to access relevant data.\n\nTo explore Lexis, ensure the \"Lexis\" column heading is selected. Clicking on a letter will display all lexical items beginning with that letter and organised alphabetically.\n\nYou can click on any of these lexical items to navigate to find which Metaphor Theme and subtheme they belong to, their literal and metaphorical meanings with their word-classes.\n\nUsers can also filter the list by word class using the dropdown menu in the upper right corner. \n\nIn this way, users can quickly locate specific items of interest and click to jump to the corresponding details page."
+  type: RichText
+- layout_properties: {grid_position: 'MOCFVK,ODGOYS'}
+  name: image_2
+  properties: {display_mode: shrink_to_fit, height: 335.6363525390625, source: _/theme/图片4_2.png}
+  type: Image
+- layout_properties: {grid_position: 'YCUGXM,QMZTWZ'}
+  name: rich_text_2
+  properties: {content: 'Similarly, click on the "Theme" or "Source" column heading, and select a specific letter to retrieve different Metaphor Themes and Sources starting with that letter. Searching for Sources will also give a corresponding Target after the comma.'}
+  type: RichText
+- layout_properties: {grid_position: 'XLMLEQ,DQNKMS'}
+  name: spacer_1
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {full_width_row: false, grid_position: 'XLMLEQ,NBIYVY'}
+  name: rich_text_3
+  properties:
+    align: left
+    content: |-
+      1. DANCING, ACTIVITY
+      2. DARK, EVIL
+      3. DARK, PESSIMISM
+      4. DARK, SADNESS
+      5. DEATH, CESSATION
+  type: RichText
+- layout_properties: {grid_position: 'XLMLEQ,VBKCXA'}
+  name: spacer_2
+  properties: {height: 32}
+  type: Spacer
+- components: []
+  layout_properties: {grid_position: 'IPCJXR,YOCEQB'}
+  name: rich_text_4
+  properties:
+    content: "After retrieving Lexis, Theme or Source there's a search bar at the top of the screen where users can enter keywords to find specific items in the list. \nClicking on the Theme or Source entries will take you to the Metaphor Theme page. "
+  type: RichText
+- layout_properties: {grid_position: 'FHGVWC,ERNNOM'}
+  name: label_3_copy
+  properties:
+    bold: true
+    font_size: null
+    text: |
+      Metaphor Theme Page
+  type: Label
+- layout_properties: {grid_position: 'RWVFHS,OKUCGI'}
+  name: image_3
+  properties: {source: _/theme/屏幕截图 2024-09-12 095841.png}
+  type: Image
+- layout_properties: {grid_position: 'XEWOSG,VNUVJL'}
+  name: rich_text_5
+  properties:
+    content: "\n\nThis page gives access to several kinds of data. \n\n- On the top right hand corner you can click Links to other themes to explore the relationships with other Metaphor Themes. These relationships are \n‘is part of’, ‘includes’, ‘is related to’, ‘is the converse of’, ‘is a\_\_\_ reversal of’, ‘is a subset of’, ‘is a superordinate set of’\n\n- Below the Metaphor Theme label are two panels indicating the general category for Targets on the left and for Sources on the right. These correspond to the general categories in the Map.\n\n- Below these are listed subthemes of the main Metaphor Theme. Clicking on these gives a list of all the relevant lexis. "
+    format: markdown
+  type: RichText
+- layout_properties: {grid_position: 'YKBYRO,PETFFP'}
+  name: image_4
+  properties: {height: 269.818115234375, source: _/theme/屏幕截图 2024-09-12 100418.png}
+  type: Image
+- layout_properties: {grid_position: 'CWEZVK,QBMTXR'}
+  name: rich_text_6
+  properties: {content: 'Clicking on any of these lexical items gives you their word classes, meanings and an example.'}
+  type: RichText
+- layout_properties: {grid_position: 'QMRBZJ,JSPEAG'}
+  name: image_5
+  properties: {height: 326.18182373046875, source: _/theme/屏幕截图 2024-09-12 100537.png}
+  type: Image
+- layout_properties: {grid_position: 'JBODYB,BVYLLW'}
+  name: label_3_copy_copy
+  properties:
+    bold: true
+    font_size: null
+    text: |
+      Map
+  type: Label
+- layout_properties: {grid_position: 'SMXSEG,FBCFYC'}
+  name: image_6
+  properties: {height: 410.1817932128906, source: _/theme/屏幕截图 2024-09-12 101006.png}
+  type: Image
+- components: []
+  layout_properties: {grid_position: 'PFNNWA,YUDJPS'}
+  name: rich_text_7
+  properties:
+    content: "The map page is divided into three main sections: Source, Target, and Result.\n\nTo use the interface, users can select a Source domain of interest (or Target domain) to generate specific map of Metaphor Themes under that category. Users can also choose one from the Source and one from the Target simultaneously. \n\nAfter retrieval, click the desired theme to jump to corresponding details page."
+  type: RichText
+- layout_properties: {grid_position: 'SPKLXU,WAANJG'}
+  name: label_3_copy_copy_copy
+  properties:
+    bold: true
+    font_size: null
+    text: |
+      Searches
+  type: Label
+- layout_properties: {grid_position: 'KGEJQL,XXNBYD'}
+  name: image_7
+  properties: {source: _/theme/屏幕截图 2024-09-12 101139.png}
+  type: Image
+- components: []
+  layout_properties: {grid_position: 'DGTJPT,UMRAMN'}
+  name: rich_text_8
+  properties:
+    content: |-
+      The Homepage is an interface that allows users to make 4 kinds of searches:
+      1. Search for lexical items. Any listed lexical item or word which forms part of that lexical item can be entered in the Search box. For example entering <monkey> will give the following
+  type: RichText
+- layout_properties: {grid_position: 'VLSMZL,AKHPSN'}
+  name: spacer_3
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {grid_position: 'VLSMZL,NFEOFA'}
+  name: rich_text_9
+  properties:
+    align: left
+    content: |2+
+
+
+
+
+
+      1. make a monkey out of
+
+
+
+      2. monkey
+
+
+
+      3. monkey
+      around with
+
+
+
+      4. monkey
+      business
+
+
+
+      5. monkey
+      wrench
+
+  type: RichText
+- layout_properties: {grid_position: 'VLSMZL,IKBIKM'}
+  name: spacer_4
+  properties: {height: 32}
+  type: Spacer
+- components: []
+  layout_properties: {grid_position: 'NJUFZL,RWDBDY'}
+  name: rich_text_10
+  properties:
+    content: |2+
+
+
+      Clicking on any of the lexical items will give you the details of meanings, word classes and examples (as for instance in posterior above)
+
+      2. Search by Metaphor Theme. Any Metaphor Theme in the list (also retrievable from the Map) can be entered. Clicking on the search result will give you access to the Metaphor Theme page (see above)
+
+      3. Search by Target. Any Target in the list can be entered. The search result gives all the Metaphor Themes with that Target. Again, clicking on them will give access to the Metaphor Theme page (see above)
+
+      4. Search by Source. Similarly, any Source in the list can be entered. The search result gives all the Metaphor Themes with that Source. Again, clicking on them will give access to the Metaphor Theme page (see above)
+
+  type: RichText
+- layout_properties: {grid_position: 'UHAUWD,JBYPNY'}
+  name: label_3_copy_copy_copy_copy
+  properties:
+    bold: true
+    font_size: null
+    text: |
+      Filters
+  type: Label
+- layout_properties: {grid_position: 'MURMXO,SIYVSW'}
+  name: image_8
+  properties: {height: 299.6363525390625, source: _/theme/屏幕截图 2024-09-12 101621.png}
+  type: Image
+- components: []
+  layout_properties: {grid_position: 'FOSBXN,BNTFIA'}
+  name: rich_text_11
+  properties: {content: Users can filter the lexis from lists or under Metaphor Themes by word class using the dropdown menu in the upper right corner.}
+  type: RichText
+- layout_properties: {grid_position: 'XDNURO,NDEFYF'}
+  name: label_3_copy_copy_copy_copy_copy
+  properties:
+    bold: true
+    font_size: null
+    text: |
+      A note on phrasal verbs
+  type: Label
+- layout_properties: {grid_position: 'QIOKDP,BQXDKC'}
+  name: image_9
+  properties: {source: _/theme/屏幕截图 2024-09-12 103744.png}
+  type: Image
+- components: []
+  layout_properties: {grid_position: 'LSKMPJ,HASURW'}
+  name: rich_text_12
+  properties: {content: 'The first three verb types are intransitive because none of them has a direct object. However, 2 and 3 could be thought to have an indirect object since the preposition at the end of them is followed by a noun. 4 has both a direct object and a kind of indirect object following the preposition. 5 has a direct object but is followed by an adverb (therefore has no indirect object). Type 6 differs from type 5 in that the word order is optional -- ''I could knock a short article together for you'' is just as acceptable and in cases of a pronoun as object this latter word order is obligatory. This is why it is classified as a transitive verb. Often there are subtle variations in sub-categorisation of word-class from literal to metaphorical meanings.'}
+  type: RichText
+- layout_properties: {grid_position: 'OJBNDD,WNJWAH'}
+  name: label_3_copy_copy_copy_copy_copy_copy
+  properties:
+    bold: true
+    font_size: null
+    text: |
+      Suggestions
+  type: Label
+- layout_properties: {grid_position: 'CNVICG,OITWDK'}
+  name: image_10
+  properties: {height: 335.9090576171875, source: _/theme/图片5.png}
+  type: Image
+- layout_properties: {grid_position: 'LQOEKG,EUNQBA'}
+  name: rich_text_13
+  properties: {content: 'The ''Suggest New Lexical Item'' label in the top menu bar of the Homepage allows users to propose new lexical items for inclusion in the dictionary. To suggest a new item, click on the “+ Suggest new lexical item” link located at the top right of the homepage, and follow the prompts to submit a suggestion. In order to verify that this metaphor has been established, users are asked to indicate a dictionary which the item is found in.'}
+  type: RichText
+- layout_properties: {grid_position: 'IVJGIL,ZLOYRF'}
+  name: image_11
+  properties: {height: 239.45452880859375, source: _/theme/图片6.png}
+  type: Image
+- layout_properties: {grid_position: 'NQMQAO,TYMYPG'}
+  name: rich_text_14
+  properties:
+    content: |2-
+
+
+      This page is designed to allow users to review, edit, or delete suggestions.
+
+      To review, users can click on the 'Review' button at the right of the card and open the form after password verification. The details of the suggested item can be modified, and the theme it belongs to can be chosen as well by specifying Target, Source, and sub theme via dropdown menus.
+
+      A suggestion can be removed from the list by clicking on the 'Delete' button and verifying the password. Considering that the entry is permanently removed, secondary confirmation is added for users to avoid mis-operation.
+  type: RichText
+- layout_properties: {grid_position: 'RLBNFX,XSDHNF'}
+  name: image_12
+  properties: {height: 415.272705078125, source: _/theme/图片7.png}
+  type: Image
+container: {type: ColumnPanel}
+is_package: true
