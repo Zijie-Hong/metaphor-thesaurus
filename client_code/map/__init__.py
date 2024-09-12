@@ -58,7 +58,6 @@ class map(mapTemplate):
             map_data = anvil.server.call('get_map_data_by_ids', source_id, target_id)  
 
             if map_data:  
-                print(map_data)
                 lines = map_data.split('\n')  
 
                 for line in lines:  
