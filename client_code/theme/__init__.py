@@ -59,8 +59,10 @@ class theme(themeTemplate):
             self.link_other_themes.set_event_handler('click', self.link_other_themes_click)
             self.link_other_themes.visible = True
             self.init_list(section_heading_data)
+
+  def clear_data(self):
+        self.data = None
           
-        
   def init_list(self, section_heading_data):      
       for item in section_heading_data:
         section_heading = item['section_heading']
