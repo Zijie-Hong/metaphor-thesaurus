@@ -25,7 +25,7 @@ components:
   type: Button
 - layout_properties: {full_width_row: true, grid_position: 'UUJCRH,SXZVFY VNKDVF,TSWQMS'}
   name: target_button_3
-  properties: {role: elevated-button, text: 'HUMAN, SOCIETY ANIMALS AND SENSES'}
+  properties: {role: elevated-button, text: 'HUMANS, SOCIETY, ANIMALS AND SENSES'}
   type: Button
 - layout_properties: {full_width_row: true, grid_position: 'UUJCRH,SXZVFY GWPXXD,IOTIYQ'}
   name: target_button_6
