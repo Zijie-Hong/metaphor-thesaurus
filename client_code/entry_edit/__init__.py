@@ -31,7 +31,6 @@ class entry_edit(entry_editTemplate):
             self.textbox_dictionary.text = self.item['dictionary']
     # Any code you write here will run before the form opens.
 
-  
 
   def source_category_box_change(self, **event_args):
       self.source_category = self.source_category_box.selected_value
