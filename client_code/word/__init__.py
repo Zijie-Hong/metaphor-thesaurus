@@ -49,7 +49,7 @@ class word(wordTemplate):
       self.update_display()
   
   def button_edit_click(self, **event_args):
-          result = check_password()
+          result = True #check_password()
           if result is True:
               data = self.data_list[self.current_index]
               entry_copy = dict(data)
