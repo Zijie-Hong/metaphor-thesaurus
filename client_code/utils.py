@@ -79,18 +79,18 @@ def drop_down_change(self, panel, **event_args):      #filter by word class
         if selected_value:
           if selected_value !='All':
             parts = selected_value.split('-', 1)
-            first_part = parts[0].lower()
+            #first_part = parts[0].lower()
             second_part = parts[1].lower() if len(parts) > 1 else ""
             matching_items = []
             for item in self.data_lexis:
                 item_text = item[1].lower()
-                
+                print(item_text)
                 # Check if the item matches the second part (if it exists)
                 if second_part and second_part in item_text:
                     matching_items.append(item)
                 # If no match with second part or no second part exists, check first part
-                elif first_part in item_text:
-                    matching_items.append(item)
+                #elif first_part in item_text:
+                #   matching_items.append(item)
 
             populate_content_panel(panel, matching_items, open_lexical_item, word_class=True, is_grid=True)
           else:
