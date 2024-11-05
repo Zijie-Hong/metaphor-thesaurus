@@ -31,6 +31,7 @@ class LexicalItem_List(LexicalItem_ListTemplate):
     def search_list(self, data):
         headwords = data
         self.headwords = headwords
+        self.data_lexis = headwords
         populate_content_panel(self.grid_panel, headwords, open_lexical_item, word_class=True, is_grid=True)
 
     def link_1_click(self, **event_args):
@@ -44,6 +45,7 @@ class LexicalItem_List(LexicalItem_ListTemplate):
             alert("Please input the search field")
             return
         if user_input:
+            print(self.data_lexis)
             results = anvil.server.call('search_in_lexical_list', self.data_lexis, user_input, self.lexis)
             if results:
                 if self.lexis:
