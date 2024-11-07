@@ -33,8 +33,8 @@ def search_lexical_items(input_original):
       
       matching_rows = app_tables.lexical_items.search(
           english_headword=q.any_of(
-              q.ilike(query1),
-              q.ilike(query2)
+              q.like(query1),
+              q.like(query2)
           )
       )
       results = list(set((row['english_headword'], row['metaphorical_word_class']) 
