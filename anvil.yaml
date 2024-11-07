@@ -34,7 +34,7 @@ db_schema:
     - admin_ui: {width: 200}
       name: english_headword
       type: string
-    - admin_ui: {width: 200}
+    - admin_ui: {order: 3, width: 295}
       name: literal_meaning
       type: string
     - admin_ui: {width: 200}
