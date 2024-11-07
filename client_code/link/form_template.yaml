@@ -12,7 +12,7 @@ components:
 - components:
   - layout_properties: {}
     name: label_1
-    properties: {align: left, font_size: 18, role: title, text: 'Relationship:'}
+    properties: {align: left, font_size: 18, role: title, text: 'Link: '}
     type: Label
   - components: []
     layout_properties: {width: 171.0135107421875}
@@ -25,7 +25,7 @@ components:
     type: Spacer
   - layout_properties: {}
     name: label_2
-    properties: {align: right, font_size: 18, role: title, text: 'Related theme:'}
+    properties: {align: right, font_size: 18, role: title, text: 'Linked theme:'}
     type: Label
   - components: []
     layout_properties: {expand: true, width: 337.8069853515625}

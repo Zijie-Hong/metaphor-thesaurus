@@ -8,7 +8,8 @@ import itertools
 
 @lru_cache(maxsize=128)
 @anvil.server.callable
-def search_lexical_items(input):
+def search_lexical_items(input_original):
+    input = input_original.lower()
     query1 = f'% {input} %'  # 单词在中间
     query2 = f'{input} %'    # 单词在开头
     query3 = f'% {input}'    # 单词在结尾
@@ -24,8 +25,24 @@ def search_lexical_items(input):
         q.like(query5)
         )
     )
-    return list(set((row['english_headword'], row['metaphorical_word_class']) for row in matching_rows)) or None
-  
+   
+    results = list(set((row['english_headword'], row['metaphorical_word_class']) for row in matching_rows)) or None
+    if not results:
+      print('OK')
+      query1 = f'%{input_original}%'  # 模糊匹配
+      query2 = f'{input_original}'    # 精确匹配
+      
+      matching_rows = app_tables.lexical_items.search(
+          english_headword=q.any_of(
+              q.ilike(query1),
+              q.ilike(query2)
+          )
+      )
+      results = list(set((row['english_headword'], row['metaphorical_word_class']) 
+                          for row in matching_rows))
+    
+    return results or None
+      
 
 def search_with_connectors(input1: str, input2: str, connectors: list) -> list:
     results = []

@@ -8,7 +8,7 @@ class homepage(homepageTemplate):
       self.init_components(**properties)
       
   def search_lexical_item_button_click(self, **event_args):
-    user_input = self.outlined_1.text.strip().lower()
+    user_input = self.outlined_1.text.strip()
     search_lexical_item(user_input)
      
   def search_theme_button_click(self, **event_args):
