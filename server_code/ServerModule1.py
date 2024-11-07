@@ -10,19 +10,26 @@ import itertools
 @anvil.server.callable
 def search_lexical_items(input_original):
     input = input_original.lower()
-    query1 = f'% {input} %'  # 单词在中间
-    query2 = f'{input} %'    # 单词在开头
-    query3 = f'% {input}'    # 单词在结尾
-    query4 = f'{input}'      # 精确匹配
-    # query5 = f'%{input}%'    # 匹配部分词（不需要空格）
-
+    input_capitalized = input_original.capitalize()
+    def create_queries(word):
+        return [
+            f'% {word} %',    # 单词在中间
+            f'{word} %',      # 单词在开头
+            f'% {word}',      # 单词在结尾
+            f'{word}',        # 精确匹配
+            f'%-{word}-%',    # 词在连字符之间
+            f'%-{word} %',    # 词在连字符之后，句子中间
+            f'%-{word}',      # 词在连字符之后，句尾
+            f'{word}-%'       # 词在连字符之前
+        ]
+    
+    # 生成所有可能的查询（小写和首字母大写）
+    queries = create_queries(input) + create_queries(input_capitalized)
+    
+    # 进行首次搜索
     matching_rows = app_tables.lexical_items.search(
-    english_headword=q.any_of(
-        q.like(query1),
-        q.like(query2),
-        q.like(query3),
-        q.like(query4)
-        # q.like(query5)
+        english_headword=q.any_of(
+            *[q.like(query) for query in queries]
         )
     )
    
