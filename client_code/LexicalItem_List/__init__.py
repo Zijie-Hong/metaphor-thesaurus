@@ -45,7 +45,6 @@ class LexicalItem_List(LexicalItem_ListTemplate):
             alert("Please input the search field")
             return
         if user_input:
-            print(self.data_lexis)
             results = anvil.server.call('search_in_lexical_list', self.data_lexis, user_input, self.lexis)
             if results:
                 if self.lexis:
