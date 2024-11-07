@@ -14,15 +14,15 @@ def search_lexical_items(input_original):
     query2 = f'{input} %'    # 单词在开头
     query3 = f'% {input}'    # 单词在结尾
     query4 = f'{input}'      # 精确匹配
-    query5 = f'%{input}%'    # 匹配部分词（不需要空格）
+    # query5 = f'%{input}%'    # 匹配部分词（不需要空格）
 
     matching_rows = app_tables.lexical_items.search(
     english_headword=q.any_of(
         q.like(query1),
         q.like(query2),
         q.like(query3),
-        q.like(query4),
-        q.like(query5)
+        q.like(query4)
+        # q.like(query5)
         )
     )
    
