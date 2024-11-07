@@ -76,7 +76,7 @@ db_schema:
       name: category_target_id
       target: category_targets
       type: link_single
-    - admin_ui: {width: 200}
+    - admin_ui: {order: 9, width: 352}
       name: section_heading_ids
       target: section_headings
       type: link_multiple
