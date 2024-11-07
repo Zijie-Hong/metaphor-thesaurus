@@ -28,7 +28,6 @@ def search_lexical_items(input_original):
    
     results = list(set((row['english_headword'], row['metaphorical_word_class']) for row in matching_rows)) or None
     if not results:
-      print('OK')
       query1 = f'%{input_original}%'  # 模糊匹配
       query2 = f'{input_original}'    # 精确匹配
       
