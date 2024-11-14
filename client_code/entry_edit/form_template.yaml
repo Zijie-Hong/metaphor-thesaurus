@@ -178,14 +178,18 @@ components:
     underline: false
     visible: true
   type: DropDown
-- event_bindings: {change: theme_box_change}
+- data_bindings:
+  - {code: 'self.item[''theme'']', property: selected_value, writeback: false}
+  event_bindings: {change: theme_box_change}
   layout_properties: {grid_position: 'SGGJTF,BUENTK'}
   name: theme_box
-  properties: {include_placeholder: true, placeholder: Main heading, role: outlined}
+  properties: {include_placeholder: false, placeholder: Main heading, role: outlined}
   type: DropDown
-- layout_properties: {grid_position: 'SGGJTF,AQFVIL'}
+- data_bindings:
+  - {code: 'self.item[''section_heading'']', property: selected_value, writeback: false}
+  layout_properties: {grid_position: 'SGGJTF,AQFVIL'}
   name: section_heading_box
-  properties: {include_placeholder: true, placeholder: Section heading, role: outlined}
+  properties: {include_placeholder: false, placeholder: Section heading, role: outlined}
   type: DropDown
 container: {type: ColumnPanel}
 is_package: true

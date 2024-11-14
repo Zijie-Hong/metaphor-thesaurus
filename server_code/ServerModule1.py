@@ -100,6 +100,15 @@ def explore_source_by_letter(letter):
     combinations = sorted(combinations, key=lambda x: (x[0], x[1]))
     return combinations
 
+@anvil.server.callable
+def get_main_heading_data_by_id(main_heading_id):
+    main_heading_rows = app_tables.main_headings.search(main_heading_id=main_heading_id)
+    return main_heading_rows[0]['main_heading']
+
+@anvil.server.callable
+def get_section_heading_data(section_heading_id):
+    section_heading_row = app_tables.section_headings.get(section_heading_id=section_heading_id)
+    return section_heading_row['section_heading']
   
 @anvil.server.callable
 def get_main_heading_data(section_heading_id):
@@ -230,17 +239,9 @@ def get_matching_headings(source_text, target_text):
     source_row = app_tables.category_sources.get(category_source=source_text)
     target_row = app_tables.category_targets.get(category_target=target_text)
 
-    # if source_row and target_row:
-    #     matching_rows = app_tables.main_headings.search(
-    #         category_source_id=source_row, category_target_id=target_row
-    #     )
-    if source_row:
+    if source_row and target_row:
         matching_rows = app_tables.main_headings.search(
-            category_source_id=source_row
-        )
-    elif target_row:
-        matching_rows = app_tables.main_headings.search(
-            category_target_id=target_row
+            category_source_id=source_row, category_target_id=target_row
         )
     else:
         return []

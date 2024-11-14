@@ -23,6 +23,10 @@ components:
       name: metaphorical_word_class
       properties: {align: left, background: '', bold: false, border: '', font: '', font_size: null, foreground: '', icon: '', icon_align: left, italic: true, role: null, spacing_above: small, spacing_below: small, text: '', tooltip: '', underline: false, visible: true}
       type: Label
+    - layout_properties: {grid_position: 'IWSEOT,LJYYRN'}
+      name: label_1
+      properties: {role: custom-divider}
+      type: Label
     - data_bindings:
       - {code: '''Literal meaning: ''+self.item[''literal_meaning'']', property: text, writeback: false}
       layout_properties: {grid_position: 'UFHCYB,YIRATX'}
@@ -42,6 +46,18 @@ components:
       properties: {}
       type: Label
     - data_bindings:
+      - {code: '''Metaphor Theme from Thesaurus: ''+self.item[''theme'']', property: text, writeback: false}
+      layout_properties: {grid_position: 'WQCJIR,LLVCGD'}
+      name: theme_label
+      properties: {}
+      type: Label
+    - data_bindings:
+      - {code: '''Subtheme from Thesaurus: ''+self.item[''section_heading'']', property: text, writeback: false}
+      layout_properties: {grid_position: 'ZZFJNX,BYTGTR'}
+      name: section_heading_label
+      properties: {}
+      type: Label
+    - data_bindings:
       - {code: '''From: ''+self.item[''dictionary'']', property: text, writeback: false}
       layout_properties: {grid_position: 'ZVJWZE,ZPQUPW'}
       name: dictionary_label
@@ -52,20 +68,16 @@ components:
     name: column_panel_2
     properties: {wrap_on: mobile}
     type: ColumnPanel
-  - components:
-    - event_bindings: {click: edit_entry_button_click}
-      name: edit_entry_button
-      properties: {align: right, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:pencil', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: Review, tooltip: '', underline: false, visible: true}
-      type: Button
-    - event_bindings: {click: delete_entry_button_click}
-      layout_properties: {}
-      name: delete_entry_button
-      properties: {align: center, background: 'theme:Error', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:trash', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: Delete, tooltip: '', underline: false, visible: true}
-      type: Button
-    layout_properties: {grid_position: 'MHWRRD,XGUAPS WAARJG,TAHOSC'}
-    name: flow_panel_1
-    properties: {align: right, background: '', border: '', foreground: '', role: null, spacing: medium, spacing_above: small, spacing_below: small, tooltip: '', visible: true}
-    type: FlowPanel
+  - event_bindings: {click: edit_entry_button_click}
+    layout_properties: {grid_position: 'MHWRRD,XGUAPS WAARJG,TAHOSC KMUWZF,SQQVNE'}
+    name: edit_entry_button
+    properties: {align: right, background: '', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:pencil', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: Review, tooltip: '', underline: false, visible: true}
+    type: Button
+  - event_bindings: {click: delete_entry_button_click}
+    layout_properties: {grid_position: 'MHWRRD,XGUAPS WAARJG,TAHOSC IWQPEN,XZVIQT'}
+    name: delete_entry_button
+    properties: {align: right, background: 'theme:Error', bold: false, border: '', enabled: true, font: '', font_size: null, foreground: '', icon: 'fa:trash', icon_align: left, italic: false, role: filled-button, spacing_above: small, spacing_below: small, text: Delete, tooltip: '', underline: false, visible: true}
+    type: Button
   - layout_properties: {grid_position: 'MHWRRD,UGUKIZ'}
     name: spacer_2
     properties: {height: 32}
@@ -78,7 +90,7 @@ components:
     type: Label
   layout_properties: {grid_position: 'NVMEFJ,UJLKRF'}
   name: column_panel_1
-  properties: {background: '', border: '', col_spacing: medium, col_widths: '{"TAHOSC":15,"PUZFVR":3,"XGUAPS":74,"UGUKIZ":3}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
+  properties: {background: '', border: '', col_spacing: medium, col_widths: '{"TAHOSC":7,"PUZFVR":3,"XGUAPS":74,"UGUKIZ":3,"QYVSCW":40}', foreground: '', role: elevated-card, spacing_above: small, spacing_below: small, tooltip: '', visible: true, wrap_on: mobile}
   type: ColumnPanel
 container: {type: ColumnPanel}
 is_package: true

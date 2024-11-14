@@ -4,32 +4,23 @@ import anvil.server
 
 
 class entry_edit(entry_editTemplate):
-  def __init__(self, hide_components=False, edit_item=False, **properties):
+  def __init__(self, edit_item=False, **properties):
     self.init_components(**properties)
     self.source_category = None
     self.target_category = None
-    self.section_heading_box.visible = False
-    if hide_components:
+    self.theme_box.items = []
+    self.section_heading_box.items = []
+    if edit_item:
             self.label_source_category.visible = False
             self.label_target_category.visible = False
             self.label_select_theme.visible = False
             self.source_category_box.visible = False
             self.target_category_box.visible = False
             self.theme_box.visible = False
-            self.section_heading_box.visible = False
-    elif edit_item:
-            self.label_source_category.visible = False
-            self.label_target_category.visible = False
-            self.label_select_theme.visible = False
-            self.source_category_box.visible = False
-            self.target_category_box.visible = False
-            self.theme_box.visible = False
-            self.section_heading_box.visible = False
             self.textbox_dictionary.visible = False
             self.label_dictionary.visible = False
     else:
-            self.textbox_dictionary.text = self.item['dictionary']
-    # Any code you write here will run before the form opens.
+            self.textbox_dictionary.text = self.item.get('dictionary', ' ') 
 
 
   def source_category_box_change(self, **event_args):
@@ -42,11 +33,13 @@ class entry_edit(entry_editTemplate):
 
   def check_selection(self):
       if self.source_category and self.target_category:
+          self.theme_box.items = []
+          self.section_heading_box.items = []
           results = anvil.server.call('get_matching_headings', self.source_category, self.target_category)
+          
           self.theme_box.items = [(f"{index}. {d['main_heading']}", d['main_heading_id']) 
                                 for index, d in enumerate(results, start=1)]
           self.theme_box.items = self.theme_box.items
-          self.section_heading_box.visible = True
           if not self.section_heading_box.items:
               self.theme_box_change()
 

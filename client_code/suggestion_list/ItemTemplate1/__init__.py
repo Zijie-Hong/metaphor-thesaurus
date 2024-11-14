@@ -35,10 +35,13 @@ class ItemTemplate1(ItemTemplate1Template):
           if save_clicked:
             if entry_form.are_fields_filled():
                 entry_accept, section_heading_id = entry_form.get_data()
+                print(section_heading_id)
                 entry_accept_copy = dict(entry_accept)
                 del entry_accept_copy['added_time']
                 del entry_accept_copy['id']
                 del entry_accept_copy['dictionary']
+                del entry_accept_copy['theme']
+                del entry_accept_copy['section_heading']
                 result = anvil.server.call('accept_entry', entry_accept_copy, section_heading_id)
                 if result == 'success':
                     alert('Item approved successfully')
