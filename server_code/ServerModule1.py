@@ -26,7 +26,6 @@ def search_lexical_items(input_original):
     # 生成所有可能的查询（小写和首字母大写）
     queries = create_queries(input) + create_queries(input_capitalized)
     
-    # 进行首次搜索
     matching_rows = app_tables.lexical_items.search(
         english_headword=q.any_of(
             *[q.like(query) for query in queries]
