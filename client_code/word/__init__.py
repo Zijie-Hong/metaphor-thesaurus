@@ -4,6 +4,7 @@ from anvil import *
 import anvil.server
 import copy 
 from ..utils import check_password
+
 class word(wordTemplate):
   def __init__(self, data=None, add_mode=False, **properties):
       self.init_components(**properties)

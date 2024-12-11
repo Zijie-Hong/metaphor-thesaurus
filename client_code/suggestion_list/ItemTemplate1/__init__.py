@@ -3,6 +3,7 @@ from anvil import *
 import anvil.server
 from ...entry_edit import entry_edit
 from ...utils import check_password
+
 class ItemTemplate1(ItemTemplate1Template):
   def __init__(self, **properties):
       # Set Form properties and Data Bindings.

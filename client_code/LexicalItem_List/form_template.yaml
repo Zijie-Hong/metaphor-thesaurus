@@ -32,21 +32,22 @@ components:
     name: spacer_2
     properties: {height: 32}
     type: Spacer
-  - layout_properties: {grid_position: 'CQWQLQ,VHYUWW'}
-    name: spacer_4
-    properties: {height: 32}
-    type: Spacer
-  - layout_properties: {grid_position: 'CQWQLQ,WGSQIT'}
-    name: spacer_5
-    properties: {height: 32}
-    type: Spacer
   - event_bindings: {change: drop_down_change}
     layout_properties: {grid_position: 'CQWQLQ,GCHXRH'}
     name: drop_down
     properties:
       include_placeholder: true
       items: [All, adj-adjective, 'adjphr-adjective phrase ', adv-adverb, advphr-adverbial phrase, art-article, cl-clause, excl-exclamation, idi-idiom, n-noun, nplur-plural noun, nphr-noun phrase, pr-preposition, pref-prefix, prphr-prepositional phrase, pt-particle, v-verb, verg-ergative verb, vi-intransitive verb, v-inf-infinitive of the verb, virec-reciprocal verb, vtref-reflexive verb, "vt\t-transitive verb", prp-present participle, 'pp-past participle ']
-      placeholder: Filter by word class
+      placeholder: Filter by metaphor word class
+      role: outlined
+    type: DropDown
+  - event_bindings: {change: drop_down_literal_change}
+    layout_properties: {grid_position: 'CQWQLQ,LJPJUX'}
+    name: drop_down_literal
+    properties:
+      include_placeholder: true
+      items: [All, adj-adjective, 'adjphr-adjective phrase ', adv-adverb, advphr-adverbial phrase, art-article, cl-clause, excl-exclamation, idi-idiom, n-noun, nplur-plural noun, nphr-noun phrase, pr-preposition, pref-prefix, prphr-prepositional phrase, pt-particle, v-verb, verg-ergative verb, vi-intransitive verb, v-inf-infinitive of the verb, virec-reciprocal verb, vtref-reflexive verb, "vt\t-transitive verb", prp-present participle, 'pp-past participle ']
+      placeholder: Filter by literal word class
       role: outlined
     type: DropDown
   layout_properties: {grid_position: 'CLKFBG,QOLOBX'}

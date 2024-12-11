@@ -73,8 +73,8 @@ def check_password():
           return False
 
 
-def drop_down_change(self, panel, **event_args):      #filter by word class
-        selected_value = self.drop_down.selected_value
+def filter_by_word_class(self, panel, is_metaphor=False, **event_args):      #filter by word class
+        selected_value = self.drop_down.selected_value if is_metaphor else self.drop_down_literal.selected_value
         
         if selected_value:
           if selected_value !='All':
@@ -83,8 +83,8 @@ def drop_down_change(self, panel, **event_args):      #filter by word class
             second_part = parts[1].lower() if len(parts) > 1 else ""
             matching_items = []
             for item in self.data_lexis:
-                item_text = item[1].lower()
-                print(item)
+                item_text = item[1].lower() if is_metaphor else item[2].lower()
+             
                 # Check if the item matches the second part (if it exists)
                 if second_part and second_part in item_text:
                     matching_items.append(item)

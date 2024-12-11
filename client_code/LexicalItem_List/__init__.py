@@ -1,7 +1,7 @@
 from ._anvil_designer import LexicalItem_ListTemplate
 from anvil import *
 import anvil.server
-from ..utils import populate_content_panel, open_lexical_item, drop_down_change
+from ..utils import populate_content_panel, open_lexical_item, filter_by_word_class
 
 class LexicalItem_List(LexicalItem_ListTemplate):
     def __init__(self, lexis=True, theme=False, source=False, **properties):
@@ -61,7 +61,12 @@ class LexicalItem_List(LexicalItem_ListTemplate):
 
 
     def drop_down_change(self, **event_args):
-        drop_down_change(self, self.grid_panel)
+        self.drop_down_literal.selected_value = 'All'
+        filter_by_word_class(self, self.grid_panel, is_metaphor=True)
+
+    def drop_down_literal_change(self, **event_args):
+        self.drop_down.selected_value = 'All'
+        filter_by_word_class(self, self.grid_panel, is_metaphor=False)
 
 
 
