@@ -1,0 +1,41 @@
+components:
+- layout_properties: {grid_position: 'KAPFDW,WGHBDE'}
+  name: label_1
+  properties: {font_size: 14, text: 'The English dictionary is full of metaphors and this Thesaurus is an attempt to show how they are structured. They are categorized into Metaphor Themes according to the formula TARGET IS SOURCE, e.g. MONEY IS LIQUID/BLOOD. '}
+  type: Label
+- layout_properties: {grid_position: 'HWPIEM,YNOAVJ'}
+  name: label_2
+  properties: {bold: false, font_size: 16, role: subtitle, text: Introduction}
+  type: Label
+- layout_properties: {grid_position: 'ACBPCY,GEZSVO'}
+  name: label_3
+  properties: {text: 'This gives you more details about the background to the Thesaurus, its data, and how to interpret it and use it for teaching purposes. '}
+  type: Label
+- layout_properties: {grid_position: 'YAEABN,SNHCDA'}
+  name: label_4
+  properties: {bold: false, font_size: 16, role: subtitle, text: Search Page}
+  type: Label
+- layout_properties: {grid_position: 'OGLUXZ,DSNOQK'}
+  name: rich_text_1
+  properties:
+    content: "    <div className=\"max-w-2xl p-4\">\n      <p className=\"mb-4\">Here you can</p>\n      \n      <ul className=\"mb-4 space-y-4\">\n        <li className=\"flex flex-col\">\n          <span className=\"font-medium\">Search the alphabetical lists on the left for</span>\n          <ul className=\"ml-6 mt-2 space-y-2\">\n            <li className=\"flex items-center\">\n              <div className=\"w-2 h-2 rounded-full bg-black mr-2\"></div>\n              <span>Lexis / Lexical Items, i.e. vocabulary</span>\n            </li>\n            <li className=\"flex items-center\">\n              <div className=\"w-2 h-2 rounded-full bg-black mr-2\"></div>\n              <span>Metaphor Themes and Targets</span>\n            </li>\n            <li className=\"flex items-center\">\n              <div className=\"w-2 h-2 rounded-full bg-black mr-2\"></div>\n              <span>Sources</span>\n            </li>\n          </ul>\n        </li>\n        \n        <li className=\"flex flex-col\">\n          <span className=\"font-medium\">Use the search query boxes to</span>\n          <ul className=\"ml-6 mt-2 space-y-2\">\n            <li className=\"flex items-center\">\n              <div className=\"w-2 h-2 rounded-full bg-black mr-2\"></div>\n              <span>Find the word-class and meaning details for Lexical Items directly by entering in the search box.</span>\n            </li>\n            <li className=\"flex items-center\">\n              <div className=\"w-2 h-2 rounded-full bg-black mr-2\"></div>\n              <span>Look for the lexis listed under metaphor themes by entering the Theme, the Source or the Target in the search box.</span>\n            </li>\n          </ul>\n        </li>\n      </ul>\n    </div>\nClicking on the results of all these searches takes you to fuller details of lexis and themes."
+    format: restricted_html
+  type: RichText
+- layout_properties: {grid_position: 'MDGXMZ,CNDMOY'}
+  name: label_5
+  properties: {bold: false, font_size: 16, role: subtitle, text: Theme Map}
+  type: Label
+- layout_properties: {grid_position: 'VYJAHS,UUQCAT'}
+  name: label_6
+  properties: {text: 'To discover the Metaphor Themes used in the Thesaurus you can click on one of the 6 general categories of Target and the 4 general categories of Source. '}
+  type: Label
+- layout_properties: {grid_position: 'TRSJDS,BKBPZV'}
+  name: label_7
+  properties: {bold: false, font_size: 16, role: subtitle, text: 'Suggestions '}
+  type: Label
+- layout_properties: {grid_position: 'XWZWUF,KFQSAH'}
+  name: label_8
+  properties: {align: left, text: You may make suggestions for inclusion of new lexis here.}
+  type: Label
+container: {type: ColumnPanel}
+is_package: true

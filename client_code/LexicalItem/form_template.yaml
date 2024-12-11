@@ -27,9 +27,15 @@ components:
     name: link_4
     properties: {align: center, text: Introduction}
     type: Link
-  - event_bindings: {click: link_3_click}
+  - event_bindings: {click: link_5_click}
+    name: link_5
+    properties: {align: center, role: null, text: Homepage, underline: false}
+    type: Link
+  - components: []
+    event_bindings: {click: link_3_click}
+    layout_properties: {}
     name: link_3
-    properties: {role: null, text: Homepage, underline: false}
+    properties: {role: null, text: Search, underline: false}
     type: Link
   - event_bindings: {click: link_2_click}
     layout_properties: {}
@@ -37,8 +43,9 @@ components:
     properties: {text: Theme Map}
     type: Link
   - event_bindings: {click: link_1_click}
+    layout_properties: {}
     name: link_1
-    properties: {text: Suggestion List}
+    properties: {text: Suggestion}
     type: Link
   layout_properties: {slot: nav-right}
   name: flow_panel_1

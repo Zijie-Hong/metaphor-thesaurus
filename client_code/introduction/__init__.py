@@ -8,6 +8,8 @@ from ..suggestion_list import suggestion_list
 from ..introduction_text import introduction_text
 from ..vocabulary_text import vocabulary_text
 from ..guide_text import guide_text
+from ..homepage_new import homepage_new
+from ..homepage import homepage
 
 class introduction(introductionTemplate):
   def __init__(self, **properties):
@@ -40,7 +42,11 @@ class introduction(introductionTemplate):
     self.column_panel.add_component(vocabulary_text())
 
   def link_3_click(self, **event_args):
-    open_form("main")
+    from ..main import main
+    main_form = main()
+    main_form.content_panel.clear()
+    main_form.content_panel.add_component(homepage(), full_width_row=True)
+    open_form(main_form)
 
   def link_2_click(self, **event_args):
     from ..main import main
@@ -55,4 +61,10 @@ class introduction(introductionTemplate):
     suggestion_list_form = suggestion_list()
     main_form.content_panel.add_component(suggestion_list_form, full_width_row=True)
     open_form(main_form)
+
+  def link_5_click(self, **event_args):
+      from ..main import main
+      main_form = main()
+      open_form(main_form)
+    
 

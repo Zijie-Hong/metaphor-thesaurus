@@ -10,15 +10,17 @@ from ..suggestion_list import suggestion_list
 from ..entry_edit import entry_edit
 from ..about_us import about_us
 from ..introduction import introduction
+from ..homepage_new import homepage_new
 
 class main(mainTemplate):
     def __init__(self, **properties):
         self.init_components(**properties)
-        self.content_panel.add_component(homepage(), full_width_row=True)
+        self.content_panel.add_component(homepage_new(), full_width_row=True)
         self.add_letter_links()
       
     def link_3_click(self, **event_args):
-      open_form('main')
+      self.content_panel.clear()
+      self.content_panel.add_component(homepage(), full_width_row=True)
 
     def link_2_click(self, **event_args):
       self.add_map_to_content_panel()
@@ -100,6 +102,11 @@ class main(mainTemplate):
 
     def link_4_click(self, **event_args):
       open_form('introduction')
+
+    def link_5_click(self, **event_args):
+      self.content_panel.clear()
+      self.content_panel.add_component(homepage_new(), full_width_row=True)
+  
 
     
         

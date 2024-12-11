@@ -62,10 +62,16 @@ components:
       name: link_4
       properties: {align: center, text: Introduction}
       type: Link
-    - event_bindings: {click: link_3_click}
+    - event_bindings: {click: link_5_click}
+      layout_properties: {grid_position: 'SDFKJZ,KAIDFA'}
+      name: link_5
+      properties: {align: center, role: null, text: Homepage, underline: false}
+      type: Link
+    - components: []
+      event_bindings: {click: link_3_click}
       layout_properties: {grid_position: 'SDFKJZ,KBERMJ'}
       name: link_3
-      properties: {align: center, role: null, text: Homepage, underline: false}
+      properties: {align: center, role: null, text: Search, underline: false}
       type: Link
     - data_bindings: []
       event_bindings: {click: link_2_click}
@@ -76,7 +82,7 @@ components:
     - event_bindings: {click: link_1_click}
       layout_properties: {grid_position: 'SDFKJZ,MBMTNB'}
       name: link_1
-      properties: {align: center, text: Suggestion List}
+      properties: {align: center, text: Suggestion}
       type: Link
     layout_properties: {expand: false, width: 700}
     name: column_panel_2

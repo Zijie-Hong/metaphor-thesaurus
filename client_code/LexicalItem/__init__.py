@@ -10,6 +10,7 @@ from ..main import main
 from ..suggestion_list import suggestion_list
 from ..utils import search_lexical_item
 from ..introduction import introduction
+from ..homepage_new import homepage_new
 
 class LexicalItem(LexicalItemTemplate):
   def __init__(self, data=None, item_panel_role='default', theme_panel_role='default', item_panel_visibility=True, **properties):
@@ -74,7 +75,11 @@ class LexicalItem(LexicalItemTemplate):
 
 
   def link_3_click(self, **event_args):
-      open_form('main')
+      from ..main import main
+      main_form = main()
+      main_form.content_panel.clear()
+      main_form.content_panel.add_component(homepage(), full_width_row=True)
+      open_form(main_form)
 
   def link_2_click(self, **event_args):
       main_form = main()
@@ -96,6 +101,11 @@ class LexicalItem(LexicalItemTemplate):
 
   def link_4_click(self, **event_args):
     open_form('introduction')
+
+  def link_5_click(self, **event_args):
+      from ..main import main
+      main_form = main()
+      open_form(main_form)
 
 
 
