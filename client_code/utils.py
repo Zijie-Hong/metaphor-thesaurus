@@ -84,7 +84,7 @@ def drop_down_change(self, panel, **event_args):      #filter by word class
             matching_items = []
             for item in self.data_lexis:
                 item_text = item[1].lower()
-               
+                print(item)
                 # Check if the item matches the second part (if it exists)
                 if second_part and second_part in item_text:
                     matching_items.append(item)

@@ -17,6 +17,7 @@ class entry_edit(entry_editTemplate):
             self.source_category_box.visible = False
             self.target_category_box.visible = False
             self.theme_box.visible = False
+            self.section_heading_box.visible = False
             self.textbox_dictionary.visible = False
             self.label_dictionary.visible = False
     else:

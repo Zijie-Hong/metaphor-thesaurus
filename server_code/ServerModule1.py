@@ -214,8 +214,9 @@ def get_lexical_items_by_letter(letter):
     for item in items:
         headword = item['english_headword']
         metaphorical_word_class = item['metaphorical_word_class']
+        literal_word_class = item['literal_word_class']
         if headword not in seen:
-            seen.add((headword,metaphorical_word_class))
+            seen.add((headword,metaphorical_word_class,literal_word_class))
     unique_headwords = sorted(seen)
     return unique_headwords
 
