@@ -75,12 +75,11 @@ components:
   properties: {}
   type: FlowPanel
 - components:
-  - components:
-    - event_bindings: {click: link_suggest_click}
-      layout_properties: {full_width_row: false, grid_position: 'UNJFZJ,HFQUPX'}
-      name: link_suggest
-      properties: {align: right, col_spacing: small, icon: 'fa:plus', icon_align: left, role: null, spacing_above: large, text: Suggest new lexical item, underline: true, wrap_on: mobile}
-      type: Link
+  - layout_properties: {grid_position: ''}
+    name: spacer_2
+    properties: {height: 32}
+    type: Spacer
+  - components: []
     layout_properties: {grid_position: 'WOVTHE,SMIBLA'}
     name: content_panel
     properties: {}
