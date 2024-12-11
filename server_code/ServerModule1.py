@@ -10,7 +10,7 @@ import itertools
 @anvil.server.callable
 def search_lexical_items(input_original):
     input = input_original.lower()
-    input_capitalized = input_original.capitalize()
+    input_capitalized = ' '.join(word.capitalize() for word in input_original.split())
     def create_queries(word):
         return [
             f'% {word} %',    # 单词在中间
