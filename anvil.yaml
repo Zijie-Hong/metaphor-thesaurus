@@ -60,7 +60,7 @@ db_schema:
     - admin_ui: {width: 248}
       name: main_heading
       type: string
-    - admin_ui: {width: 200}
+    - admin_ui: {order: 7.5, width: 200}
       name: section_heading_ids(back up)
       type: string
     - admin_ui: {width: 200}
