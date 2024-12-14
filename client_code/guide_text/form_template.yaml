@@ -233,6 +233,57 @@ components:
   name: rich_text_11
   properties: {content: Users can filter the lexis from lists or under Metaphor Themes by word class using the dropdown menu in the upper right corner.}
   type: RichText
+- layout_properties: {grid_position: 'TWBBHR,AIFMRQ'}
+  name: label_5
+  properties: {bold: true, font_size: 18, text: Lexical details}
+  type: Label
+- layout_properties: {grid_position: 'AURXOP,SQXWAP'}
+  name: label_6
+  properties:
+    text: |-
+      The details of the lexis include the literal and metaphorical meanings and their word-class.
+
+      When literal meanings appear in parentheses this indicates that the whole phrase/word it not used as a literal lexical item or common phrase or that only part of the item is metaphorical with the relevant theme meaning. The non-metaphorical parts are indicated by blanks ___ ,  and the literal word-class given is of the word whose meaning is in the parenthesis.
+
+      For example 
+  type: Label
+- layout_properties: {grid_position: 'ZEHXWQ,HFQKRB'}
+  name: image_13
+  properties: {display_mode: shrink_to_fit, height: '326.18182373046875', source: _/theme/屏幕截图 2024-12-14 114917.png}
+  type: Image
+- layout_properties: {grid_position: 'JDZGFT,RIWWJV DTIHLO,CVURTE'}
+  name: label_7
+  properties: {role: custom-divider}
+  type: Label
+- layout_properties: {grid_position: 'QVJZWI,FFKDVE'}
+  name: image_14
+  properties: {display_mode: shrink_to_fit, height: '326.18182373046875', source: _/theme/屏幕截图 2024-12-14 114955.png}
+  type: Image
+- layout_properties: {grid_position: 'VBEBTC,LOCCBE'}
+  name: label_8
+  properties:
+    text: |-
+      As the words in there and man are not considered part of the metaphorical schema, only the hang and anchor are explained within the parenthesis.
+
+      In cases where all the words in the compound or idiom have metaphorical meanings consistent with the same schema, but where the phrase is seldom or never used literally, the literal meaning too may be put in parentheses, but this time with no blanks e.g.
+  type: Label
+- layout_properties: {grid_position: 'BOEMCS,VMMLIY'}
+  name: image_15
+  properties: {height: '326.18182373046875', source: _/theme/屏幕截图 2024-12-14 115327.png}
+  type: Image
+- layout_properties: {grid_position: 'QRVYJY,XEBTXU'}
+  name: label_9
+  properties: {text: 'However, where the same phrases may be used with a literal meaning, generally not idiomatic, it will not be enclosed in brackets, though the metaphorical meaning is an idiom e.g. '}
+  type: Label
+- layout_properties: {grid_position: 'CUGXGJ,XDLNOU'}
+  name: image_16
+  properties: {height: '326.18182373046875', source: _/theme/屏幕截图 2024-12-14 115400.png}
+  type: Image
+- layout_properties: {grid_position: 'YDAFBY,AMFFXK'}
+  name: label_10
+  properties:
+    text: "When accessing details of lexis there may be multiple entries. To find them press the Next button. \n\nSome will have identical literal meanings but they instantiate more than one Metaphor Theme. For example flow instantiates MONEY IS LIQUID/BLOOD, TRAFFIC IS LIQUID/BLOOD, both as noun and verb, CROWD/HUMANS IS LIQUID, COMMUNICATION IS FLOW, both as noun and verb, and QUANTITY IS WATERFLOW.\_"
+  type: Label
 - layout_properties: {grid_position: 'XDNURO,NDEFYF'}
   name: label_3_copy_copy_copy_copy_copy
   properties:
