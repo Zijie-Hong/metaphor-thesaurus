@@ -45,33 +45,9 @@ components:
   name: label_10
   properties: {text: 'Whenever I can conceive a conceptual connection between two meanings I have included the item, even if etymologically unsound, and when the direction of transfer may be doubtful. The user might sometimes regard this as overindulgence and a kind of punning, for which I apologise in advance.  For example:'}
   type: Label
-- layout_properties: {grid_position: 'UOLQKL,KTRDFZ'}
-  name: label_9
-  properties: {bold: true, text: repercussion}
-  type: Label
-- layout_properties: {grid_position: 'WCMDTR,FAXRWV'}
-  name: label_11
-  properties:
-    align: center
-    spacing:
-      margin: ['0', null, '0', null]
-      padding: ['0', null, '0', null]
-    spacing_above: none
-    spacing_below: none
-    text: |-
-      EFFECT IS IMPACT
-      To have an effect is to hit
-  type: Label
-- layout_properties: {grid_position: 'SUSJJZ,JFRSLS'}
-  name: rich_text_2
-  properties:
-    align: left
-    content: "  <div style=\"margin: 20px 0;\">\n    <div style=\"font-weight: bold;\">Literal Meaning</div>\n    <div style=\"font-style: italic;\">noun</div>\n    <div>(_musical instruments that you play by hitting with your hand or a stick)</div>\n  </div>\n  \n  <div style=\"margin: 20px 0;\">\n    <div style=\"font-weight: bold;\">Metaphor Meaning</div>\n    <div style=\"font-style: italic;\">noun</div>\n    <div style=\"text-transform: uppercase;\">EFFECT THAT AN ACTION OR EVENT HAS ON SOMETHING</div>\n  </div>\n  \n  <div style=\"margin: 20px 0;\">\n    <div style=\"font-weight: bold;\">Example Sentence</div>\n    <div>President Kennedy's assassination had far-reaching repercussions</div>\n  </div>\n</div>"
-    format: restricted_html
-    spacing:
-      margin: ['0', null, null, null]
-      padding: ['0', null, null, null]
-    spacing_above: none
-  type: RichText
+- layout_properties: {grid_position: 'RDROAP,CVPMOO'}
+  name: image_1
+  properties: {height: '450', source: _/theme/屏幕截图 2024-12-14 132431.png}
+  type: Image
 container: {type: ColumnPanel}
 is_package: true
