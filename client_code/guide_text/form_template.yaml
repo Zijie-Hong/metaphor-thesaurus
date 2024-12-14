@@ -15,7 +15,7 @@ components:
   type: Label
 - layout_properties: {grid_position: 'PJWUDH,EIABPU'}
   name: label_3
-  properties: {bold: true, font_size: null, text: Lists}
+  properties: {bold: true, font_size: 18, text: Lists}
   type: Label
 - layout_properties: {grid_position: 'ETASOW,IKSYMN'}
   name: image_1
@@ -63,7 +63,7 @@ components:
   name: label_3_copy
   properties:
     bold: true
-    font_size: null
+    font_size: 18
     text: |
       Metaphor Theme Page
   type: Label
@@ -93,9 +93,9 @@ components:
   name: label_3_copy_copy
   properties:
     bold: true
-    font_size: null
+    font_size: 18
     text: |
-      Map
+      Theme Map
   type: Label
 - layout_properties: {grid_position: 'SMXSEG,FBCFYC'}
   name: image_6
@@ -111,7 +111,7 @@ components:
   name: label_3_copy_copy_copy
   properties:
     bold: true
-    font_size: null
+    font_size: 18
     text: |
       Searches
   type: Label
@@ -124,7 +124,7 @@ components:
   name: rich_text_8
   properties:
     content: |-
-      The Homepage is an interface that allows users to make 4 kinds of searches:
+      The Search page is an interface that allows users to make 4 kinds of searches:
       1. Search for lexical items. Any listed lexical item or word which forms part of that lexical item can be entered in the Search box. For example entering <monkey> will give the following
   type: RichText
 - layout_properties: {grid_position: 'VLSMZL,AKHPSN'}
@@ -183,17 +183,50 @@ components:
       4. Search by Source. Similarly, any Source in the list can be entered. The search result gives all the Metaphor Themes with that Source. Again, clicking on them will give access to the Metaphor Theme page (see above)
 
   type: RichText
+- layout_properties: {grid_position: 'AZKARM,PNZKRG'}
+  name: label_4
+  properties: {text: 'In searching just by Source or Target you can find all the themes with that particular Target or Source. For instance by entering LIQUID in the Source box you will obtain all the Themes which I have suggested have LIQUID as their Source, namely'}
+  type: Label
+- layout_properties: {grid_position: 'QMDABP,MXJAPX'}
+  name: spacer_5
+  properties: {height: 32}
+  type: Spacer
+- layout_properties: {grid_position: 'QMDABP,ZUBKOD'}
+  name: rich_text_15
+  properties:
+    align: left
+    content: |-
+      1. EXPERIENCE/EVENT IS LIQUID
+
+      2. EMOTION IS LIQUID/GAS
+
+      3. CROWD/HUMANS IS LIQUID
+
+      4. LIGHT IS LIQUID
+
+      5. SOUND IS LIQUID
+
+      6. ELECTRICITY IS LIQUID
+
+      7. TRAFFIC IS LIQUID/BLOOD
+
+      8. MONEY IS LIQUID/BLOOD         
+  type: RichText
+- layout_properties: {grid_position: 'QMDABP,NKZWJQ'}
+  name: spacer_6
+  properties: {height: 32}
+  type: Spacer
 - layout_properties: {grid_position: 'UHAUWD,JBYPNY'}
   name: label_3_copy_copy_copy_copy
   properties:
     bold: true
-    font_size: null
+    font_size: 18
     text: |
       Filters
   type: Label
 - layout_properties: {grid_position: 'MURMXO,SIYVSW'}
   name: image_8
-  properties: {height: 299.6363525390625, source: _/theme/屏幕截图 2024-09-12 101621.png}
+  properties: {height: 299.6363525390625, source: _/theme/屏幕截图 2024-12-14 103941.png}
   type: Image
 - components: []
   layout_properties: {grid_position: 'FOSBXN,BNTFIA'}
@@ -204,7 +237,7 @@ components:
   name: label_3_copy_copy_copy_copy_copy
   properties:
     bold: true
-    font_size: null
+    font_size: 18
     text: |
       A note on phrasal verbs
   type: Label
@@ -221,7 +254,7 @@ components:
   name: label_3_copy_copy_copy_copy_copy_copy
   properties:
     bold: true
-    font_size: null
+    font_size: 18
     text: |
       Suggestions
   type: Label

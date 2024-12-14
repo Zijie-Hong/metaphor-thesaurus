@@ -37,7 +37,7 @@ components:
     name: drop_down
     properties:
       include_placeholder: true
-      items: [All, adj-adjective, 'adjphr-adjective phrase ', adv-adverb, advphr-adverbial phrase, art-article, cl-clause, excl-exclamation, idi-idiom, n-noun, nplur-plural noun, nphr-noun phrase, pr-preposition, pref-prefix, prphr-prepositional phrase, pt-particle, v-verb, verg-ergative verb, vi-intransitive verb, v-inf-infinitive of the verb, virec-reciprocal verb, vtref-reflexive verb, "vt\t-transitive verb", prp-present participle, 'pp-past participle ']
+      items: [All, adjective, adjective phrase, adverb, adverbial phrase, article, clause, exclamation, idiom, noun, plural noun, noun phrase, preposition, prefix, prepositional phrase, particle, verb, ergative verb, intransitive verb, infinitive of the verb, reciprocal verb, reflexive verb, transitive verb, present participle, past participle]
       placeholder: Filter by metaphor word class
       role: outlined
     type: DropDown
@@ -46,7 +46,7 @@ components:
     name: drop_down_literal
     properties:
       include_placeholder: true
-      items: [All, adj-adjective, 'adjphr-adjective phrase ', adv-adverb, advphr-adverbial phrase, art-article, cl-clause, excl-exclamation, idi-idiom, n-noun, nplur-plural noun, nphr-noun phrase, pr-preposition, pref-prefix, prphr-prepositional phrase, pt-particle, v-verb, verg-ergative verb, vi-intransitive verb, v-inf-infinitive of the verb, virec-reciprocal verb, vtref-reflexive verb, "vt\t-transitive verb", prp-present participle, 'pp-past participle ']
+      items: [All, adjective, adjective phrase, adverb, adverbial phrase, article, clause, exclamation, idiom, noun, plural noun, noun phrase, preposition, prefix, prepositional phrase, particle, verb, ergative verb, intransitive verb, infinitive of the verb, reciprocal verb, reflexive verb, transitive verb, present participle, past participle]
       placeholder: Filter by literal word class
       role: outlined
     type: DropDown
