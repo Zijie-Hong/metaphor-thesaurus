@@ -322,7 +322,7 @@ def accept_entry(entry, section_heading_id):
 
 @anvil.server.callable
 def verify_password(password):
-    return password == "adminpass"
+    return password == "ALP2025"
 
 @anvil.server.callable
 def get_map_data_by_ids(source_id, target_id):  

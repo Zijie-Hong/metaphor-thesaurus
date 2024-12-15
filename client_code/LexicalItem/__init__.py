@@ -57,19 +57,15 @@ class LexicalItem(LexicalItemTemplate):
       self.theme_panel.role = "elevated-card"
 
       if hasattr(self, 'word_form'):
-            # 获取新的 section_heading_id
             new_section_heading_id = self.word_form.get_data()
             
-            # 只有当 section_heading_id 发生变化时才更新数据
+         
             if new_section_heading_id != self.current_section_heading_id:
-                # 清理旧数据
-                self.theme_form.clear_data()  # 需要在 theme 类中实现此方法
+                self.theme_form.clear_data() 
                 
-                # 更新当前 section_heading_id 和数据
                 self.current_section_heading_id = new_section_heading_id
                 self.theme_form.data = new_section_heading_id
                 
-                # 更新显示
                 self.theme_form.update_display()
       self.show_form(self.theme_form)
 

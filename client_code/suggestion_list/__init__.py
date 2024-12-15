@@ -21,7 +21,6 @@ class suggestion_list(suggestion_listTemplate):
           self.label_no_suggestion.visible = False
 
   def delete_entry(self, entry, **event_args):
-      # Delete the entry
       anvil.server.call('delete_entry', entry)
       # Refresh entry to remove the deleted entry from the Homepage
       self.refresh_entries()

@@ -13,7 +13,6 @@ from ..homepage import homepage
 
 class introduction(introductionTemplate):
   def __init__(self, **properties):
-    # Set Form properties and Data Bindings.
     self.init_components(**properties)
     self.panel_1.role="elevated-card"
     self.column_panel.add_component(introduction_text())
