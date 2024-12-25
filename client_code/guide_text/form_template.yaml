@@ -263,7 +263,7 @@ components:
   name: label_8
   properties:
     text: |-
-      As the words in there and man are not considered part of the metaphorical schema, only the hang and anchor are explained within the parenthesis.
+      As the words "in there" and "man" are not considered part of the metaphorical schema, only the "hang" and "anchor" are explained within the parenthesis.
 
       In cases where all the words in the compound or idiom have metaphorical meanings consistent with the same schema, but where the phrase is seldom or never used literally, the literal meaning too may be put in parentheses, but this time with no blanks e.g.
   type: Label
@@ -315,7 +315,7 @@ components:
   type: Image
 - layout_properties: {grid_position: 'LQOEKG,EUNQBA'}
   name: rich_text_13
-  properties: {content: 'The ''Suggest New Lexical Item'' label in the top menu bar of the Homepage allows users to propose new lexical items for inclusion in the dictionary. To suggest a new item, click on the “+ Suggest new lexical item” link located at the top right of the homepage, and follow the prompts to submit a suggestion. In order to verify that this metaphor has been established, users are asked to indicate a dictionary which the item is found in.'}
+  properties: {content: 'The ''Suggest New Lexical Item'' label in the top menu bar of the Suggestion page allows users to propose new lexical items for inclusion in the dictionary. To suggest a new item, click on the “+ Suggest new lexical item” link located at the top right of the Suggestion page, and follow the prompts to submit a suggestion. In order to verify that this metaphor has been established, users are asked to indicate a dictionary which the item is found in.'}
   type: RichText
 - layout_properties: {grid_position: 'IVJGIL,ZLOYRF'}
   name: image_11
